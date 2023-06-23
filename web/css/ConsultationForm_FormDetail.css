@@ -1,0 +1,118 @@
+.heading {
+    background-color: #b8c6c2;
+    text-align: center;
+    font-weight: bold;
+    font-size: 4rem;
+    color: #617a55;
+    padding-bottom: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.forms-container {
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.322);
+    padding-bottom: 15rem;
+}
+.forms-container .forms-header {
+    background-color: #e2e8e7;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+.forms-container .forms-header .left-side {
+    font-size: 3rem;
+    color: #617a55;
+}
+.forms-container .forms-header .right-side {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+.forms-container .forms-header .right-side span {
+    padding: 0 2rem;
+}
+.forms-container .forms-header .right-side .online {
+    color: white;
+    border-radius: 3px;
+    padding: 0.5rem 2rem;
+    background-color: #ef7b6b;
+}
+.forms-container .forms-header .right-side .offline {
+    color: white;
+    border-radius: 3px;
+    padding: 0.5rem 2rem;
+    background-color: #f69c14;
+}
+.forms-container .form-customerDetails .form-name {
+    background-color: #f7f7f7;
+}
+.forms-container .form-customerDetails .form-name .name {
+    padding: 2rem 2rem;
+    font-size: 3.1rem;
+    font-weight: bold;
+}
+.forms-container .form-customerDetails .form-body {
+    padding: 2rem 25rem 2rem 4rem;
+    font-size: 1.5rem;
+}
+.forms-container .form-customerDetails .form-body input {
+    font-size: 2rem;
+}
+.forms-container .form-formDetails .form-name {
+    background-color: #f7f7f7;
+}
+.forms-container .form-formDetails .form-name .name {
+    padding: 2rem 2rem;
+    font-size: 3.1rem;
+    font-weight: bold;
+}
+.forms-container .form-formDetails .form-body {
+    padding: 2rem 10rem 2rem 4rem;
+    font-size: 1.5rem;
+}
+.forms-container .form-formDetails .form-body button {
+    font-size: 1.5rem;
+}
+.forms-container .form-formDetails .form-body input,
+.forms-container .form-formDetails .form-body textarea {
+    font-size: 2rem;
+}
+.forms-container .form-formDetails .form-body .input-group .modal .modal-header .modal-title{
+    font-size: 2rem !important;
+}
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-input {
+    margin-right: 1rem;
+}
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-name {
+    font-weight: bold;
+}
+
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-skill {
+    color: gray;
+}
+.forms-container .forms-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.forms-container .forms-footer div {
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+.forms-container .forms-footer div button {
+    font-size: 2rem;
+    padding: 0 2rem;
+}/*# sourceMappingURL=formDetail.css.map */

@@ -1,0 +1,283 @@
+section .heading {
+    text-align: center;
+}
+section .heading div {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+section .heading div h1 {
+    font-size: 40px;
+    font-weight: bold;
+    width: 70%;
+}
+section .heading h2 {
+    margin-top: 4%;
+    font-size: 20px;
+    font-weight: bold;
+    color: #617a55;
+}
+
+.birdCourse-container .section-course {
+    margin-top: 2%;
+}
+.birdCourse-container .section-course .card {
+    margin: 0 auto;
+    width: 90%;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+}
+.birdCourse-container .section-course .card-img-top {
+    aspect-ratio: 1/1;
+    width: 100%;
+    border-radius: 15px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.birdCourse-container .section-course .card-body {
+    position: relative;
+}
+.birdCourse-container .section-course .card-body .extra-price {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.birdCourse-container .section-course .card-body .extra-price .button-container {
+    width: 80%;
+    font-weight: bold;
+}
+.birdCourse-container .section-course .card-body .extra-price .button-container button {
+    font-size: 1.5rem;
+    border: 0px;
+    border-radius: 15px;
+    background-color: #f69c14;
+    color: white;
+    padding: 5px;
+    width: 50%;
+}
+.birdCourse-container .section-course .card-body .extra-price p {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #308209;
+}
+.birdCourse-container .section-course .card-body .card-title {
+    font-weight: bold;
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 15%;
+    font-size: 2rem;
+}
+.birdCourse-container .section-course .card-body .course-name {
+    font-size: 2rem;
+    text-align: center;
+    color: #6a914a;
+    font-style: italic;
+}
+.birdCourse-container .section-course .card-body .card-text {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.birdCourse-container .section-course .card-body .review {
+    display: flex;
+    align-items: center;
+}
+.birdCourse-container .section-course .card-body .review .star {
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+.birdCourse-container .section-course .card-body .review .review-count {
+    font-size: 1.5rem;
+    margin-left: auto;
+}
+.birdCourse-container .section-course .foot-button {
+    padding-top: 4.8rem;
+    padding-bottom: 4.8rem;
+    display: flex;
+    justify-content: center;
+}
+.birdCourse-container .section-course .foot-button button {
+    width: 90%;
+    border: 0;
+    border-radius: 30px;
+    color: white;
+    background-color: #617a55;
+    padding: 1.12rem 1.12rem;
+    font-weight: bold;
+    font-size: 2.4rem;
+}
+
+.onlineCourse-container .section-course {
+    margin-top: 2%;
+}
+.onlineCourse-container .section-course .card {
+    margin: 0 auto;
+    width: 90%;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+}
+.onlineCourse-container .section-course .card-img-top {
+    aspect-ratio: 1/1;
+    width: 100%;
+    border-radius: 15px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.onlineCourse-container .section-course .card-body {
+    position: relative;
+}
+.onlineCourse-container .section-course .card-body .extra-price {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.onlineCourse-container .section-course .card-body .extra-price .button-container {
+    width: 80%;
+    font-weight: bold;
+}
+.onlineCourse-container .section-course .card-body .extra-price .button-container button {
+    font-size: 1.5rem;
+    border: 0px;
+    border-radius: 15px;
+    background-color: #f69c14;
+    color: white;
+    padding: 5px;
+    width: 50%;
+}
+.onlineCourse-container .section-course .card-body .extra-price p {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #308209;
+}
+.onlineCourse-container .section-course .card-body .card-title {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20%;
+    font-size: 2rem;
+}
+.onlineCourse-container .section-course .card-body .card-text {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.onlineCourse-container .section-course .card-body .review {
+    display: flex;
+    align-items: center;
+}
+.onlineCourse-container .section-course .card-body .review .star {
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+.onlineCourse-container .section-course .card-body .review .review-count {
+    font-size: 1.5rem;
+    margin-left: auto;
+}
+.onlineCourse-container .section-course .foot-button {
+    padding-top: 4.8rem;
+    padding-bottom: 4.8rem;
+    display: flex;
+    justify-content: center;
+}
+.onlineCourse-container .section-course .foot-button button {
+    width: 90%;
+    border: 0;
+    border-radius: 30px;
+    color: white;
+    background-color: #617a55;
+    padding: 1.12rem 1.12rem;
+    font-weight: bold;
+    font-size: 2.4rem;
+}
+
+.workshops-container .section-workshops .row {
+    justify-content: center;
+}
+.workshops-container .section-workshops .row .card {
+    border-radius: 15px;
+    margin-top: 5%;
+    padding: 3%;
+}
+.workshops-container .section-workshops .row .card .card-img {
+    border-radius: 7%;
+}
+.workshops-container .section-workshops .row .card .card-body {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
+    line-height: 150%;
+}
+.workshops-container .section-workshops .row .card .card-body .card-title {
+    font-size: 3.2rem;
+    width: 70%;
+    font-weight: bold;
+    color: #617a55;
+}
+.workshops-container .section-workshops .row .card .card-body .desc-text {
+    font-size: 1.92rem;
+    line-height: 2.4rem;
+}
+.workshops-container .section-workshops .row .card .card-body .card-text {
+    padding-top: 1.6rem;
+    font-size: 1.6rem;
+    line-height: 2.88rem;
+}
+.workshops-container .section-workshops .row .card .card-body .extra-price {
+    padding-top: 2.4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.workshops-container .section-workshops .row .card .card-body .extra-price .button-container {
+    width: 40%;
+    font-weight: bold;
+    font-size: 18px;
+}
+.workshops-container .section-workshops .row .card .card-body .extra-price .button-container button {
+    border: 0px;
+    border-radius: 15px;
+    background-color: #f69c14;
+    color: white;
+    padding: 1.6rem 8rem;
+}
+.workshops-container .section-workshops .row .card .card-body .extra-price p {
+    display: flex;
+    align-items: center;
+    margin-right: 10%;
+    font-size: 20px;
+    font-weight: bold;
+    color: #617a55;
+}
+.workshops-container .section-workshops .foot-button {
+    padding-top: 4.8rem;
+    display: flex;
+    justify-content: center;
+}
+.workshops-container .section-workshops .foot-button button {
+    width: 90%;
+    border: 0;
+    border-radius: 30px;
+    color: white;
+    background-color: #617a55;
+    padding: 1.12rem 1.12rem;
+    font-weight: bold;
+    font-size: 2.4rem;
+}/*# sourceMappingURL=body.css.map */

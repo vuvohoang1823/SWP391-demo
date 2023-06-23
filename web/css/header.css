@@ -1,0 +1,191 @@
+html {
+    font-size: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.header-container {
+    z-index: 1000;
+    position: relative;
+    background-color: #b8c6c2;
+    height: 7vh;
+    min-height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.header-container .nav-link.active {
+    color: #80957c;
+}
+.header-container .logo-text, .header-container .nav-link, .header-container .nav-logo {
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+.header-container .logo-container {
+    display: flex;
+}
+.header-container .logo-container .logo-image img {
+    height: 100%;
+    width: 8rem;
+    object-fit: contain;
+    object-position: center;
+}
+.header-container .logo-container .logo-text {
+    font-size: 2rem;
+}
+.header-container .nav-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.header-container .nav-container .navBar1 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-container .nav-container .navBar1 li {
+    position: relative;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    transition: background-color 0.1s linear;
+}
+.header-container .nav-container .navBar1 li:hover .nav-link {
+    color: #4d6144;
+}
+.header-container .nav-container .navBar1 .triangle{
+    display:none;
+    position: absolute;
+    z-index: 1;
+    top: 80%;
+    right: 15%;
+    width:0;
+    height: 0;
+    border-left: 1.6rem solid transparent;
+    border-right: 1.6rem solid transparent;
+    border-bottom: 1.6rem solid white;
+}
+.header-container .nav-container .navBar1 li:hover .triangle{
+    display: block
+}
+.header-container .nav-container .navBar1 li:hover .subnav {
+    display: block;
+}
+.header-container .nav-container .navBar1 li .nav-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+.header-container .nav-container .navBar1 li .subnav {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.6rem;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 3.2rem;
+    width: 25rem;
+    box-shadow: 0 0 10px grey;
+    line-height: 200%;
+}
+.header-container .nav-container .navBar1 li .subnav li {
+    background-color: white;
+}
+.header-container .nav-container .navBar1 li .subnav li:hover {
+    background-color: #f2f2f2;
+}
+.header-container .nav-container .navBar1 li .subnav li:hover .subnav {
+    display: flex;
+}
+.header-container .nav-container .navBar1 li .subnav .nav-link {
+    color: black;
+    cursor: pointer;
+}
+.header-container .button-container {
+    padding-right: 5%;
+}
+.header-container .button-container .signin-button {
+    float: right;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    min-width: 100px;
+    height: 35px;
+    font-size: 1.6rem;
+    color: #80957c;
+    text-decoration: none;
+    cursor: pointer;
+}
+.header-container .button-container .signin-button:hover {
+    color: #617a55;
+}
+@media screen and (max-width: 500px) {
+    .header-container .button-container .signin-button {
+        right: 15px;
+    }
+}
+.header-container .button-container .signup-button {
+    float: right;
+    background-color: #617a55;
+    border-radius: 30px;
+    min-width: 100px;
+    height: 35px;
+    font-size: 1.6em;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+.header-container .button-container .signup-button:hover {
+    background-color: #468847;
+}
+@media screen and (max-width: 500px) {
+    .header-container .button-container .signup-button {
+        right: 15px;
+    }
+}
+.header-container .auth-section {
+    display: flex;
+    justify-content: center;
+    width: 25vw;
+}
+.header-container .auth-section .user-button {
+    background-color: #617a55;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+}
+.header-container .auth-section .subnav{
+    width: 19.5rem;
+    z-index: 1;
+    background-color: #fff;
+    padding: 1rem 1rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.header-container .auth-section .triangle {
+    position: absolute;
+    bottom: 91%;
+    right: 15%;
+    width:0;
+    height: 0;
+    border-left: 1.6rem solid transparent;
+    border-right: 1.6rem solid transparent;
+    border-bottom: 1.6rem solid white;
+}
+.header-container .auth-section .subnav a li {
+    list-style-type: none;
+    padding: 1rem 1rem 1rem 1.5rem;
+    width: 100%
+}
+.header-container .auth-section .subnav a{
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.header-container .auth-section .subnav a:hover{
+    background-color: #E9E6E6;
+}

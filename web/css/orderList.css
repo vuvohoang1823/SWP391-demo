@@ -1,0 +1,36 @@
+html {
+    font-size: 10px;
+    font-family: 'Inter', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+.title{
+    background-color: #B8C6C2;
+    height: 12rem;
+    font-size: 3rem;
+    font-weight: bolder;
+    color: #617A55;
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+}
+.searchbar-container {
+    padding: 0;
+    padding-top: 2rem;
+}
+.searchbar-container .input-group {
+    height: 4rem;
+}
+.searchbar-container .input-group input {
+    font-size: 2rem;
+    height: 100%;
+}
+.w3-container th{
+   background-color: #E2E8E7;
+   padding: 3rem 0;
+}

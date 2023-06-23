@@ -1,0 +1,216 @@
+html {
+    font-size: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/*END OF HEADER*/
+.body-container section .heading {
+    text-align: center;
+}
+.body-container section .heading div {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+.body-container section .heading div h1 {
+    color: black;
+    font-weight: bolder;
+    font-size: 5rem;
+    font-weight: bolder;
+    width: 70%;
+}
+.body-container section .heading h2 {
+    margin-top: 4%;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #617a55;
+}
+.body-container .section-head {
+    height: 93vh;
+    display: flex;
+    justify-content: center;
+    background-color: #b8c6c2;
+}
+.body-container .section-head .desc-container {
+    width: 50vw;
+    padding: 4rem 5rem 4rem 4rem;
+}
+.body-container .section-head .desc-container h2 {
+    height: 5%;
+    overflow: hidden;
+    color: #4d6144;
+    font-weight: bold;
+    font-size: 4rem;
+}
+.body-container .section-head .desc-container h1 {
+    height: 38%;
+    overflow: hidden;
+    color: black;
+    font-weight: bolder;
+    font-size: 8rem;
+}
+.body-container .section-head .desc-container p {
+    height: 40%;
+    overflow: hidden;
+    line-height: 5rem;
+    margin-top: 3%;
+    font-size: 3.3rem;
+}
+.body-container .section-head .desc-container .button-container {
+    padding-top: 3rem;
+    font-weight: bold;
+    font-size: 4rem;
+}
+.body-container .section-head .desc-container .button-container button {
+    border: 0px;
+    border-radius: 50px;
+    background-color: #617a55;
+    color: white;
+    padding: 1rem 1rem;
+    width: 50%;
+}
+.body-container .section-head .img-container {
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+}
+.body-container .section-head .img-container .image1 {
+    height: 100%;
+    padding: 4rem;
+}
+.body-container .section-head .img-container .image1 img {
+    border-radius: 20px;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -o-object-position: center;
+    object-position: center;
+}
+.body-container .section-services .heading {
+    padding-bottom: 5.2rem;
+}
+.body-container .section-services .carousel {
+    height: 70rem;
+}
+.body-container .section-services .carousel .carousel-indicators {
+    margin-bottom: 0;
+}
+.body-container .section-services .carousel .carousel-indicators button {
+    margin: 0 0.5rem;
+    background-color: white;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+}
+.body-container .section-services .carousel .carousel-inner {
+    height: 100%;
+}
+.body-container .section-services .carousel .carousel-inner .carousel-item {
+    height: 100%;
+}
+.body-container .section-services .carousel .carousel-inner .carousel-item img {
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+.body-container .section-services .carousel .carousel-inner .carousel-item .carousel-caption {
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.body-container .section-services .carousel .carousel-inner .carousel-item .carousel-caption h5 {
+    font-size: 8rem;
+}
+.body-container .section-services .carousel .carousel-inner .carousel-item .carousel-caption p {
+    text-align: start;
+    padding: 4rem 25rem;
+    font-size: 3rem;
+}
+.body-container .section-services .carousel .carousel-inner .carousel-item .carousel-caption .button-container {
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 10rem;
+}
+.body-container .section-services .carousel .carousel-inner .carousel-item .carousel-caption .button-container a button {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 0;
+    border-radius: 50px;
+    width: 35rem;
+    height: 6rem;
+    background: #617a55;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+}
+.body-container .section-consultants .cards-container {
+    width: 100vw;
+    display: flex;
+    padding: 0 2rem;
+    justify-content: center;
+}
+.body-container .section-consultants .cards-container .card-container {
+    width: 22%;
+    height: 40rem;
+    position: relative;
+    margin: 2rem 2rem;
+    padding: 0;
+}
+.body-container .section-consultants .cards-container .card-container img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+.body-container .section-consultants .cards-container .card-container .desc-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+.body-container .section-consultants .cards-container .card-container .desc-container .name {
+    padding-top: 10rem;
+    height: 50%;
+    font-size: 3rem;
+    font-weight: bold;
+}
+.body-container .section-consultants .cards-container .card-container .desc-container .skills {
+    width: 50%;
+    height: 30%;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+.body-container .section-consultants .cards-container .card-container .desc-container .button-container {
+    height: 40%;
+    font-size: 2rem;
+    height: 20%;
+}
+.body-container .section-consultants .cards-container .card-container .desc-container .button-container button {
+    border: 0;
+    color: white;
+    background: #f69c14;
+    height: 34px;
+    width: 167px;
+    border-radius: 20px;
+}/*# sourceMappingURL=style.css.map */

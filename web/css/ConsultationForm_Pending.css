@@ -1,0 +1,116 @@
+/*# sourceMappingURL=formList.css.map */
+.heading {
+    background-color: #b8c6c2;
+    text-align: center;
+    font-weight: bold;
+    font-size: 6rem;
+    color: #617a55;
+    padding-bottom: 3rem;
+    padding-top: 5rem;
+}
+.form-head .navbar {
+    background-color: #e2e8e7;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.212);
+    margin-bottom: 2rem;
+}
+.form-head .navbar .container-fluid {
+    justify-content: center !important;
+}
+.form-head .navbar .navbar-nav .nav-item {
+    padding: 1rem 6rem;
+}
+.form-head .navbar .navbar-nav .nav-item .nav-link {
+    color: black;
+    font-size: 4rem;
+    font-weight: bold;
+}
+.form-head .navbar .navbar-nav .active {
+    text-decoration: underline;
+}
+
+.form-body .navbar {
+    padding: 0 2.5rem;
+    margin-bottom: 2rem;
+}
+.form-body .navbar .navbar-brand {
+    font-size: 2rem;
+}
+
+.form-body .navbar form {
+    width: 100%;
+    display: flex;
+    font-size: 2.5rem;
+    flex-direction: row;
+}
+.form-body .navbar form .search-container {
+    display: flex;
+    align-items: center;
+    width: 45%
+}
+.form-body .navbar form .navbar-nav .nav-item {
+    padding: 0rem 2rem;
+}
+.form-body .navbar form .navbar-nav .nav-item .nav-link {
+    color: black;
+    font-size: 3rem;
+    font-weight: bold;
+}
+.form-body .navbar form .search-container .input-group {
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px 0px #00000040;
+}
+.form-body .navbar form .search-container .input-group input {
+    font-size: 2rem;
+}
+.form-body .navbar form .navbar-nav .active {
+    text-decoration: underline;
+}
+
+
+.form-body .table-form {
+    font-size: 2.5rem;
+}
+.form-body .table-form thead tr{
+    background: #E2E8E7;
+    height: 7rem;
+}
+.form-body .table-form thead tr td {
+    vertical-align: middle;
+}
+.form-body .table-form tbody tr td {
+    vertical-align: middle;
+}
+.form-body .table-form .id {
+    font-weight: bold;
+}
+.form-body .table-form .title {
+    font-weight: bold;
+}
+.form-body .table-form .customer {
+    font-weight: bold;
+}
+.form-body .table-form .type {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+}
+.form-body .table-form .type .onlineStatus {
+    align-self: center;
+    color: white;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+}
+.form-body .table-form .type .online {
+    background: #ef7b6b;
+}
+.form-body .table-form .type .offline {
+    background: #f69c14;
+}
+.form-body .table-form .type .viewDetail {
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    padding: 1rem 2rem;
+}
