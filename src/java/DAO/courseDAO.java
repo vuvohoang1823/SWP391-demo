@@ -188,8 +188,9 @@ public class courseDAO implements Serializable {
     /*GET ALL WORKSHOP*/
     public List<Course> getAllCourseWorkshop() throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
-        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img from tbl_course JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
-                + "where tbl_course.category = 'workshop'";
+        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img, tbl_course.start_date, tbl_course.end_enroll_date\n" +
+                    "from tbl_course JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n" +
+"                where tbl_course.category = 'workshop'";
 
         try {
             con = db.getConnection();
@@ -220,7 +221,10 @@ public class courseDAO implements Serializable {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getInt(7),
-                        base64Image);
+                        base64Image,
+                        rs.getDate(9),
+                        rs.getDate(10)
+                        );
                 list.add(course);
             }
         } catch (IOException ex) {
@@ -620,12 +624,14 @@ public class courseDAO implements Serializable {
     }
 
     /*GET COURSE [ WORKSHOP ] ID*/
-    public List<Workshop> getAllCourseWORKSHOPByCustomerID(int UserID) throws ClassNotFoundException, SQLException, IOException {
-        List<Workshop> list = new ArrayList<>();
-        String sql = "select c.title, i.img from tbl_attendance as a\n"
-                + "                           join tbl_course AS c ON a.workshop_id = c.course_id  \n"
-                + "						    join  tbl_courseImg as i ON c.course_id = i.course_id\n"
-                + "							where a.customer_id = ? ";
+    public List<Course> getAllCourseWORKSHOPByCustomerID(int UserID) throws ClassNotFoundException, SQLException, IOException {
+        List<Course> list = new ArrayList<>();
+        String sql = "select c.course_id, c.trainer_id, c.staff_id, c.content, c.category, c.title, c.price, i.img, c.start_date, c.end_enroll_date, a.status "
+                + "from tbl_attendance as a\n" +
+"   join  tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n" +
+"   join  tbl_course as c ON c.course_id = t.course_id\n" +
+"   join  tbl_courseImg as i ON c.course_id = i.course_id\n" +
+"   where a.customer_id = ?";
 
         try {
             con = db.getConnection();
@@ -650,7 +656,18 @@ public class courseDAO implements Serializable {
                 } else {
                     base64Image = "default";
                 }
-                Workshop course = new Workshop(rs.getString(1), base64Image);
+                Course course = new Course(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        base64Image,
+                        rs.getDate(9),
+                        rs.getDate(10),
+                        rs.getString(11)
+                );
                 list.add(course);
             }
         } catch (IOException ex) {
@@ -732,8 +749,8 @@ public class courseDAO implements Serializable {
 
     public void paymentWorkshop(String workshop_id, Integer customer_id, Date dateCheck, Long amount) throws ClassNotFoundException {
 
-        String sql = "INSERT INTO tbl_attendance (workshop_id, customer_id, dateCheck, amount, payment_id) "
-                + "VALUES (?, ?, ?, ?, NULL)";
+        String sql = "INSERT INTO tbl_attendance (workshop_id, customer_id, dateCheck, amount, payment_id, status) "
+                + "VALUES (?, ?, ?, ?, NULL, 'In progress')";
 
         try {
             con = db.getConnection();
@@ -773,7 +790,7 @@ public class courseDAO implements Serializable {
     }
 
     public Course getWorkShopDetail(String courseID) {
-        String sql = "select  tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img from tbl_course \n"
+        String sql = "select  tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img, tbl_course.start_date, tbl_course.end_enroll_date  from tbl_course \n"
                 + "			JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
                 + "            where tbl_course.category = 'workshop'\n"
                 + "			and tbl_course.course_id = ?";
@@ -810,7 +827,11 @@ public class courseDAO implements Serializable {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getInt(7),
-                        base64Image);
+                        base64Image,
+                        rs.getDate(9),
+                        rs.getDate(10)
+                        
+                );
             }
 
         } catch (Exception e) {
@@ -819,5 +840,94 @@ public class courseDAO implements Serializable {
 
         return null;
 
+    }
+    
+    
+    String courseID = "";
+    public String getCourseIDbyWorkshopID (int customerID) throws ClassNotFoundException {
+        
+        
+        String sql = "SELECT training.course_id\n" +
+                    "FROM tbl_attendance attendance\n" +
+                    "JOIN tbl_workshopTraining training\n" +
+                    "ON attendance.workshop_id = training.workshop_id\n" +
+                    "WHERE customer_id = ?";
+        
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, customerID);
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                courseID = rs.getString("course_id");
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return courseID;
+    }
+    
+    
+    
+    public List<Course> getCourseByCourseID (String courseID) {
+        List<Course> list = new ArrayList<>();
+        
+        String sql = "SELECT course.course_id, course.trainer_id, course.staff_id, course.content, course.category, course.title\n" +
+                    ", course.price, courseImg.img, course.start_date, course.end_enroll_date\n" +
+                    "FROM tbl_course course\n" +
+                    "JOIN tbl_courseImg courseImg ON course.course_id = courseImg.course_id\n" +
+                    "WHERE course.course_id = ?";
+        
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, courseID);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                String base64Image = null;
+                Blob blob = rs.getBlob("img");
+                if (blob != null) {
+                    InputStream inputStream = blob.getBinaryStream();
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[4096];
+                    int bytesRead = -1;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                    byte[] imageBytes = outputStream.toByteArray();
+                    base64Image = Base64.getEncoder().encodeToString(imageBytes);
+                    inputStream.close();
+                    outputStream.close();
+                } else {
+                    base64Image = "default";
+                }
+                Course course = new Course(
+                rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        base64Image,
+                        rs.getDate(9),
+                        rs.getDate(10)
+                
+                );
+                list.add(course);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
+        return list;
+        
     }
 }

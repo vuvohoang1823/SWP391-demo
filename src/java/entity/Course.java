@@ -5,6 +5,8 @@
  */
 package entity;
 
+import java.sql.Date;
+
 /**
  *
  * @author hoang
@@ -18,6 +20,37 @@ public class Course {
     private String title;
     private int price;
     private String image;
+    private Date start_date;
+    private Date end_enroll_date;
+    private String status;
+
+    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status) {
+        this.courseID = courseID;
+        this.trainerID = trainerID;
+        this.staffID = staffID;
+        this.content = content;
+        this.category = category;
+        this.title = title;
+        this.price = price;
+        this.image = image;
+        this.start_date = start_date;
+        this.end_enroll_date = end_enroll_date;
+        this.status = status;
+    }
+
+    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date) {
+        this.courseID = courseID;
+        this.trainerID = trainerID;
+        this.staffID = staffID;
+        this.content = content;
+        this.category = category;
+        this.title = title;
+        this.price = price;
+        this.image = image;
+        this.start_date = start_date;
+        this.end_enroll_date = end_enroll_date;
+    }
+    
 
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image) {
         this.courseID = courseID;
@@ -95,6 +128,30 @@ public class Course {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Date getStart_date() {
+        return start_date;
+    }
+
+    public void setStart_date(Date start_date) {
+        this.start_date = start_date;
+    }
+
+    public Date getEnd_enroll_date() {
+        return end_enroll_date;
+    }
+
+    public void setEnd_enroll_date(Date end_enroll_date) {
+        this.end_enroll_date = end_enroll_date;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
     
 }

@@ -79,6 +79,9 @@
                 <p>
                      ${wo.title}
                 </p>
+                <p>
+                     Status: ${wo.status}
+                </p>
                 <button>
                     <a href="#">Track Your Workshop</a>
                 </button>

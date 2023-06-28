@@ -53,7 +53,8 @@
                                                     ${detail.content}
                                                 </div>
                                                 <div class="card-text">
-                                                    <b>Starting date:</b> May 25, 2023 <br />
+                                                    <b>Starting date:</b> ${detail.start_date} <br />
+                                                    <b>End enroll date:</b> ${detail.end_enroll_date} <br />
                                                     <b>Time:</b> 2:00 PM - 4:00 PM <br />
                                                     <b>Location/Venue:</b> Central Community Center <br />
                                                     <b>Target Audience:</b> Bird owners of all experience
