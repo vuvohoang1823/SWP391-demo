@@ -930,4 +930,122 @@ public class courseDAO implements Serializable {
         return list;
         
     }
+    
+    
+       public List<Course> getAllCourseAreTraining(int UserID) throws ClassNotFoundException, SQLException, IOException {
+        List<Course> list = new ArrayList<>();
+        String sql = "select c.course_id, c.trainer_id, c.staff_id, c.content, c.category, c.title, c.price, i.img, c.start_date, c.end_enroll_date, a.status \n" +
+                    "   from tbl_attendance as a\n" +
+                    "   join  tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n" +
+                    "   join  tbl_course as c ON c.course_id = t.course_id\n" +
+                    "   join  tbl_courseImg as i ON c.course_id = i.course_id\n" +
+                    "   where c.trainer_id = ? \n" +
+                    "   and status = 'In progress'";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, UserID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String base64Image = null;
+                Blob blob = rs.getBlob("img");
+                if (blob != null) {
+                    InputStream inputStream = blob.getBinaryStream();
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[4096];
+                    int bytesRead = -1;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                    byte[] imageBytes = outputStream.toByteArray();
+                    base64Image = Base64.getEncoder().encodeToString(imageBytes);
+                    inputStream.close();
+                    outputStream.close();
+                } else {
+                    base64Image = "default";
+                }
+                Course course = new Course(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        base64Image,
+                        rs.getDate(9),
+                        rs.getDate(10),
+                        rs.getString(11)
+                );
+                list.add(course);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
+        return list;
+    }
+       
+       
+       public List<Course> getAllCourseTrained(int UserID) throws ClassNotFoundException, SQLException, IOException {
+        List<Course> list = new ArrayList<>();
+        String sql = "select c.course_id, c.trainer_id, c.staff_id, c.content, c.category, c.title, c.price, i.img, c.start_date, c.end_enroll_date, a.status \n" +
+                    "   from tbl_attendance as a\n" +
+                    "   join  tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n" +
+                    "   join  tbl_course as c ON c.course_id = t.course_id\n" +
+                    "   join  tbl_courseImg as i ON c.course_id = i.course_id\n" +
+                    "   where c.trainer_id = ? \n" +
+                    "   and status = 'Complete'";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, UserID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String base64Image = null;
+                Blob blob = rs.getBlob("img");
+                if (blob != null) {
+                    InputStream inputStream = blob.getBinaryStream();
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[4096];
+                    int bytesRead = -1;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                    byte[] imageBytes = outputStream.toByteArray();
+                    base64Image = Base64.getEncoder().encodeToString(imageBytes);
+                    inputStream.close();
+                    outputStream.close();
+                } else {
+                    base64Image = "default";
+                }
+                Course course = new Course(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        base64Image,
+                        rs.getDate(9),
+                        rs.getDate(10),
+                        rs.getString(11)
+                );
+                list.add(course);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
+        return list;
+    }
 }
