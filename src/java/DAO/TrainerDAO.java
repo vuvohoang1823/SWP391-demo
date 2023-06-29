@@ -327,5 +327,42 @@ public class TrainerDAO implements Serializable {
             }
         }
     }
+    
+    
+        public void setWorkshopComplete(String trainer_id) throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "UPDATE a\n" +
+                    "SET a.status = 'Complete'\n" +
+                    "FROM tbl_attendance AS a\n" +
+                    "JOIN tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n" +
+                    "JOIN tbl_course AS c ON c.course_id = t.course_id\n" +
+                    "JOIN tbl_courseImg AS i ON c.course_id = i.course_id\n" +
+                    "WHERE c.trainer_id = ?\n" +
+                    "AND a.status = 'In progress';";
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, trainer_id);
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
 
 }

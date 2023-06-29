@@ -93,8 +93,11 @@
                             <p>
                                 Status: ${in_progress.status}
                             </p>
+                           <p>
+                                Start date: ${in_progress.start_date}
+                            </p>
                             <button>
-                                <a href="#">Track Your Workshop</a>
+                                <a href="SetWorkshopCompleteServlet?trainerID=${in_progress.trainerID}">Complete</a>
                             </button>
                         </div>
                     </div>
@@ -111,6 +114,9 @@
                             </p>
                             <p>
                                 Status: ${complete.status}
+                            </p>
+                            <p>
+                                Complete date: ${complete.start_date}
                             </p>
                             <button>
                                 <a href="#">Track Your Workshop</a>

@@ -23,6 +23,22 @@ public class Course {
     private Date start_date;
     private Date end_enroll_date;
     private String status;
+    private String customerID;
+
+    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, String customerID) {
+        this.courseID = courseID;
+        this.trainerID = trainerID;
+        this.staffID = staffID;
+        this.content = content;
+        this.category = category;
+        this.title = title;
+        this.price = price;
+        this.image = image;
+        this.start_date = start_date;
+        this.end_enroll_date = end_enroll_date;
+        this.status = status;
+        this.customerID = customerID;
+    }
 
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status) {
         this.courseID = courseID;
@@ -152,6 +168,14 @@ public class Course {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
     }
     
 }

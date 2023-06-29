@@ -71,7 +71,9 @@
             <hr style="background-color: black; margin-bottom: 4rem">
         </div>
      <c:set var="customerId" value="<%=customerID%>" />
-     <c:forEach var="wo" items="${workshop.getAllCourseWORKSHOPByCustomerID(customerId)}">
+     
+     <h3>In progress</h3>
+     <c:forEach var="wo" items="${workshop.getAllCourseWORKSHOPInprogressByCustomerID(customerId)}">
         <div class="card">
                    <img  src="data:images/jpg;base64,${wo.image}" />
 
@@ -82,6 +84,9 @@
                 <p>
                      Status: ${wo.status}
                 </p>
+                <p>
+                     Start date: ${wo.start_date}
+                </p>
                 <button>
                     <a href="#">Track Your Workshop</a>
                 </button>
@@ -89,6 +94,29 @@
         </div>
                 </c:forEach>
 
+      <h3>Complete</h3>
+      <c:forEach var="wo" items="${workshop.getAllCourseWORKSHOPCompleteByCustomerID(customerId)}">
+        <div class="card">
+                   <img  src="data:images/jpg;base64,${wo.image}" />
+
+            <div class="text">
+                <p>
+                     ${wo.title}
+                </p>
+                <p>
+                     Status: ${wo.status}
+                </p>
+                <p>
+                     Complete date: ${wo.start_date}
+                </p>
+                <button>
+                    <a href="Certificate.jsp">View certificate</a>
+                </button>
+            </div>
+        </div>
+                </c:forEach>
+     
+     
     </div>
 </div>
     <%@include file="footer.jsp" %>
