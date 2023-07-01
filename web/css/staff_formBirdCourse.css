@@ -1,0 +1,112 @@
+html {
+    font-size: 10px;
+    font-family: 'Inter', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+.searchbar-container {
+    padding: 0;
+    padding-top: 2rem;
+}
+.searchbar-container .input-group {
+    height: 4rem;
+}
+.searchbar-container .input-group input {
+    font-size: 2rem;
+    height: 100%;
+}
+.form-head {
+    margin-bottom: 3rem;
+}
+.form-head .heading{
+    background-color: white;
+    font-weight: bold;
+    font-size: 5rem;
+    height: 116px;
+    padding-left: 3rem;
+}
+.form-head .navbar {
+    background-color: #617A554D;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.212);
+}
+.form-head .navbar .container-fluid {
+    justify-content: center !important;
+}
+.form-head .navbar .navbar-nav .nav-item {
+    padding: 1rem 6rem;
+}
+.form-head .navbar .navbar-nav .nav-item .nav-link {
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.form-head .navbar .navbar-nav .nav-item .nav-link:hover {
+    color: #617A55;
+}
+.form-head .navbar .navbar-nav .active b{
+    color: #617A55;
+}
+.form-body .navbar {
+    padding: 0 2.5rem;
+}
+.form-body .navbar .navbar-brand {
+    font-size: 1.5rem;
+}
+
+.form-body .navbar form {
+    width: 100%;
+    display: flex;
+    font-size: 2rem;
+    flex-direction: row;
+}
+.form-body .navbar form .search-container {
+    display: flex;
+    align-items: center;
+    width: 45%
+}
+.form-body .navbar form .navbar-nav .nav-item:hover {
+    background-color: rgba(97, 122, 85, 0.1);
+}
+.form-body .navbar form .navbar-nav .nav-item .nav-link {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.form-body .navbar form .search-container .input-group {
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px 0px #00000040;
+}
+.form-body .navbar form .search-container .input-group input {
+    font-size: 2rem;
+}
+.form-body .navbar form .navbar-nav .active {
+    text-decoration: underline 5px #617A55;
+    text-underline-position: under;
+    text-underline-offset: 5px;
+}
+
+.w3-container th{
+    background-color: #E2E8E7;
+    padding: 3rem 0;
+}
+.w3-container td{
+    vertical-align: middle;
+}
+.w3-container a button{
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    color: black;
+    background-color: white;
+    font-weight: bolder;
+    border-radius: 10px;
+    border-color: #617A55;
+    
+}

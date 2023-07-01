@@ -1,0 +1,262 @@
+html {
+    font-size: 10px;
+}
+.section-contactUs {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+.section-contactUs * {
+    box-sizing: border-box;
+}
+.section-contactUs .left {
+    background-size: cover;
+    /*filter: brightness(50%);*/
+    color: white;
+    width: 50vw;
+}
+
+.section-contactUs .left .heading1 {
+    display: flex;
+    flex-direction: column;
+}
+.section-contactUs .left .heading1 hr{
+    align-self: center;
+    opacity: 100%;
+}
+.section-contactUs .left .heading1 h1 {
+    padding-top: 4.8rem;
+    align-self: center;
+    font-size: 5.6rem;
+}
+.section-contactUs .left .heading1 hr {
+    margin-top: 1.6rem;
+    width: 50%;
+}
+.section-contactUs .left .icons {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.8rem;
+}
+.section-contactUs .left .icons span {
+    padding: 0.8rem 0.8rem;
+}
+.section-contactUs .left .icons span svg {
+    width: 4.8rem;
+    height: 4.8rem;
+}
+.section-contactUs .left .content {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    line-height: 4rem;
+}
+.section-contactUs .left .content div {
+    font-size: 2.4rem;
+    align-self: center;
+}
+.section-contactUs .left .card {
+    width: 38.4rem;
+    margin: 8rem auto 2.4rem auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.section-contactUs .left .card .image-container {
+    padding: 1.6rem;
+}
+.section-contactUs .left .card .image-container img {
+    width: 100%;
+    height: 24rem;
+    border-radius: 4px 4px 0 0;
+}
+.section-contactUs .left .card .card-body {
+    font-size: 2rem;
+    border-radius: 1.6rem;
+    display: flex;
+    padding: 0 1.6rem 1.6rem 1.6rem;
+}
+.section-contactUs .left .card .card-body .text-field {
+    flex: 1;
+    padding: 8px;
+    height: 5.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    width: 70%;
+}
+.section-contactUs .left .card .card-body .button {
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: 1.6rem;
+    width: 30%;
+    padding: 8px 16px;
+    background-color: #f69c14;
+    color: #fff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+.section-contactUs .right {
+    border: 2px solid #617255;
+    /*    border-bottom: 2px solid #617255;*/
+    width: 50vw;
+    background-color: #b8c6c2;
+    padding: 4.8rem 4rem;
+}
+.section-contactUs .right .form-container {
+    border: 0.24rem solid white;
+    padding-bottom: 5.6rem;
+}
+.section-contactUs .right .form-container .heading1 {
+    padding: 3.2rem 0 1.6rem 0;
+    display: flex;
+    flex-direction: column;
+}
+.section-contactUs .right .form-container .heading1 .logo-container {
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+}
+.section-contactUs .right .form-container .heading1 .logo-container .logo-image {
+    padding: 0 1.6rem;
+}
+.section-contactUs .right .form-container .heading1 .logo-container .logo-image img {
+    width: 12rem;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -o-object-position: center;
+    object-position: center;
+}
+.section-contactUs .right .form-container .heading1 .logo-container .logo-text {
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2.64rem;
+}
+.section-contactUs .right .form-container .heading1 h1 {
+    padding-top: 2rem;
+    color: #617a55;
+    align-self: center;
+    font-size: 4.8rem;
+}
+.section-contactUs .right .form-container .content {
+    font-size: 1.5rem;
+    padding: 0 15%;
+}
+.section-contactUs .right .form-container .content .row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.6rem;
+}
+.section-contactUs .right .form-container .content .row .info-icon {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+.section-contactUs .right .form-container .content .row .info-icon:hover .info-box {
+    display: block;
+}
+.section-contactUs .right .form-container .content .row .info-box {
+    z-index: 2;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    display: none;
+    position: absolute;
+    bottom: 2.5rem;
+    left: -7rem;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.section-contactUs .right .form-container .content .row input,
+.section-contactUs .right .form-container .content .row textarea {
+    border: 0;
+    border-radius: 0.4rem;
+    padding: 1.44rem 1.2rem;
+    width: 100%;
+}
+.section-contactUs .textarea-container {
+    position: relative;
+    display: inline-block;
+}
+
+.section-contactUs .character-count {
+    text-align: right;
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-size: 12px;
+    color: gray;
+}
+.section-contactUs .right .form-container .button-container {
+    display: flex;
+    justify-content: center;
+}
+.section-contactUs .right .form-container .button-container button {
+    font-size: 2rem;
+    font-weight: bold;
+    border: 0;
+    border-radius: 0.56rem;
+    background-color: #617a55;
+    color: white;
+    padding: 1.6rem 4rem;
+
+}
+.section-contactUs .right .form-container .content .radio-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 2rem;
+}
+.section-contactUs .right .form-container .content .radio-container .radio{
+    display: flex;
+    flex-direction: row;
+}
+.section-contactUs .right .form-container .content .input-group {
+    padding: 0;
+    width: 100%;
+}
+.section-contactUs .right .form-container .content .input-group button {
+    font-size: 2rem;
+}
+.section-contactUs .right .form-container .content .input-group input {
+    font-size: 1.5rem;
+    width: auto;
+}
+.section-contactUs .right .form-container .content .input-group .modal .modal-header .modal-title{
+    font-size: 3rem !important;
+}
+.section-contactUs .trainer-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.section-contactUs .trainer-item .trainer-input {
+    margin-right: 1rem;
+}
+.section-contactUs .trainer-item .trainer-avatar {
+    object-fit: cover;
+    width: 10rem;
+    height: 10rem;
+    /*border-radius: 50%;*/
+    margin-right: 10px;
+}
+
+.section-contactUs .trainer-item .trainer-name {
+    font-weight: bold;
+}
+
+.section-contactUs .trainer-item .trainer-skill {
+    /*    color: gray;*/
+}
+.footer-container{
+    margin-top: 0rem
+}
+.section-contactUs{
+    margin: 5rem 5rem;
+}
