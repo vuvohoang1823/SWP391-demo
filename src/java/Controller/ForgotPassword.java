@@ -59,9 +59,8 @@ public class ForgotPassword extends HttpServlet {
                 MimeMessage message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(email));// change accordingly
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-                message.setSubject("Hello");
-                message.setText("your OTP is: " + otpvalue);
-                // send message
+                message.setSubject("OTP from Bird Training Center");
+                message.setText("Hello,\n\nYou have requested to Reset password at the Bird Training Center.\nPlease use the following OTP to proceed with your password reset:\n\nOTP: " + otpvalue + "\n\nIf you did not request this, please ignore this email.\n\nBest regards,\nBird Training Center");                // send message
                 Transport.send(message);
                 System.out.println("message sent successfully");
             } catch (MessagingException e) {

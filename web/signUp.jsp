@@ -44,6 +44,9 @@
                         </a>
                     </div>
                     <p>Unleash the possibilities.<br /> Join the Flock Now!</p>
+                       <p style="color: red; align-content: center;">
+                                    ${requestScope.error}
+                      </p>
                     <form class="form-control" action="MainController" method="post">
                         <div class="customer-name">
                             <div class="fn-container">
