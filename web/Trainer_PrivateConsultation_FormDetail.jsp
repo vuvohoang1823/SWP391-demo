@@ -351,7 +351,7 @@
                                                         </div>
                                                         <div class="info mb-5">
                                                             <h1 id="result"></h1>
-                                                            <input type="hidden" name="type" value="${detail.type}" >
+                                                            <input type="hidden" id="typeChoose" value="${detail.type}" >
                                                             <input type="hidden" name="price" id="hiddenPrice">
                                                             <div>
                                                                 <b>Trainer name: </b>  ${sessionScope.LOGIN_USER.fullName}
@@ -399,7 +399,7 @@
         <!--        calculate-->
         <script>
             function calculate() {
-                var mode = ${detail.type}
+                var mode = document.getElementById("typeChoose").value;
                 var number = document.querySelector('input[name="number"]').value;
 
                 if (number !== "") {

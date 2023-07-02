@@ -39,7 +39,7 @@ public class FormApppointmentDAO implements Serializable {
 
     public void InputFormAppointment(int ConsultationID, int CustomerID, Date Stardate, String Note, String Address, String Type, String requestTrainerID, Time Duration, Date DateSubmit, String fullname, String gmail, String contact)
             throws ClassNotFoundException, SQLException, IOException {
-        String sql = "insert into tbl_appointment(consultation_id , trainer_id,customer_id , date , payment_id , note, address , type ,present_price , status,tracking,Request_trainer_id,duration,DateSubmit,history,fullname,gmail,contact)\n"
+        String sql = "insert into tbl_appointment(consultation_id , trainer_id,customer_id , date ,amount ,payment_id , note, address , type ,present_price , status,tracking,Request_trainer_id,duration,DateSubmit,history,fullname,gmail,contact)\n"
                 + "                values(?,NULL,?,?,0,4,? ,?,?,200,NULL,NULL,?,?,?,NULL,?,?,?)";
         try {
             con = db.getConnection();
@@ -47,7 +47,7 @@ public class FormApppointmentDAO implements Serializable {
             ps.setInt(1, ConsultationID);
             ps.setInt(2, CustomerID);
             ps.setDate(3, Stardate);
-           // ps.setString(4, amount);
+            //  ps.setString(4, amount);
             ps.setString(4, Note);
             ps.setString(5, Address);
             ps.setString(6, Type);
@@ -961,7 +961,8 @@ public class FormApppointmentDAO implements Serializable {
     public void updateTrainerAmount(String consultationID, int amount)
             throws SQLException, ClassCastException {
 
-        String appointmentUpdateQuery = "update tbl_appointment set amount = ? "
+        String appointmentUpdateQuery = "update tbl_appointment \n"
+                + "set amount = ?\n"
                 + "where consultation_id = ?";
 
         try {

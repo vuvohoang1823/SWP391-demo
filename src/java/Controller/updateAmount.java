@@ -34,7 +34,7 @@ public class updateAmount extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("amount");
-        if (action.equals("yes")) {
+        if (action!=null &&  action.equals("yes")) {
             String consulation_id = request.getParameter("consultationId");
             String priceStr = request.getParameter("price");
             int prices = 0 ;
@@ -50,10 +50,12 @@ public class updateAmount extends HttpServlet {
             }
        
             FormApppointmentDAO dao = new FormApppointmentDAO();
-            
+           PrintWriter out = response.getWriter();
+           out.print(prices);
+           out.print(consulation_id);
             try {
                 dao.updateTrainerAmount(consulation_id ,prices);
-                response.sendRedirect("Trainer_PrivateConsultation.jsp");
+                response.sendRedirect("Trainer_PrivateConsultation_List.jsp");
             } catch (Exception e) {
                 response.sendRedirect("error.jsp");
             }
