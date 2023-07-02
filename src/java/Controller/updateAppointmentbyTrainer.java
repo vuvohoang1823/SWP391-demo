@@ -40,7 +40,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
        FormApppointmentDAO dao = new FormApppointmentDAO();
        try{
            dao.updateTrainerWhenPayment(trainerId,consultaionidd);
-           response.sendRedirect("Trainer_PrivateConsultation_List.jsp");
+           response.sendRedirect("Trainer_PrivateConsultation_FormDetail.jsp");
        }catch(Exception e){
               response.sendRedirect("error.jsp");
                }

@@ -37,26 +37,26 @@ public class FormApppointmentDAO implements Serializable {
     ResultSet rs = null;
     DBUtils db = new DBUtils();
 
-    public void InputFormAppointment(int ConsultationID, int CustomerID, Date Stardate, String amount, String Note, String Address, String Type, String requestTrainerID, Time Duration, Date DateSubmit, String fullname, String gmail, String contact)
+    public void InputFormAppointment(int ConsultationID, int CustomerID, Date Stardate, String Note, String Address, String Type, String requestTrainerID, Time Duration, Date DateSubmit, String fullname, String gmail, String contact)
             throws ClassNotFoundException, SQLException, IOException {
-        String sql = "insert into tbl_appointment(consultation_id , trainer_id,customer_id , date ,amount, payment_id , note, address , type ,present_price , status,tracking,Request_trainer_id,duration,DateSubmit,history,fullname,gmail,contact)\n"
-                + "                values(?,NULL,?,?,?,4,? ,?,?,200,NULL,NULL,?,?,?,NULL,?,?,?)";
+        String sql = "insert into tbl_appointment(consultation_id , trainer_id,customer_id , date , payment_id , note, address , type ,present_price , status,tracking,Request_trainer_id,duration,DateSubmit,history,fullname,gmail,contact)\n"
+                + "                values(?,NULL,?,?,0,4,? ,?,?,200,NULL,NULL,?,?,?,NULL,?,?,?)";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, ConsultationID);
             ps.setInt(2, CustomerID);
             ps.setDate(3, Stardate);
-            ps.setString(4, amount);
-            ps.setString(5, Note);
-            ps.setString(6, Address);
-            ps.setString(7, Type);
-            ps.setString(8, requestTrainerID);
-            ps.setTime(9, Duration);
-            ps.setDate(10, DateSubmit);
-            ps.setString(11, fullname);
-            ps.setString(12, gmail);
-            ps.setString(13, contact);
+           // ps.setString(4, amount);
+            ps.setString(4, Note);
+            ps.setString(5, Address);
+            ps.setString(6, Type);
+            ps.setString(7, requestTrainerID);
+            ps.setTime(8, Duration);
+            ps.setDate(9, DateSubmit);
+            ps.setString(10, fullname);
+            ps.setString(11, gmail);
+            ps.setString(12, contact);
             ps.executeUpdate();
 
         } catch (SQLException ex) {
@@ -588,7 +588,7 @@ public class FormApppointmentDAO implements Serializable {
         String sql = " SELECT appointment.customer_id, appointment.consultation_id, customer.fullname AS customer_fullname, appointment.date, appointment.note, appointment.address, appointment.type, appointment.status,appointment.Request_trainer_id, appointment.duration , appointment.DateSubmit,appointment.amount,appointment.fullname,appointment.gmail,appointment.contact\n"
                 + "              FROM tbl_appointment appointment\n"
                 + "              JOIN tbl_customer customer ON customer.customer_id = appointment.customer_id\n"
-                + "              WHERE appointment.trainer_id = ? AND appointment.Request_trainer_id IS NOT NULL AND appointment.status IS NOT  NULL AND trainer_id IS NOT NULL and appointment.tracking IS NULL";
+                + "              WHERE appointment.trainer_id = ? AND appointment.Request_trainer_id IS NOT NULL AND appointment.status IS NOT  NULL AND trainer_id IS NOT NULL and  appointment.amount  = 0  ";
 
         try {
             con = db.getConnection();
@@ -631,10 +631,10 @@ public class FormApppointmentDAO implements Serializable {
 
     public AppointmentDDD getAppointmentDetailbyTrainer(String consultation_id) {
 
-        String sql = " SELECT appointment.customer_id, appointment.consultation_id, customer.fullname AS customer_fullname, appointment.date, appointment.note, appointment.address, appointment.type, appointment.status,appointment.Request_trainer_id, appointment.duration , appointment.DateSubmit,appointment.amount,appointment.fullname,appointment.gmail,appointment.contact\n"
-                + "              FROM tbl_appointment appointment\n"
-                + "              JOIN tbl_customer customer ON customer.customer_id = appointment.customer_id\n"
-                + "              WHERE appointment.consultation_id = ? AND appointment.Request_trainer_id IS NOT NULL AND appointment.status IS NOT  NULL AND trainer_id IS NOT NULL and appointment.tracking IS NULL";
+        String sql = "SELECT appointment.customer_id, appointment.consultation_id, customer.fullname AS customer_fullname, appointment.date, appointment.note, appointment.address, appointment.type, appointment.status,appointment.Request_trainer_id, appointment.duration , appointment.DateSubmit,appointment.amount,appointment.fullname,appointment.gmail,appointment.contact,appointment.tracking\n"
+                + "                     FROM tbl_appointment appointment\n"
+                + "                       JOIN tbl_customer customer ON customer.customer_id = appointment.customer_id\n"
+                + "                     WHERE appointment.consultation_id = ? AND   appointment.Request_trainer_id IS NOT NULL AND appointment.status IS NOT  NULL AND trainer_id IS NOT NULL and  appointment.amount  = 0  ";
 
         try {
             con = db.getConnection();
@@ -660,7 +660,8 @@ public class FormApppointmentDAO implements Serializable {
                         rs.getInt(12),
                         rs.getString(13),
                         rs.getString(14),
-                        rs.getString(15)
+                        rs.getString(15),
+                        rs.getString(16)
                 );
             }
 
@@ -921,7 +922,7 @@ public class FormApppointmentDAO implements Serializable {
     }
 
     /*UPDATE IF USER  CHOOSE TRAINER */
-    public void updateTrainerWhenPayment(String trainerID , String consultionID)
+    public void updateTrainerWhenPayment(String trainerID, String consultionID)
             throws SQLException, ClassCastException {
 
         String appointmentUpdateQuery = "update tbl_appointment \n"
@@ -935,7 +936,7 @@ public class FormApppointmentDAO implements Serializable {
             con = db.getConnection();
             // Update tbl_appointment
             ps = con.prepareStatement(appointmentUpdateQuery);
-            ps.setString(1,consultionID);
+            ps.setString(1, consultionID);
             ps.executeUpdate();
             // Update tbl_trainer
             ps = con.prepareStatement(trainerUpdateQuery);

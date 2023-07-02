@@ -13,29 +13,28 @@ import java.sql.Time;
  *
  * @author hoang
  */
-
 public class AppointmentDDD implements Serializable {
+
     private String customer_id;
     private String consultation_id;
-    private String trainer_id ;
+    private String trainer_id;
     private String customer_fullname;
-    private int amount ;
+    private int amount;
     private Date date;
     private String note;
     private String address;
     private String type;
     private String status;
     private String request_trainer_id;
-    private String trackingcourse; 
+    private String trackingcourse;
     private Time duration;
     private Date dateSubmit;
     private String history;
-    private String fullname ;
+    private String fullname;
     private String gmail;
     private String contact;
-    
 
-    public AppointmentDDD(String customer_id, String consultation_id, String customer_fullname, Date date, String note, String address, String type, String status, String request_trainer_id, Time duration, Date dateSubmit,int amount,String fullname, String gmail,String contact) {
+    public AppointmentDDD(String customer_id, String consultation_id, String customer_fullname, Date date, String note, String address, String type, String status, String request_trainer_id, Time duration, Date dateSubmit, int amount, String fullname, String gmail, String contact) {
         this.customer_id = customer_id;
         this.consultation_id = consultation_id;
         this.customer_fullname = customer_fullname;
@@ -49,8 +48,27 @@ public class AppointmentDDD implements Serializable {
         this.dateSubmit = dateSubmit;
         this.amount = amount;
         this.fullname = fullname;
-        this.gmail = gmail; 
+        this.gmail = gmail;
         this.contact = contact;
+    }
+
+    public AppointmentDDD(String customer_id, String consultation_id, String customer_fullname, Date date, String note, String address, String type, String status, String request_trainer_id, Time duration, Date dateSubmit, int amount, String fullname, String gmail, String contact,String trackingcourse) {
+        this.customer_id = customer_id;
+        this.consultation_id = consultation_id;
+        this.customer_fullname = customer_fullname;
+        this.date = date;
+        this.note = note;
+        this.address = address;
+        this.type = type;
+        this.status = status;
+        this.request_trainer_id = request_trainer_id;
+        this.duration = duration;
+        this.dateSubmit = dateSubmit;
+        this.amount = amount;
+        this.fullname = fullname;
+        this.gmail = gmail;
+        this.contact = contact;
+        this.trackingcourse = trackingcourse;
     }
 
     public AppointmentDDD(String customer_id, String consultation_id, String trainer_id, String customer_fullname, int amount, Date date, String note, String address, String type, String status, String request_trainer_id, String trackingcourse, Time duration, Date dateSubmit) {
@@ -69,8 +87,7 @@ public class AppointmentDDD implements Serializable {
         this.duration = duration;
         this.dateSubmit = dateSubmit;
     }
-    
-     
+
     public AppointmentDDD(String customer_id, String consultation_id, String customer_fullname, Date date, String note, String address, String type, String status, String request_trainer_id, String trackingcourse) {
         this.customer_id = customer_id;
         this.consultation_id = consultation_id;
@@ -84,12 +101,8 @@ public class AppointmentDDD implements Serializable {
         this.trackingcourse = trackingcourse;
     }
 
- 
-
-    
     public AppointmentDDD() {
     }
-    
 
     public AppointmentDDD(String customer_id, String consultation_id, String customer_fullname, Date date, String note, String address, String type, String status, String request_trainer_id) {
         this.customer_id = customer_id;
@@ -247,15 +260,4 @@ public class AppointmentDDD implements Serializable {
         this.contact = contact;
     }
 
-   
-    
-   
-
-    
-    
-    
-    
 }
-
-    
-

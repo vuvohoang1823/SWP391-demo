@@ -110,7 +110,7 @@
                     <c:if test="${not empty sessionScope.Appointment_Detail_ByTrainer}">
 
                         <!--must be complete to open payment-->
-                        <!--<input id="checkComplete" value="${tracking.trackingcourse}" hidden>-->
+                        <input id="checkComplete" value="${detail.trackingcourse}" hidden>
                         <input id="checkComplete" value="none" hidden>
                         <!-------------------------------------------------->
 
@@ -297,7 +297,7 @@
                                         <div id="collapseTwo" class="accordion-collapse collapse">
                                             <div class="accordion-body">
                                                 <form method="post" action="updateAmount">
-                                                    <input type="hidden" name="consultationId" value=" ${tracking.consultation_id}" />
+                                                    <input type="hidden" name="consultationId" value=" ${detail.consultation_id}" />
 
                                                     <div class="form-paymentChecklist">
                                                         <div class="form-name">
@@ -323,10 +323,12 @@
                                                                     >
                                                                     Calculate
                                                                 </button>
+                                                               
                                                             </div>
                                                         </div>
                                                         <div class="info mb-5">
                                                             <h1 id="result"></h1>
+                                                            <input type="hidden" name="type" value="${detail.type}" >
                                                             <input type="hidden" name="price" id="hiddenPrice">
                                                             <div>
                                                                 <b>Trainer name: </b>  ${sessionScope.LOGIN_USER.fullName}
@@ -374,12 +376,10 @@
         <!--        calculate-->
         <script>
             function calculate() {
-//                sua lai theo online offline cua form tren dau trang
-                var mode = document.querySelector('input[name="type"]:checked').value;
-                ///////////////////////////////////////////////////////
+                var mode = ${detail.type}
                 var number = document.querySelector('input[name="number"]').value;
 
-                if (number.trim() !== "") {
+                if (number !== "") {
                     var result = 0;
 
                     if (mode === "online") {
@@ -388,14 +388,13 @@
                         result = parseFloat(number) * 150;
                     }
 
-                    document.getElementById("result").innerHTML = "<div class='info'><h1>Result: " + result + "</h1></div>";
-
+                    document.getElementById("result").textContent = "Result: " + result;
                     document.getElementById("hiddenPrice").value = result;
-
                 }
             }
+
         </script>
-        <!--check complete-->
+    <!--    check complete -->
         <script>
             var checkCompleteValue = document.getElementById("checkComplete").value;
             var completeButton = document.getElementById("completeButton");
@@ -430,22 +429,22 @@
             }
         </script>
         <!--                    end -->
-        <script>
-            var checkCompleteValue = document.getElementById("checkComplete").value;
-            var completeButton = document.getElementById("completeButton");
-            var paymentAccordionButton = document.getElementById("payment-accordionButton");
-
-            if (checkCompleteValue !== "complete") {
-                paymentAccordionButton.disabled = true;
-                paymentAccordionButton.removeAttribute("data-bs-toggle");
-                paymentAccordionButton.removeAttribute("data-bs-target");
-                paymentAccordionButton.classList.remove("collapsed");
-                paymentAccordionButton.style.backgroundColor = "gray";
-                paymentAccordionButton.querySelector(".left-side").style.color = "#e2e8e7";
-            } else {
-                completeButton.style.display = "none";
-            }
-        </script>
+        <!--        <script>
+                    var checkCompleteValue = document.getElementById("checkComplete").value;
+                    var completeButton = document.getElementById("completeButton");
+                    var paymentAccordionButton = document.getElementById("payment-accordionButton");
+        
+                    if (checkCompleteValue !== "complete") {
+                        paymentAccordionButton.disabled = true;
+                        paymentAccordionButton.removeAttribute("data-bs-toggle");
+                        paymentAccordionButton.removeAttribute("data-bs-target");
+                        paymentAccordionButton.classList.remove("collapsed");
+                        paymentAccordionButton.style.backgroundColor = "gray";
+                        paymentAccordionButton.querySelector(".left-side").style.color = "#e2e8e7";
+                    } else {
+                        completeButton.style.display = "none";
+                    }
+                </script>-->
 
         <script>
             var duration = '${detail.duration}'; // Assuming the format is HH:mm:ss

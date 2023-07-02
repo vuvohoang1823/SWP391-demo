@@ -9,17 +9,13 @@
 <%@page import="entity.CustomerDTO"%>
 <%@page import="DAO.CustomerDAO"%>
 <%@page import="entity.UserDTO"%>
+<%--
 <%
-    // Retrieve the UserDTO object from the session
     CustomerDTO user = (CustomerDTO) session.getAttribute("LOGIN_USER");
-
-    // Create an instance of the CustomerDAO
     CustomerDAO customerDAO = new CustomerDAO();
-
-    // Get the customer ID using the user ID
-//    int customerID = customerDAO.getCustomerID(user.getUser_id());
     int customerID = customerDAO.getCustomerID(user.getCustomer_id());
 %>
+--%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -117,6 +113,11 @@
                             </div>
                             <h1>CONSULTATION FORM</h1>
                         </div>
+
+
+
+
+
                         <form action="formappointmentservlet" method="POST" id="myForm">
                             <div class="content">
                                 <!---Chinh name nho chinh ca dong 479-488 ---->
@@ -329,9 +330,23 @@
                                 <!--submit price-->
                                 <input type="text" name="price" id="priceSubmit" value="" hidden/>
                                 <!----------------------->
-                                <button  name="action" type="button"  value="Submit Form"  class="btn btn-primary w-100" onclick="validateForm(event)">
-                                    Submit form
-                                </button>
+
+
+                                <c:set var="user" value="${sessionScope.LOGIN_USER}"></c:set>
+                                <c:choose>
+                                    <c:when test="${empty user}">
+                                        <a href ="signin.jsp">
+                                        <button   type="button" class="btn btn-primary w-100" >
+                                           Login to Submit Form
+                                        </button>
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <button  name="action" type="button"  value="Submit Form"  class="btn btn-primary w-100" onclick="validateForm(event)">
+                                            Submit form
+                                        </button>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </div>
                     </form>
