@@ -6,6 +6,7 @@
 package DAO;
 
 import DBUtils.DBUtils;
+import com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement;
 import entity.AppointmentDDD;
 import entity.AppointmentDTO;
 import entity.BookingDTO;
@@ -25,6 +26,8 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
+
+import java.util.logging.Logger;
 
 /**
  *
@@ -88,7 +91,7 @@ public class FormApppointmentDAO implements Serializable {
 
     }
 
-    // * get form consultaiton 
+    // * get form consultaiton
     public List<FormAppointmentDTO> getAllPraivateConslutationbyID(int userID) throws ClassNotFoundException, SQLException, IOException {
         List<FormAppointmentDTO> list = new ArrayList<>();
         String sql = " select consultation_id , trainer_id,customer_id , date ,amount, payment_id , note, address , type ,present_price , status,tracking,Request_trainer_id from tbl_appointment\n"
@@ -329,7 +332,7 @@ public class FormApppointmentDAO implements Serializable {
 
             while (rs.next()) {
                 String dateString = rs.getString(4); // Get the date as a string
-                java.sql.Date date = java.sql.Date.valueOf(dateString); // Convert the string 
+                java.sql.Date date = java.sql.Date.valueOf(dateString); // Convert the string
                 String dateStringsubmit = rs.getString(11);
                 java.sql.Date datesubmit = java.sql.Date.valueOf(dateStringsubmit);
 
@@ -961,9 +964,10 @@ public class FormApppointmentDAO implements Serializable {
     public void updateTrainerAmount(int amount, String consultation_id)
             throws SQLException, ClassCastException {
 
-        String appointmentUpdateQuery = "update tbl_appointment \n"
-                + "set amount = ?\n"
-                + "where consultation_id = ?";
+        String appointmentUpdateQuery = "update tbl_appointment set amount = ? where consultation_id = ?";
+
+        // Get the logger for the class
+        Logger logger = Logger.getLogger(getClass().getName());
 
         try {
             con = db.getConnection();
@@ -973,16 +977,33 @@ public class FormApppointmentDAO implements Serializable {
             ps.setString(2, consultation_id);
             ps.executeUpdate();
 
+            // Log success message
+            logger.info("Appointment updated successfully.");
+
         } catch (SQLException ex) {
             ex.printStackTrace();
+            // Log error message
+            logger.severe("SQLException occurred: " + ex.getMessage());
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
+            // Log error message
+            logger.severe("ClassNotFoundException occurred: " + ex.getMessage());
         } finally {
-            if (con != null) {
-                con.close();
-            }
-            if (ps != null) {
-                ps.close();
+            // Close connections and statements
+            try {
+                if (con != null) {
+                    con.close();
+                    // Log connection closed message
+                    logger.info("Database connection closed.");
+                }
+                if (ps != null) {
+                    ps.close();
+                    // Log statement closed message
+                    logger.info("Prepared statement closed.");
+                }
+            } catch (SQLException e) {
+                // Log error message
+                logger.severe("SQLException occurred during connection/statement closure: " + e.getMessage());
             }
         }
     }

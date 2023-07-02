@@ -34,15 +34,17 @@ public class updateAmount extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException ,ClassNotFoundException{
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
         String action = request.getParameter("amount");
+
         if (action != null && action.equals("yes")) {
             String consulation_id = request.getParameter("consultationId");
             String priceStr = request.getParameter("price");
             int prices = 0;
             Logger logger = Logger.getLogger(updateAmount.class.getName());
-
+            logger.info("action: " + action);
             logger.info("consultation_id: " + consulation_id);
             logger.info("priceStr: " + priceStr);
             if (priceStr != null && !priceStr.isEmpty()) {
@@ -57,16 +59,10 @@ public class updateAmount extends HttpServlet {
             }
 
             FormApppointmentDAO dao = new FormApppointmentDAO();
-            PrintWriter out = response.getWriter();
-            out.print(prices);
-            out.print(consulation_id);
-            System.out.println("prices: " + prices);
             logger.info("prices: " + prices);
 
-          
-                dao.updateTrainerAmount(prices,consulation_id);
-                request.getRequestDispatcher("Trainer_PrivateConsultation_List.jsp").forward(request, response);
-          
+            dao.updateTrainerAmount(prices, consulation_id);
+            request.getRequestDispatcher("Trainer_PrivateConsultation_List.jsp").forward(request, response);
 
         }
     }

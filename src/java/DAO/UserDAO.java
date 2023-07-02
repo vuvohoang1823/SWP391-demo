@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package DAO;
+
 import DBUtils.DBUtils;
 import entity.UserDTO;
 import java.io.Serializable;
@@ -18,10 +19,11 @@ import javax.naming.NamingException;
  *
  * @author hoang
  */
-public class UserDAO implements Serializable{
-       public UserDTO checkLogin(String username, String password)
+public class UserDAO implements Serializable {
+
+    public UserDTO checkLogin(String username, String password)
             throws SQLException, NamingException, ClassNotFoundException {
-        
+
         Connection con = null;
         PreparedStatement stm = null;
         ResultSet rs = null;

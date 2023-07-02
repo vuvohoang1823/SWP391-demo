@@ -320,7 +320,7 @@
                                         <div id="collapseTwo" class="accordion-collapse collapse">
                                             <div class="accordion-body">
                                                 <form method="post" action="updateAmount">
-                                                    <input type="hidden" name="consultationId" value=" ${detail.consultation_id}" />
+                                                    <input type="hidden" name="consultationId" value="${detail.consultation_id}" />
 
                                                     <div class="form-paymentChecklist">
                                                         <div class="form-name">
@@ -346,7 +346,7 @@
                                                                     >
                                                                     Calculate
                                                                 </button>
-                                                               
+
                                                             </div>
                                                         </div>
                                                         <div class="info mb-5">
@@ -417,7 +417,7 @@
             }
 
         </script>
-    <!--    check complete -->
+        <!--    check complete -->
         <script>
             var checkCompleteValue = document.getElementById("checkComplete").value;
             var completeButton = document.getElementById("completeButton");
@@ -456,7 +456,7 @@
                     var checkCompleteValue = document.getElementById("checkComplete").value;
                     var completeButton = document.getElementById("completeButton");
                     var paymentAccordionButton = document.getElementById("payment-accordionButton");
-        
+
                     if (checkCompleteValue !== "complete") {
                         paymentAccordionButton.disabled = true;
                         paymentAccordionButton.removeAttribute("data-bs-toggle");

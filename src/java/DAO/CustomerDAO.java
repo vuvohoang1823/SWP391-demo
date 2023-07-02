@@ -18,10 +18,10 @@ import DBUtils.DBUtils;
  *
  * @author hoang
  */
-public class CustomerDAO implements Serializable{
-    
+public class CustomerDAO implements Serializable {
+
     public CustomerDTO getCustomerInfo(int user_id) throws SQLException, NamingException, ClassNotFoundException {
-        
+
         Connection con = null;
         PreparedStatement stm = null;
         ResultSet rs = null;
@@ -57,8 +57,9 @@ public class CustomerDAO implements Serializable{
         }
         return customer;
     }
+
     public int getCustomerID(int user_id) throws SQLException, NamingException, ClassNotFoundException {
-        
+
         Connection con = null;
         PreparedStatement stm = null;
         ResultSet rs = null;
@@ -89,7 +90,7 @@ public class CustomerDAO implements Serializable{
                 con.close();
             }
         }
-        return customerID ;
+        return customerID;
     }
-    
+
 }
