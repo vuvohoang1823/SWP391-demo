@@ -4,6 +4,7 @@
     Author     : thang
 --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,6 +24,19 @@
     <body>
         <c:set var="user" value="${sessionScope.LOGIN_USER}"></c:set>
         <c:set var="role" value="${sessionScope.role}" />
+        <!--change color on active page-->
+        <%
+            String currentPage = request.getRequestURI();
+        %>
+        <%!
+            String isPageActive(String currentPage, String pageName) {
+                if (currentPage.endsWith(pageName)) {
+                    return "active";
+                };
+                return "";
+            }
+        %>
+        <!------------------------------->
         <c:choose>
             <c:when test="${role eq 'customer' || empty role}">
                 <div class="container-fluid customer">
@@ -33,9 +47,13 @@
                         </div>
                         <div class="col-lg-6 menu-section">
                             <ul class="menu-content">
-                                <li><a href="homepage.jsp">Home</a></li>
-                                <li><a href="about_us.jsp">About us</a></li>
-                                <li>
+                                <li class="<%= isPageActive(currentPage, "homepage.jsp")%>"><a href="homepage.jsp">Home</a></li>
+                                <li class="<%= isPageActive(currentPage, "about_us.jsp")%>"><a href="about_us.jsp">About us</a></li>
+                                <li class="<%= isPageActive(currentPage, "workshop.jsp")%>
+                                    <%= isPageActive(currentPage, "private_consultation.jsp")%>
+                                    <%= isPageActive(currentPage, "online_course.jsp")%>
+                                    <%= isPageActive(currentPage, "birdcourse.jsp")%>
+                                    ">
                                     <a href="#" class="subnav-toggle">
                                         Service
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
@@ -44,14 +62,14 @@
                                     </a>
                                     <div class="triangle"></div>
                                     <ul class="subnav">
-                                        <li class="subnav-content"><a href="workshop.jsp">Workshops</a></li>
-                                        <li class="subnav-content"><a href="private_consultation.jsp">Private Consultant</a></li>
-                                        <li class="subnav-content"><a href="online_course.jsp">Online Course</a></li>
-                                        <li class="subnav-content"><a href="birdcourse.jsp">Bird Course</a></li>
+                                        <li class="subnav-content <%= isPageActive(currentPage, "workshop.jsp")%>"><a href="workshop.jsp">Workshops</a></li>
+                                        <li class="subnav-content <%= isPageActive(currentPage, "private_consultation.jsp")%>"><a href="private_consultation.jsp">Private Consultant</a></li>
+                                        <li class="subnav-content <%= isPageActive(currentPage, "online_course.jsp")%>"><a href="online_course.jsp">Online Course</a></li>
+                                        <li class="subnav-content <%= isPageActive(currentPage, "birdcourse.jsp")%>"><a href="birdcourse.jsp">Bird Course</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="blogs.jsp">Blog</a></li>
-                                <li><a href="contact.jsp">Contact</a></li>
+                                <li class="<%= isPageActive(currentPage, "blogs.jsp")%>"><a href="blogs.jsp">Blog</a></li>
+                                <li class="<%= isPageActive(currentPage, "contact.jsp")%>"><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </div>
                         <c:choose>
@@ -220,7 +238,7 @@
                     </a>
                     <div class="bg-white p-2">
                         <ul class="nav nav-pills flex-column mt-4">
-                            <li class="nav-item py-2 py-sm-4">
+                            <li class="nav-item py-2 py-sm-4 <%= isPageActive(currentPage, "homepage.jsp")%>">
                                 <a
                                     href="#"
                                     class="d-flex d-sm-flex nav-link text-black"
@@ -235,8 +253,10 @@
                                     </div>
                                 </a>
                             </li>
-
-                            <li class="nav-item py-2 py-sm-4">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "Staff_ConsultationForm_Pending.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_ConsultationForm_Processing.jsp")%>
+                                ">
                                 <a
                                     href="Staff_ConsultationForm_Pending.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
@@ -267,7 +287,10 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item py-2 py-sm-4">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_Completed.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_History.jsp")%>
+                                ">
                                 <a
                                     href="Staff_OrderList_Consult_Completed.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
@@ -292,7 +315,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item py-2 py-sm-4">
+                            <li class="nav-item py-2 py-sm-4 <%= isPageActive(currentPage, "homepage.jsp")%>">
                                 <a
                                     href="#"
                                     class="d-flex d-sm-flex nav-link text-black"
@@ -308,7 +331,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item py-2 py-sm-4 mask">
+                            <li class="nav-item py-2 py-sm-4 mask <%= isPageActive(currentPage, "homepage.jsp")%>">
                                 <a
                                     href="#"
                                     class="d-flex d-sm-flex nav-link text-black"
@@ -328,6 +351,29 @@
                                         </svg>
 
                                         <span class="fs-2 ms-3 d-none d-sm-inline">Blogs</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item py-2 py-sm-4 mask <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_List.jsp")%>">
+                                <a
+                                    href="Staff_QuestionAndAnswer_List.jsp"
+                                    class="d-flex d-sm-flex nav-link text-black"
+                                    >
+                                    <div class="d-flex align-items-center" style="margin: 3% 0;">
+                                        <svg
+                                            width="20"
+                                            height="22"
+                                            viewBox="0 0 20 22"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                        <path
+                                            d="M18.8235 0H1.17647C0.529412 0 0 0.45 0 1V21C0 21.55 0.529412 22 1.17647 22H18.8235C19.4706 22 20 21.55 20 21V1C20 0.45 19.4706 0 18.8235 0ZM17.6471 20H2.35294V2H17.6471V20ZM4.85294 15.75C4.85294 15.2 5.38235 14.75 6.02941 14.75H13.9706C14.6176 14.75 15.1471 15.2 15.1471 15.75C15.1471 16.3 14.6176 16.75 13.9706 16.75H6.02941C5.38235 16.75 4.85294 16.3 4.85294 15.75ZM5.02941 11C5.02941 10.45 5.55882 10 6.20588 10H13.9412C14.5882 10 15.1176 10.45 15.1176 11C15.1176 11.55 14.5882 12 13.9412 12H6.20588C5.55882 12 5.02941 11.55 5.02941 11ZM5.02941 6.25C5.02941 5.7 5.55882 5.25 6.20588 5.25H13.9412C14.5882 5.25 15.1176 5.7 15.1176 6.25C15.1176 6.8 14.5882 7.25 13.9412 7.25H6.20588C5.55882 7.25 5.02941 6.8 5.02941 6.25Z"
+                                            fill="black"
+                                            />
+                                        </svg>
+
+                                        <span class="fs-2 ms-3 d-none d-sm-inline">Q&A</span>
                                     </div>
                                 </a>
                             </li>

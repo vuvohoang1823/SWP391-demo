@@ -263,8 +263,12 @@
                                                         <button id="completeButton" type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmComplete">
                                                             Complete
                                                         </button>
+                                                        <button id="completeButton" type="button"  class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#confirmCancel">
+                                                            Cancel
+                                                        </button>
                                                     </div>
 
+                                                    <!--complete modal-->
                                                     <div class="modal fade" id="confirmComplete" tabindex="-1" aria-labelledby="confirmCompleteLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
@@ -274,6 +278,25 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     Mark this consultation as complete?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    <button type="submit" name="action" value="updateby"  class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--cancel modal-->
+                                                    <div class="modal fade" id="confirmCancel" tabindex="-1" aria-labelledby="confirmCompleteLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5">Cancel</h1>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Cancel this consultation?
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

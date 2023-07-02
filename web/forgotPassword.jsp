@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : forgotPassword
     Created on : Jul 1, 2023, 12:03:17 AM
     Author     : hoang
@@ -57,7 +57,6 @@
             }
         </style>
     </head>
-    <body>
     <body oncontextmenu='return false' class='snippet-body'>
         <div class="container padding-bottom-3x mb-2 mt-5">
             <div class="row justify-content-center">
@@ -71,7 +70,7 @@
                                 your email address below.</li>
                             <li><span class="text-primary text-medium">2. </span>Our
                                 system will send you an OTP to your email</li>
-                            <li><span class="text-primary text-medium">3. </span>Enter the OTP on the 
+                            <li><span class="text-primary text-medium">3. </span>Enter the OTP on the
                                 next page</li>
                         </ol>
                     </div>

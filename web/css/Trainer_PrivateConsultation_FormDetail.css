@@ -159,7 +159,7 @@
     padding: 0 6rem;
 }
 .forms-container .accordion .accordion-item .accordion-body .forms-footer button {
-    width: 100%;
+    width: 45%;
     font-size: 3rem;
     font-weight: 700;
     height: 68px;
@@ -261,7 +261,7 @@
 /*end button*/
 .forms-container .forms-footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 .forms-container .forms-footer div {

@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : consultationlist
     Created on : Jun 21, 2023, 10:39:51 PM
     Author     : hoang
@@ -28,130 +28,130 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style>
-  /* Global Styles */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-  }
+            /* Global Styles */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+            }
 
-  /* Profile Section */
-  .profile {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
+            /* Profile Section */
+            .profile {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
 
-  .profile img {
-    border-radius: 50%;
-    width: 7rem;
-    height: 7rem;
-  }
+            .profile img {
+                border-radius: 50%;
+                width: 7rem;
+                height: 7rem;
+            }
 
-  .profile p {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-    margin-top: 1rem;
-  }
+            .profile p {
+                margin: 0;
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #333;
+                margin-top: 1rem;
+            }
 
-  .profile a {
-    color: #888;
-    text-decoration: none;
-  }
+            .profile a {
+                color: #888;
+                text-decoration: none;
+            }
 
-  /* Navigation Section */
-  .list {
-    margin-bottom: 2rem;
-  }
+            /* Navigation Section */
+            .list {
+                margin-bottom: 2rem;
+            }
 
-  .list a {
-    display: block;
-    margin-bottom: 1rem;
-    color: #333;
-    text-decoration: none;
-  }
+            .list a {
+                display: block;
+                margin-bottom: 1rem;
+                color: #333;
+                text-decoration: none;
+            }
 
-  .list a.click {
-    font-weight: bold;
-  }
+            .list a.click {
+                font-weight: bold;
+            }
 
-  /* Title Section */
-  .title {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
+            /* Title Section */
+            .title {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
 
-  .title h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
+            .title h2 {
+                font-size: 2rem;
+                color: #333;
+                margin-bottom: 0.5rem;
+            }
 
-  .title p {
-    margin: 0;
-    color: #888;
-  }
+            .title p {
+                margin: 0;
+                color: #888;
+            }
 
-  .title hr {
-    border: none;
-    height: 1px;
-    background-color: #333;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
+            .title hr {
+                border: none;
+                height: 1px;
+                background-color: #333;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
 
-  /* Card Section */
-  .card {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-  }
+            /* Card Section */
+            .card {
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
 
-  .card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-  }
+            .card img {
+                width: 100%;
+                height: auto;
+                border-radius: 5px;
+                margin-bottom: 1rem;
+            }
 
-  .card h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
+            .card h3 {
+                font-size: 1.5rem;
+                color: #333;
+                margin-bottom: 0.5rem;
+            }
 
-  .card ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+            .card ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
 
-  .card ul li {
-    margin-bottom: 0.5rem;
-    color: #888;
-    font-size:2rem;
-  }
+            .card ul li {
+                margin-bottom: 0.5rem;
+                color: #888;
+                font-size:2rem;
+            }
 
-  .card a.btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #333;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
+            .card a.btn {
+                display: inline-block;
+                padding: 0.5rem 1rem;
+                background-color: #333;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
 
-  .card a.btn:hover {
-    background-color: #555;
-  }
-</style>
+            .card a.btn:hover {
+                background-color: #555;
+            }
+        </style>
     </head>
     <body>
         <jsp:useBean id="pr" class="DAO.courseDAO"></jsp:useBean>
-                <jsp:useBean id="t" class="DAO.TrainerDAO" ></jsp:useBean>
+        <jsp:useBean id="t" class="DAO.TrainerDAO" ></jsp:useBean>
 
         <%@include file="header.jsp" %>
         <div class="body-container">
@@ -174,13 +174,13 @@
                     <a href="birdcourselist.jsp" >
                         Bird courses
                     </a>
-                    <a href="onlinecourselist.jsp" class="click">
+                    <a href="onlinecourselist.jsp">
                         Online courses
                     </a>
                     <a href="workshoplist.jsp">
                         Workshops
                     </a>
-                    <a href="#">
+                    <a href="#" class="click">
                         Private Consultation
                     </a>
                 </div>
@@ -201,11 +201,11 @@
                         <img  src="./img/BehaviorConsultation_1080x.webp" />
                         <div class="text">
                             <p>
-                                Private Consultation 
+                                Private Consultation
                             </p>
-                            <c:set var="RequestTrainerid" value="${app.request_trainer_id}"/> 
+                            <c:set var="RequestTrainerid" value="${app.request_trainer_id}"/>
                             <c:set var="g" value="${t.getTrainerByID(RequestTrainerid)}"/>
-   
+
                             <ul style="list-style: none">
                                 <li> Date:  ${app.date}</li>
                                 <li> Type:  ${app.type}</li>
