@@ -31,11 +31,11 @@
         <body>
             <div class="container-fluid">
                 <div class="row flex-nowrap">
-                    <!--            header-->\
+                    <!--            header-->
 
                 <%@ include file="header.jsp" %>
 
-                <div class="col-md-8 col-lg-10 min-vh-100 p-0">
+                <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
                             <svg
@@ -155,7 +155,7 @@
 
                             <%--     <c:set var="g" value="${f.appointmentFormPending}"></c:set>
                                  <c:set var="requestidd" value="${g.request_trainer_id}"></c:set>
-                                     <c:set var="trainername" value="${tr.getTrainerNameByRequestTrainerId(requestidd)}"></c:set> 
+                                     <c:set var="trainername" value="${tr.getTrainerNameByRequestTrainerId(requestidd)}"></c:set>
                                  <c:set var="trainername" value="${not empty requestidd ? tr.getTrainerNameByRequestTrainerId(requestidd) : 'N/A'}"></c:set> --%>
 
                             <c:forEach items="${f.appointmentFormPending}" var="b" varStatus="counter" >
@@ -168,7 +168,7 @@
                                     <td class="customer">${b.customer_fullname}</td>
                                     <td class="customer">${b.duration} - ${b.date}</td>
                                     <%--   <td class="customer">${not empty trainer ? b.request_trainer_id : 'N/A'}</td>  --%>
-                                    <td class="customer">${trainername}</td> 
+                                    <td class="customer">${trainername}</td>
                                     <td class="customer">${b.dateSubmit}</td>
                                     <td>
                                         <div class="type">

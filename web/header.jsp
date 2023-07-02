@@ -256,6 +256,8 @@
                             <li class="nav-item py-2 py-sm-4
                                 <%= isPageActive(currentPage, "Staff_ConsultationForm_Pending.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_ConsultationForm_Processing.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_ConsultationForm_FormDetail.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_ConsultationForm_FormDetail_Approved.jsp")%>
                                 ">
                                 <a
                                     href="Staff_ConsultationForm_Pending.jsp"
@@ -290,6 +292,8 @@
                             <li class="nav-item py-2 py-sm-4
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_Completed.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_History.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_CompletedDetail.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_HistoryDetail.jsp")%>
                                 ">
                                 <a
                                     href="Staff_OrderList_Consult_Completed.jsp"

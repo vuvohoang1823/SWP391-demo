@@ -111,7 +111,6 @@
 
                         <!--must be complete to open payment-->
                         <input id="checkComplete" value="${detail.trackingcourse}" hidden>
-                        <input id="checkComplete" value="none" hidden>
                         <!-------------------------------------------------->
 
                         <div class="container-fluid" style="padding: 2.5%">
@@ -258,12 +257,12 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="forms-footer m-auto">
+                                                    <div class="forms-footer m-auto" id="completeButton">
                                                         <!-- Button trigger modal -->
-                                                        <button id="completeButton" type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmComplete">
+                                                        <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmComplete">
                                                             Complete
                                                         </button>
-                                                        <button id="completeButton" type="button"  class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#confirmCancel">
+                                                        <button type="button"  class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#confirmCancel">
                                                             Cancel
                                                         </button>
                                                     </div>
@@ -281,7 +280,7 @@
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" name="action" value="updateby"  class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
+                                                                    <button type="submit" name="action" value="updateby" class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -335,6 +334,7 @@
                                                                     name="number"
                                                                     class="form-control"
                                                                     placeholder="Enter number of hours"
+                                                                    required
                                                                     />
                                                                 <!---------------->
                                                                 <button
@@ -362,7 +362,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="forms-footer">
+                                                    <div class="forms-footer justify-content-center">
                                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmPayment">
                                                             Confirm
                                                         </button>
@@ -422,10 +422,7 @@
             var checkCompleteValue = document.getElementById("checkComplete").value;
             var completeButton = document.getElementById("completeButton");
             var paymentAccordionButton = document.getElementById("payment-accordionButton");
-            function completeForm() {
-                document.getElementById("checkComplete").value = "complete";
-                document.getElementById("myForm").submit();
-            }
+
             if (checkCompleteValue !== "complete") {
                 // Set show for accordion one
                 document.getElementById("collapseOne").classList.add("show");
@@ -451,24 +448,6 @@
                 completeButton.style.display = "none";
             }
         </script>
-        <!--                    end -->
-        <!--        <script>
-                    var checkCompleteValue = document.getElementById("checkComplete").value;
-                    var completeButton = document.getElementById("completeButton");
-                    var paymentAccordionButton = document.getElementById("payment-accordionButton");
-
-                    if (checkCompleteValue !== "complete") {
-                        paymentAccordionButton.disabled = true;
-                        paymentAccordionButton.removeAttribute("data-bs-toggle");
-                        paymentAccordionButton.removeAttribute("data-bs-target");
-                        paymentAccordionButton.classList.remove("collapsed");
-                        paymentAccordionButton.style.backgroundColor = "gray";
-                        paymentAccordionButton.querySelector(".left-side").style.color = "#e2e8e7";
-                    } else {
-                        completeButton.style.display = "none";
-                    }
-                </script>-->
-
         <script>
             var duration = '${detail.duration}'; // Assuming the format is HH:mm:ss
 
@@ -485,7 +464,7 @@
 
             var soonDuration = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
 
-            document.getElementById("formtitle").value = '${detail.date} - from ' + duration + ' to ' + soonDuration;
+            document.getElementById("formtitle").value = '${detail.date} - from ' + duration;
         </script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

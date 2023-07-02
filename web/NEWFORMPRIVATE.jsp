@@ -287,13 +287,13 @@
                                                                 <td>Online</td>
                                                                 <td>Remote/online sessions</td>
                                                                 <!-- change this -->
-                                                                <td id="onlinePrice">150.000</td>
+                                                                <td id="onlinePrice">100.000</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Offline</td>
                                                                 <td>In-person sessions</td>
                                                                 <!-- change this -->
-                                                                <td id="offlinePrice">200.000</td>
+                                                                <td id="offlinePrice">150.000</td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -488,9 +488,9 @@
 
             function updateConsultPrice() {
                 if (consultTypeOnline.checked) {
-                    consultPriceInput.value = priceOnline;
+                    consultPriceInput.value = priceOnline + "/hour";
                 } else if (consultTypeOffline.checked) {
-                    consultPriceInput.value = priceOffline;
+                    consultPriceInput.value = priceOffline + "/hour";
                 }
             }
 
@@ -629,7 +629,7 @@
                 form.submit();
             }
         </script>
-         <script>
+        <script>
             var currentDate = new Date().toISOString().split("T")[0];
             document.getElementById("DateSubmitInput").value = currentDate;
         </script>
