@@ -35,7 +35,7 @@ public class ForgotPassword extends HttpServlet {
         if (email != null || !email.equals("")) {
             // sending otp
             Random rand = new Random();
-            otpvalue = rand.nextInt(1255650);
+            otpvalue = rand.nextInt(999999);
 
             String to = email;// change accordingly
             // Get the session object
@@ -47,7 +47,9 @@ public class ForgotPassword extends HttpServlet {
             props.put("mail.smtp.port", "465");
             Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("vominhthang061003@gmail.com", "ustndqkwcecbdbve");// Put your email
+                    String username = System.getenv("EMAIL_USERNAME");
+                    String password = System.getenv("EMAIL_PASSWORD");
+                    return new PasswordAuthentication(username, password);// Put your email
                     // id and
                     // password here
                 }

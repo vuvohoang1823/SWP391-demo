@@ -24,7 +24,7 @@
     <body>
         <%@include file="header.jsp" %>
         <section class="blogs-header">
-            <div id="carouselExampleCaptions" class="carousel slide">
+            <div id="carouselExampleCaptions" class="carousel slide" style="z-index: 0">
                 <div class="carousel-indicators">
                     <button
                         type="button"
