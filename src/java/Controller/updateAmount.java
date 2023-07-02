@@ -43,10 +43,6 @@ public class updateAmount extends HttpServlet {
             String consulation_id = request.getParameter("consultationId");
             String priceStr = request.getParameter("price");
             int prices = 0;
-            Logger logger = Logger.getLogger(updateAmount.class.getName());
-            logger.info("action: " + action);
-            logger.info("consultation_id: " + consulation_id);
-            logger.info("priceStr: " + priceStr);
             if (priceStr != null && !priceStr.isEmpty()) {
                 try {
                     prices = Integer.parseInt(priceStr);
@@ -59,8 +55,6 @@ public class updateAmount extends HttpServlet {
             }
 
             FormApppointmentDAO dao = new FormApppointmentDAO();
-            logger.info("prices: " + prices);
-
             dao.updateTrainerAmount(prices, consulation_id);
             request.getRequestDispatcher("Trainer_PrivateConsultation_List.jsp").forward(request, response);
 

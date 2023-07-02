@@ -67,9 +67,11 @@ body {
     color:black;
     padding-bottom: 1rem;
 }
-.filter-option li:nth-child(1) a{
+/* toggle filter */
+.filter-option li:nth-child(2) a{
     border-bottom: 7px var(--font-color) solid;
 }
+/* toggle filter */
 .filter-option li:nth-child(1){
     margin-left: 10rem;
     margin-right: 6.5rem;
@@ -127,6 +129,9 @@ body {
 .card-content{
     margin-left: 3.3rem;
 }
+.card-content span{
+    font-weight: 700;
+}
 .card-content .header{
     max-width: 89.5rem;
 }
@@ -143,24 +148,38 @@ body {
     font-size: 2rem;
     font-weight: 400;
 }
-.card-content .date-time{
+.card-content .trainer{
     margin-top: 2rem;
+    margin-bottom: 3rem;
 }
-.card-content .date-time span{
-    font-weight: 700;
-}
-.card-content .date-time p{
+.trainer p{
     font-size: 2rem;
 }
-.date-time .time{
-    margin: 1rem 0;
+.card-content .btn-complete{
+    display: flex;
+    flex-direction: row;
 }
-.card-content .audience{
-    margin-top: 2rem;
+.btn-complete button{
+    outline: none;
+    border-color: transparent;
+    border-radius: 1rem;
+    background: #F69C14;
+    padding: 2rem 8rem;
 }
-.card-content .audience span{
+.btn-complete button a{
+    color: white;
+    font-size: 2.5rem;
     font-weight: 700;
+    text-decoration: none;
 }
-.card-content .audience p{
+.complete-date{
+    margin-left: 30rem;
+}
+.complete-date p:nth-child(1){
     font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-left: 0.7rem;
+}
+.complete-date .date{
+    font-size: 2.5rem;
 }
