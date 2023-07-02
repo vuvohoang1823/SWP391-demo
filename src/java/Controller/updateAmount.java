@@ -8,11 +8,14 @@ package Controller;
 import DAO.FormApppointmentDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.logging.Logger;
 
 /**
  *
@@ -30,17 +33,21 @@ public class updateAmount extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-       protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException ,ClassNotFoundException{
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("amount");
-        if (action!=null &&  action.equals("yes")) {
+        if (action != null && action.equals("yes")) {
             String consulation_id = request.getParameter("consultationId");
             String priceStr = request.getParameter("price");
-            int prices = 0 ;
+            int prices = 0;
+            Logger logger = Logger.getLogger(updateAmount.class.getName());
+
+            logger.info("consultation_id: " + consulation_id);
+            logger.info("priceStr: " + priceStr);
             if (priceStr != null && !priceStr.isEmpty()) {
                 try {
-                     prices = Integer.parseInt(priceStr);
+                    prices = Integer.parseInt(priceStr);
                     response.setStatus(HttpServletResponse.SC_OK);
                 } catch (NumberFormatException e) {
                     response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
@@ -48,21 +55,22 @@ public class updateAmount extends HttpServlet {
             } else {
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             }
-       
+
             FormApppointmentDAO dao = new FormApppointmentDAO();
-           PrintWriter out = response.getWriter();
-           out.print(prices);
-           out.print(consulation_id);
-            try {
-                dao.updateTrainerAmount(consulation_id ,prices);
-                response.sendRedirect("Trainer_PrivateConsultation_List.jsp");
-            } catch (Exception e) {
-                response.sendRedirect("error.jsp");
-            }
+            PrintWriter out = response.getWriter();
+            out.print(prices);
+            out.print(consulation_id);
+            System.out.println("prices: " + prices);
+            logger.info("prices: " + prices);
+
+          
+                dao.updateTrainerAmount(prices,consulation_id);
+                request.getRequestDispatcher("Trainer_PrivateConsultation_List.jsp").forward(request, response);
+          
 
         }
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -75,7 +83,13 @@ public class updateAmount extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(updateAmount.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(updateAmount.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -89,7 +103,13 @@ public class updateAmount extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(updateAmount.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(updateAmount.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

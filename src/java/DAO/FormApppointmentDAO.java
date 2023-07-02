@@ -958,7 +958,7 @@ public class FormApppointmentDAO implements Serializable {
     }
 
     /*UPDATE IF USER  CHOOSE TRAINER */
-    public void updateTrainerAmount(String consultationID, int amount)
+    public void updateTrainerAmount(int amount, String consultation_id)
             throws SQLException, ClassCastException {
 
         String appointmentUpdateQuery = "update tbl_appointment \n"
@@ -970,8 +970,7 @@ public class FormApppointmentDAO implements Serializable {
             // Update tbl_appointment
             ps = con.prepareStatement(appointmentUpdateQuery);
             ps.setInt(1, amount);
-            ps.setString(2, consultationID);
-
+            ps.setString(2, consultation_id);
             ps.executeUpdate();
 
         } catch (SQLException ex) {
