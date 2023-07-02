@@ -31,7 +31,7 @@
                     <!--            header-->
                 <%@ include file="header.jsp" %>
 
-                <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
+                <div class="col-md-8 col-lg-10 min-vh-100 p-0">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
                             <svg
@@ -217,8 +217,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <c:set var="RequestTrainerid" value="${detail.request_trainer_id}"/>
-                                                    <c:choose>
+                                                    <c:set var="RequestTrainerid" value="${detail.request_trainer_id}"/> 
+                                                    <c:choose> 
                                                         <c:when test="${not empty RequestTrainerid}">
                                                             <c:set var="g" value="${t.getTrainerByID(RequestTrainerid)}"/>
                                                             <div class="mb-3">
@@ -276,7 +276,7 @@
                                                                                         <c:forEach items="${t.trainerUnavailableWithfullSkill}" var="trainerinfo">
                                                                                             <div class="trainer-item">
                                                                                                 <img src="data:images/jpg;base64,${trainerinfo.img}" alt="Trainer Avatar" class="trainer-avatar">
-                                                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer1" ${g.fullName eq trainerinfo.fullName ? 'checked' : ''} >
+                                                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer1" ${g.fullName eq trainerinfo.fullName ? 'checked' : ''}>
                                                                                                 <label for="trainer1">
                                                                                                     <span class="trainer-name">Name: ${trainerinfo.fullName}</span>
                                                                                                     <span> - </span>
@@ -299,7 +299,7 @@
                                                                 </div>
                                                             </div>
                                                         </c:when>
-                                                        <c:otherwise>
+                                                        <c:otherwise> 
                                                             <div class="mb-3">
                                                                 <label for="trainername" class="form-label"
                                                                        >Trainer requested</label
@@ -422,15 +422,8 @@
                 const hiddenTrainerName = document.getElementById("hiddenTrainerName");
                 const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
 
-                const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-                if (selectedTrainer.value === "none") {
-                    inputTrainerName.value = "";
-                } else {
-                    const trainerLabel = selectedTrainer.nextElementSibling;
-                    const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
-                    inputTrainerName.value = trainerName.split(": ")[1];
-                }
                 saveButton.addEventListener("click", function () {
+                    const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
                     if (selectedTrainer.value === "none") {
                         inputTrainerName.value = "";
                     } else {

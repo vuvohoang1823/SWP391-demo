@@ -326,8 +326,7 @@
                                     type="hidden"
                                     />
                                 <!--submit current date-->
-                                <input type="text" name="DateSubmitt" id="currentDate" value="" hidden=""/>
-                                <!--submit price-->
+                                <input type="hidden" name="DateSubmitt" id="DateSubmitInput">                                <!--submit price-->
                                 <input type="text" name="price" id="priceSubmit" value="" hidden/>
                                 <!----------------------->
 
@@ -336,9 +335,9 @@
                                 <c:choose>
                                     <c:when test="${empty user}">
                                         <a href ="signin.jsp">
-                                        <button   type="button" class="btn btn-primary w-100" >
-                                           Login to Submit Form
-                                        </button>
+                                            <button   type="button" class="btn btn-primary w-100" >
+                                                Login to Submit Form
+                                            </button>
                                         </a>
                                     </c:when>
                                     <c:otherwise>
@@ -629,6 +628,10 @@
             function submitOnClose() {
                 form.submit();
             }
+        </script>
+         <script>
+            var currentDate = new Date().toISOString().split("T")[0];
+            document.getElementById("DateSubmitInput").value = currentDate;
         </script>
     </body>
 </html>
