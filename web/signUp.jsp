@@ -47,7 +47,7 @@
                        <p style="color: red; align-content: center;">
                                     ${requestScope.error}
                       </p>
-                    <form class="form-control" action="user?action=checkregister" method="post">
+                    <form class="form-control" action="MainController" method="post">
                         <div class="customer-name">
                             <div class="fn-container">
                                 <label for="">First name</label>
