@@ -3,7 +3,7 @@
     Created on : Jun 23, 2023, 11:37:59 PM
     Author     : thang
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,6 +20,7 @@
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/blogs.css" />
+        <jsp:useBean id="blog" class="DAO.BlogDAO" scope="request"></jsp:useBean>
     </head>
     <body>
         <%@include file="header.jsp" %>
@@ -155,29 +156,28 @@
             </div>
             <div class="blogs-container row">
                 <!-- start of card -->
+                <c:forEach var="card" items="${blog.lisofBlog}">
                 <div class="blog-container">
-                    <img src="./img/Rectangle 12.png" alt="" />
+                  <img src="data:images/jpg;base64,${card.thumbnail}"/>
                     <div class="desc-container">
                         <h5>
-                            Mastering the Skies: Training Eagles to Soar with Strength and
-                            Grace
+                            ${card.title}
                         </h5>
                         <div class="date-write">
-                            <span>May, 22, 2023</span>
-                            <span>Mike Wazaoski</span>
+                            <span>May, - ${card.date}</span>
+                            <span>${card.author}</span>
                         </div>
                         <div>
-                            A diam sollicitudin tempor id eu nisl nunc mi. Elit ullamcorper
-                            dignissim cras tincidunt. Sed euismod nisi porta lorem. Semper
-                            risus in hendrerit gravida rutrum
+                           ${card.briefinfo}
                         </div>
                     </div>
                     <div class="button-container">
-                        <a href="blogDetail.jsp">
+                        <a href="MainController?action=view_blog_detail&blog_id=${card.blogid}">
                             <button>Read more</button>
                         </a>
                     </div>
                 </div>
+                 </c:forEach>
                 <!-- end of card -->
             </div>
         </section>

@@ -25,8 +25,9 @@ public class BlogDTO implements Serializable {
     private String content2;
     private String inconclusion;
     private String contentIMG;
+    private String briefinfo ;
 
-    public BlogDTO(String blogid, String staff_id, Date date, String thumbnail, String title, String author, String introduction, String content1, String content2, String inconclusion, String contentIMG) {
+    public BlogDTO(String blogid, String staff_id, Date date, String thumbnail, String title, String author, String introduction, String content1, String content2, String inconclusion, String contentIMG ,String briefinfo) {
         this.blogid = blogid;
         this.staff_id = staff_id;
         this.date = date;
@@ -38,6 +39,7 @@ public class BlogDTO implements Serializable {
         this.content2 = content2;
         this.inconclusion = inconclusion;
         this.contentIMG = contentIMG;
+        this.briefinfo = briefinfo;
     }
 
     public BlogDTO() {
@@ -129,6 +131,14 @@ public class BlogDTO implements Serializable {
 
     public void setContentIMG(String contentIMG) {
         this.contentIMG = contentIMG;
+    }
+
+    public String getBriefinfo() {
+        return briefinfo;
+    }
+
+    public void setBriefinfo(String briefinfo) {
+        this.briefinfo = briefinfo;
     }
     
     

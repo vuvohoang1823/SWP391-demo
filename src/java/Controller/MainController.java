@@ -33,6 +33,7 @@ public class MainController extends HttpServlet {
     private final String FORMSUCCESS = "formsuccess.jsp"  ;
     private final String FORMBIRDCOURSE = "";
     private final String REGISTER = "RegistrationServlet";
+    private final String BLOGDETAIL = "BlogDetail";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -97,6 +98,8 @@ public class MainController extends HttpServlet {
                 url="updateAppointmentbyTrainer";
             } else if( button.equals("register")){
                 url = REGISTER;
+            } else if(button.equals("view_blog_detail")){
+                url  = BLOGDETAIL;
             }
             }finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
