@@ -165,7 +165,7 @@
                                 <tr>
                                     <td class="id">${counter.count}</td>
                                     <td class="title">Basic Consultation Request</td>
-                                    <td class="customer">${b.customer_fullname}</td>
+                                    <td class="customer">${b.fullname}</td>
                                     <td class="customer">${b.duration} - ${b.date}</td>
                                     <%--   <td class="customer">${not empty trainer ? b.request_trainer_id : 'N/A'}</td>  --%>
                                     <td class="customer">${trainername}</td>
