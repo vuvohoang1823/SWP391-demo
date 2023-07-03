@@ -235,8 +235,10 @@ html {
     overflow: hidden;
 }
 .body-container .section-more .blogs-container .blogs-slider .blog .img-container img {
+    width:100%;
+    height:100%;
     -o-object-fit: cover;
-    object-fit: cover;
+    object-fit:cover;
     -o-object-position: center;
     object-position: center;
 }

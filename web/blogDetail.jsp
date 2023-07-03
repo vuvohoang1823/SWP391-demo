@@ -94,13 +94,15 @@
                             <h1>Discover more valuable insights!</h1>
                         </div>
                     </div>
-                     <c:forEach var="card" items="${blog.lisofBlog}">
+                    
                     <div class="blogs-container">
+                        
                         <div class="blogs-slider">
+                             <c:forEach var="card" items="${blog.lisofBlog}">
                             <!-- start item -->
                             <div class="blog">
                                 <div class="img-container">
-                                     <img src="data:images/jpg;base64,${card.thumbnail}"/>
+                                    <img style="" src="data:images/jpg;base64,${card.thumbnail}"/>
                                 </div>
                                 <div class="desc-container">
                                     <h5>
@@ -118,10 +120,12 @@
                                     </div>
                                 </div>
                             </div>
+                                     </c:forEach>
                             <!-- end item -->
                         </div>
+                                     
                     </div>
-                     </c:forEach>
+                   
                 </section>
             </div>
         </c:if>

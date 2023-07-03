@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
         <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
+        <jsp:useBean id="tr" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
         </head>
         <body>
             <div class="container-fluid">
@@ -134,14 +135,15 @@
                                 </tr>
                             </thead>
                             <c:forEach items="${f.appointmentFormHistory}" var="b" varStatus="counter" >
-                                <c:set var="trainer" value="${b.request_trainer_id}"></c:set>
+                                <c:set var="requestidd" value="${b.request_trainer_id}" />
+                                <c:set var="trainername" value="${not empty requestidd ? tr.getTrainerNameByRequestTrainerId(requestidd) : 'N/A'}" />
 
-                                    <tr>
-                                        <td class="id">${counter.count}</td>
+                                <tr>
+                                    <td class="id">${counter.count}</td>
                                     <td class="title">Basic Consultation Request</td>
-                                    <td class="customer">${b.customer_fullname}</td>
+                                    <td class="customer">${b.fullname}</td>
                                     <td class="customer">${b.duration} - ${b.date}</td>
-                                    <td class="customer">${not empty trainer ? b.request_trainer_id : 'N/A'}</td>
+                                    <td class="customer">${trainername}</td>
                                     <td class="customer">${b.dateSubmit}</td>
                                     <td>
                                         <div class="type">
