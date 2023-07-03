@@ -144,7 +144,7 @@
                                     <td class="customer">${b.dateSubmit}</td>
                                     <td>
                                         <div class="type">
-                                            <div class="onlineStatus ${b.type == 'online' ? 'online' : 'offline'}">${b.type}</div>
+                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
                                             <a href="MainController?action=view_Form_Processing&consultation_id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
                                         </div>
                                     </td>

@@ -124,7 +124,8 @@
                                                     <div class="right-side">
                                                         <span>Submitted: <b>${detail.dateSubmit}</b></span>
                                                         <span><b>ID : #${detail.consultation_id}</b></span>
-                                                        <span class="online">Type : ${detail.type}</span>
+                                                        <span class="<c:out value="${fn:toLowerCase(detail.type)}"/>">Type : ${detail.type}</span>
+                                                        <input type="hidden" id="formType" value="<c:out value="${fn:toLowerCase(detail.type)}"/>">
                                                     </div>
                                                 </div>
                                             </button>
@@ -204,30 +205,29 @@
                                                             <div class="row">
                                                                 <div class="col-lg-6">
                                                                     <div class="mb-5">
-                                                                        <label for="formtitle" class="form-label"
+                                                                        <label for="dateRequested" class="form-label"
                                                                                >Date & Time request</label
                                                                         >
                                                                         <input
                                                                             type="text"
                                                                             class="form-control"
-                                                                            id="formtitle"
+                                                                            id="dateRequested"
                                                                             placeholder="Form title"
-                                                                            value="${detail.date} - from ${detail.duration} to [SOON]"
+                                                                            value="${detail.date} - from ${detail.duration}"
                                                                             disabled
                                                                             />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div class="mb-5">
-                                                                        <label for="formtitle" class="form-label"
-                                                                               >Total price</label
+                                                                        <label for="priceHour" class="form-label"
+                                                                               >Pricing</label
                                                                         >
                                                                         <input
                                                                             type="text"
                                                                             class="form-control"
-                                                                            id="formtitle"
+                                                                            id="priceHour"
                                                                             placeholder="Form title"
-                                                                            value="$${detail.amount}"
                                                                             disabled
                                                                             />
                                                                     </div>
@@ -396,6 +396,17 @@
                 </div>
             </div>
         </div>
+        <!--                change price hour-->
+        <script>
+            const formType = document.getElementById("formType").value;
+            const priceHour = document.getElementById("priceHour");
+            if (formType === "online") {
+                priceHour.value = "$100/hour";
+            }
+            if (formType === "offline") {
+                priceHour.value = "$150/hour";
+            }
+        </script>
         <!--        calculate-->
         <script>
             function calculate() {

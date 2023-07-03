@@ -326,7 +326,7 @@
                                     type="hidden"
                                     />
                                 <!--submit current date-->
-                                <input type="hidden" name="DateSubmitt" id="DateSubmitInput">                                <!--submit price-->
+                                <input type="hidden" name="DateSubmitt" id="currentDate">                                <!--submit price-->
                                 <input type="text" name="price" id="priceSubmit" value="" hidden/>
                                 <!----------------------->
 
@@ -628,10 +628,6 @@
             function submitOnClose() {
                 form.submit();
             }
-        </script>
-        <script>
-            var currentDate = new Date().toISOString().split("T")[0];
-            document.getElementById("DateSubmitInput").value = currentDate;
         </script>
     </body>
 </html>

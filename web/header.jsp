@@ -68,7 +68,10 @@
                                         <li class="subnav-content <%= isPageActive(currentPage, "birdcourse.jsp")%>"><a href="birdcourse.jsp">Bird Course</a></li>
                                     </ul>
                                 </li>
-                                <li class="<%= isPageActive(currentPage, "blogs.jsp")%>"><a href="blogs.jsp">Blog</a></li>
+                                <li class="<%= isPageActive(currentPage, "blogs.jsp")%>
+                                    <%= isPageActive(currentPage, "blogDetail.jsp")%>
+                                    ">
+                                    <a href="blogs.jsp">Blog</a></li>
                                 <li class="<%= isPageActive(currentPage, "contact.jsp")%>"><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </div>
@@ -358,7 +361,10 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item py-2 py-sm-4 mask <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_List.jsp")%>">
+                            <li class="nav-item py-2 py-sm-4 mask
+                                <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_List.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_QuestionDetail.jsp")%>
+                                ">
                                 <a
                                     href="Staff_QuestionAndAnswer_List.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
