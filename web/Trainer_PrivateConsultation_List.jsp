@@ -111,7 +111,6 @@
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
                             Currently showing 2 pending form(s)
-                            ${sessionScope.LOGIN_USER.fullName}
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -138,13 +137,13 @@
                                 <tr>
                                     <td class="id">${counter.count}</td>
                                     <td class="title">Basic Consultation Request</td>
-                                    <td class="customer">${b.customer_fullname}</td>
+                                    <td class="customer">${b.fullname}</td>
                                     <td class="customer">${b.duration} - ${b.date}</td>
                                     <td class="customer">${sessionScope.LOGIN_USER.fullName}</td>
                                     <td class="customer">${b.dateSubmit}</td>
                                     <td>
                                         <div class="type">
-                                            <div class="onlineStatus ${b.type == 'online' ? 'online' : 'offline'}">${b.type}</div>
+                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
                                             <a href="MainController?action=view_form_byTrainer&consultation_id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
                                         </div>
                                     </td>

@@ -43,6 +43,7 @@ html {
     color: #617a55;
 }
 .body-container .section-head {
+    z-index: 0;
     position: relative;
     height: 87vh;
     width: 100%;

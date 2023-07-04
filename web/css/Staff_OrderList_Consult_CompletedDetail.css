@@ -27,8 +27,8 @@
 .form-head .navbar .navbar-nav .nav-item .nav-link:hover {
     color: #617A55;
 }
-.form-head .navbar .navbar-nav .active b{
-    color: #617A55;
+.form-head .navbar .navbar-nav .active a{
+    color: #617A55 !important;
 }
 
 .form-body .navbar {
@@ -57,7 +57,7 @@
     padding-right: 2.5rem;
     color: black;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 600;
 }
 .form-body .navbar form .search-container .input-group {
     height: 100%;

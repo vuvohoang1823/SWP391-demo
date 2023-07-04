@@ -72,13 +72,13 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Bird Course</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Private Consultant</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Contact Us</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -94,7 +94,8 @@
                                     <div class="right-side">
                                         <span>Submitted: <b>${detail.dateSubmit}</b></span>
                                         <span><b>ID : #${detail.consultation_id}</b></span>
-                                        <span class="online">Type : ${detail.type}</span>
+                                        <span class="<c:out value="${fn:toLowerCase(detail.type)}"/>">Type : ${detail.type}</span>
+                                        <input type="hidden" id="formType" value="<c:out value="${fn:toLowerCase(detail.type)}"/>">
                                     </div>
                                 </div>
                                 <form method="post" action="ConsultationUpdatePending">
@@ -169,32 +170,29 @@
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
-                                                        <label for="formtitle" class="form-label"
+                                                        <label for="dateRequested" class="form-label"
                                                                >Date & Time request</label
                                                         >
-
-
                                                         <input
                                                             type="text"
                                                             class="form-control"
-                                                            id="formtitle"
+                                                            id="dateRequested"
                                                             placeholder="Form title"
-                                                            value="${detail.date} - from ${detail.duration} to [SOON]"
+                                                            value="${detail.date} - from ${detail.duration}"
                                                             disabled
                                                             />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
-                                                        <label for="formtitle" class="form-label"
-                                                               >Total price</label
+                                                        <label for="priceHour" class="form-label"
+                                                               >Pricing</label
                                                         >
                                                         <input
                                                             type="text"
                                                             class="form-control"
-                                                            id="formtitle"
+                                                            id="priceHour"
                                                             placeholder="Form title"
-                                                            value="$${detail.amount}"
                                                             disabled
                                                             />
                                                     </div>
@@ -203,13 +201,13 @@
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
-                                                        <label for="formtitle" class="form-label"
+                                                        <label for="requestTitle" class="form-label"
                                                                >Request title</label
                                                         >
                                                         <input
                                                             type="text"
                                                             class="form-control"
-                                                            id="formtitle"
+                                                            id="requestTitle"
                                                             placeholder="Form title"
                                                             value="Basic Consultation Request"
                                                             disabled
@@ -291,7 +289,7 @@
                                                                                 </div>
                                                                                 <div class="modal-footer">
                                                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                                    <button type="button" class="btn btn-primary" id="saveTrainer" data-bs-dismiss="modal">Save changes</button>
+                                                                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="saveTrainer()">Save changes</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -370,7 +368,7 @@
                                                                                 </div>
                                                                                 <div class="modal-footer">
                                                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                                    <button type="button" class="btn btn-primary" id="saveTrainer" data-bs-dismiss="modal">Save changes</button>
+                                                                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="saveTrainer()">Save changes</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -415,9 +413,20 @@
                 </div>
             </div>
         </div>
+        <!--                change price hour-->
+        <script>
+            const formType = document.getElementById("formType").value;
+            const priceHour = document.getElementById("priceHour");
+            if (formType === "online") {
+                priceHour.value = "$100/hour";
+            }
+            if (formType === "offline") {
+                priceHour.value = "$150/hour";
+            }
+        </script>
+        <!--                check empty trainer-->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                const saveButton = document.getElementById("saveTrainer");
                 const inputTrainerName = document.getElementById("trainername");
                 const hiddenTrainerName = document.getElementById("hiddenTrainerName");
                 const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
@@ -430,15 +439,6 @@
                     const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
                     inputTrainerName.value = trainerName.split(": ")[1];
                 }
-                saveButton.addEventListener("click", function () {
-                    if (selectedTrainer.value === "none") {
-                        inputTrainerName.value = "";
-                    } else {
-                        const trainerLabel = selectedTrainer.nextElementSibling;
-                        const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
-                        inputTrainerName.value = trainerName.split(": ")[1];
-                    }
-                });
 
                 const form = document.querySelector("form");
                 form.addEventListener("submit", function (event) {
@@ -454,11 +454,21 @@
                 });
             });
         </script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-            crossorigin="anonymous"
-        ></script>
+        <!--        save trainer-->
+        <script>
+            function saveTrainer() {
+                const inputTrainerName = document.getElementById("trainername");
+                const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
+                if (selectedTrainer.value === "none") {
+                    inputTrainerName.value = "";
+                } else {
+                    const trainerLabel = selectedTrainer.nextElementSibling;
+                    const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
+                    inputTrainerName.value = trainerName.split(": ")[1];
+                }
+            }
+        </script>
+        <!--        time-->
         <script>
             var duration = '${detail.duration}'; // Assuming the format is HH:mm:ss
 
@@ -475,7 +485,12 @@
 
             var soonDuration = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
 
-            document.getElementById("formtitle").value = '${detail.date} - from ' + duration + ' to ' + soonDuration;
+            document.getElementById("dateRequested").value = '${detail.date} - from ' + duration + ' to ' + soonDuration;
         </script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"
+        ></script>
     </body>
 </html>

@@ -70,13 +70,13 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><b>Bird Course</b></a>
+                                            <a class="nav-link" href="#">Bird Course</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed"><b>Private Consultant</b></a>
+                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed">Private Consultant</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><b>Contact Us</b></a>
+                                            <a class="nav-link" href="#">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -94,7 +94,7 @@
                                         <div class="right-side">
                                             <span>Submitted: <b>${detail.dateSubmit}</b></span>
                                         <span><b>ID : #${detail.consultation_id}</b></span>
-                                        <span class="online">Type : ${detail.type}</span>
+                                        <span class="<c:out value="${fn:toLowerCase(detail.type)}"/>">Type : ${detail.type}</span>
                                     </div>
                                 </div>
                                 <form method="post" action="MainController">
@@ -169,28 +169,28 @@
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
-                                                        <label for="formtitle" class="form-label"
+                                                        <label for="dateRequested" class="form-label"
                                                                >Date & Time request</label
                                                         >
                                                         <input
                                                             type="text"
                                                             class="form-control"
-                                                            id="formtitle"
+                                                            id="dateRequested"
                                                             placeholder="Form title"
-                                                            value="${detail.date} - from ${detail.duration} to [SOON]"
+                                                            value="${detail.date} - from ${detail.duration}"
                                                             disabled
                                                             />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
-                                                        <label for="formtitle" class="form-label"
-                                                               >Total price</label
+                                                        <label for="priceHour" class="form-label"
+                                                               >Pricing</label
                                                         >
                                                         <input
                                                             type="text"
                                                             class="form-control"
-                                                            id="formtitle"
+                                                            id="priceHour"
                                                             placeholder="Form title"
                                                             value="$${detail.amount}"
                                                             disabled
@@ -277,7 +277,7 @@
 
             var soonDuration = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
 
-            document.getElementById("formtitle").value = '${detail.date} - from ' + duration + ' to ' + soonDuration;
+            document.getElementById("dateRequested").value = '${detail.date} - from ' + duration;
         </script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

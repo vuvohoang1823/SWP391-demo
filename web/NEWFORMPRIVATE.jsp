@@ -287,13 +287,13 @@
                                                                 <td>Online</td>
                                                                 <td>Remote/online sessions</td>
                                                                 <!-- change this -->
-                                                                <td id="onlinePrice">100.000</td>
+                                                                <td id="onlinePrice">100</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Offline</td>
                                                                 <td>In-person sessions</td>
                                                                 <!-- change this -->
-                                                                <td id="offlinePrice">150.000</td>
+                                                                <td id="offlinePrice">150</td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -326,7 +326,7 @@
                                     type="hidden"
                                     />
                                 <!--submit current date-->
-                                <input type="hidden" name="DateSubmitt" id="DateSubmitInput">                                <!--submit price-->
+                                <input type="hidden" name="DateSubmitt" id="currentDate">                                <!--submit price-->
                                 <input type="text" name="price" id="priceSubmit" value="" hidden/>
                                 <!----------------------->
 
@@ -488,9 +488,9 @@
 
             function updateConsultPrice() {
                 if (consultTypeOnline.checked) {
-                    consultPriceInput.value = priceOnline + "/hour";
+                    consultPriceInput.value = "$" + priceOnline + "/hour";
                 } else if (consultTypeOffline.checked) {
-                    consultPriceInput.value = priceOffline + "/hour";
+                    consultPriceInput.value = "$" + priceOffline + "/hour";
                 }
             }
 
@@ -628,10 +628,6 @@
             function submitOnClose() {
                 form.submit();
             }
-        </script>
-        <script>
-            var currentDate = new Date().toISOString().split("T")[0];
-            document.getElementById("DateSubmitInput").value = currentDate;
         </script>
     </body>
 </html>

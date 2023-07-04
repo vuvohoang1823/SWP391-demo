@@ -17,7 +17,7 @@
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                 <%@ include file="header.jsp"%>
-                <div class="col-md-8 col-lg-10 min-vh-100 p-0">
+                <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
                             <svg
@@ -115,7 +115,7 @@
                                     <th>Bird Type</th>
                                     <th>Request date</th>
                                     <th>Action</th>
-                                </tr> 
+                                </tr>
                             </thead>
                             <tbody>
                                 <c:forEach items="${a.pendingOrder}" var="order" varStatus="counter">
@@ -164,7 +164,7 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div> 
+                                        </div>
                                     </div>--%>
                                 </form>
                                 </tr>
