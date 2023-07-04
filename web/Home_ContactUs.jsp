@@ -71,7 +71,7 @@
                 </div>
                 <div class="card">
                     <div class="image-container">
-                        <img src="./img/contactUsCardImage.png" alt="Card Image" />
+                        <img src="./img/contactUsCardImage.png" alt="Card Image" draggable="false"/>
                     </div>
                     <div class="card-body">
                         <input
@@ -90,7 +90,7 @@
                     <div class="heading1">
                         <div class="logo-container">
                             <div class="logo-image">
-                                <img src=img/logo_black.png alt="page logo" />
+                                <img src=img/logo_black.png alt="page logo" draggable="false"/>
                             </div>
                             <div class="logo-text">
                                 <p style="margin: 0">BIRD</p>

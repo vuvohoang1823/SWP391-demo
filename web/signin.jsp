@@ -19,7 +19,7 @@
     </head>
     <body>
         <div class="container-fluid login-background">
-            <img src="img/loginbg.jpg" alt="" class="login-bg">
+            <img src="img/loginbg.jpg" alt="" class="login-bg" draggable="false">
             <div class="row login-box">
                 <div class="col-lg-6 logo-side">
                     <div class="logo-container">
@@ -30,21 +30,20 @@
                         </svg>
                         <p>BIRD<br /> TRAINING<br /> CENTER</p>
                     </div>
-                    <img src="img/img-logo.jpg" alt="">
-                    <div class="darken">
-                    </div>
+                    <img src="img/img-logo.jpg" style="filter: brightness(70%);" alt="" draggable="false">
                 </div>
                 <div class="col-lg-6 auth-side">
-                    <div class="close-btn">
-                        <a href="homepage.jsp">
-                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="close-btn d-flex">
+                        <div class="d-flex align-items-center" style="padding: 0.5rem 1rem; user-select: none">Back to home</div>
+                        <a href="homepage.jsp" style="height: 100%; background: #617a55; padding: 0.5rem;">
+                            <svg width="15" height="17" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M7.26332 19.221C7.79569 19.221 8.14725 18.8594 8.14725 18.3371C8.14725 18.0759 8.06689 17.8851 7.90617 17.7243L5.01332 14.9018L3.10485 13.2746L5.46533 13.375H18.2823C20.6227 13.375 21.5971 12.3003 21.5971 10.0302V4.0938C21.5971 1.75337 20.6227 0.779053 18.2823 0.779053H12.6573C12.1048 0.779053 11.7432 1.18084 11.7432 1.67301C11.7432 2.16522 12.1048 2.56697 12.6573 2.56697H18.2823C19.347 2.56697 19.8091 3.02905 19.8091 4.0938V10.0302C19.8091 11.125 19.347 11.5871 18.2823 11.5871H5.46533L3.10485 11.6875L5.01332 10.0603L7.90617 7.23775C8.06689 7.07704 8.14725 6.87612 8.14725 6.615C8.14725 6.10268 7.79569 5.73107 7.26332 5.73107C7.04235 5.73107 6.78117 5.84155 6.61043 6.0123L0.704161 11.8081C0.503289 11.9989 0.402832 12.2299 0.402832 12.4811C0.402832 12.7221 0.503289 12.9632 0.704161 13.1541L6.61043 18.9498C6.78117 19.1206 7.04235 19.221 7.26332 19.221Z"
-                                fill="black" />
+                                fill="white" />
                             </svg>
                         </a>
                     </div>
-                    <p>Unlock a World of Discovery.<br /> Train your Birds Now!</p>
+                    <p style="user-select: none">Unlock a World of Discovery.<br /> Train your Birds Now!</p>
                     <form class="form-control" action="MainController" method="POST">
                         <label for="">Username</label>
                         <input class="email" type="text" name="txtUsername" placeholder="Username" required>

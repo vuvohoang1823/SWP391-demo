@@ -148,57 +148,15 @@
                             </div>
                         </span>
                     </a>
-                    <div class="bg-white p-2">
-                        <ul class="nav nav-pills flex-column mt-4">
-                            <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "trainer_demo.jsp")%>
-                                ">
-                                <a
-                                    href="trainer_demo.jsp"
-                                    class="d-flex nav-link text-black"
-                                    >
-                                    <div class="d-flex align-items-center" style="margin: 3% 0;">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
-                                        <span class="fs-2 ms-3 d-none d-sm-inline">Workshops</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "trainer_trackingBirdCourse.jsp")%>
-                                ">
-                                <a
-                                    href="Trainer_Tracking"
-                                    class="d-flex nav-link text-black"
-                                    >
-                                    <div class="d-flex align-items-center" style="margin: 3% 0;">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M456 0c-48.6 0-88 39.4-88 88v29.2L12.5 390.6c-14 10.8-16.6 30.9-5.9 44.9s30.9 16.6 44.9 5.9L126.1 384H259.2l46.6 113.1c5 12.3 19.1 18.1 31.3 13.1s18.1-19.1 13.1-31.3L311.1 384H352c1.1 0 2.1 0 3.2 0l46.6 113.2c5 12.3 19.1 18.1 31.3 13.1s18.1-19.1 13.1-31.3l-42-102C484.9 354.1 544 280 544 192V128v-8l80.5-20.1c8.6-2.1 13.8-10.8 11.6-19.4C629 52 603.4 32 574 32H523.9C507.7 12.5 483.3 0 456 0zm0 64a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
-                                        <span class="fs-2 ms-3 d-none d-sm-inline">Bird Course</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "Trainer_PrivateConsultation_List.jsp")%>
-                                ">
-                                <a
-                                    href="Trainer_PrivateConsultation_List.jsp"
-                                    class="d-flex nav-link text-black"
-                                    >
-                                    <div class="d-flex align-items-center" style="margin: 3% 0;">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm40 304V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l44.9 74.7c-16.1 17.6-28.6 38.5-36.6 61.5c-1.9-1.8-3.5-3.9-4.9-6.3L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm0 240a24 24 0 1 0 0-48 24 24 0 1 0 0 48zM368 321.6V328c0 8.8 7.2 16 16 16s16-7.2 16-16v-6.4c0-5.3 4.3-9.6 9.6-9.6h40.5c7.7 0 13.9 6.2 13.9 13.9c0 5.2-2.9 9.9-7.4 12.3l-32 16.8c-5.3 2.8-8.6 8.2-8.6 14.2V384c0 8.8 7.2 16 16 16s16-7.2 16-16v-5.1l23.5-12.3c15.1-7.9 24.5-23.6 24.5-40.6c0-25.4-20.6-45.9-45.9-45.9H409.6c-23 0-41.6 18.6-41.6 41.6z"/></svg>
-                                        <span class="fs-2 ms-3 d-none d-sm-inline">Consultation</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                     <c:choose>
                         <c:when test="${empty user}">
                             <c:redirect url="signin.jsp" />
                         </c:when>
                         <c:otherwise>
                             <c:set var="fullname" value="${user.fullName}"></c:set>
-                                <div class="dropdown auth-section mt-auto mb-5 w-100">
+                                <div class="dropdown auth-section w-100 flex-column">
+                                    <div class="m-4 text-center" style="color: #617A55;
+                                         font-size: 20px; font-weight: 700;">Welcome</div>
                                     <button class="btn btn-secondary dropdown-toggle user-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span><svg width="16" height="16" viewBox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -215,6 +173,40 @@
                             </div>
                         </c:otherwise>
                     </c:choose>
+                    <div class="bg-white p-2">
+                        <ul class="nav nav-pills flex-column mt-4">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "homepage.jsp")%>
+                                ">
+                                <a
+                                    href="homepage.jsp"
+                                    class="d-flex nav-link text-black"
+                                    >
+                                    <div class="d-flex align-items-center" style="margin: 3% 0;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
+                                        <span class="fs-2 ms-3 d-none d-sm-inline">Dashboard</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "trainer_trackingBirdCourse.jsp")%>
+                                <%= isPageActive(currentPage, "Trainer_PrivateConsultation_List.jsp")%>
+                                <%= isPageActive(currentPage, "Trainer_PrivateConsultation_FormDetail.jsp")%>
+                                <%= isPageActive(currentPage, "Trainer_PrivateConsultation_Completed.jsp")%>
+                                <%= isPageActive(currentPage, "Trainer_PrivateConsultation_CompletedDetail.jsp")%>
+                                ">
+                                <a
+                                    href="Trainer_PrivateConsultation_List.jsp"
+                                    class="d-flex nav-link text-black"
+                                    >
+                                    <div class="d-flex align-items-center" style="margin: 3% 0;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M456 0c-48.6 0-88 39.4-88 88v29.2L12.5 390.6c-14 10.8-16.6 30.9-5.9 44.9s30.9 16.6 44.9 5.9L126.1 384H259.2l46.6 113.1c5 12.3 19.1 18.1 31.3 13.1s18.1-19.1 13.1-31.3L311.1 384H352c1.1 0 2.1 0 3.2 0l46.6 113.2c5 12.3 19.1 18.1 31.3 13.1s18.1-19.1 13.1-31.3l-42-102C484.9 354.1 544 280 544 192V128v-8l80.5-20.1c8.6-2.1 13.8-10.8 11.6-19.4C629 52 603.4 32 574 32H523.9C507.7 12.5 483.3 0 456 0zm0 64a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+                                        <span class="fs-2 ms-3 d-none d-sm-inline">Services</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </c:when>
 
@@ -303,7 +295,7 @@
                             <li class="nav-item py-2 py-sm-4
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_Completed.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_History.jsp")%>
-                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_CompleteDetail.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_CompletedDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_HistoryDetail.jsp")%>
                                 ">
                                 <a

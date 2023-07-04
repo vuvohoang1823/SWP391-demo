@@ -90,7 +90,7 @@
                         <div class="container-fluid" style="padding: 0 2.5%">
                             <div class="forms-container">
                                 <div class="forms-header">
-                                    <div class="left-side"><b>Form Details</b></div>
+                                    <div class="left-side"><b>Form Detail</b></div>
                                     <div class="right-side">
                                         <span>Submitted: <b>${detail.dateSubmit}</b></span>
                                         <span><b>ID : #${detail.consultation_id}</b></span>

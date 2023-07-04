@@ -51,10 +51,10 @@
                                     fill="black"
                                     />
                                 </svg>
-                                <span style="padding-left: 2rem">Order List</span>
+                                <span style="padding-left: 2rem">Services</span>
                             </div>
                             <div class="navbar navbar-expand-lg navbar-light">
-                                <a href="Staff_OrderList_Consult_History.jsp">
+                                <a href="Trainer_PrivateConsultation_Completed.jsp">
                                     <div style="
                                          position: absolute;
                                          top: 35%;
@@ -69,13 +69,13 @@
                                     <div class="" id="navbarSupportedContent">
                                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
+                                                <a class="nav-link" href="#">Bird Course</a>
                                             </li>
                                             <li class="nav-item active">
-                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
+                                                <a class="nav-link" href="Trainer_PrivateConsultation_FormDetail.jsp">Private Consultant</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
+                                                <a class="nav-link" href="#">Workshops</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -89,7 +89,7 @@
                             <div class="container-fluid" style="padding: 0 2.5%">
                                 <div class="forms-container">
                                     <div class="forms-header">
-                                        <div class="left-side"><b>Form Detail</b></div>
+                                        <div class="left-side"><b>Services</b></div>
                                         <div class="right-side">
                                             <span>Submitted: <b>${detail.dateSubmit}</b></span>
                                         <span><b>ID : #${detail.consultation_id}</b></span>

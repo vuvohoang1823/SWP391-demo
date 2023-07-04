@@ -51,6 +51,9 @@ html {
     justify-content: center;
     background-color: #b8c6c2;
 }
+.body-container .section-head img {
+    filter: brightness(70%) saturate(150%);
+}
 .body-container .section-head .search-bar {
     display: flex;
     position: absolute;
@@ -198,12 +201,13 @@ html {
     height: 550px;
 }
 .body-container .section-more .blogs-container {
-    padding: 4rem 1rem 4rem 8rem;
+
 }
 .body-container .section-more .blogs-container:hover .blogs-slider::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.144);
 }
 .body-container .section-more .blogs-container .blogs-slider {
+    padding: 4rem 1rem 1rem 8rem;
     display: flex;
     overflow-x: scroll;
 }
@@ -212,6 +216,7 @@ html {
     height: 8px;
 }
 .body-container .section-more .blogs-container .blogs-slider::-webkit-scrollbar-track {
+    margin: 0 7rem;
     background-color: #dde6f1;
 }
 .body-container .section-more .blogs-container .blogs-slider::-webkit-scrollbar-thumb {
@@ -246,6 +251,10 @@ html {
     padding: 2rem;
     font-size: 1.5rem;
 }
+.body-container .section-more .blogs-container .blogs-slider .blog .desc-container .blog-description {
+    height: 100px;
+    line-height: 2rem;
+}
 .body-container .section-more .blogs-container .blogs-slider .blog .desc-container div {
     padding-bottom: 2rem;
 }
@@ -256,6 +265,9 @@ html {
 .body-container .section-more .blogs-container .blogs-slider .blog .desc-container .date-time span {
     font-weight: 200;
     margin-right: 2rem;
+}
+.body-container .section-more .blogs-container .blogs-slider .blog .desc-container .button-container {
+    padding-top: 4rem;
 }
 .body-container .section-more .blogs-container .blogs-slider .blog .desc-container .button-container button {
     color: white;

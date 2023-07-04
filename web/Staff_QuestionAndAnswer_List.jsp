@@ -112,6 +112,7 @@
                                     <td>Question message</td>
                                 </tr>
                             </thead>
+                            <!--loop start-->
                             <tr>
                                 <td class="id">1</td>
                                 <td class="title">
@@ -131,6 +132,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            <!--loop end-->
                         </table>
                     </section>
                 </div>
