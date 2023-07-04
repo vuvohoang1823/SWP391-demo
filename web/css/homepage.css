@@ -20,12 +20,14 @@
 .home-container .image-container:hover .image-slider::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.144); }
 .home-container .image-container .image-slider {
+    padding: 0 2rem;
     display: flex;
     overflow-x: scroll;}
 .home-container .image-container .image-slider::-webkit-scrollbar {
     width: 8px;
     height: 8px; }
 .home-container .image-container .image-slider::-webkit-scrollbar-track {
+    margin: 0 4rem;
     background-color: #dde6f1; }
 .home-container .image-container .image-slider::-webkit-scrollbar-thumb {
     background-color: #dde6f1;
@@ -214,6 +216,7 @@
 .home-container .section-testimonial .image-container {
     margin-top: 3%; }
 .home-container .section-testimonial .image-container .image-slider .image-wrapper {
+    height: 511px;
     flex: 0 0 25%;
     background-color: white;
     text-align: center;
@@ -221,30 +224,27 @@
     padding-bottom: 3%; }
 .home-container .section-testimonial .image-container .image-slider .image-wrapper img {
     border-radius: 100%;
-    width: 30%;
+    width: 134px;
     height: 100%;
     object-fit: contain;
     object-position: center; }
-.home-container .section-testimonial .image-container .image-slider .image-wrapper .desc h1 {
-    margin-top: 7%;
-    font-size: 3rem;
+.home-container .section-testimonial .image-container .image-slider .image-wrapper .desc {
+    font-size: 1.7rem;
 }
 .home-container .section-testimonial .image-container .image-slider .image-wrapper .desc .desc-container {
-    font-size: 1.7rem;
+    font-weight: 700;
+    font-size: 3rem;
     margin-top: 10%;
     display: flex;
     justify-content: center; }
-.home-container .section-testimonial .image-container .image-slider .image-wrapper .desc .desc-container p {
-    width: 90%; }
-
 
 .home-container .section-foot .desc-container {
+    font-size: 3rem;
     margin-top: 2%;
     display: flex;
     justify-content: center;
     text-align: center; }
 .home-container .section-foot .desc-container div {
-    font-size: 3rem;
     width: 50%; }
 .home-container .section-foot .button-container {
     display: flex;

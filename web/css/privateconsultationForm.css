@@ -197,7 +197,7 @@ html {
     display: flex;
     justify-content: center;
 }
-.section-contactUs .right .form-container .button-container button {
+.section-contactUs .right .form-container .button-container .submit-button {
     font-size: 2rem;
     font-weight: bold;
     border: 0;

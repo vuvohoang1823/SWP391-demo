@@ -27,8 +27,8 @@
 .form-head .navbar .navbar-nav .nav-item .nav-link:hover {
     color: #617A55;
 }
-.form-head .navbar .navbar-nav .active b{
-    color: #617A55;
+.form-head .navbar .navbar-nav .active .nav-link{
+    color: #617A55 !important;
 }
 
 .form-body .navbar {

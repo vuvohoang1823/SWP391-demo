@@ -334,14 +334,10 @@
                                 <c:set var="user" value="${sessionScope.LOGIN_USER}"></c:set>
                                 <c:choose>
                                     <c:when test="${empty user}">
-                                        <a href ="signin.jsp">
-                                            <button   type="button" class="btn btn-primary w-100" >
-                                                Login to Submit Form
-                                            </button>
-                                        </a>
+                                        <div class="fs-1 fw-bold text-center p-3">Please <a href="signin.jsp" class="color-blue">Login</a> to Submit Form</div>
                                     </c:when>
                                     <c:otherwise>
-                                        <button  name="action" type="button"  value="Submit Form"  class="btn btn-primary w-100" onclick="validateForm(event)">
+                                        <button  name="action" type="button"  value="Submit Form"  class="btn btn-primary w-100 submit-button" onclick="validateForm(event)">
                                             Submit form
                                         </button>
                                     </c:otherwise>
