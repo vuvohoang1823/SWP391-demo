@@ -72,10 +72,10 @@
                                                 <a class="nav-link" href="#">Bird Course</a>
                                             </li>
                                             <li class="nav-item active">
-                                                <a class="nav-link" href="Trainer_PrivateConsultation_FormDetail.jsp">Private Consultant</a>
+                                                <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">Private Consultant</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#">Workshops</a>
+                                                <a class="nav-link" href="Trainer_Workshop_FormList.jsp">Workshop</a>
                                             </li>
                                         </ul>
                                     </div>
