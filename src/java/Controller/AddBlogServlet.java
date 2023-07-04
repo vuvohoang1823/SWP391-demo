@@ -71,7 +71,7 @@ public class AddBlogServlet extends HttpServlet {
        int blog_id = dao.GenerateBlogID();
        String blog_id_string = String.valueOf(blog_id);
         dao.CreateBlog(blog_id_string,dateSql , thumbnailBase64, title, author, introduction, content1, content2, contentIMGBase64, briefinfo);
-        request.getRequestDispatcher("AddBlog.jsp").forward(request, response);
+        request.getRequestDispatcher("Staff_AddBlog.jsp").forward(request, response);
         
     
     }
