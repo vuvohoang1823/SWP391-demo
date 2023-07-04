@@ -247,7 +247,9 @@
                     </a>
                     <div class="bg-white p-2">
                         <ul class="nav nav-pills flex-column mt-4">
-                            <li class="nav-item py-2 py-sm-4 <%= isPageActive(currentPage, "homepage.jsp")%>">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "homepage.jsp")%>
+                                ">
                                 <a
                                     href="#"
                                     class="d-flex d-sm-flex nav-link text-black"
@@ -263,9 +265,9 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "Staff_ConsultationForm_ending.jsp")%>
-                                <%= isPageActive(currentPage, "Staff_ConsultationForm_Proessing.jsp")%>
-                                <%= isPageActive(currentPage, "Staff_ConsultationForm_ForDetail.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_ConsultationForm_Pending.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_ConsultationForm_Processing.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_ConsultationForm_FormDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_ConsultationForm_FormDetail_Approved.jsp")%>
                                 ">
                                 <a
@@ -299,8 +301,8 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_Copleted.jsp")%>
-                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_istory.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_Completed.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_History.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_CompleteDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_HistoryDetail.jsp")%>
                                 ">
@@ -371,7 +373,7 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "Staff_QuestionAndAnswr_List.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_List.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_QuestionDetail.jsp")%>
                                 ">
                                 <a

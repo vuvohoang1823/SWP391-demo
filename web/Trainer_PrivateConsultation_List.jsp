@@ -111,7 +111,6 @@
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
                             Currently showing 2 pending form(s)
-                            ${sessionScope.LOGIN_USER.fullName}
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
