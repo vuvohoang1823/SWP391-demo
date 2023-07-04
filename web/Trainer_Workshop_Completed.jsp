@@ -38,13 +38,12 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
-        <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
-        </head>
-        <body>
-            <div class="container-fluid">
-                <div class="row flex-nowrap">
-                    <!--            header-->
+        <link rel="stylesheet" href="css/Trainer_Workshop_Completed.css" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <!--            header-->
                 <%@ include file="header.jsp" %>
 
                 <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
@@ -79,10 +78,10 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Bird Course</a>
                                         </li>
-                                        <li class="nav-item active">
+                                        <li class="nav-item">
                                             <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">Private Consultant</a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item active">
                                             <a class="nav-link" href="Trainer_Workshop_FormList.jsp">Workshop</a>
                                         </li>
                                     </ul>
@@ -99,11 +98,11 @@
                             <form class="form-inline my-2 my-lg-0">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">In-progress</a>
-                                        </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Trainer_PrivateConsultation_Completed.jsp">Completed</a>
+                                            <a class="nav-link" href="Trainer_Workshop_FormList.jsp">In-progress</a>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="Trainer_Workshop_Completed.jsp">Completed</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -128,47 +127,43 @@
                                 </div>
                             </form>
                         </nav>
-                        <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing 2 pending form(s)
+                        <div class="d-flex justify-content-center" style="font-size: 2rem; padding: 3rem 0;">
+                            Currently showing 1 available item(s)
                         </div>
-                        <table
-                            class="w3-table-all w3-hoverable w3-card-4 table-form"
-                            style="width: 97.5%; margin: 0 auto"
-                            >
-                            <thead>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Customer</td>
-                                    <td>Appointment date request</td>
-                                    <td>Trainer request</td>
-                                    <td>Submitted date</td>
-                                    <td>
-                                        <div style="display: flex; justify-content: space-around;">
-                                            <div style="padding-right: 11rem; height: 100%;">Type</div>
-                                            <div style="height: 100%;"></div>
+                        <section class="section-workshops">
+                            <div class="container">
+                                <div class="row">
+                                    <!--start loop-->
+                                    <div class="col-lg-12 d-flex justify-content-center mb-5">
+                                        <div class="card">
+                                            <div class="row no-gutters">
+                                                <div class="col-md-3">
+                                                    <img
+                                                        src="img/homeWorkshops.png"
+                                                        class="card-img"
+                                                        alt="Product Image 1"
+                                                        />
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">
+                                                            Birds of Prey Workshop
+                                                        </h5>
+                                                        <div class="card-text">
+                                                            <b>Starting date:</b> May 25. 2023 <br />
+                                                            <b>Participants:</b> 20 <br />
+                                                            <b>Time:</b> 2:00 PM - 4:00 PM <br />
+                                                            <b>Location/Venue:</b> Central Community Center <br />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </td>
-                                </tr>
-                            </thead>
-                            <c:set var="trainerId" value="<%=trainerID%>"></c:set>
-                            <c:forEach items="${f.getAppointmentListBYTrainerID(trainerId)}" var="b" varStatus="counter" >
-                                <tr>
-                                    <td class="id">${counter.count}</td>
-                                    <td class="title">Basic Consultation Request</td>
-                                    <td class="customer">${b.fullname}</td>
-                                    <td class="customer">${b.duration} - ${b.date}</td>
-                                    <td class="customer">${sessionScope.LOGIN_USER.fullName}</td>
-                                    <td class="customer">${b.dateSubmit}</td>
-                                    <td>
-                                        <div class="type">
-                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
-                                            <a href="MainController?action=view_form_byTrainer&consultation_id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </table>
+                                    </div>
+                                    <!--end loop-->
+                                </div>
+                            </div>
+                        </section>
                     </section>
                 </div>
             </div>

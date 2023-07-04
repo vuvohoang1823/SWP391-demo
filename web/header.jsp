@@ -129,7 +129,7 @@
                     >
                     <a
                         href="#"
-                        class="d-flex text-decoration-none align-items-center text-white nav-logo logo-container"
+                        class="d-flex text-decoration-none align-items-center text-white nav-logo mb-4 logo-container"
                         >
                         <span class="d-block d-sm-none w-auto">
                             <img src=./img/logo_white.png alt="page logo" style="width:
@@ -155,8 +155,7 @@
                         <c:otherwise>
                             <c:set var="fullname" value="${user.fullName}"></c:set>
                                 <div class="dropdown auth-section w-100 flex-column">
-                                    <div class="m-4 text-center" style="color: #617A55;
-                                         font-size: 20px; font-weight: 700;">Welcome</div>
+                                    <div class="m-4 text-center" style="color: #617A55; font-size: 20px; font-weight: 700;">Welcome</div>
                                     <button class="btn btn-secondary dropdown-toggle user-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span><svg width="16" height="16" viewBox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -174,16 +173,20 @@
                         </c:otherwise>
                     </c:choose>
                     <div class="bg-white p-2">
-                        <ul class="nav nav-pills flex-column mt-4">
+                        <ul class="nav nav-pills flex-column mt-5">
                             <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "homepage.jsp")%>
+                                <%= isPageActive(currentPage, "Trainer_Dashboard.jsp")%>
                                 ">
                                 <a
-                                    href="homepage.jsp"
+                                    href="Trainer_Dashboard.jsp"
                                     class="d-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
+                                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 19V7" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M20 7H1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1 6.976C1 2.05476 2.11336 1 7.308 1H13.692C18.8866 1 20 2.05476 20 6.976V13.024C20 17.9452 18.8866 19 13.692 19H7.308C2.11336 19 1 17.9452 1 13.024V6.976Z" stroke="black" stroke-width="2"/>
+                                        </svg>
                                         <span class="fs-2 ms-3 d-none d-sm-inline">Dashboard</span>
                                     </div>
                                 </a>
@@ -194,14 +197,42 @@
                                 <%= isPageActive(currentPage, "Trainer_PrivateConsultation_FormDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Trainer_PrivateConsultation_Completed.jsp")%>
                                 <%= isPageActive(currentPage, "Trainer_PrivateConsultation_CompletedDetail.jsp")%>
+                                <%= isPageActive(currentPage, "Trainer_Workshop_FormList.jsp")%>
+                                <%= isPageActive(currentPage, "Trainer_Workshop_Completed.jsp")%>
                                 ">
                                 <a
                                     href="Trainer_PrivateConsultation_List.jsp"
                                     class="d-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M456 0c-48.6 0-88 39.4-88 88v29.2L12.5 390.6c-14 10.8-16.6 30.9-5.9 44.9s30.9 16.6 44.9 5.9L126.1 384H259.2l46.6 113.1c5 12.3 19.1 18.1 31.3 13.1s18.1-19.1 13.1-31.3L311.1 384H352c1.1 0 2.1 0 3.2 0l46.6 113.2c5 12.3 19.1 18.1 31.3 13.1s18.1-19.1 13.1-31.3l-42-102C484.9 354.1 544 280 544 192V128v-8l80.5-20.1c8.6-2.1 13.8-10.8 11.6-19.4C629 52 603.4 32 574 32H523.9C507.7 12.5 483.3 0 456 0zm0 64a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+                                        <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 10H13" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M1 5.22222C1 3.23185 1 2.23666 1.6224 1.61833C2.24479 1 3.24653 1 5.25 1H13.75C15.7534 1 16.7552 1 17.3776 1.61833C18 2.23666 18 3.23185 18 5.22222V13.6667C18 16.6522 18 18.145 17.0664 19.0725C16.1328 20 14.6302 20 11.625 20H7.375C4.36979 20 2.8672 20 1.9336 19.0725C1 18.145 1 16.6522 1 13.6667V5.22222Z" stroke="#33363F" stroke-width="2"/>
+                                        <path d="M13 17V20M6 17V20" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M6 6H13" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
                                         <span class="fs-2 ms-3 d-none d-sm-inline">Services</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li><hr style="border: 1px solid black" /></li>
+                            <li class="nav-item py-2 py-sm-4">
+                                <a
+                                    href="LogoutController"
+                                    class="d-flex nav-link text-black"
+                                    >
+                                    <div class="d-flex align-items-center" style="margin: 3% 0;">
+                                        <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_2147_395)">
+                                        <path d="M23.034 10.3201L8.95667 10.3201C8.50735 10.3201 8.14417 10.6281 8.14417 11.0076C8.14417 11.3871 8.50735 11.6951 8.95667 11.6951L22.9837 11.6951L20.0449 14.1818C19.7272 14.4499 19.7272 14.8857 20.0449 15.1539C20.3625 15.422 20.8769 15.422 21.1937 15.1539L25.9932 10.9862L21.1937 6.81794C21.0345 6.68388 20.8273 6.6165 20.6193 6.6165C20.4113 6.6165 20.2041 6.68388 20.0449 6.81794C19.7272 7.08606 19.7272 7.52125 20.0449 7.79006L23.034 10.3201ZM1.63441 22H15.4469C16.3447 22 17.0719 21.3847 17.0719 20.625V14.4375H15.4364L15.4364 19.7862C15.4364 20.2455 14.996 20.6181 14.4532 20.6181H2.65329C2.10973 20.6181 1.67016 20.2455 1.67016 19.7862L1.64417 2.2055C1.64417 1.74625 2.08373 1.37362 2.62729 1.37362H14.4516C14.9944 1.37362 15.4347 1.74625 15.4347 2.2055L15.4347 7.5845L17.0703 7.58244L17.0703 1.37431C17.0703 0.614626 16.3431 -0.000686646 15.4453 -0.000686646H1.6336C0.73579 -0.000686646 0.00778961 0.614626 0.00778961 1.37431L0.00778961 20.6243C0.00778961 21.384 0.73579 21.9993 1.63279 21.9993L1.63441 22Z" fill="black"/>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_2147_395">
+                                            <rect width="26" height="22" fill="white" transform="matrix(-1 0 0 -1 26 22)"/>
+                                        </clipPath>
+                                        </defs>
+                                        </svg>
+                                        <span class="fs-2 ms-3 d-none d-sm-inline">Logout</span>
                                     </div>
                                 </a>
                             </li>
@@ -341,6 +372,7 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "Staff_AddBlog.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_list_ofblog.jsp")%>
                                 ">
                                 <a

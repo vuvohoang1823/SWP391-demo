@@ -591,11 +591,7 @@ public class FormApppointmentDAO implements Serializable {
         String sql = " SELECT appointment.customer_id, appointment.consultation_id, customer.fullname AS customer_fullname, appointment.date, appointment.note, appointment.address, appointment.type, appointment.status,appointment.Request_trainer_id, appointment.duration , appointment.DateSubmit,appointment.amount,appointment.fullname,appointment.gmail,appointment.contact\n"
                 + "              FROM tbl_appointment appointment\n"
                 + "              JOIN tbl_customer customer ON customer.customer_id = appointment.customer_id\n"
-<<<<<<< HEAD
-                + "              WHERE appointment.trainer_id = ? AND appointment.Request_trainer_id IS NOT NULL AND appointment.status IS NOT  NULL AND trainer_id IS NOT NULL and  appointment.amount  = 0 ORDER BY appointment.consultation_id DESC";
-=======
                 + "              WHERE appointment.trainer_id = ? AND appointment.Request_trainer_id IS NOT NULL AND appointment.status IS NOT  NULL AND trainer_id IS NOT NULL and  appointment.amount  = 0  ORDER BY appointment.consultation_id DESC ";
->>>>>>> 98c9016c04a3aad27b7d6904b613f49bb169f33d
 
         try {
             con = db.getConnection();

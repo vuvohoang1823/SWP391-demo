@@ -141,25 +141,10 @@
                 </div>
             </div>
         </div>
-        <!--
-            <script>
-                const thumbnailInput = document.getElementById('thumbnail');
-                const thumbnailPreview = document.getElementById('preview-image');
-
-                thumbnailInput.addEventListener('change', function(event) {
-                    const file = event.target.files[0];
-                    const reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        thumbnailPreview.src = e.target.result;
-                        thumbnailPreview.style.opacity = 1;
-                        document.getElementById('choose-image').style.opacity = 0;
-                    };
-
-                    if (file) {
-                        reader.readAsDataURL(file);
-                    }
-                });
-            </script>-->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"
+        ></script>
     </body>
 </html>

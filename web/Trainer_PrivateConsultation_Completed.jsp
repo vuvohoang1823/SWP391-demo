@@ -63,10 +63,10 @@
                                             <a class="nav-link" href="#">Bird Course</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Private Consultant</a>
+                                            <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">Private Consultant</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Workshops</a>
+                                            <a class="nav-link" href="Trainer_Workshop_FormList.jsp">Workshop</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -75,7 +75,7 @@
                     </section>
                     <section class="form-body">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <div class="navbar-brand">Form status:</div>
+                            <div class="navbar-brand">Service status:</div>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
