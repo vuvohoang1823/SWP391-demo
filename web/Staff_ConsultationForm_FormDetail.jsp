@@ -72,13 +72,13 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Bird Course</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Private Consultant</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Contact Us</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>

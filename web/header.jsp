@@ -356,8 +356,11 @@
                                             fill="black"
                                             />
                                         </svg>
+                                        <!---->                                     <!--change--->
+                                        <a href="AddBlog.jsp"> <span class="fs-2 ms-3 d-none d-sm-inline">Blogs</span></a>
+                                        <!---->                                                
+                                        <!---->                                               
 
-                                        <span class="fs-2 ms-3 d-none d-sm-inline">Blogs</span>
                                     </div>
                                 </a>
                             </li>

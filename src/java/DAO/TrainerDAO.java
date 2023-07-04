@@ -178,7 +178,7 @@ public class TrainerDAO implements Serializable {
                 stm.setString(1, trainer_id);
                 rs = stm.executeQuery();
                 if (rs.next()) {
-//                    
+//
                     trainer = new Trainer(rs.getInt(1),
                             rs.getInt(2),
                             rs.getString(3),
@@ -276,7 +276,7 @@ public class TrainerDAO implements Serializable {
 //                + "                        Join tbl_skill as S ON s.skill_id = K.skill_id\n"
 //                + "						where T.status = 'available'";
 
-        String sql = "SELECT T.trainer_id, T.user_id, T.fullname, T.achievement, T.img, T.status, T.contact,\n"
+        String sql = "SELECT top 8 T.trainer_id, T.user_id, T.fullname, T.achievement, T.img, T.status, T.contact,\n"
                 + "                       STRING_AGG(K.skill_id, ',') AS skill_ids,\n"
                 + "                       STRING_AGG(S.name, ',') AS skill_names\n"
                 + "               FROM tbl_trainer AS T\n"
@@ -420,19 +420,20 @@ public class TrainerDAO implements Serializable {
         return fullname;
 
     }
+
     public void setWorkshopComplete(String trainer_id) throws ClassNotFoundException, SQLException {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "UPDATE a\n" +
-                    "SET a.status = 'Complete'\n" +
-                    "FROM tbl_attendance AS a\n" +
-                    "JOIN tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n" +
-                    "JOIN tbl_course AS c ON c.course_id = t.course_id\n" +
-                    "JOIN tbl_courseImg AS i ON c.course_id = i.course_id\n" +
-                    "WHERE c.trainer_id = ?\n" +
-                    "AND a.status = 'In progress';";
+        String sql = "UPDATE a\n"
+                + "SET a.status = 'Complete'\n"
+                + "FROM tbl_attendance AS a\n"
+                + "JOIN tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n"
+                + "JOIN tbl_course AS c ON c.course_id = t.course_id\n"
+                + "JOIN tbl_courseImg AS i ON c.course_id = i.course_id\n"
+                + "WHERE c.trainer_id = ?\n"
+                + "AND a.status = 'In progress';";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);

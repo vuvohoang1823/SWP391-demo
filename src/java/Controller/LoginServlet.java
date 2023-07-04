@@ -9,6 +9,7 @@ import DAO.CustomerDAO;
 import DAO.TrainerDAO;
 import DAO.UserDAO;
 import entity.CustomerDTO;
+import entity.StaffDTO;
 import entity.Trainer;
 import entity.TrainerSP;
 import entity.UserDTO;
@@ -83,6 +84,8 @@ public class LoginServlet extends HttpServlet {
                     url = "Trainer_PrivateConsultation_List.jsp";
                      // url = "Trainer_Tracking";
                 } else if (user.getRole().equals("staff")) {
+                    UserDAO staffdao = new UserDAO();
+                    StaffDTO staff = staffdao.getStaffInfo(user.getUser_id());
                     session.setAttribute("LOGIN_USER", user);
                     //add thg staff de log out
                    url = "Staff_ConsultationForm_Pending.jsp";

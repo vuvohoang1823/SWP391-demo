@@ -60,13 +60,13 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><b>Bird Course</b></a>
+                                            <a class="nav-link" href="#">Bird Course</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp"><b>Private Consultant</b></a>
+                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Private Consultant</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#"><b>Contact Us</b></a>
+                                            <a class="nav-link" href="#">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -83,10 +83,10 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp"><b>Completed</b></a>
+                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Completed</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_History.jsp"><b>History</b></a>
+                                            <a class="nav-link" href="Staff_OrderList_Consult_History.jsp">History</a>
                                         </li>
                                     </ul>
                                 </div>

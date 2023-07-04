@@ -138,7 +138,7 @@
                                 <tr>
                                     <td class="id">${counter.count}</td>
                                     <td class="title">Basic Consultation Request</td>
-                                    <td class="customer">${b.customer_fullname}</td>
+                                    <td class="customer">${b.fullname}</td>
                                     <td class="customer">${b.duration} - ${b.date}</td>
                                     <td class="customer">${sessionScope.LOGIN_USER.fullName}</td>
                                     <td class="customer">${b.dateSubmit}</td>

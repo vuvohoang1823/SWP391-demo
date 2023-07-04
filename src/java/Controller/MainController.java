@@ -34,6 +34,7 @@ public class MainController extends HttpServlet {
     private final String FORMBIRDCOURSE = "";
     private final String REGISTER = "RegistrationServlet";
     private final String BLOGDETAIL = "BlogDetail";
+    private final String ADDBLOG = "AddBlogServlet";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -100,6 +101,8 @@ public class MainController extends HttpServlet {
                 url = REGISTER;
             } else if(button.equals("view_blog_detail")){
                 url  = BLOGDETAIL;
+            } else if(button.equals("add_blog")){
+                url  =ADDBLOG;
             }
             }finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
