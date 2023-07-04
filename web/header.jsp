@@ -341,10 +341,10 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "Staff_AddBlog.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_list_ofblog.jsp")%>
                                 ">
                                 <a
-                                    href="Staff_AddBlog.jsp"
+                                    href="Staff_list_ofblog.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
