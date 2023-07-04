@@ -121,7 +121,7 @@
             </div>
              <div class="form-group">
                 <label for="thumbnail">Thumbnail:</label>
-                <input type="file"  name="thumbnail" class="form-control"  value=""/><img  src="data:images/jpg;base64,${detail.thumbnail}" height="50px" width="50px" alt="">
+                <input type="file"  name="thumbnail" class="form-control"  /><img  src="data:images/jpg;base64,${detail.thumbnail}" height="50px" width="50px" alt="">
             </div>
             <div class="form-group">
                 <label for="content1">Content 1:</label>

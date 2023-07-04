@@ -76,7 +76,7 @@
                 </c:forEach>
             </tbody>
         </table>
-            <a href="AddBlog.jsp"> Add BLog</a>
+            <a href="Staff_AddBlog.jsp"> Add BLog</a>
 <script>
     function confirmDelete(event) {
         event.preventDefault(); // Prevent the form from submitting immediately
