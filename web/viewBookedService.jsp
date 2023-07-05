@@ -22,7 +22,7 @@
         </div>
         <div class="row body-navigation">
             <ul>
-                <li><a href="">Online Courses</a></li>
+                <li><a href="viewBookedService_onlineCourse.jsp">Online Courses</a></li>
                 <li><a href="">Bird Courses</a></li>
                 <li><a href="viewBookedService_ws_inprogress.jsp">Workshops</a></li>
             </ul>

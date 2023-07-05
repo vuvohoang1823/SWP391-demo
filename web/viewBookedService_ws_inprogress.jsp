@@ -22,15 +22,16 @@
             <div class="row tab-nav">
                 <ul class="service-nav">
                     <li><a href="">Bird Courses</a></li>
-                    <li><a href="">Online Courses</a></li>
-                    <li><a href="">Workshops</a></li>
+                    <li><a href="viewBookedService_onlineCourse.jsp">Online Courses</a></li>
+                    <li><a href="viewBookedService_ws_inprogress.jsp">Workshops</a></li>
+                    <li><a href="">Private Consultant</a></li>
                 </ul>
             </div>
             <div class="filter-search">
                 <div class="filter-side">
                     <ul class="filter-option">
-                        <li><a href="">In-progress</a></li>
-                        <li><a href="">Completed</a></li>
+                        <li><a href="viewBookedService_ws_inprogress.jsp">In-progress</a></li>
+                        <li><a href="viewBookedService_ws_completed.jsp">Completed</a></li>
                     </ul>
                 </div>
                 <div class="search-side">
@@ -48,7 +49,7 @@
             <div class="show-result">
                 <div class="search-card">
                     <div class="card">
-                        <img src="img/ws1.jpg" alt="" class="card-img">
+                        <img src="img/bird.jpg" alt="" class="card-img">
                         <div class="card-content">
                             <div class="header">
                                 <p>Harness Training Workshop:<br />
@@ -79,7 +80,7 @@
                 </div>
                 <div class="search-card">
                     <div class="card">
-                        <img src="img/ws1.jpg" alt="" class="card-img">
+                        <img src="img/bird.jpg" alt="" class="card-img">
                         <div class="card-content">
                             <div class="header">
                                 <p>Harness Training Workshop:<br />

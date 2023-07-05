@@ -79,10 +79,10 @@
                             <form class="form-inline my-2 my-lg-0">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item active">
+                                        <li class="nav-item">
                                             <a class="nav-link" href="Staff_list_ofblog.jsp">Active</a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item active">
                                             <a class="nav-link" href="Staff_list_ofblog_unactive.jsp">Not active</a>
                                         </li>
                                     </ul>
@@ -122,7 +122,7 @@
                                     <td>Author</td>
                                     <td>Content</td>
                                     <td>Date submit</td>
-                                    <td style="padding-left: 2.5%">Actions</td>
+                                    <td>Actions</td>
                                 </tr>
                             </thead>
                             <c:forEach var="card" items="${b.lisofBlog}">
@@ -133,33 +133,10 @@
                                     <td class="title blog-description">${card.introduction}</td>
                                     <td class="title">${card.date}</td>
                                     <td>
-                                        <div class="type">
-                                            <form action="UpdateBlogServlet" method="post" style="display: inline;">
-                                                <input type="hidden" name="blogId" value="${card.blogid}" />
-                                                <button class="update-button" type="submit" name="action" value="update">Update</button>
-                                            </form>
-                                            <form action="DeleteBlogServlet" method="post" style="display: inline;">
-                                                <input type="hidden" name="blogId" value="${card.blogid}" />
-                                                <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${card.blogid}">Delete</button>
-                                                <div class="modal fade" id="confirmDelete-${card.blogid}" tabindex="-1" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h1 class="modal-title" style="font-size: 3rem">Delete</h1>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body fs-2">
-                                                                Do you want to delete this blog?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
-                                                                <button type="submit" name="action" value="delete" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+                                        <form action="UpdateBlogServlet" method="post" style="display: inline;">
+                                            <input type="hidden" name="blogId" value="${card.blogid}" />
+                                            <button class="update-button" type="submit" name="action" value="update">Restore</button>
+                                        </form>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -215,6 +192,21 @@
                     // Truncate the description and append "..."
                     var truncatedMessage = description.substring(0, descriptionLength) + "...";
                     blogDescription[i].textContent = truncatedMessage;
+                }
+            }
+        </script>
+        <!--show confirm-->
+        <script>
+            function confirmDelete(event) {
+                event.preventDefault(); // Prevent the form from submitting immediately
+
+                // Show a confirmation dialog
+                if (confirm("Do you want to delete this blog?")) {
+                    // If user clicks "OK", submit the form
+                    event.target.closest('form').submit();
+                } else {
+                    // If user clicks "Cancel", do nothing
+                    return;
                 }
             }
         </script>
