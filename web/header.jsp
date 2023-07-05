@@ -142,7 +142,7 @@
                                 </div>
                                 <div class="logo-text">
                                     <p style="margin: 0">BIRD</p>
-                                    <p style="margin: 0">TRADING</p>
+                                    <p style="margin: 0">TRAINING</p>
                                     <p style="margin: 0">CENTER</p>
                                 </div>
                             </div>
@@ -262,7 +262,7 @@
                                 </div>
                                 <div class="logo-text">
                                     <p style="margin: 0">BIRD</p>
-                                    <p style="margin: 0">TRADING</p>
+                                    <p style="margin: 0">TRAINING</p>
                                     <p style="margin: 0">CENTER</p>
                                 </div>
                             </div>
@@ -374,6 +374,8 @@
                             <li class="nav-item py-2 py-sm-4
                                 <%= isPageActive(currentPage, "Staff_AddBlog.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_list_ofblog.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_list_ofblog_unactive.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_update_blog.jsp")%>
                                 ">
                                 <a
                                     href="Staff_AddBlog.jsp"

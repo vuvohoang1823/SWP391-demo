@@ -173,7 +173,6 @@ section .heading h2 {
 .blogs-body .blogs-container .blog-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     border-radius: 2rem;
     width: 361px;
     height: 544px;
@@ -211,6 +210,7 @@ section .heading h2 {
     font-family: Montserrat;
 }
 .blogs-body .blogs-container .blog-container .button-container {
+    align-self: center;
     padding-top: 4rem;
     width: 90%;
 }
