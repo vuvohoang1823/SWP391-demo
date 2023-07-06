@@ -173,7 +173,7 @@ html {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    filter: brightness(70%);
+    filter: brightness(50%);
 }
 .body-container .section-consultants .cards-container .card-container .desc-container {
     height: 100%;
@@ -194,7 +194,6 @@ html {
     font-weight: bold;
 }
 .body-container .section-consultants .cards-container .card-container .desc-container .skills {
-    width: 50%;
     height: 30%;
     font-size: 2rem;
     line-height: 2rem;

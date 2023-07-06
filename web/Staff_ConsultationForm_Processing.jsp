@@ -61,13 +61,13 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Bird Course</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Private Consultant</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Contact Us</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -84,10 +84,10 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Pending</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Pending</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Processing.jsp"><b>Processing</b></a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Processing.jsp">Processing</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -147,7 +147,7 @@
                                     <td class="customer">${b.dateSubmit}</td>
                                     <td>
                                         <div class="type">
-                                            <div class="onlineStatus ${b.type == 'online' ? 'online' : 'offline'}">${b.type}</div>
+                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
                                             <a href="MainController?action=view_Form_Processing&consultation_id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
                                         </div>
                                     </td>

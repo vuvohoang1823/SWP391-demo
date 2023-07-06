@@ -69,13 +69,13 @@
                                     <div class="" id="navbarSupportedContent">
                                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Bird Course</b></a>
+                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
                                             </li>
                                             <li class="nav-item active">
-                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Private Consultant</b></a>
+                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Contact Us</b></a>
+                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -93,7 +93,7 @@
                                         <div class="right-side">
                                             <span>Submitted: <b>${detail.dateSubmit}</b></span>
                                         <span><b>ID : #${detail.consultation_id}</b></span>
-                                        <span class="online">Type : ${detail.type}</span>
+                                        <span class="<c:out value="${fn:toLowerCase(detail.type)}"/>">Type : ${detail.type}</span>
                                     </div>
                                 </div>
                                 <form method="post">
@@ -176,7 +176,7 @@
                                                             class="form-control"
                                                             id="formtitle"
                                                             placeholder="Form title"
-                                                            value="${detail.date} - from ${detail.duration} to [SOON]"                                                            disabled
+                                                            value="${detail.date} - from ${detail.duration}"                                                            disabled
                                                             />
                                                     </div>
                                                 </div>
@@ -270,7 +270,7 @@
 
             var soonDuration = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
 
-            document.getElementById("formtitle").value = '${detail.date} - from ' + duration + ' to ' + soonDuration;
+            document.getElementById("formtitle").value = '${detail.date} - from ' + duration;
         </script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

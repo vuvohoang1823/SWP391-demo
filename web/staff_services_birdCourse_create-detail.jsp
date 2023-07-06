@@ -1,8 +1,3 @@
-<%--
-    Document   : FormDetails
-    Created on : Jun 15, 2023, 1:14:29 PM
-    Author     : thang
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,15 +14,14 @@
             />
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/staff_formBirdCourse_detail.css" />
+        <link rel="stylesheet" href="css/staff_services_birdCourse_create-detail.css" />
+
     </head>
     <body>
 
-        <%--<%@ include file="header.jsp" %>--%>
-        <jsp:useBean id="i" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
-            <div class="container-fluid">
-                <div class="row flex-nowrap">
-                    <!--            header-->
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <!--            header-->
                 <%@ include file="header.jsp" %>
 
                 <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
@@ -53,10 +47,10 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Form List</span>
+                            <span style="padding-left: 2rem">Services</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="Staff_ConsultationForm_Pending.jsp">
+                            <a href="staff_services_birdCourse_create.jsp">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -88,139 +82,83 @@
                         <div class="forms-container">
                             <div class="forms-header">
                                 <div class="left-side"><b>Form Detail</b></div>
-                                <div class="right-side">
-                                    <span>Submitted: <b>${BookingInfo.create_date}</b></span>
-                                        <span><b>ID : #??</b></span>
-                                        <span>Status: In-training</span>
-                                </div>
                             </div>
-                            <form action="SetTrainerToBooking" method="post">
-                                <input type="hidden" name="bird_id" value="${BookingInfo.birdID}">
+                            <form action="" method="">
+                                <input type="hidden" name="" value="">
                                 <div class="form-customerDetails">
-                                    <div class="form-name">
-                                        <div class="name">Personal Information</div>
-                                    </div>
-                                    <div class="form-body">
-                                        <div class="row">
-                                            <div class="mb-3">
-                                                <label for="" class="form-label">Customer Name</label>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id=""
-                                                    placeholder="Address"
-                                                    value="${BookingInfo.customerName}"
-                                                    disabled
-                                                    />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="" class="form-label">Bird Name</label>
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id=""
-                                                        placeholder="Full name"
-                                                        value="${BookingInfo.nameBird}"
-                                                        disabled
-                                                        />
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="" class="form-label">Bird Type</label>
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id=""
-                                                        placeholder="Phone number"
-                                                        value="${BookingInfo.typeBird}"
-                                                        disabled
-                                                        />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-formDetails">
-                                    <div class="form-name">
-                                        <div class="name">Course Information</div>
-                                    </div>
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="" class="form-label">Preferred date</label>
+                                                    <label for="" class="form-label">Course name</label>
                                                     <input
                                                         type="text"
                                                         class="form-control"
                                                         id=""
-                                                        placeholder="Preferred date"
-                                                        value="${BookingInfo.preferred_date}"
-                                                        disabled
+                                                        placeholder="Input name"
+                                                        value=""
                                                         />
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="" class="form-label">Total Price</label>
+                                                    <label for="" class="form-label">Course price</label>
                                                     <input
                                                         type="text"
                                                         class="form-control"
-                                                        id=""
-                                                        placeholder="Total Price"
-                                                        value="${BookingInfo.coursePrice}"
-                                                        disabled
+                                                        id="price"
+                                                        placeholder="Enter Price"
+                                                        onChange="formatCurrency(this)"
                                                         />
+                                                    <!--chỉ submit cái hiddenPrice xuống DB-->
+                                                    <input
+                                                        id="hiddenPrice"
+                                                        type="hidden"
+                                                        />
+                                                    <!--------------------------------------->
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="" class="form-label">Bird Course Name</label>
+                                                    <label for="" class="form-label">Duration</label>
                                                     <input
                                                         type="text"
                                                         class="form-control"
                                                         id=""
-                                                        placeholder="Bird Course Name"
-                                                        value="${BookingInfo.courseName}"
-                                                        disabled
+                                                        placeholder="Input duration"
+                                                        value=""
                                                         />
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="trainername" class="form-label">Trainer requested</label>
+                                                    <label for="categoryname" class="form-label">Category</label>
                                                     <div class="input-group">
                                                         <input
-                                                            id="trainername"
+                                                            id="category"
                                                             type="text"
                                                             class="form-control"
-                                                            placeholder="None"
+                                                            placeholder="Choose category"
                                                             disabled
                                                             />
-                                                        <!--only this gets submitted-->
                                                         <input
-                                                            id="hiddenTrainerName"
-                                                            type="hidden"
+                                                            id="hiddenCategoryName"
+                                                            type="hidden" value=""
                                                             />
-                                                        <!---------------------------->
                                                         <button
                                                             class="btn btn-primary"
                                                             type="button"
                                                             id="button-addon2"
                                                             data-bs-toggle="modal"
-                                                            data-bs-target="#chooseTrainer"
+                                                            data-bs-target="#chooseCategory"
                                                             >
-                                                            Select Trainer
+                                                            Select category
                                                         </button>
-                                                        <!-- Modal -->
                                                         <div
                                                             class="modal fade"
-                                                            id="chooseTrainer"
+                                                            id="chooseCategory"
                                                             tabindex="-1"
                                                             data-bs-backdrop="static"
                                                             data-bs-keyboard="false"
@@ -228,33 +166,40 @@
                                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h1 class="modal-title fs-5">Trainers</h1>
+                                                                        <h1 class="modal-title fs-5">Category</h1>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        <div class="trainer-list">
-                                                                            <!--important: none needed for customers that didnt choose trainer (must change before submit form)-->
-                                                                            <div class="trainer-item">
-                                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="none" id="trainer-none" checked>
-                                                                                <label for="trainer-none">
-                                                                                    None
+                                                                        <div class="category-list">
+                                                                            <div class="category-item">
+                                                                                <input class="category-input" type="radio" name="selected-category" value="" id="cate_1">
+                                                                                <label for="cate_1">
+                                                                                    <span class="category-name">Bird Course</span>
                                                                                 </label>
                                                                             </div>
-                                                                            <!--start of trainer -->
-                                                                            <c:forEach items="${i.trainerUnavailable}" var="trainerinfo">
-                                                                                <div class="trainer-item">
-                                                                                    <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer1">
-                                                                                    <label for="trainer1">
-                                                                                        <span class="trainer-name">Name: ${trainerinfo.fullName}</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </c:forEach>
-                                                                            <!--end of trainer-->
+                                                                            <div class="category-item">
+                                                                                <input class="category-input" type="radio" name="selected-category" value="" id="cate_2">
+                                                                                <label for="cate_2">
+                                                                                    <span class="category-name">Private Consultation</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="category-item">
+                                                                                <input class="category-input" type="radio" name="selected-category" value="" id="cate_3">
+                                                                                <label for="cate_3">
+                                                                                    <span class="category-name">Workshop</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="category-item">
+                                                                                <input class="category-input" type="radio" name="selected-category" value="" id="cate_4">
+                                                                                <label for="cate_4">
+                                                                                    <span class="category-name">Online Course</span>
+                                                                                </label>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-primary" id="saveTrainer" data-bs-dismiss="modal">Save changes</button>
+                                                                        <button type="button" class="btn btn-primary" id="" data-bs-dismiss="modal" onclick="saveCategory()">Save changes</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -263,54 +208,86 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="mb-3">
+                                                <label for="customernotes" class="form-label"
+                                                       >Description about course</label
+                                                >
+                                                <textarea
+                                                    class="form-control"
+                                                    id=""
+                                                    style="height: 10rem; font-size: 2rem"
+                                                    >
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3">
+                                                <label for="" class="form-label">
+                                                    Image about course
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <form action="">
+                                                    <img src="" alt="" width="300" height="300" id="image">
+                                                    <input type="file" name="" id="imageFile" accept="image/gif, image/jpeg, image/png" onchange="chooseFile(this)">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="forms-footer">
+                                        <button type="submit" name="action" value="checkout" class="btn approve">Create new bird course</button>
                                     </div>
                                 </div>
-                                <div class="forms-footer">
 
-                                    <div> <button type="submit" name="action" value="approve" class="btn approve">Approve</button>
-                                    </div>
-                                    <div>
-                                        <button type="submit"  name="action" value="deny"class="btn decline">Decline</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
+
                 </div>
+
             </div>
-        </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const saveButton = document.getElementById("saveTrainer");
-                const inputTrainerName = document.getElementById("trainername");
-                const hiddenTrainerName = document.getElementById("hiddenTrainerName");
-                const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
 
-                saveButton.addEventListener("click", function () {
-                    const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-                    if (selectedTrainer.value === "none") {
-                        inputTrainerName.value = "";
-                    } else {
-                        const trainerLabel = selectedTrainer.nextElementSibling;
-                        const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
-                        inputTrainerName.value = trainerName.split(": ")[1];
-                    }
-                });
+        </form>
+    </div>
+</div>                                                       
+<script>
+    function formatCurrency(input) {
+        const hiddenPrice = document.getElementById("hiddenPrice");
+        hiddenPrice.value = input.value;
+        // Get the numeric value
+        var value = input.value;
 
-                const form = document.querySelector("form");
-                form.addEventListener("submit", function (event) {
-                    const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-                    if (inputTrainerName.disabled && inputTrainerName.value.trim() === "") {
-                        event.preventDefault();
-                        // Display an error message or take any other necessary action
-                        alert("Please select a trainer.");
-                    }
-                    if (inputTrainerName.value !== "") {
-                        hiddenTrainerName.value = selectedTrainer.value;
-                    }
-                });
-            });
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+        // Format as currency
+        var formattedValue = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2
+        }).format(value);
+
+        // Update the input value with the formatted currency
+        input.value = formattedValue;
+    }
+    function chooseFile(fileInput) {
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#image').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+    function saveCategory() {
+  var selectedCategory = document.querySelector('input[name="selected-category"]:checked');
+  var categoryInput = document.getElementById('category');
+  
+  if (selectedCategory) {
+    var categoryValue = selectedCategory.nextElementSibling.querySelector('.category-name').innerText;
+    categoryInput.value = categoryValue;
+  }
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+</body>
 </html>

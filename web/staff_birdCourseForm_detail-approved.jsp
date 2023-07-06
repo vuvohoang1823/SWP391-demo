@@ -90,7 +90,7 @@
                                 <div class="left-side"><b>Form Detail</b></div>
                                 <div class="right-side">
                                     <span>Submitted: <b>${BookingInfo.create_date}</b></span>
-                                        <span><b>ID : #??</b></span>
+                                    <span><b>ID : #??</b></span>
                                         <span>Status: In-training</span>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                                                     type="text"
                                                     class="form-control"
                                                     id=""
-                                                    placeholder="Address"
+                                                    placeholder="Fullname"
                                                     value="${BookingInfo.customerName}"
                                                     disabled
                                                     />
@@ -122,7 +122,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         id=""
-                                                        placeholder="Full name"
+                                                        placeholder="Bird name"
                                                         value="${BookingInfo.nameBird}"
                                                         disabled
                                                         />
@@ -135,7 +135,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         id=""
-                                                        placeholder="Phone number"
+                                                        placeholder="Type "
                                                         value="${BookingInfo.typeBird}"
                                                         disabled
                                                         />
@@ -207,110 +207,53 @@
                                                             id="hiddenTrainerName"
                                                             type="hidden"
                                                             />
-                                                        <!---------------------------->
-                                                        <button
-                                                            class="btn btn-primary"
-                                                            type="button"
-                                                            id="button-addon2"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#chooseTrainer"
-                                                            >
-                                                            Select Trainer
-                                                        </button>
-                                                        <!-- Modal -->
-                                                        <div
-                                                            class="modal fade"
-                                                            id="chooseTrainer"
-                                                            tabindex="-1"
-                                                            data-bs-backdrop="static"
-                                                            data-bs-keyboard="false"
-                                                            >
-                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h1 class="modal-title fs-5">Trainers</h1>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="trainer-list">
-                                                                            <!--important: none needed for customers that didnt choose trainer (must change before submit form)-->
-                                                                            <div class="trainer-item">
-                                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="none" id="trainer-none" checked>
-                                                                                <label for="trainer-none">
-                                                                                    None
-                                                                                </label>
-                                                                            </div>
-                                                                            <!--start of trainer -->
-                                                                            <c:forEach items="${i.trainerUnavailable}" var="trainerinfo">
-                                                                                <div class="trainer-item">
-                                                                                    <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer1">
-                                                                                    <label for="trainer1">
-                                                                                        <span class="trainer-name">Name: ${trainerinfo.fullName}</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </c:forEach>
-                                                                            <!--end of trainer-->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-primary" id="saveTrainer" data-bs-dismiss="modal">Save changes</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="forms-footer">
-
-                                    <div> <button type="submit" name="action" value="approve" class="btn approve">Approve</button>
-                                    </div>
-                                    <div>
-                                        <button type="submit"  name="action" value="deny"class="btn decline">Decline</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const saveButton = document.getElementById("saveTrainer");
-                const inputTrainerName = document.getElementById("trainername");
-                const hiddenTrainerName = document.getElementById("hiddenTrainerName");
-                const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
+    </div>
+</div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const saveButton = document.getElementById("saveTrainer");
+        const inputTrainerName = document.getElementById("trainername");
+        const hiddenTrainerName = document.getElementById("hiddenTrainerName");
+        const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
 
-                saveButton.addEventListener("click", function () {
-                    const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-                    if (selectedTrainer.value === "none") {
-                        inputTrainerName.value = "";
-                    } else {
-                        const trainerLabel = selectedTrainer.nextElementSibling;
-                        const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
-                        inputTrainerName.value = trainerName.split(": ")[1];
-                    }
-                });
+        saveButton.addEventListener("click", function () {
+            const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
+            if (selectedTrainer.value === "none") {
+                inputTrainerName.value = "";
+            } else {
+                const trainerLabel = selectedTrainer.nextElementSibling;
+                const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
+                inputTrainerName.value = trainerName.split(": ")[1];
+            }
+        });
 
-                const form = document.querySelector("form");
-                form.addEventListener("submit", function (event) {
-                    const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-                    if (inputTrainerName.disabled && inputTrainerName.value.trim() === "") {
-                        event.preventDefault();
-                        // Display an error message or take any other necessary action
-                        alert("Please select a trainer.");
-                    }
-                    if (inputTrainerName.value !== "") {
-                        hiddenTrainerName.value = selectedTrainer.value;
-                    }
-                });
-            });
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+        const form = document.querySelector("form");
+        form.addEventListener("submit", function (event) {
+            const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
+            if (inputTrainerName.disabled && inputTrainerName.value.trim() === "") {
+                event.preventDefault();
+                // Display an error message or take any other necessary action
+                alert("Please select a trainer.");
+            }
+            if (inputTrainerName.value !== "") {
+                hiddenTrainerName.value = selectedTrainer.value;
+            }
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

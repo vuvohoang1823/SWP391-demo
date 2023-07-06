@@ -55,7 +55,7 @@
                             <span style="padding-left: 2rem">Form List</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="Staff_ConsultationForm_Processing.jsp">
+                            <a href="Staff_QuestionAndAnswer_List.jsp">
                                 <div style="
                                      position: absolute;
                                      top: 35%;

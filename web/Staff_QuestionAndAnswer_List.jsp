@@ -106,7 +106,8 @@
                                 <tr>
                                     <td>ID</td>
                                     <td>Title</td>
-                                    <td>Customer</td>
+                                    <td>Full name</td>
+                                    <td>Email</td>
                                     <td>Submitted date</td>
                                     <td>Question message</td>
                                 </tr>
@@ -117,6 +118,9 @@
                                     <span class="question-message">Where do i go for my workshop</span>
                                 </td>
                                 <td class="customer">ABCa</td>
+                                <td class="customer">
+                                    <span class="question-message">abcdefgh@dgmail.com</span>
+                                </td>
                                 <td class="customer">2023-07-01</td>
                                 <td class="customer">
                                     <span class="question-message">Hi,adwahdbwajdwajdwadwadwbjadw</span>

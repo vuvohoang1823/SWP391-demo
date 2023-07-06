@@ -1,35 +1,25 @@
-<%--
-    Document   : ConsultationForm
-    Created on : Jun 15, 2023, 2:21:36 AM
-    Author     : thang
---%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <!-- boostrap -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-            crossorigin="anonymous"
-            />
-        <!-- w3Table -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-        <!-- css -->
-        <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
-        <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
-        <jsp:useBean id="tr" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
-        </head>
-        <body>
+        <title>Bird course form</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="css/reset.css" type="text/css">
+        <link rel="stylesheet" href="css/admin_services_account_create.css" type="text/css">
+    </head>
+    <body>
+        <jsp:useBean id="i" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
+        <jsp:useBean id="a" class="DAO.BookingDAO" scope="request"></jsp:useBean>
+
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                     <!--            header-->
+
                 <%@ include file="header.jsp" %>
+
                 <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
@@ -53,20 +43,23 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Order List</span>
+                            <span style="padding-left: 2rem">Services</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
                             <div class="container-fluid">
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="staff_birdCourseOrder_completed.jsp">Bird Course</a>
-                                        </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Private Consultant</a>
+                                            <a class="nav-link" href="staff_services_birdCourse_create.jsp">Bird Course</a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link" href="#">Private Consultant</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Contact Us</a>
+                                            <a class="nav-link" href="#">Workshop</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Online Course</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -75,7 +68,7 @@
                     </section>
                     <section class="form-body">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <div class="navbar-brand">Form status:</div>
+                            <div class="navbar-brand">Action:</div>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -83,11 +76,12 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Completed</a>
+                                            <a class="nav-link" href="staff_birdCourseForm_pending.jsp">xxx</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_History.jsp">History</a>
+                                            <a class="nav-link" href="staff_birdCourseForm_processing.jsp">xxx</a>
                                         </li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="search-container">
@@ -112,7 +106,16 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing 2 pending form(s)
+                            <div>
+                                Currently showing 2 pending form(s)
+                            </div>
+                            <div>
+                                <a href="admin_services_account_create-detail.jsp">
+                                            <button class="add-course">
+                                                Add new account
+                                            </button>
+                                        </a>
+                            </div>
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -121,47 +124,41 @@
                             <thead>
                                 <tr>
                                     <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Customer</td>
-                                    <td>Appointment date request</td>
-                                    <td>Trainer request</td>
-                                    <td>Submitted date</td>
-                                    <td>
-                                        <div style="display: flex; justify-content: space-around;">
-                                            <div style="padding-right: 11rem; height: 100%;">Type</div>
-                                            <div style="height: 100%;"></div>
-                                        </div>
-                                    </td>
+                                    <td>Full name</td>
+                                    <td>Username</td>
+                                    <td>Phone</td>
+                                    <td>Email</td>
+                                    <td></td>
                                 </tr>
                             </thead>
-                            <c:forEach items="${f.appointmentFormCompleted}" var="b" varStatus="counter" >
-                                <c:set var="requestidd" value="${b.request_trainer_id}" />
-                                <c:set var="trainername" value="${not empty requestidd ? tr.getTrainerNameByRequestTrainerId(requestidd) : 'N/A'}" />
-
-                                <tr>
-                                    <td class="id">${counter.count}</td>
-                                    <td class="title">Basic Consultation Request</td>
-                                    <td class="customer">${b.fullname}</td>
-                                    <td class="customer">${b.duration} - ${b.date}</td>
-                                    <td class="customer">${trainername}</td>
-                                    <td class="customer">${b.dateSubmit}</td>
+                            <tbody>
+                                    <tr>
+                                <form action="" method="">
+                                    <input type="hidden" name="" value="">
+                                    <td><b>${counter.count}</b></td>
+                                    <td><b>xxx</b></td>
+                                    <td><b>xxx</b></td>
+                                    <td><b>xxx</b></td>
+                                    <td><b>xxx</b></td>
                                     <td>
-                                        <div class="type">
-                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
-                                            <a href="MainController?action=view_form_completetd&consultation_id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
-                                        </div>
+                                        <a href="admin_services_account_modify-detail.jsp">
+                                            <button class="modify">
+                                                <b>Modify</b>
+                                            </button>
+                                        </a>
                                     </td>
+                                </form>
                                 </tr>
-                            </c:forEach>
+                            </tbody>
                         </table>
-                    </section>
                 </div>
             </div>
         </div>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
 </html>
+
+
+

@@ -19,7 +19,7 @@
             />
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/staff_formBirdCourse_detail.css" />
+        <link rel="stylesheet" href="css/staff_birdCourseOrder_completed-detail.css" />
     </head>
     <body>
 
@@ -53,10 +53,10 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Form List</span>
+                            <span style="padding-left: 2rem">Order List</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="Staff_ConsultationForm_Pending.jsp">
+                            <a href="staff_birdCourseOrder_completed.jsp">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -71,13 +71,13 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item active">
-                                            <a class="nav-link " href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
+                                            <a class="nav-link " href="staff_birdCourseOrder_completed-detail.jsp">Bird Course</a>
                                         </li>
                                         <li class="nav-item ">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
+                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Private Consultant</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
+                                            <a class="nav-link" href="#">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -90,8 +90,8 @@
                                 <div class="left-side"><b>Form Detail</b></div>
                                 <div class="right-side">
                                     <span>Submitted: <b>${BookingInfo.create_date}</b></span>
-                                        <span><b>ID : #??</b></span>
-                                        <span>Status: In-training</span>
+                                    <span><b>ID : #??</b></span>
+                                    <span>Status: In-training</span>
                                 </div>
                             </div>
                             <form action="SetTrainerToBooking" method="post">
@@ -207,110 +207,59 @@
                                                             id="hiddenTrainerName"
                                                             type="hidden"
                                                             />
-                                                        <!---------------------------->
-                                                        <button
-                                                            class="btn btn-primary"
-                                                            type="button"
-                                                            id="button-addon2"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#chooseTrainer"
-                                                            >
-                                                            Select Trainer
-                                                        </button>
-                                                        <!-- Modal -->
-                                                        <div
-                                                            class="modal fade"
-                                                            id="chooseTrainer"
-                                                            tabindex="-1"
-                                                            data-bs-backdrop="static"
-                                                            data-bs-keyboard="false"
-                                                            >
-                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h1 class="modal-title fs-5">Trainers</h1>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="trainer-list">
-                                                                            <!--important: none needed for customers that didnt choose trainer (must change before submit form)-->
-                                                                            <div class="trainer-item">
-                                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="none" id="trainer-none" checked>
-                                                                                <label for="trainer-none">
-                                                                                    None
-                                                                                </label>
-                                                                            </div>
-                                                                            <!--start of trainer -->
-                                                                            <c:forEach items="${i.trainerUnavailable}" var="trainerinfo">
-                                                                                <div class="trainer-item">
-                                                                                    <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer1">
-                                                                                    <label for="trainer1">
-                                                                                        <span class="trainer-name">Name: ${trainerinfo.fullName}</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </c:forEach>
-                                                                            <!--end of trainer-->
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-primary" id="saveTrainer" data-bs-dismiss="modal">Save changes</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                         </div>
+                                                        
                                     </div>
+                                                       
                                 </div>
-                                <div class="forms-footer">
-
-                                    <div> <button type="submit" name="action" value="approve" class="btn approve">Approve</button>
-                                    </div>
-                                    <div>
-                                        <button type="submit"  name="action" value="deny"class="btn decline">Decline</button>
-                                    </div>
-                                </div>
-                            </form>
+                                   <div class="forms-footer">
+                                        <button type="submit" name="action" value="checkout" class="btn approve">Checkout form</button>
+                                    </div>                        
                         </div>
+                                                        
                     </div>
                 </div>
+                                                      
+                </form>
             </div>
-        </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const saveButton = document.getElementById("saveTrainer");
-                const inputTrainerName = document.getElementById("trainername");
-                const hiddenTrainerName = document.getElementById("hiddenTrainerName");
-                const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
+</div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const saveButton = document.getElementById("saveTrainer");
+        const inputTrainerName = document.getElementById("trainername");
+        const hiddenTrainerName = document.getElementById("hiddenTrainerName");
+        const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
 
-                saveButton.addEventListener("click", function () {
-                    const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-                    if (selectedTrainer.value === "none") {
-                        inputTrainerName.value = "";
-                    } else {
-                        const trainerLabel = selectedTrainer.nextElementSibling;
-                        const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
-                        inputTrainerName.value = trainerName.split(": ")[1];
-                    }
-                });
+        saveButton.addEventListener("click", function () {
+            const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
+            if (selectedTrainer.value === "none") {
+                inputTrainerName.value = "";
+            } else {
+                const trainerLabel = selectedTrainer.nextElementSibling;
+                const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
+                inputTrainerName.value = trainerName.split(": ")[1];
+            }
+        });
 
-                const form = document.querySelector("form");
-                form.addEventListener("submit", function (event) {
-                    const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-                    if (inputTrainerName.disabled && inputTrainerName.value.trim() === "") {
-                        event.preventDefault();
-                        // Display an error message or take any other necessary action
-                        alert("Please select a trainer.");
-                    }
-                    if (inputTrainerName.value !== "") {
-                        hiddenTrainerName.value = selectedTrainer.value;
-                    }
-                });
-            });
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+        const form = document.querySelector("form");
+        form.addEventListener("submit", function (event) {
+            const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
+            if (inputTrainerName.disabled && inputTrainerName.value.trim() === "") {
+                event.preventDefault();
+                // Display an error message or take any other necessary action
+                alert("Please select a trainer.");
+            }
+            if (inputTrainerName.value !== "") {
+                hiddenTrainerName.value = selectedTrainer.value;
+            }
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

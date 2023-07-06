@@ -127,61 +127,61 @@
 .forms-container .form-customerDetails .form-body input {
     font-size: 2rem;
 }
-.forms-container .form-formDetails .form-name {
+.forms-container  .form-name {
     background: rgba(217, 217, 217, 0.20);
 }
-.forms-container .form-formDetails .form-name .name {
+.forms-container  .form-name .name {
     padding: 2rem 2rem;
     font-size: 3.1rem;
     font-weight: bold;
 }
-.forms-container .form-formDetails .form-body {
+.forms-container  .form-body {
     padding: 2rem 4rem;
     font-size: 1.5rem;
 }
-.forms-container .form-formDetails .form-body button {
+.forms-container  .form-body button {
     font-size: 2rem;
 }
-.forms-container .form-formDetails .form-body input,
-.forms-container .form-formDetails .form-body textarea {
+.forms-container  .form-body input,
+.forms-container  .form-body textarea {
     font-size: 2rem;
 }
-.forms-container .form-formDetails .form-body input {
+.forms-container  .form-body input {
     font-weight: 600;
 }
-.forms-container .form-formDetails .form-body .input-group .button-container {
+.forms-container  .form-body .input-group .button-container {
     font-size: 20px;
     font-weight: 700;
     color: white;
     border-radius: 0px 5px 5px 0px !important;
     background: #617A55;
 }
-.forms-container .form-formDetails .form-body .input-group .modal .modal-header .modal-title{
+.forms-container  .form-body .input-group .modal .modal-header .modal-title{
     font-size: 3rem !important;
 }
-.forms-container .form-formDetails .form-body .input-group .modal .modal-body{
+.forms-container  .form-body .input-group .modal .modal-body{
     font-size: 2rem;
 }
-.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item {
+.forms-container  .form-body .input-group .modal .modal-body .category-item {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
 }
-.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-input {
+.forms-container  .form-body .input-group .modal .modal-body .category-item .category-input {
     margin-right: 1rem;
 }
-.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-avatar {
+.forms-container  .form-body .input-group .modal .modal-body .category-item .category-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-name {
+.forms-container  .form-body .input-group .modal .modal-body .category-item .category-name {
     font-weight: bold;
 }
 
-.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-skill {
+.forms-container  .form-body .input-group .modal .modal-body .category-item .category-skill {
     color: gray;
 }
 .forms-container .forms-footer {
@@ -206,5 +206,5 @@
 }
 .forms-container .forms-footer div .decline{
     border-radius: 10px;
-    background: rgba(58, 59, 60, 0.86);
+    background: rgb(204, 41, 0);
 }

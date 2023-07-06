@@ -6,6 +6,8 @@
 package DAO;
 
 import DBUtils.DBUtils;
+import entity.StaffDTO;
+import entity.TrainerSP;
 import entity.UserDTO;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -63,5 +65,41 @@ public class UserDAO implements Serializable {
 
     public List<UserDTO> getAccountList() {
         return accountList;
+    }
+    
+    
+     public StaffDTO getStaffInfo(int user_id) throws SQLException, NamingException, ClassNotFoundException {
+
+//        (String trainer_id, String user_id, String fullname, String achievement, String status, String contact)
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+       StaffDTO staff = null;
+        try {
+            con = DBUtils.getConnection();
+
+            if (con != null) {
+                String sql = "select * from tbl_user where user_id =?";
+                stm = con.prepareStatement(sql);
+                stm.setInt(1, user_id);
+                rs = stm.executeQuery();
+                if (rs.next()) {
+//                    
+                    staff = new StaffDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                   
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return staff;
     }
 }

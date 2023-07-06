@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.sql.Blob;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,15 +27,15 @@ import javax.naming.NamingException;
  * @author hoang
  */
 public class BlogDAO implements Serializable {
-    
+
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
     DBUtils db = new DBUtils();
-    
+
     public List<BlogDTO> getLisofBlog() throws IOException, SQLException, ClassNotFoundException {
         List<BlogDTO> list = new ArrayList<>();
-        String sql = "select * from tbl_blog";
+        String sql = "select * from tbl_blog where status = 'available'";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
@@ -119,15 +120,15 @@ public class BlogDAO implements Serializable {
         }
         return list;
     }
-    
+
     public BlogDTO GETdetailOfBLOG(String blog_id) throws IOException, SQLException {
-              String sql = "select* from tbl_blog where id =?";
+        String sql = "select* from tbl_blog where id =? and status = 'available'";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, blog_id);
             rs = ps.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 // Validate DATE to String
                 String dateString = rs.getString(3);
                 java.sql.Date date = java.sql.Date.valueOf(dateString);
@@ -173,7 +174,7 @@ public class BlogDAO implements Serializable {
                 }
                 // End img
 
-            return new BlogDTO(rs.getString(1),
+                return new BlogDTO(rs.getString(1),
                         rs.getString(2),
                         date,
                         base64Image_thumbnail,
@@ -185,7 +186,7 @@ public class BlogDAO implements Serializable {
                         rs.getString(10),
                         base64Image_contentIMG,
                         rs.getString(12));
-               
+
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -207,4 +208,83 @@ public class BlogDAO implements Serializable {
         }
         return null;
     }
+
+    // DELETE FUNCTION 
+    public void DeleteBlog(String blog_id) {
+        String sql = "update tbl_blog \n"
+                + "set status = 'unavailable'\n"
+                + "where id = ?";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, blog_id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void UpdateBlog(String blog_id) {
+        String sql = " ????? where id =? ";
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, blog_id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void CreateBlog(String blog_id,Date date , String thumbnail , String title, String author, String introduction,String content1,String content2,String contentIMG,String briefinfo ) {
+        String sql = "insert into tbl_blog(id,staff_id ,date,thumbnail , title,author , introduction,content1, content2,contentIMG , briefinfo,status)\n"
+                + "values(?,18,?,?,?,?,?,?,?,?,?,'available')";
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, blog_id);
+            ps.setDate(2, date);
+            ps.setBytes(3, Base64.getDecoder().decode(thumbnail));
+            ps.setString(4, title);
+            ps.setString(5, author);
+            ps.setString(6,introduction);
+            ps.setString(7, content1);
+            ps.setString(8, content2);
+            ps.setBytes(9, Base64.getDecoder().decode(contentIMG));
+            ps.setString(10, briefinfo);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    
+    
+     public int GenerateBlogID() throws ClassNotFoundException, SQLException, IOException {
+        String sql = "SELECT * FROM tbl_blog WHERE id = (SELECT MAX(TRY_CAST(id AS INT))FROM tbl_blog)";
+        int newID = 0;
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                int MAXblogID = rs.getInt("id");
+                newID = MAXblogID + 1;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return newID;
+
+    }
+    
 }

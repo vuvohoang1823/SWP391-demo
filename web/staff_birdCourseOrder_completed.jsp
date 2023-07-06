@@ -1,35 +1,30 @@
-<%--
-    Document   : ConsultationForm
-    Created on : Jun 15, 2023, 2:21:36 AM
-    Author     : thang
+<%-- 
+    Document   : staff_formBirdCourse
+    Created on : Jun 18, 2023, 8:39:44 AM
+    Autdor     : vuvoh
 --%>
 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <!-- boostrap -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-            crossorigin="anonymous"
-            />
-        <!-- w3Table -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-        <!-- css -->
-        <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
-        <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
-        <jsp:useBean id="tr" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
-        </head>
-        <body>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="css/reset.css" type="text/css">
+        <link rel="stylesheet" href="css/staff_birdCourseOrder_completed.css" type="text/css">
+    </head>
+    <body>
+
+        <jsp:useBean id="a" class="DAO.BookingDAO" scope="request"></jsp:useBean>
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                     <!--            header-->
+
                 <%@ include file="header.jsp" %>
+
                 <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
@@ -59,10 +54,10 @@
                             <div class="container-fluid">
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item">
+                                        <li class="nav-item active">
                                             <a class="nav-link" href="staff_birdCourseOrder_completed.jsp">Bird Course</a>
                                         </li>
-                                        <li class="nav-item active">
+                                        <li class="nav-item ">
                                             <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Private Consultant</a>
                                         </li>
                                         <li class="nav-item">
@@ -83,10 +78,10 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Completed</a>
+                                            <a class="nav-link" href="staff_birdCourseForm_pending.jsp">Completed</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_History.jsp">History</a>
+                                            <a class="nav-link" href="staff_birdCourseForm_history.jsp">History</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -121,47 +116,42 @@
                             <thead>
                                 <tr>
                                     <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Customer</td>
-                                    <td>Appointment date request</td>
-                                    <td>Trainer request</td>
+                                    <td>Course name</td>
+                                    <td>Customer name</td>
+                                    <td>Bird type</td>
+                                    <td>Bird name</td>
                                     <td>Submitted date</td>
-                                    <td>
-                                        <div style="display: flex; justify-content: space-around;">
-                                            <div style="padding-right: 11rem; height: 100%;">Type</div>
-                                            <div style="height: 100%;"></div>
-                                        </div>
-                                    </td>
+                                    <td></td>
                                 </tr>
                             </thead>
-                            <c:forEach items="${f.appointmentFormCompleted}" var="b" varStatus="counter" >
-                                <c:set var="requestidd" value="${b.request_trainer_id}" />
-                                <c:set var="trainername" value="${not empty requestidd ? tr.getTrainerNameByRequestTrainerId(requestidd) : 'N/A'}" />
-
-                                <tr>
-                                    <td class="id">${counter.count}</td>
-                                    <td class="title">Basic Consultation Request</td>
-                                    <td class="customer">${b.fullname}</td>
-                                    <td class="customer">${b.duration} - ${b.date}</td>
-                                    <td class="customer">${trainername}</td>
-                                    <td class="customer">${b.dateSubmit}</td>
+                            <tbody>
+                                <c:forEach items="${a.history}" var="order" varStatus="counter">
+                                    <tr>
+                                <form action="ProcessingOrderInfo" metdod="GET">
+                                    <input type="hidden" name="bird_id" value="${order.birdID}">
+                                    <td><b>${counter.count}</b></td>
+                                    <td><b>${order.courseName}</td>
+                                    <td><b>${order.customerName}</td>
+                                    <td><b>${order.typeBird}</td>
+                                    <td><b>${order.nameBird}</td>
+                                    <td><b>${order.create_date}</td>
                                     <td>
-                                        <div class="type">
-                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
-                                            <a href="MainController?action=view_form_completetd&consultation_id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-            crossorigin="anonymous"
-        ></script>
-    </body>
-</html>
+                                        <a >
+                                            <button class="viewDetail">
+                                                <b>View Detail<b>
+                                                        </button>
+                                                        </a>
+                                                        </td>
+                                                        </form>
+                                                        </tr>
+                                                    </c:forEach>
+                                                    </tbody>
+                                                    </table>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                                                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                                                    </body>
+                                                    </html>

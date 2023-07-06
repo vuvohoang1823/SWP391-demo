@@ -68,7 +68,10 @@
                                         <li class="subnav-content <%= isPageActive(currentPage, "birdcourse.jsp")%>"><a href="birdcourse.jsp">Bird Course</a></li>
                                     </ul>
                                 </li>
-                                <li class="<%= isPageActive(currentPage, "blogs.jsp")%>"><a href="blogs.jsp">Blog</a></li>
+                                <li class="<%= isPageActive(currentPage, "blogs.jsp")%>
+                                    <%= isPageActive(currentPage, "blogDetail.jsp")%>
+                                    ">
+                                    <a href="blogs.jsp">Blog</a></li>
                                 <li class="<%= isPageActive(currentPage, "contact.jsp")%>"><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </div>
@@ -147,10 +150,12 @@
                     </a>
                     <div class="bg-white p-2">
                         <ul class="nav nav-pills flex-column mt-4">
-                            <li class="nav-item py-2 py-sm-4">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "trainer_demo.jsp")%>
+                                ">
                                 <a
                                     href="trainer_demo.jsp"
-                                    class="d-flex justify-content-center d-sm-block nav-link text-black"
+                                    class="d-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
@@ -159,10 +164,12 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item py-2 py-sm-4">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "trainer_trackingBirdCourse.jsp")%>
+                                ">
                                 <a
                                     href="Trainer_Tracking"
-                                    class="d-flex justify-content-center d-sm-block nav-link text-black"
+                                    class="d-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M456 0c-48.6 0-88 39.4-88 88v29.2L12.5 390.6c-14 10.8-16.6 30.9-5.9 44.9s30.9 16.6 44.9 5.9L126.1 384H259.2l46.6 113.1c5 12.3 19.1 18.1 31.3 13.1s18.1-19.1 13.1-31.3L311.1 384H352c1.1 0 2.1 0 3.2 0l46.6 113.2c5 12.3 19.1 18.1 31.3 13.1s18.1-19.1 13.1-31.3l-42-102C484.9 354.1 544 280 544 192V128v-8l80.5-20.1c8.6-2.1 13.8-10.8 11.6-19.4C629 52 603.4 32 574 32H523.9C507.7 12.5 483.3 0 456 0zm0 64a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
@@ -170,10 +177,12 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item py-2 py-sm-4">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "Trainer_PrivateConsultation_List.jsp")%>
+                                ">
                                 <a
                                     href="Trainer_PrivateConsultation_List.jsp"
-                                    class="d-flex justify-content-center d-sm-block nav-link text-black"
+                                    class="d-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm40 304V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l44.9 74.7c-16.1 17.6-28.6 38.5-36.6 61.5c-1.9-1.8-3.5-3.9-4.9-6.3L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm0 240a24 24 0 1 0 0-48 24 24 0 1 0 0 48zM368 321.6V328c0 8.8 7.2 16 16 16s16-7.2 16-16v-6.4c0-5.3 4.3-9.6 9.6-9.6h40.5c7.7 0 13.9 6.2 13.9 13.9c0 5.2-2.9 9.9-7.4 12.3l-32 16.8c-5.3 2.8-8.6 8.2-8.6 14.2V384c0 8.8 7.2 16 16 16s16-7.2 16-16v-5.1l23.5-12.3c15.1-7.9 24.5-23.6 24.5-40.6c0-25.4-20.6-45.9-45.9-45.9H409.6c-23 0-41.6 18.6-41.6 41.6z"/></svg>
@@ -254,13 +263,13 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "Staff_ConsultationForm_Pending.jsp")%>
-                                <%= isPageActive(currentPage, "Staff_ConsultationForm_Processing.jsp")%>
-                                <%= isPageActive(currentPage, "Staff_ConsultationForm_FormDetail.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_ConsultationForm_ending.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_ConsultationForm_Proessing.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_ConsultationForm_ForDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_ConsultationForm_FormDetail_Approved.jsp")%>
                                 ">
                                 <a
-                                    href="Staff_ConsultationForm_Pending.jsp"
+                                    href="staff_birdCourseForm_pending.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
@@ -290,13 +299,13 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_Completed.jsp")%>
-                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_History.jsp")%>
-                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_CompletedDetail.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_Copleted.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_istory.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_CompleteDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_HistoryDetail.jsp")%>
                                 ">
                                 <a
-                                    href="Staff_OrderList_Consult_Completed.jsp"
+                                    href="staff_birdCourseOrder_completed.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
@@ -319,7 +328,9 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item py-2 py-sm-4 <%= isPageActive(currentPage, "homepage.jsp")%>">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "homepage.jsp")%>
+                                ">
                                 <a
                                     href="#"
                                     class="d-flex d-sm-flex nav-link text-black"
@@ -335,9 +346,11 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item py-2 py-sm-4 mask <%= isPageActive(currentPage, "homepage.jsp")%>">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "Staff_AddBlog.jsp")%>
+                                ">
                                 <a
-                                    href="#"
+                                    href="Staff_AddBlog.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
@@ -352,13 +365,15 @@
                                             d="M18.8235 0H1.17647C0.529412 0 0 0.45 0 1V21C0 21.55 0.529412 22 1.17647 22H18.8235C19.4706 22 20 21.55 20 21V1C20 0.45 19.4706 0 18.8235 0ZM17.6471 20H2.35294V2H17.6471V20ZM4.85294 15.75C4.85294 15.2 5.38235 14.75 6.02941 14.75H13.9706C14.6176 14.75 15.1471 15.2 15.1471 15.75C15.1471 16.3 14.6176 16.75 13.9706 16.75H6.02941C5.38235 16.75 4.85294 16.3 4.85294 15.75ZM5.02941 11C5.02941 10.45 5.55882 10 6.20588 10H13.9412C14.5882 10 15.1176 10.45 15.1176 11C15.1176 11.55 14.5882 12 13.9412 12H6.20588C5.55882 12 5.02941 11.55 5.02941 11ZM5.02941 6.25C5.02941 5.7 5.55882 5.25 6.20588 5.25H13.9412C14.5882 5.25 15.1176 5.7 15.1176 6.25C15.1176 6.8 14.5882 7.25 13.9412 7.25H6.20588C5.55882 7.25 5.02941 6.8 5.02941 6.25Z"
                                             fill="black"
                                             />
-                                        </svg>
-
+                                        </svg>                                   <!--change--->
                                         <span class="fs-2 ms-3 d-none d-sm-inline">Blogs</span>
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item py-2 py-sm-4 mask <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_List.jsp")%>">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "Staff_QuestionAndAnswr_List.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_QuestionDetail.jsp")%>
+                                ">
                                 <a
                                     href="Staff_QuestionAndAnswer_List.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
