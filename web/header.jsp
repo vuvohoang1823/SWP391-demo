@@ -406,7 +406,7 @@
                                 <%= isPageActive(currentPage, "Staff_update_blog.jsp")%>
                                 ">
                                 <a
-                                    href="Staff_AddBlog.jsp"
+                                    href="Staff_list_ofblog.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
