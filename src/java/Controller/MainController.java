@@ -25,12 +25,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author hoang
  */
 public class MainController extends HttpServlet {
+
     private final String TRIGGER_APP_CONTROLLER = "TriggerAppServlet";
     private final String LOGIN_CONTROLLER = "LoginServlet";
     private final String LOGIN_PAGE = "signin.jsp";
-    private final String FORMAPPOINTMENT_PAGE = "formAppointment.jsp";
     private final String FORMAPPOINTMENTSERVLET = "formappointment";
-    private final String FORMSUCCESS = "formsuccess.jsp"  ;
+    private final String FORMSUCCESS = "formsuccess.jsp";
     private final String FORMBIRDCOURSE = "";
     private final String REGISTER = "RegistrationServlet";
     private final String BLOGDETAIL = "BlogDetail";
@@ -47,30 +47,27 @@ public class MainController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
-           //1 get data form dao 
+        //1 get data form dao
 //       courseDAO dao = new courseDAO();
 //       List<Course> list = dao.getAllCourse();
 //       List<Course> listTop3BirdCourse = dao.getTop3BirdCourse();
 //       //2set data to jsp
 //      request.setAttribute("AllCOurse", list);
-//      request.setAttribute("GetTop3BirdCourse",listTop3BirdCourse );   
+//      request.setAttribute("GetTop3BirdCourse",listTop3BirdCourse );
 //      request.getRequestDispatcher("homepage.jsp").forward(request, response);
-      String button = request.getParameter("action");
-      String url= "homepage.jsp";
-      
-      
-       try {
+        String button = request.getParameter("action");
+        String url = "homepage.jsp";
+
+        try {
             if (button == null) {
                 url = "homepage.jsp";
             } else if (button.equals("Login")) {
                 url = LOGIN_CONTROLLER;
-            } else if (button.equals("Fill form to book")) {
-                url = FORMAPPOINTMENT_PAGE;
             } else if (button.equals("Submit Form")) {
                 url = FORMAPPOINTMENTSERVLET;
             } else if (button.equals("calculate")) {
                 url = "PaymentForConsultationServlet";
-            }else if (button.equals("view_form_detail")) {
+            } else if (button.equals("view_form_detail")) {
                 url = "viewFormDetailServlet";
             } else if (button.equals("browse_form")) {
                 url = "browseFormServlet";
@@ -85,42 +82,31 @@ public class MainController extends HttpServlet {
                 url = "ViewOnlineCourseDetailServlet";
             } else if (button.equals("payment_online_course")) {
                 url = "PaymentForOnlineCourseServlet";
-            } else if ( button.equals("view_Form_Processing")){
-                url="viewFormProcessing";
-            } else if(button.equals("view_form_completetd")){
+            } else if (button.equals("view_Form_Processing")) {
+                url = "viewFormProcessing";
+            } else if (button.equals("view_form_completetd")) {
                 url = "viewFormDetailCompletedServlet";
-            } else if(button.equals("view_form_history")){
-                url = "viewFormDetailHistoryServlet";             
-            } else if(button.equals("checkout")){
+            } else if (button.equals("view_form_history")) {
+                url = "viewFormDetailHistoryServlet";
+            } else if (button.equals("checkout")) {
                 url = "updateAppointmentComplete_transform_History";
-            } else if(button.equals("view_form_byTrainer")){
+            } else if (button.equals("view_form_byTrainer")) {
                 url = "viewFormDetailByTrainer";
-            } else if (button.equals("updateby")){
-                url="updateAppointmentbyTrainer";
-            } else if( button.equals("register")){
+            } else if (button.equals("updateby")) {
+                url = "updateAppointmentbyTrainer";
+            } else if (button.equals("register")) {
                 url = REGISTER;
-            } else if(button.equals("view_blog_detail")){
-                url  = BLOGDETAIL;
-            } else if(button.equals("add_blog")){
-                url  =ADDBLOG;
+            } else if (button.equals("view_blog_detail")) {
+                url = BLOGDETAIL;
+            } else if (button.equals("add_blog")) {
+                url = ADDBLOG;
             }
-            }finally {
+        } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
         }
-                    
-       
-       
-       
-       
-       
-       
-        }      
-        
-        
-        
-        
-    
+
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

@@ -103,7 +103,7 @@ public class FormAppointment extends HttpServlet {
         /*END*/
  /*Call DAO --> user click button submit*/
         dao.InputFormAppointment(consultationID, customerID, datestartSql, note, address, type, selectedTrainerID, timetoStartSql, dateSubmitSql, fullname, gmail, contact);
-        response.sendRedirect("homepage.jsp");
+        response.sendRedirect("private_consultation.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
