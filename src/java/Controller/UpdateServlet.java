@@ -21,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 /**
@@ -121,7 +122,12 @@ public class UpdateServlet extends HttpServlet {
 
             boolean updated = dao.UpdateBlog(updatedBlog);
             if (updated) {
-                response.sendRedirect("Staff_list_ofblog.jsp");
+                BlogDTO blog_dto = null;
+                blog_dto = dao.GETdetailOfBLOG(blogId);
+                HttpSession session = request.getSession(true);
+                session.setAttribute("blogdetail", blog_dto);
+                request.getRequestDispatcher("Staff_update_blog.jsp").forward(request, response);
+//                response.sendRedirect("Staff_list_ofblog.jsp");
             } else {
                 response.sendRedirect("error.jsp");
             }
