@@ -26,7 +26,7 @@
         <div class="home-container">
             <section class="section-head">
                 <div class="image-container">
-                    <img src="img/image 7.png" alt="" />
+                    <img src="img/image 7.png" alt="" draggable="false"/>
                 </div>
                 <div class="content">
                     <h1>READY TO EXPLORE THE BEAUTY OF WONDERFUL WORLD</h1>
@@ -50,7 +50,7 @@
                 <div class="service-body">
                     <div class="row">
                         <div class="col-lg-3 image-container">
-                            <img src="img/homeBirdCourse.png" alt="" />
+                            <img src="img/homeBirdCourse.png" alt="" draggable="false"/>
                         </div>
                         <div class="col-lg-3 description-container">
                             <div class="header">BIRD COURSE</div>
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="col-lg-3 image-container">
-                            <img src="img/homeWorkshops.png" alt="" />
+                            <img src="img/homeWorkshops.png" alt="" draggable="false"/>
                         </div>
                         <div class="col-lg-3 description-container">
                             <div class="header">WORKSHOPS</div>
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="col-lg-3 image-container">
-                            <img src="img/homeOnlineCourse.png" alt="" />
+                            <img src="img/homeOnlineCourse.png" alt="" draggable="false"/>
                         </div>
                         <div class="col-lg-3 description-container">
                             <div class="header">PRIVATE CONSULTANT</div>
@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div class="col-lg-3 image-container">
-                            <img src="img/homePrivateConsultant.png" alt="" />
+                            <img src="img/homePrivateConsultant.png" alt="" draggable="false"/>
                         </div>
                     </div>
                 </div>
@@ -119,10 +119,10 @@
                 <div class="bottom-half-container">
                     <div class="left-side">
                         <div class="image-1">
-                            <img src='./img/Rectangle 12.png' alt="" />
+                            <img src='./img/Rectangle 12.png' alt="" draggable="false"/>
                         </div>
                         <div class="image-2">
-                            <img src='./img/Rectangle 13.png' alt="" />
+                            <img src='./img/Rectangle 13.png' alt="" draggable="false"/>
                         </div>
                     </div>
                     <div class="right-side">
@@ -136,15 +136,15 @@
                         </p>
                         <div class="checkmark-container">
                             <div>
-                                <img src='./img/349252734_479596974359728_5596993599118262797_n.png' alt="" />
+                                <img src='./img/349252734_479596974359728_5596993599118262797_n.png' alt="" draggable="false"/>
                                 <b>Develop a clear and loving relationship</b>
                             </div>
                             <div>
-                                <img src='./img/349252734_479596974359728_5596993599118262797_n.png' alt="" />
+                                <img src='./img/349252734_479596974359728_5596993599118262797_n.png' alt="" draggable="false"/>
                                 <b>Being able to commutnicate with them</b>
                             </div>
                             <div>
-                                <img src='./img/349252734_479596974359728_5596993599118262797_n.png' alt="" />
+                                <img src='./img/349252734_479596974359728_5596993599118262797_n.png' alt="" draggable="false"/>
                                 <b>Always be eager to pelase</b>
                             </div>
                         </div>
@@ -201,19 +201,19 @@
                     </div>
                 </div>
                 <div class="image-container">
-                    <div class="image-slider">
+                    <div id="feedbacks-slider" class="image-slider">
                         <c:forEach items="${a.allFeeedBack}" var="i">
                             <div
-                                style=" margin-left: 3%; box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3);"
+                                style="margin: 1.5%; box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3);"
                                 class="image-wrapper"
                                 >
                                 <div>
-                                    <img src="data:image/png;base64,${i.image}">
+                                    <img src="data:image/png;base64,${i.image}" draggable="false">
                                     <div class="desc">
-                                        <h1>${i.fullname}</h1>
-                                        <div class="desc-container">
-                                            <p>${i.comments}</p>
+                                        <div class="desc-container mb-5">
+                                            ${i.comments}
                                         </div>
+                                        <div class="m-auto" style="width: 90%">${i.fullname}</div>
                                     </div>
                                 </div>
                             </div>
@@ -250,7 +250,52 @@
             </section>
             <%@ include file="Home_ContactUs.jsp" %>
         </div>
+        <!--    drag scroll-->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const ele = document.getElementById('feedbacks-slider');
+                ele.style.cursor = 'grab';
 
+                let pos = {top: 0, left: 0, x: 0, y: 0};
+
+                const mouseDownHandler = function (e) {
+                    ele.style.cursor = 'grabbing';
+                    ele.style.userSelect = 'none';
+
+                    pos = {
+                        left: ele.scrollLeft,
+                        top: ele.scrollTop,
+                        // Get the current mouse position
+                        x: e.clientX,
+                        y: e.clientY
+                    };
+
+                    document.addEventListener('mousemove', mouseMoveHandler);
+                    document.addEventListener('mouseup', mouseUpHandler);
+                };
+
+                const mouseMoveHandler = function (e) {
+                    // How far the mouse has been moved
+                    const dx = e.clientX - pos.x;
+                    const dy = e.clientY - pos.y;
+
+                    // Scroll the element
+                    ele.scrollTop = pos.top - dy;
+                    ele.scrollLeft = pos.left - dx;
+                };
+
+                const mouseUpHandler = function () {
+                    ele.style.cursor = 'grab';
+                    ele.style.removeProperty('user-select');
+
+                    document.removeEventListener('mousemove', mouseMoveHandler);
+                    document.removeEventListener('mouseup', mouseUpHandler);
+                };
+
+                // Attach the handler
+                ele.addEventListener('mousedown', mouseDownHandler);
+            });
+        </script>
         <!--        footer-->
         <%@ include file="footer.jsp" %>
     </body>

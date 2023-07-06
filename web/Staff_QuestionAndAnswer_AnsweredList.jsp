@@ -3,23 +3,7 @@
     Created on : Jun 15, 2023, 2:21:36 AM
     Author     : thang
 --%>
-<%@page import="entity.Trainer"%>
-<%@page import="DAO.AppointmentDAO"%>
-<%@page import="entity.TrainerDTO"%>
-<%@page import="DAO.TrainerDAO1"%>
-<%@page import="entity.UserDTO"%>
-<%@page import="entity.TrainerSP"%>
 
-<%
-    // Retrieve the UserDTO object from the session
-    TrainerSP user = (TrainerSP) session.getAttribute("LOGIN_USER");
-
-    // Create an instance of the CustomerDAO
-    TrainerDAO1 trainerDAO = new TrainerDAO1();
-
-    // Get the customer ID using the user ID
-    int trainerID = trainerDAO.getTrainerID(user.getUserID());
-%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,12 +23,12 @@
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
-        <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
-        </head>
-        <body>
-            <div class="container-fluid">
-                <div class="row flex-nowrap">
-                    <!--            header-->
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <!--            header-->
+
                 <%@ include file="header.jsp" %>
 
                 <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
@@ -70,20 +54,17 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Services</span>
+                            <span style="padding-left: 2rem">Q&A</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
                             <div class="container-fluid">
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Bird Course</a>
+                                            <a class="nav-link" href="Staff_QuestionAndAnswer_List.jsp"><b>Question List</b></a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">Private Consultant</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Trainer_Workshop_FormList.jsp">Workshop</a>
+                                            <a class="nav-link" href="Staff_QuestionAndAnswer_AnsweredList.jsp"><b>Answered List</b></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -92,23 +73,12 @@
                     </section>
                     <section class="form-body">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <div class="navbar-brand">Service status:</div>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <form class="form-inline my-2 my-lg-0">
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">In-progress</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Trainer_PrivateConsultation_Completed.jsp">Completed</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <form class="form-inline my-2 my-lg-0 d-flex justify-content-center">
                                 <div class="search-container">
-                                    <div style="white-space: nowrap; padding-right: 2rem;">Search by ID</div>
+                                    <div style="white-space: nowrap; padding-right: 2rem">Search by ID</div>
                                     <div class="input-group">
                                         <input
                                             id="trainername"
@@ -129,7 +99,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing 2 pending form(s)
+                            Currently showing 2 pending question(s)
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -139,40 +109,56 @@
                                 <tr>
                                     <td>ID</td>
                                     <td>Title</td>
-                                    <td>Customer</td>
-                                    <td>Appointment date request</td>
-                                    <td>Trainer request</td>
+                                    <td>Full name</td>
+                                    <td>Email</td>
                                     <td>Submitted date</td>
-                                    <td>
-                                        <div style="display: flex; justify-content: space-around;">
-                                            <div style="padding-right: 11rem; height: 100%;">Type</div>
-                                            <div style="height: 100%;"></div>
-                                        </div>
-                                    </td>
+                                    <td>Question message</td>
                                 </tr>
                             </thead>
-                            <c:set var="trainerId" value="<%=trainerID%>"></c:set>
-                            <c:forEach items="${f.getAppointmentListBYTrainerID(trainerId)}" var="b" varStatus="counter" >
-                                <tr>
-                                    <td class="id">${counter.count}</td>
-                                    <td class="title">Basic Consultation Request</td>
-                                    <td class="customer">${b.fullname}</td>
-                                    <td class="customer">${b.duration} - ${b.date}</td>
-                                    <td class="customer">${sessionScope.LOGIN_USER.fullName}</td>
-                                    <td class="customer">${b.dateSubmit}</td>
-                                    <td>
-                                        <div class="type">
-                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
-                                            <a href="MainController?action=view_form_byTrainer&consultation_id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                            <!--loop start-->
+                            <tr>
+                                <td class="id">1</td>
+                                <td class="title">
+                                    <span class="question-message">Where do i go for my workshop</span>
+                                </td>
+                                <td class="customer">ABCa</td>
+                                <td class="customer">
+                                    <span class="question-message">abcdefgh@dgmail.com</span>
+                                </td>
+                                <td class="customer">2023-07-01</td>
+                                <td class="customer">
+                                    <span class="question-message">Hi,adwahdbwajdwajdwadwadwbjadw</span>
+                                </td>
+                                <td>
+                                    <div class="type">
+                                        <a href="Staff_QuestionAndAnswer_AnswerDetail.jsp"><button class="viewDetail">View Detail</button></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!--loop end-->
                         </table>
                     </section>
                 </div>
             </div>
         </div>
+        <!--reduce character-->
+        <script>
+            // Get all question message elements
+            var questionMessages = document.getElementsByClassName("question-message");
+
+            // Loop through each question message element
+            for (var i = 0; i < questionMessages.length; i++) {
+                var message = questionMessages[i].textContent;
+                const messageLength = 25;
+
+                // Check if the message length is greater than 10
+                if (message.length > messageLength) {
+                    // Truncate the message and append "..."
+                    var truncatedMessage = message.substring(0, messageLength) + "...";
+                    questionMessages[i].textContent = truncatedMessage;
+                }
+            }
+        </script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

@@ -55,7 +55,7 @@
                             <span style="padding-left: 2rem">Q&A</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="Staff_QuestionAndAnswer_List.jsp">
+                            <a href="Staff_QuestionAndAnswer_AnsweredList.jsp">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -69,10 +69,10 @@
                             <div class="container-fluid">
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item active">
+                                        <li class="nav-item">
                                             <a class="nav-link" href="Staff_QuestionAndAnswer_List.jsp"><b>Question List</b></a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item active">
                                             <a class="nav-link" href="Staff_QuestionAndAnswer_AnsweredList.jsp"><b>Answered List</b></a>
                                         </li>
                                     </ul>
@@ -200,32 +200,8 @@
                                                     class="form-control long-input"
                                                     id="customernotes"
                                                     placeholder="Enter answer here"
-                                                    style="height: 100px"
-                                                    required
-                                                    ></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="forms-footer">
-                                    <div>
-                                        <button class="btn update" type="button" data-bs-toggle="modal" data-bs-target="#confirmSubmit">Submit answer</button>
-                                        <div class="modal fade" id="confirmSubmit" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title" style="font-size: 3rem">Submit answer</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body fs-2">
-                                                        This answer will be sent to the customer's email. <br>
-                                                        You can review it in Answered Question List later.
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
-                                                    </div>
-                                                </div>
+                                                    disabled
+                                                    >abckzkkz</textarea>
                                             </div>
                                         </div>
                                     </div>

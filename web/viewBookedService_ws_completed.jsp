@@ -1,6 +1,6 @@
 <%--
-    Document   : viewBookedService-ws-completed
-    Created on : Jul 2, 2023, 7:58:36 PM
+    Document   : viewBookedService-ws-inprogress
+    Created on : Jul 2, 2023, 7:59:01 PM
     Author     : thang
 --%>
 
@@ -11,10 +11,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/viewBookedService_ws_completed.css">
+        <link rel="stylesheet" href="css/viewBookedService_ws_inprogress.css">
     </head>
     <body>
-        <%@include file="header.jsp" %>
+        <%@include file="header.jsp"%>
+        <!-- status: completed -->
         <div class="container-fluid">
             <div class="row tab-title">
                 <p>Booked Services</p>
@@ -22,15 +23,16 @@
             <div class="row tab-nav">
                 <ul class="service-nav">
                     <li><a href="">Bird Courses</a></li>
-                    <li><a href="">Online Courses</a></li>
-                    <li><a href="">Workshops</a></li>
+                    <li><a href="viewBookedService_onlineCourse.jsp">Online Courses</a></li>
+                    <li><a href="viewBookedService_ws_inprogress.jsp">Workshops</a></li>
+                    <li><a href="">Private Consultant</a></li>
                 </ul>
             </div>
             <div class="filter-search">
                 <div class="filter-side">
                     <ul class="filter-option">
-                        <li><a href="">In-progress</a></li>
-                        <li><a href="">Completed</a></li>
+                        <li><a href="viewBookedService_ws_inprogress.jsp">In-progress</a></li>
+                        <li><a href="viewBookedService_ws_completed.jsp">Completed</a></li>
                     </ul>
                 </div>
                 <div class="search-side">
@@ -48,7 +50,7 @@
             <div class="show-result">
                 <div class="search-card">
                     <div class="card">
-                        <img src="img/ws1.jpg" alt="" class="card-img">
+                        <img src="img/bird.jpg" alt="" class="card-img">
                         <div class="card-content">
                             <div class="header">
                                 <p>Harness Training Workshop:<br />
@@ -66,20 +68,22 @@
                                     abilities and unlock a whole new level of communication.
                                 </p>
                             </div>
-                            <div class="date-time">
-                                <p class="date"><span>Starting date:</span> May 25, 2023</p>
-                                <p class="time"><span>Time:</span> 2:00 PM - 4:00 PM</p>
-                                <p class="location"><span>Location/Venue:</span> Central Community Center</p>
+                            <div class="trainer">
+                                <p><span>Workshop trainer:</span> David Copperfield</p>
                             </div>
-                            <div class="audience">
-                                <p><span>Target audience:</span> Bird owners of all experience levels</p>
+                            <div class="btn-complete">
+                                <button><a href="">View certificate</a></button>
+                                <div class="complete-date">
+                                    <p>Complete on</p>
+                                    <span class="date">25/05/2023</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="search-card">
                     <div class="card">
-                        <img src="img/ws1.jpg" alt="" class="card-img">
+                        <img src="img/bird.jpg" alt="" class="card-img">
                         <div class="card-content">
                             <div class="header">
                                 <p>Harness Training Workshop:<br />
@@ -97,19 +101,21 @@
                                     abilities and unlock a whole new level of communication.
                                 </p>
                             </div>
-                            <div class="date-time">
-                                <p class="date"><span>Starting date:</span> May 25, 2023</p>
-                                <p class="time"><span>Time:</span> 2:00 PM - 4:00 PM</p>
-                                <p class="location"><span>Location/Venue:</span> Central Community Center</p>
+                            <div class="trainer">
+                                <p><span>Workshop trainer:</span> David Copperfield</p>
                             </div>
-                            <div class="audience">
-                                <p><span>Target audience:</span> Bird owners of all experience levels</p>
+                            <div class="btn-complete">
+                                <button><a href="">View certificate</a></button>
+                                <div class="complete-date">
+                                    <p>Completed on</p>
+                                    <p><span class="date">25/05/2023</span></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <%@include file="footer.jsp" %>
+        <%@include file="footer.jsp"%>
     </body>
 </html>

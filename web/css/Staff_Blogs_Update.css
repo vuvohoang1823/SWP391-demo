@@ -27,8 +27,13 @@
 .form-head .navbar .navbar-nav .nav-item .nav-link:hover {
     color: #617A55;
 }
-.form-head .navbar .navbar-nav .active .nav-link{
+.form-head .navbar .navbar-nav .active a{
     color: #617A55 !important;
+}
+
+.long-input {
+    resize: none; /* Prevent resizing */
+    overflow: hidden; /* Hide overflowing content */
 }
 
 .form-body .navbar {
@@ -37,7 +42,6 @@
 .form-body .navbar .navbar-brand {
     font-size: 1.5rem;
 }
-
 .form-body .navbar form {
     width: 100%;
     display: flex;
@@ -57,7 +61,7 @@
     padding-right: 2.5rem;
     color: black;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 600;
 }
 .form-body .navbar form .search-container .input-group {
     height: 100%;
@@ -78,15 +82,16 @@
     border-radius: 10px;
     background-color: white;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.322);
-    margin-bottom: 5rem;
+    padding-bottom: 15rem;
 }
 .forms-container .forms-header {
+    background-color: #e2e8e7;
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
 }
 .forms-container .forms-header .left-side {
-    font-size: 3rem;
+    font-size: 4rem;
     color: #617a55;
 }
 .forms-container .forms-header .right-side {
@@ -111,72 +116,8 @@
     padding: 0.5rem 2rem;
     background: #FA5943;
 }
-/*customer form*/
-.forms-container .form-customerDetails .form-name {
-    background-color: #f7f7f7;
-}
-.forms-container .form-customerDetails .form-name .name {
-    padding: 2rem 2rem;
-    font-size: 3.1rem;
-    font-weight: bold;
-}
-.forms-container .form-customerDetails .form-body {
-    padding: 2rem 6rem;
-    font-size: 1.5rem;
-}
-.forms-container .form-customerDetails .form-body input,
-.forms-container .form-customerDetails .form-body textarea {
-    font-size: 2rem;
-}
-.forms-container .forms-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.forms-container .forms-footer div {
-    font-size: 2rem;
-    padding: 0 1rem;
-}
-.forms-container .forms-footer div button {
-    font-size: 2rem;
-    padding: 0 2rem;
-}
-.forms-container .accordion .accordion-item {
-    border: 0;
-}
-.forms-container .accordion .accordion-item .accordion-header .forms-header {
-    width: 100%;
-}
-.forms-container .accordion .accordion-item .accordion-header .accordion-button{
-    background-color: #e2e8e7;
-}
-.forms-container .accordion .accordion-item .accordion-body {
-    font-size: 2rem;
-    padding: 0;
-    padding-bottom: 2rem;
-}
-.forms-container .accordion .accordion-item .accordion-body .forms-footer {
-    padding: 0 6rem;
-}
-.forms-container .accordion .accordion-item .accordion-body .forms-footer button {
-    width: 45%;
-    font-size: 3rem;
-    font-weight: 700;
-    height: 68px;
-}
-.forms-container .accordion .accordion-item .accordion-body .modal {
-    font-size: 2rem;
-}
-.forms-container .accordion .accordion-item .accordion-body .modal .modal-content .modal-header .modal-title {
-    font-size: 3rem !important;
-}
-.forms-container .accordion .accordion-item .accordion-body .modal .modal-content .modal-footer button {
-    font-size: 2rem;
-}
-
-/*form details*/
 .forms-container .form-formDetails .form-name {
-    background: #f7f7f7;
+    background: rgba(217, 217, 217, 0.20);
 }
 .forms-container .form-formDetails .form-name .name {
     padding: 2rem 2rem;
@@ -184,7 +125,7 @@
     font-weight: bold;
 }
 .forms-container .form-formDetails .form-body {
-    padding: 2rem 6rem;
+    padding: 2rem 4rem;
     font-size: 1.5rem;
 }
 .forms-container .form-formDetails .form-body button {
@@ -224,6 +165,7 @@
     border-radius: 50%;
     margin-right: 10px;
 }
+
 .forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-name {
     font-weight: bold;
 }
@@ -232,36 +174,9 @@
     color: gray;
 }
 
-/*payment*/
-.forms-container .form-paymentChecklist .form-name {
-    margin-bottom: 2rem;
-    background-color: #f7f7f7;
-}
-.forms-container .form-paymentChecklist .form-name .name {
-    padding: 2rem 2rem;
-    font-size: 3.1rem;
-    font-weight: bold;
-}
-.forms-container .accordion .accordion-item .accordion-body .form-paymentChecklist .payment-form {
-    justify-content: center;
-}
-.forms-container .accordion .accordion-item .accordion-body .form-paymentChecklist .payment-form input{
-    font-size: 1.5rem;
-    width: auto;
-    border-radius: 0.4rem 0 0 0.4rem !important;
-}
-.forms-container .accordion .accordion-item .accordion-body .form-paymentChecklist .info {
-    margin: 0 auto;
-    display: flex;
-    width: 50%;
-    justify-content: space-around;
-    align-items: center;
-}
-
-/*end button*/
 .forms-container .forms-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 .forms-container .forms-footer div {
@@ -275,11 +190,15 @@
     width: 233px;
     height: 68px;
 }
-.forms-container .forms-footer div .approve {
+.forms-container .forms-footer div .update {
     border-radius: 10px;
-    background: #2B7ADF;
+    background: #617a55;
 }
-.forms-container .forms-footer div .decline{
-    border-radius: 10px;
-    background: rgba(58, 59, 60, 0.86);
+
+.img-container .showImg {
+    border: 1px solid black;
+    object-fit: contain;
+    object-position: center;
+    width: 75rem;
+    height: 50rem;
 }

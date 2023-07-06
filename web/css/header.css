@@ -194,7 +194,7 @@ html {
     background-color: rgba(97, 122, 85, 0.1);
 }
 .sidebar-trainer .logo-container {
-    background-color: #617a55;
+    background-color: #323232;
     height: 116px;
 }
 .sidebar-trainer .logo-container .logo-image img {
@@ -208,7 +208,7 @@ html {
     font-size: 1.5rem;
 }
 .sidebar-trainer .nav-pills li a {
-    padding-left: 9%;
+    padding-left: 14%;
     height: 5rem;
     display: flex;
     font-weight: bold;
@@ -223,6 +223,8 @@ html {
     width: 25vw;
 }
 .sidebar-trainer .auth-section .user-button {
+    width: 166px;
+    align-self: center;
     background-color: #617a55;
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
@@ -303,6 +305,8 @@ html {
     width: 25vw;
 }
 .sidebar-staff .auth-section .user-button {
+    width: 166px;
+    align-self: center;
     background-color: #617a55;
     padding: 0.5rem 1rem;
     font-size: 1.5rem;

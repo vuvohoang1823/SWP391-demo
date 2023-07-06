@@ -86,8 +86,11 @@
                         <div class="card-footer">
                             <button class="btn btn-success" type="submit">Get New
                                 Password</button>
-                            <button class="btn btn-danger" type="submit">Back to
-                                Login</button>
+                            <a href="signin.jsp">
+                                <button class="btn btn-danger" type="button">
+                                    Back to Login
+                                </button>
+                            </a>
                         </div>
                     </form>
                 </div>

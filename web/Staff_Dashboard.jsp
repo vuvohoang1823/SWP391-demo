@@ -3,7 +3,6 @@
     Created on : Jun 15, 2023, 2:21:36 AM
     Author     : thang
 --%>
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,13 +21,12 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
+        <link rel="stylesheet" href="css/Trainer_Dashboard.css" />
     </head>
     <body>
         <div class="container-fluid">
             <div class="row flex-nowrap">
                 <!--            header-->
-
                 <%@ include file="header.jsp" %>
 
                 <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
@@ -54,111 +52,15 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Q&A</span>
-                        </div>
-                        <div class="navbar navbar-expand-lg navbar-light">
-                            <div class="container-fluid">
-                                <div class="" id="navbarSupportedContent">
-                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_QuestionAndAnswer_List.jsp"><b>Question List</b></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Staff_QuestionAndAnswer_AnsweredList.jsp"><b>Answered List</b></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <span style="padding-left: 2rem">Dashboard</span>
                         </div>
                     </section>
                     <section class="form-body">
-                        <nav class="navbar navbar-expand-lg navbar-light">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <form class="form-inline my-2 my-lg-0 d-flex justify-content-center">
-                                <div class="search-container">
-                                    <div style="white-space: nowrap; padding-right: 2rem">Search by ID</div>
-                                    <div class="input-group">
-                                        <input
-                                            id="trainername"
-                                            type="search"
-                                            class="form-control mr-sm-2"
-                                            />
-                                        <button
-                                            class="btn btn-light"
-                                            type="submit"
-                                            id="button-addon2"
-                                            >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </nav>
-                        <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing 2 pending question(s)
-                        </div>
-                        <table
-                            class="w3-table-all w3-hoverable w3-card-4 table-form"
-                            style="width: 97.5%; margin: 0 auto"
-                            >
-                            <thead>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Full name</td>
-                                    <td>Email</td>
-                                    <td>Submitted date</td>
-                                    <td>Question message</td>
-                                </tr>
-                            </thead>
-                            <!--loop start-->
-                            <tr>
-                                <td class="id">1</td>
-                                <td class="title">
-                                    <span class="question-message">Where do i go for my workshop</span>
-                                </td>
-                                <td class="customer">ABCa</td>
-                                <td class="customer">
-                                    <span class="question-message">abcdefgh@dgmail.com</span>
-                                </td>
-                                <td class="customer">2023-07-01</td>
-                                <td class="customer">
-                                    <span class="question-message">Hi,adwahdbwajdwajdwadwadwbjadw</span>
-                                </td>
-                                <td>
-                                    <div class="type">
-                                        <a href="Staff_QuestionAndAnswer_QuestionDetail.jsp"><button class="viewDetail">View Detail</button></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <!--loop end-->
-                        </table>
+
                     </section>
                 </div>
             </div>
         </div>
-        <!--reduce character-->
-        <script>
-            // Get all question message elements
-            var questionMessages = document.getElementsByClassName("question-message");
-
-            // Loop through each question message element
-            for (var i = 0; i < questionMessages.length; i++) {
-                var message = questionMessages[i].textContent;
-                const messageLength = 25;
-
-                // Check if the message length is greater than 10
-                if (message.length > messageLength) {
-                    // Truncate the message and append "..."
-                    var truncatedMessage = message.substring(0, messageLength) + "...";
-                    questionMessages[i].textContent = truncatedMessage;
-                }
-            }
-        </script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

@@ -16,10 +16,7 @@
 
             <div class="container-fluid">
                 <div class="row flex-nowrap">
-                    <!--            header-->
-
-                <%@ include file="header.jsp" %>
-
+                <%@ include file="header.jsp"%>
                 <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
@@ -110,12 +107,12 @@
                             >
                             <thead>
                                 <tr>
-                                    <td>ID</td>
-                                    <td>Course name</td>
-                                    <td>Customer name</td>
-                                    <td>Bird type</td>
-                                    <td>Request date</td>
-                                    <td></td>
+                                    <th>No</th>
+                                    <th>Course name</th>
+                                    <th>Customer</th>
+                                    <th>Bird Type</th>
+                                    <th>Request date</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -168,7 +165,7 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div> 
+                                        </div>
                                     </div>--%>
                                 </form>
                                 </tr>

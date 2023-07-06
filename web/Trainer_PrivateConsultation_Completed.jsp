@@ -3,24 +3,7 @@
     Created on : Jun 15, 2023, 2:21:36 AM
     Author     : thang
 --%>
-<%@page import="entity.Trainer"%>
-<%@page import="DAO.AppointmentDAO"%>
-<%@page import="entity.TrainerDTO"%>
-<%@page import="DAO.TrainerDAO1"%>
-<%@page import="entity.UserDTO"%>
-<%@page import="entity.TrainerSP"%>
 
-<%
-    // Retrieve the UserDTO object from the session
-    TrainerSP user = (TrainerSP) session.getAttribute("LOGIN_USER");
-
-    // Create an instance of the CustomerDAO
-    TrainerDAO1 trainerDAO = new TrainerDAO1();
-
-    // Get the customer ID using the user ID
-    int trainerID = trainerDAO.getTrainerID(user.getUserID());
-%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -40,13 +23,13 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
         <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
+        <jsp:useBean id="tr" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
         </head>
         <body>
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                     <!--            header-->
                 <%@ include file="header.jsp" %>
-
                 <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
@@ -99,16 +82,16 @@
                             <form class="form-inline my-2 my-lg-0">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item active">
+                                        <li class="nav-item">
                                             <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">In-progress</a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item active">
                                             <a class="nav-link" href="Trainer_PrivateConsultation_Completed.jsp">Completed</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="search-container">
-                                    <div style="white-space: nowrap; padding-right: 2rem;">Search by ID</div>
+                                    <div style="white-space: nowrap; padding-right: 2rem">Search by ID</div>
                                     <div class="input-group">
                                         <input
                                             id="trainername"
@@ -151,19 +134,21 @@
                                     </td>
                                 </tr>
                             </thead>
-                            <c:set var="trainerId" value="<%=trainerID%>"></c:set>
-                            <c:forEach items="${f.getAppointmentListBYTrainerID(trainerId)}" var="b" varStatus="counter" >
+                            <c:forEach items="${f.appointmentFormHistory}" var="b" varStatus="counter" >
+                                <c:set var="requestidd" value="${b.request_trainer_id}" />
+                                <c:set var="trainername" value="${not empty requestidd ? tr.getTrainerNameByRequestTrainerId(requestidd) : 'N/A'}" />
+
                                 <tr>
                                     <td class="id">${counter.count}</td>
                                     <td class="title">Basic Consultation Request</td>
                                     <td class="customer">${b.fullname}</td>
                                     <td class="customer">${b.duration} - ${b.date}</td>
-                                    <td class="customer">${sessionScope.LOGIN_USER.fullName}</td>
+                                    <td class="customer">${trainername}</td>
                                     <td class="customer">${b.dateSubmit}</td>
                                     <td>
                                         <div class="type">
                                             <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
-                                            <a href="MainController?action=view_form_byTrainer&consultation_id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
+                                            <a href="Trainer_PrivateConsultation_CompletedDetail.jsp"><button class="viewDetail">View Detail</button></a>
                                         </div>
                                     </td>
                                 </tr>

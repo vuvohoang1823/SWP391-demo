@@ -25,7 +25,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100rem;
-    height: 60rem;
+    height: 65rem;
     background: #F5F5F5;
 }
 .logo-container{
@@ -42,12 +42,13 @@ body{
     color: white;
 }
 .logo-side > img{
+    object-fit: cover;
     position: absolute;
     border-radius: 1rem 0 0 1rem;
     top: 0;
     left: 0;
     width: 49rem;
-    height: 60rem;
+    height: 100%;
 }
 .darken{
     background-color: black;
@@ -55,7 +56,7 @@ body{
     top: 0;
     left: 0;
     width: 49rem;
-    height: 60rem;
+    height: 100%;
     opacity: 0.3
 }
 .auth-side > p{
@@ -66,11 +67,17 @@ body{
     margin-left: 4rem;
 }
 .auth-side .close-btn{
-    margin-left: 45rem;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: fit-content;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: 2rem;
     margin-top: 2rem;
 }
 .form-control{
-    margin-left: 5rem;
+    width: 100%;
+    padding-left: 5.75rem;
     margin-top: 3rem;
     border-color: transparent;
     background: transparent;
@@ -121,7 +128,7 @@ label{
 .password-toggle i{
     position: absolute;
     margin-top: 1.4rem;
-    right: 12rem
+    right: 20%;
 }
 /* Eye icon styles */
 .eye-icon:before {

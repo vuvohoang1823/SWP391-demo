@@ -74,23 +74,25 @@ public class LoginServlet extends HttpServlet {
                     CustomerDAO customerDAO = new CustomerDAO();
                     CustomerDTO customer = customerDAO.getCustomerInfo(user.getUser_id());
                     session.setAttribute("LOGIN_USER", customer);
-                   url = HOME_PAGE;
-                   
+                    url = HOME_PAGE;
+
                 } else if (user.getRole().equals("trainer")) {
                     // lay user_id de tim ra trainer_id roi luu vao session
                     TrainerDAO trainerdao = new TrainerDAO();
                     TrainerSP trainer = trainerdao.getTrainerInfo(user.getUser_id());
                     session.setAttribute("LOGIN_USER", trainer);
-                    url = "Trainer_PrivateConsultation_List.jsp";
-                     // url = "Trainer_Tracking";
+                    url = "Trainer_Dashboard.jsp";
+                    // url = "Trainer_Tracking";
+
                 } else if (user.getRole().equals("staff")) {
                     UserDAO staffdao = new UserDAO();
                     StaffDTO staff = staffdao.getStaffInfo(user.getUser_id());
                     session.setAttribute("LOGIN_USER", user);
                     //add thg staff de log out
-                   url = "Staff_ConsultationForm_Pending.jsp";
-               //   url="trainer_demo.jsp";
-                  //  url = "staff_birdCourseForm.jsp";
+                    url = "Staff_Dashboard.jsp";
+                    //   url="trainer_demo.jsp";
+                    //  url = "staff_birdCourseForm.jsp";
+
                 } else if (user.getRole().equals("admin")) {
                     url = "";
                 }

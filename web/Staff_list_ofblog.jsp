@@ -1,25 +1,8 @@
 <%--
-    Document   : ConsultationForm
-    Created on : Jun 15, 2023, 2:21:36 AM
-    Author     : thang
+    Document   : Staff_list_ofblog
+    Created on : Jul 4, 2023, 6:06:17 PM
+    Author     : hoang
 --%>
-<%@page import="entity.Trainer"%>
-<%@page import="DAO.AppointmentDAO"%>
-<%@page import="entity.TrainerDTO"%>
-<%@page import="DAO.TrainerDAO1"%>
-<%@page import="entity.UserDTO"%>
-<%@page import="entity.TrainerSP"%>
-
-<%
-    // Retrieve the UserDTO object from the session
-    TrainerSP user = (TrainerSP) session.getAttribute("LOGIN_USER");
-
-    // Create an instance of the CustomerDAO
-    TrainerDAO1 trainerDAO = new TrainerDAO1();
-
-    // Get the customer ID using the user ID
-    int trainerID = trainerDAO.getTrainerID(user.getUserID());
-%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,19 +10,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <!-- boostrap -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-            crossorigin="anonymous"
-            />
-        <!-- w3Table -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-        <!-- css -->
-        <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
-        <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
+        <jsp:useBean id="b"  class="DAO.BlogDAO" scope="request"></jsp:useBean>
+            <!-- boostrap -->
+            <link
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+                rel="stylesheet"
+                integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+                crossorigin="anonymous"
+                />
+            <!-- w3Table -->
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+            <!--css-->
+            <link rel="stylesheet" href="css/reset.css" />
+            <link rel="stylesheet" href="css/Staff_Blogs_List.css" />
         </head>
         <body>
             <div class="container-fluid">
@@ -70,20 +53,17 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Services</span>
+                            <span style="padding-left: 2rem">Blogs</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
                             <div class="container-fluid">
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Bird Course</a>
-                                        </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">Private Consultant</a>
+                                            <a class="nav-link" href="Staff_list_ofblog.jsp">Blog List</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Trainer_Workshop_FormList.jsp">Workshop</a>
+                                            <a class="nav-link" href="Staff_AddBlog.jsp">Add blog</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -92,7 +72,7 @@
                     </section>
                     <section class="form-body">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <div class="navbar-brand">Service status:</div>
+                            <div class="navbar-brand">Blog status:</div>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -100,15 +80,15 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">In-progress</a>
+                                            <a class="nav-link" href="Staff_list_ofblog.jsp">Active</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Trainer_PrivateConsultation_Completed.jsp">Completed</a>
+                                            <a class="nav-link" href="Staff_list_ofblog_unactive.jsp">Not active</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="search-container">
-                                    <div style="white-space: nowrap; padding-right: 2rem;">Search by ID</div>
+                                    <div style="white-space: nowrap; padding-right: 2rem">Search by ID</div>
                                     <div class="input-group">
                                         <input
                                             id="trainername"
@@ -139,31 +119,46 @@
                                 <tr>
                                     <td>ID</td>
                                     <td>Title</td>
-                                    <td>Customer</td>
-                                    <td>Appointment date request</td>
-                                    <td>Trainer request</td>
-                                    <td>Submitted date</td>
-                                    <td>
-                                        <div style="display: flex; justify-content: space-around;">
-                                            <div style="padding-right: 11rem; height: 100%;">Type</div>
-                                            <div style="height: 100%;"></div>
-                                        </div>
-                                    </td>
+                                    <td>Author</td>
+                                    <td>Content</td>
+                                    <td>Date submit</td>
+                                    <td style="padding-left: 2.5%">Actions</td>
                                 </tr>
                             </thead>
-                            <c:set var="trainerId" value="<%=trainerID%>"></c:set>
-                            <c:forEach items="${f.getAppointmentListBYTrainerID(trainerId)}" var="b" varStatus="counter" >
+                            <c:forEach var="card" items="${b.lisofBlog}">
                                 <tr>
-                                    <td class="id">${counter.count}</td>
-                                    <td class="title">Basic Consultation Request</td>
-                                    <td class="customer">${b.fullname}</td>
-                                    <td class="customer">${b.duration} - ${b.date}</td>
-                                    <td class="customer">${sessionScope.LOGIN_USER.fullName}</td>
-                                    <td class="customer">${b.dateSubmit}</td>
+                                    <td class="id">${card.blogid}</td>
+                                    <td class="title blog-title">${card.title}</td>
+                                    <td class="title">${card.author}</td>
+                                    <td class="title blog-description">${card.introduction}</td>
+                                    <td class="title">${card.date}</td>
                                     <td>
                                         <div class="type">
-                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
-                                            <a href="MainController?action=view_form_byTrainer&consultation_id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
+                                            <form action="UpdateBlogServlet" method="post" style="display: inline;">
+                                                <input type="hidden" name="blogId" value="${card.blogid}" />
+                                                <button class="update-button" type="submit" name="action" value="update">Update</button>
+                                            </form>
+                                            <form action="DeleteBlogServlet" method="post" style="display: inline;">
+                                                <input type="hidden" name="blogId" value="${card.blogid}" />
+                                                <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${card.blogid}">Delete</button>
+                                                <div class="modal fade" id="confirmDelete-${card.blogid}" tabindex="-1" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title" style="font-size: 3rem">Delete</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body fs-2">
+                                                                Do you want to delete this blog?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" name="action" value="delete" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>
@@ -173,6 +168,56 @@
                 </div>
             </div>
         </div>
+        <!--        trim title-->
+        <script>
+            // Get all question message elements
+            var blogTitle = document.getElementsByClassName("blog-title");
+
+            // Loop through each question message element
+            for (var i = 0; i < blogTitle.length; i++) {
+                var title = blogTitle[i].textContent.trim();
+
+                // Remove any leading or trailing spaces and invisible characters
+                title = title.replace(/^\s+|\s+$/g, "");
+
+                // Remove non-printable characters using regular expression
+                title = title.replace(/[^ -~]+/g, "");
+
+                const titleLength = 30;
+
+                // Check if the title length is greater than 10
+                if (title.length > titleLength) {
+                    // Truncate the title and append "..."
+                    var truncatedMessage = title.substring(0, titleLength) + "...";
+                    blogTitle[i].textContent = truncatedMessage;
+                }
+            }
+        </script>
+        <!--        trim description-->
+        <script>
+            // Get all question message elements
+            var blogDescription = document.getElementsByClassName("blog-description");
+
+            // Loop through each question message element
+            for (var i = 0; i < blogDescription.length; i++) {
+                var description = blogDescription[i].textContent.trim();
+
+                // Remove any leading or trailing spaces and invisible characters
+                description = description.replace(/^\s+|\s+$/g, "");
+
+                // Remove non-printable characters using regular expression
+                description = description.replace(/[^ -~]+/g, "");
+
+                const descriptionLength = 50;
+
+                // Check if the description length is greater than 10
+                if (description.length > descriptionLength) {
+                    // Truncate the description and append "..."
+                    var truncatedMessage = description.substring(0, descriptionLength) + "...";
+                    blogDescription[i].textContent = truncatedMessage;
+                }
+            }
+        </script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

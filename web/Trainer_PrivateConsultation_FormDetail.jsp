@@ -70,7 +70,7 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Private Consultation</span>
+                            <span style="padding-left: 2rem">Services</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
                             <a href="Trainer_PrivateConsultation_List.jsp">
@@ -89,7 +89,13 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Trainer_PrivateConsultation.jsp"><b>Form List</b></a>
+                                            <a class="nav-link" href="#">Bird Course</a>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">Private Consultant</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="Trainer_Workshop_FormList.jsp">Workshop</a>
                                         </li>
                                     </ul>
                                 </div>

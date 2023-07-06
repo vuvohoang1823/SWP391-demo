@@ -173,7 +173,6 @@ section .heading h2 {
 .blogs-body .blogs-container .blog-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     border-radius: 2rem;
     width: 361px;
     height: 544px;
@@ -195,6 +194,10 @@ section .heading h2 {
     font-size: 1.5rem;
     padding: 1.5rem 2rem;
 }
+.blogs-body .blogs-container .blog-container .desc-container .blog-description {
+    height: 100px;
+    line-height: 2rem;
+}
 .blogs-body .blogs-container .blog-container .desc-container div {
     padding-top: 2rem;
 }
@@ -207,6 +210,7 @@ section .heading h2 {
     font-family: Montserrat;
 }
 .blogs-body .blogs-container .blog-container .button-container {
+    align-self: center;
     padding-top: 4rem;
     width: 90%;
 }
