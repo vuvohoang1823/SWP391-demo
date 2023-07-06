@@ -161,23 +161,24 @@
             var forms = document.querySelectorAll("form");
             // Attach an event listener to each form's submit event
             forms.forEach(function (form) {
-            form.addEventListener("submit", function (event) {
-            // Prevent the default form submission behavior
-            event.preventDefault();
+                form.addEventListener("submit", function (event) {
+                    // Prevent the default form submission behavior
+                    event.preventDefault();
                     // Show success toast
                     Toastify({
-                    text: "Submit success",
-                            position: "center",
-                            close: true,
-                            gravity: "top",
-                            duration: 3000
-                            style: {
+                        text: "Submit success",
+                        position: "center",
+                        close: true,
+                        gravity: "top",
+                        duration: 3000,
+                        style: {
+                            fontSize: "2rem",
                             background: "linear-gradient(to right, #00b09b, #96c93d)",
-                            },
+                        },
                     }).showToast();
                     //reset form
                     form.reset();
-            });
+                });
             });
         </script>
     </body>
