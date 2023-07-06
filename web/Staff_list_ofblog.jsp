@@ -138,7 +138,7 @@
                                                 <input type="hidden" name="blogId" value="${card.blogid}" />
                                                 <button class="update-button" type="submit" name="action" value="update">Update</button>
                                             </form>
-                                            <form action="DeleteBlogServlet" method="post" style="display: inline;">
+                                            <form class="deleteForm" action="DeleteBlogServlet" method="post" style="display: inline;">
                                                 <input type="hidden" name="blogId" value="${card.blogid}" />
                                                 <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${card.blogid}">Delete</button>
                                                 <div class="modal fade" id="confirmDelete-${card.blogid}" tabindex="-1" aria-hidden="true">
@@ -168,6 +168,36 @@
                 </div>
             </div>
         </div>
+        <!--show toast on forms-->
+        <script>
+            // Get all form elements using querySelectorAll
+            var forms = document.querySelectorAll(".deleteForm");
+            // Attach an event listener to each form's submit event
+            forms.forEach(function (form) {
+                form.addEventListener("submit", function (event) {
+                    // Prevent the default form submission behavior
+                    event.preventDefault();
+                    // Show success toast
+                    Toastify({
+                        text: "Delete success",
+                        position: "center",
+                        close: true,
+                        gravity: "top",
+                        duration: 3000,
+                        style: {
+                            fontSize: "2rem",
+                            background: "linear-gradient(to right, #00b09b, #96c93d)"
+                        },
+                        onClick: function () {
+                            form.submit();
+                        }
+                    }).showToast();
+                    setTimeout(function () {
+                        form.submit();
+                    }, 1000);
+                });
+            });
+        </script>
         <!--        trim title-->
         <script>
             // Get all question message elements
@@ -218,6 +248,9 @@
                 }
             }
         </script>
+        <!--toast-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <!--bs5-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

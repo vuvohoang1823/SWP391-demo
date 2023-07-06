@@ -133,9 +133,26 @@
                                     <td class="title blog-description">${card.introduction}</td>
                                     <td class="title">${card.date}</td>
                                     <td>
-                                        <form action="UpdateBlogServlet" method="post" style="display: inline;">
+                                        <form class="restoreForm" action="DeleteBlogServlet" method="post" style="display: inline;">
                                             <input type="hidden" name="blogId" value="${card.blogid}" />
-                                            <button class="update-button" type="submit" name="action" value="update">Restore</button>
+                                            <button class="update-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${card.blogid}">Restore</button>
+                                            <div class="modal fade" id="confirmDelete-${card.blogid}" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title" style="font-size: 3rem">Restore</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body fs-2">
+                                                            Do you want to restore this blog?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" name="action" value="delete" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </form>
                                     </td>
                                 </tr>
@@ -145,6 +162,36 @@
                 </div>
             </div>
         </div>
+        <!--show toast on forms-->
+        <script>
+            // Get all form elements using querySelectorAll
+            var forms = document.querySelectorAll(".restoreForm");
+            // Attach an event listener to each form's submit event
+            forms.forEach(function (form) {
+                form.addEventListener("submit", function (event) {
+                    // Prevent the default form submission behavior
+                    event.preventDefault();
+                    // Show success toast
+                    Toastify({
+                        text: "Restore success",
+                        position: "center",
+                        close: true,
+                        gravity: "top",
+                        duration: 3000,
+                        style: {
+                            fontSize: "2rem",
+                            background: "linear-gradient(to right, #00b09b, #96c93d)"
+                        },
+                        onClick: function () {
+                            form.submit();
+                        }
+                    }).showToast();
+                    setTimeout(function () {
+                        form.submit();
+                    }, 1000);
+                });
+            });
+        </script>
         <!--        trim title-->
         <script>
             // Get all title
@@ -195,21 +242,9 @@
                 }
             }
         </script>
-        <!--show confirm-->
-        <script>
-            function confirmDelete(event) {
-                event.preventDefault(); // Prevent the form from submitting immediately
-
-                // Show a confirmation dialog
-                if (confirm("Do you want to delete this blog?")) {
-                    // If user clicks "OK", submit the form
-                    event.target.closest('form').submit();
-                } else {
-                    // If user clicks "Cancel", do nothing
-                    return;
-                }
-            }
-        </script>
+        <!--toast-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <!--bs5-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
