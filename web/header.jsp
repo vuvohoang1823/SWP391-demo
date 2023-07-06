@@ -271,10 +271,10 @@
                     <div class="bg-white p-2">
                         <ul class="nav nav-pills flex-column mt-4">
                             <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "homepage.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Dashboard.jsp")%>
                                 ">
                                 <a
-                                    href="#"
+                                    href="Staff_Dashboard.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
@@ -401,6 +401,8 @@
                             <li class="nav-item py-2 py-sm-4
                                 <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_List.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_QuestionDetail.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_AnsweredList.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_QuestionAndAnswer_AnswerDetail.jsp")%>
                                 ">
                                 <a
                                     href="Staff_QuestionAndAnswer_List.jsp"

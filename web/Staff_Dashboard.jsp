@@ -3,23 +3,6 @@
     Created on : Jun 15, 2023, 2:21:36 AM
     Author     : thang
 --%>
-<%@page import="entity.Trainer"%>
-<%@page import="DAO.AppointmentDAO"%>
-<%@page import="entity.TrainerDTO"%>
-<%@page import="DAO.TrainerDAO1"%>
-<%@page import="entity.UserDTO"%>
-<%@page import="entity.TrainerSP"%>
-
-<%
-    // Retrieve the UserDTO object from the session
-    TrainerSP user = (TrainerSP) session.getAttribute("LOGIN_USER");
-
-    // Create an instance of the CustomerDAO
-    TrainerDAO1 trainerDAO = new TrainerDAO1();
-
-    // Get the customer ID using the user ID
-    int trainerID = trainerDAO.getTrainerID(user.getUserID());
-%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

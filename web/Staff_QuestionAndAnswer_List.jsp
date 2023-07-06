@@ -54,14 +54,17 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Question List</span>
+                            <span style="padding-left: 2rem">Q&A</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
                             <div class="container-fluid">
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="Staff_QuestionAndAnswer_List.jsp"><b>Question List</b></a>
+                                        </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="staff_birdCourseForm_pending.jsp"><b>Questions</b></a>
+                                            <a class="nav-link" href="Staff_QuestionAndAnswer_AnsweredList.jsp"><b>Answered List</b></a>
                                         </li>
                                     </ul>
                                 </div>

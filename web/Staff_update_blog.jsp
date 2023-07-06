@@ -87,8 +87,7 @@
                                     <div class="forms-header">
                                         <div class="left-side"><b>Update Blog</b></div>
                                         <div class="right-side">
-                                            <span>Created: <b>${detail.date}</b></span>
-                                        <span><b>ID : #${detail.blogid}</b></span>
+                                            <span><b>ID : #${detail.blogid}</b></span>
                                     </div>
                                 </div>
                                 <form action="UpdateServlet" method="POST" enctype="multipart/form-data">
@@ -135,8 +134,6 @@
                                                               name="briefinfo"
                                                               class="form-control long-input"
                                                               placeholder="Enter brief info"
-                                                              oninput="adjustTextareaHeight(this)"
-                                                              onblur="trimTrailingSpaces(this)"
                                                               required
                                                               >${detail.briefinfo}</textarea>
                                                 </div>
@@ -148,8 +145,6 @@
                                                               name="introduction"
                                                               class="form-control long-input"
                                                               placeholder="Enter introduction"
-                                                              oninput="adjustTextareaHeight(this)"
-                                                              onblur="trimTrailingSpaces(this)"
                                                               required>${detail.introduction}</textarea>
                                                 </div>
                                             </div>
@@ -169,8 +164,6 @@
                                                               name="content1"
                                                               class="form-control long-input"
                                                               placeholder="Enter content 1"
-                                                              oninput="adjustTextareaHeight(this)"
-                                                              onblur="trimTrailingSpaces(this)"
                                                               required>${detail.content1}</textarea>
                                                 </div>
                                             </div>
@@ -181,8 +174,6 @@
                                                               name="content2"
                                                               class="form-control long-input"
                                                               placeholder="Enter content 2"
-                                                              oninput="adjustTextareaHeight(this)"
-                                                              onblur="trimTrailingSpaces(this)"
                                                               required>${detail.content2}</textarea>
                                                 </div>
                                             </div>
@@ -193,8 +184,6 @@
                                                               name="inconclusion"
                                                               class="form-control long-input"
                                                               placeholder="Conclusion"
-                                                              oninput="adjustTextareaHeight(this)"
-                                                              onblur="trimTrailingSpaces(this)"
                                                               required>${detail.inconclusion}</textarea>
                                                 </div>
                                             </div>
@@ -244,23 +233,27 @@
                 };
             }
         </script>
-        <!--adjust textrea height-->
+        <!--adjust height and trim space-->
         <script>
             function adjustTextareaHeight(textarea) {
                 textarea.style.height = "auto";
                 textarea.style.height = textarea.scrollHeight + "px";
             }
 
-            var textareas = document.getElementsByClassName("long-input");
-            for (var i = 0; i < textareas.length; i++) {
-                adjustTextareaHeight(textareas[i]);
-            }
-        </script>
-        <!--remove trailing space-->
-        <script>
             function trimTrailingSpaces(textarea) {
                 textarea.value = textarea.value.trim();
                 adjustTextareaHeight(textarea);
+            }
+
+            var textareas = document.getElementsByClassName("long-input");
+            for (var i = 0; i < textareas.length; i++) {
+                textareas[i].addEventListener("input", function () {
+                    adjustTextareaHeight(this);
+                });
+                textareas[i].addEventListener("blur", function () {
+                    trimTrailingSpaces(this);
+                });
+                adjustTextareaHeight(textareas[i]);
             }
         </script>
         <script
