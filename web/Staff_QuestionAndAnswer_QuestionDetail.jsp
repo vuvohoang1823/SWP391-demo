@@ -217,7 +217,7 @@
                                                         <h1 class="modal-title" style="font-size: 3rem">Submit answer</h1>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <div class="modal-body fs-2">
+                                                    <div class="modal-body fs-2" style="line-height: 2.5rem">
                                                         This answer will be sent to the customer's email. <br>
                                                         You can review it in Answered Question List later.
                                                     </div>
