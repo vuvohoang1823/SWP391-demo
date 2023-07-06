@@ -305,6 +305,8 @@ html {
     width: 25vw;
 }
 .sidebar-staff .auth-section .user-button {
+    width: 166px;
+    align-self: center;
     background-color: #617a55;
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
