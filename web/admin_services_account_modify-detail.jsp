@@ -55,7 +55,7 @@
                             <span style="padding-left: 2rem">Services</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="admin_services_account_create.jsp">
+                            <a href="<%= previousPage%>">
                                 <div style="
                                      position: absolute;
                                      top: 35%;

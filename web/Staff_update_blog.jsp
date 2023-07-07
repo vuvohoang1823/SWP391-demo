@@ -29,7 +29,7 @@
                 <!--            header-->
                 <%@ include file="header.jsp" %>
 
-                <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
+                <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
                             <svg
@@ -54,8 +54,8 @@
                             </svg>
                             <span style="padding-left: 2rem">Blogs</span>
                         </div>
-                        <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="Staff_list_ofblog.jsp">
+                        <div class="navbar navbar-expand-lg navbar-light" style="height: 60px">
+                            <a href="<%= previousPage%>">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -66,18 +66,6 @@
                                     &lt; Back
                                 </div>
                             </a>
-                            <div class="container-fluid">
-                                <div class="" id="navbarSupportedContent">
-                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_list_ofblog.jsp">Blog List</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Staff_AddBlog.jsp">Add blog</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </section>
                     <c:if test="${not empty sessionScope.blogdetail}">
@@ -210,6 +198,13 @@
                 </div>
             </div>
         </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var headerWidth = document.getElementById('headerPage').offsetWidth;
+                var container = document.getElementById('containerPage');
+                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+            });
+        </script>
         <!--show toast on forms-->
         <script>
             // Get all form elements using querySelectorAll

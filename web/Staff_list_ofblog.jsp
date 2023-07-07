@@ -30,7 +30,7 @@
                     <!--            header-->
                 <%@ include file="header.jsp" %>
 
-                <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
+                <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
                             <svg
@@ -54,20 +54,6 @@
                                 />
                             </svg>
                             <span style="padding-left: 2rem">Blogs</span>
-                        </div>
-                        <div class="navbar navbar-expand-lg navbar-light">
-                            <div class="container-fluid">
-                                <div class="" id="navbarSupportedContent">
-                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_list_ofblog.jsp">Blog List</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Staff_AddBlog.jsp">Add blog</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </section>
                     <section class="form-body">
@@ -107,67 +93,74 @@
                                     </div>
                                 </div>
                             </form>
+                            <div class="update">
+                                <a href="Staff_AddBlog.jsp">
+                                    <button class="create-button">Create new blog</button>
+                                </a>
+                            </div>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing 2 pending form(s)
+                            Currently showing <c:out value="${b.getLisofBlog('available').size()}" /> blog(s)
                         </div>
-                        <table
-                            class="w3-table-all w3-hoverable w3-card-4 table-form"
-                            style="width: 97.5%; margin: 0 auto"
-                            >
-                            <thead>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Author</td>
-                                    <td>Content</td>
-                                    <td>Date submit</td>
-                                    <td style="padding-left: 2.5%">Actions</td>
-                                </tr>
-                            </thead>
-                            <c:forEach var="card" items="${b.lisofBlog}">
-                                <tr>
-                                    <td class="id">${card.blogid}</td>
-                                    <td class="title blog-title">${card.title}</td>
-                                    <td class="title">${card.author}</td>
-                                    <td class="title blog-description">${card.introduction}</td>
-                                    <td class="title">${card.date}</td>
-                                    <td>
-                                        <div class="type">
-                                            <form action="UpdateBlogServlet" method="post" style="display: inline;">
-                                                <input type="hidden" name="blogId" value="${card.blogid}" />
-                                                <button class="update-button" type="submit" name="action" value="update">Update</button>
-                                            </form>
-                                            <form class="deleteForm" action="DeleteBlogServlet" method="post" style="display: inline;">
-                                                <input type="hidden" name="blogId" value="${card.blogid}" />
-                                                <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${card.blogid}">Delete</button>
-                                                <div class="modal fade" id="confirmDelete-${card.blogid}" tabindex="-1" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h1 class="modal-title" style="font-size: 3rem">Delete</h1>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body fs-2">
-                                                                Do you want to delete this blog?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
-                                                                <button type="submit" name="action" value="delete" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
-                                                            </div>
+                        <div class="blogs-container" style="flex-wrap: wrap">
+                            <!-- start of card -->
+                            <c:forEach var="card" items="${b.getLisofBlog('available')}">
+                                <div class="blog-container">
+                                    <img src="data:images/jpg;base64,${card.thumbnail}" draggable="false"/>
+                                    <div class="desc-container">
+                                        <h5 class="blog-title">${card.title}</h5>
+                                        <div class="date-write">
+                                            <span>${card.date}</span>
+                                            <span style="float: right" >${card.author}</span>
+                                        </div>
+                                        <div class="blog-description">
+                                            ${card.briefinfo}
+                                        </div>
+                                    </div>
+                                    <div class="update">
+                                        <form action="UpdateBlogServlet" method="post" style="display: inline;">
+                                            <input type="hidden" name="blogId" value="${card.blogid}" />
+                                            <button class="update-button " type="submit" name="action" value="update">Update</button>
+                                        </form>
+                                    </div>
+                                    <div class="delete">
+                                        <form class="deleteForm" action="DeleteBlogServlet" method="post" style="display: inline;">
+                                            <input type="hidden" name="blogId" value="${card.blogid}" />
+                                            <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${card.blogid}">Delete</button>
+                                            <div class="modal fade" id="confirmDelete-${card.blogid}" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title" style="font-size: 3rem">Delete</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body fs-2">
+                                                            Do you want to delete this blog?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" name="action" value="delete" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </c:forEach>
-                        </table>
+                            <!-- end of card -->
+                        </div>
                     </section>
                 </div>
             </div>
         </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var headerWidth = document.getElementById('headerPage').offsetWidth;
+                var container = document.getElementById('containerPage');
+                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+            });
+        </script>
         <!--show toast on forms-->
         <script>
             // Get all form elements using querySelectorAll
@@ -197,56 +190,6 @@
                     }, 1000);
                 });
             });
-        </script>
-        <!--        trim title-->
-        <script>
-            // Get all question message elements
-            var blogTitle = document.getElementsByClassName("blog-title");
-
-            // Loop through each question message element
-            for (var i = 0; i < blogTitle.length; i++) {
-                var title = blogTitle[i].textContent.trim();
-
-                // Remove any leading or trailing spaces and invisible characters
-                title = title.replace(/^\s+|\s+$/g, "");
-
-                // Remove non-printable characters using regular expression
-                title = title.replace(/[^ -~]+/g, "");
-
-                const titleLength = 30;
-
-                // Check if the title length is greater than 10
-                if (title.length > titleLength) {
-                    // Truncate the title and append "..."
-                    var truncatedMessage = title.substring(0, titleLength) + "...";
-                    blogTitle[i].textContent = truncatedMessage;
-                }
-            }
-        </script>
-        <!--        trim description-->
-        <script>
-            // Get all question message elements
-            var blogDescription = document.getElementsByClassName("blog-description");
-
-            // Loop through each question message element
-            for (var i = 0; i < blogDescription.length; i++) {
-                var description = blogDescription[i].textContent.trim();
-
-                // Remove any leading or trailing spaces and invisible characters
-                description = description.replace(/^\s+|\s+$/g, "");
-
-                // Remove non-printable characters using regular expression
-                description = description.replace(/[^ -~]+/g, "");
-
-                const descriptionLength = 50;
-
-                // Check if the description length is greater than 10
-                if (description.length > descriptionLength) {
-                    // Truncate the description and append "..."
-                    var truncatedMessage = description.substring(0, descriptionLength) + "...";
-                    blogDescription[i].textContent = truncatedMessage;
-                }
-            }
         </script>
         <!--toast-->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

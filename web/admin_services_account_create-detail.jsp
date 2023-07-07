@@ -55,7 +55,7 @@
                             <span style="padding-left: 2rem">Services</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="staff_services_birdCourse_create.jsp">
+                            <a href="<%= previousPage%>">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -283,16 +283,16 @@
             }
             reader.readAsDataURL(fileInput.files[0]);
         }
-    
-        function saveCategory() {
-      var selectedCategory = document.querySelector('input[name="selected-category"]:checked');
-      var categoryInput = document.getElementById('category');
 
-      if (selectedCategory) {
-        var categoryValue = selectedCategory.nextElementSibling.querySelector('.category-name').innerText;
-        categoryInput.value = categoryValue;
-      }
-    }
+        function saveCategory() {
+            var selectedCategory = document.querySelector('input[name="selected-category"]:checked');
+            var categoryInput = document.getElementById('category');
+
+            if (selectedCategory) {
+                var categoryValue = selectedCategory.nextElementSibling.querySelector('.category-name').innerText;
+                categoryInput.value = categoryValue;
+            }
+        }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>

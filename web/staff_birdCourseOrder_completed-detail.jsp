@@ -30,7 +30,7 @@
                     <!--            header-->
                 <%@ include file="header.jsp" %>
 
-                <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
+                <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
                             <svg
@@ -56,7 +56,7 @@
                             <span style="padding-left: 2rem">Order List</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="staff_birdCourseOrder_completed.jsp">
+                            <a href="<%= previousPage%>">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -210,56 +210,62 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
-                                                        
+
                                     </div>
-                                                       
+
                                 </div>
-                                   <div class="forms-footer">
-                                        <button type="submit" name="action" value="checkout" class="btn approve">Checkout form</button>
-                                    </div>                        
+                                <div class="forms-footer">
+                                    <button type="submit" name="action" value="checkout" class="btn approve">Checkout form</button>
+                                </div>
                         </div>
-                                                        
+
                     </div>
                 </div>
-                                                      
+
                 </form>
             </div>
-</div>
-</div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const saveButton = document.getElementById("saveTrainer");
-        const inputTrainerName = document.getElementById("trainername");
-        const hiddenTrainerName = document.getElementById("hiddenTrainerName");
-        const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
+        </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var headerWidth = document.getElementById('headerPage').offsetWidth;
+                var container = document.getElementById('containerPage');
+                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const saveButton = document.getElementById("saveTrainer");
+                const inputTrainerName = document.getElementById("trainername");
+                const hiddenTrainerName = document.getElementById("hiddenTrainerName");
+                const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
 
-        saveButton.addEventListener("click", function () {
-            const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-            if (selectedTrainer.value === "none") {
-                inputTrainerName.value = "";
-            } else {
-                const trainerLabel = selectedTrainer.nextElementSibling;
-                const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
-                inputTrainerName.value = trainerName.split(": ")[1];
-            }
-        });
+                saveButton.addEventListener("click", function () {
+                    const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
+                    if (selectedTrainer.value === "none") {
+                        inputTrainerName.value = "";
+                    } else {
+                        const trainerLabel = selectedTrainer.nextElementSibling;
+                        const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
+                        inputTrainerName.value = trainerName.split(": ")[1];
+                    }
+                });
 
-        const form = document.querySelector("form");
-        form.addEventListener("submit", function (event) {
-            const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-            if (inputTrainerName.disabled && inputTrainerName.value.trim() === "") {
-                event.preventDefault();
-                // Display an error message or take any other necessary action
-                alert("Please select a trainer.");
-            }
-            if (inputTrainerName.value !== "") {
-                hiddenTrainerName.value = selectedTrainer.value;
-            }
-        });
-    });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+                const form = document.querySelector("form");
+                form.addEventListener("submit", function (event) {
+                    const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
+                    if (inputTrainerName.disabled && inputTrainerName.value.trim() === "") {
+                        event.preventDefault();
+                        // Display an error message or take any other necessary action
+                        alert("Please select a trainer.");
+                    }
+                    if (inputTrainerName.value !== "") {
+                        hiddenTrainerName.value = selectedTrainer.value;
+                    }
+                });
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

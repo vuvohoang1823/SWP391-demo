@@ -24,7 +24,7 @@
                 <!--            header-->
                 <%@ include file="header.jsp" %>
 
-                <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
+                <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
                             <svg
@@ -50,7 +50,7 @@
                             <span style="padding-left: 2rem">Services</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="staff_services_birdCourse_create.jsp">
+                            <a href="<%= previousPage%>">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -249,45 +249,51 @@
 
         </form>
     </div>
-</div>                                                       
-<script>
-    function formatCurrency(input) {
-        const hiddenPrice = document.getElementById("hiddenPrice");
-        hiddenPrice.value = input.value;
-        // Get the numeric value
-        var value = input.value;
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            var headerWidth = document.getElementById('headerPage').offsetWidth;
+            var container = document.getElementById('containerPage');
+            container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+        });
+    </script>
+    <script>
+        function formatCurrency(input) {
+            const hiddenPrice = document.getElementById("hiddenPrice");
+            hiddenPrice.value = input.value;
+            // Get the numeric value
+            var value = input.value;
 
-        // Format as currency
-        var formattedValue = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-            minimumFractionDigits: 2
-        }).format(value);
+            // Format as currency
+            var formattedValue = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2
+            }).format(value);
 
-        // Update the input value with the formatted currency
-        input.value = formattedValue;
-    }
-    function chooseFile(fileInput) {
-        if (fileInput.files && fileInput.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#image').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(fileInput.files[0]);
+            // Update the input value with the formatted currency
+            input.value = formattedValue;
         }
-    }
-    function saveCategory() {
-  var selectedCategory = document.querySelector('input[name="selected-category"]:checked');
-  var categoryInput = document.getElementById('category');
-  
-  if (selectedCategory) {
-    var categoryValue = selectedCategory.nextElementSibling.querySelector('.category-name').innerText;
-    categoryInput.value = categoryValue;
-  }
-}
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        function chooseFile(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#image').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+        function saveCategory() {
+            var selectedCategory = document.querySelector('input[name="selected-category"]:checked');
+            var categoryInput = document.getElementById('category');
+
+            if (selectedCategory) {
+                var categoryValue = selectedCategory.nextElementSibling.querySelector('.category-name').innerText;
+                categoryInput.value = categoryValue;
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
 </body>
 </html>
