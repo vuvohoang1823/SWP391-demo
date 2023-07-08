@@ -17,8 +17,6 @@
             integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
             crossorigin="anonymous"
             />
-        <!-- w3Table -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Staff_Services_OnlineCourse.css" />
@@ -33,7 +31,76 @@
                 <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <%@ include file="Staff_Services_Head.jsp" %>
                     <section class="form-body">
-                        bird course
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <form class="form-inline my-2 my-lg-0">
+                                <div class="search-container">
+                                    <div style="white-space: nowrap; padding-right: 2rem">Search by ID</div>
+                                    <div class="input-group">
+                                        <input
+                                            id="trainername"
+                                            type="search"
+                                            class="form-control mr-sm-2"
+                                            />
+                                        <button
+                                            class="btn btn-light"
+                                            type="submit"
+                                            id="button-addon2"
+                                            >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </nav>
+                        <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
+                            <div>
+                                Currently showing 2 pending form(s)
+                            </div>
+                            <div>
+                                <a href="staff_services_birdCourse_create-detail.jsp">
+                                    <button class="add-course">
+                                        Add new course
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <table
+                            class="w3-table-all w3-hoverable w3-card-4 table-form"
+                            style="width: 97.5%; margin: 0 auto"
+                            >
+                            <thead>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Course name</td>
+                                    <td>Course price</td>
+                                    <td>Category</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                            <form action="" method="">
+                                <input type="hidden" name="" value="">
+                                <td><b>${counter.count}</b></td>
+                                <td><b>xxx</b></td>
+                                <td><b>xxx</b></td>
+                                <td><b>xxx</b></td>
+                                <td>
+                                    <a href="staff_services_birdCourse_modify-detail.jsp">
+                                        <button class="modify">
+                                            <b>Modify</b>
+                                        </button>
+                                    </a>
+                                </td>
+                            </form>
+                            </tr>
+                            </tbody>
+                        </table>
                     </section>
                 </div>
             </div>

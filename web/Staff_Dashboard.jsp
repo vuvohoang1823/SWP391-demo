@@ -5,6 +5,27 @@
 --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="com.google.gson.Gson"%>
+<%@ page import="com.google.gson.JsonObject"%>
+<%@ page import="DAO.test" %>
+<%
+    test top = new test(); // Instantiate your DAO class
+    List<Double> revenueData = top.getRevenueData();
+%>
+<%
+    Gson gsonObj = new Gson();
+    List<Map<Object, Object>> list = new ArrayList<>();
+
+    for (int i = 0; i < revenueData.size(); i++) {
+        Map<Object, Object> map = new HashMap<>();
+        map.put("label", "Month " + (i + 1));
+        map.put("y", revenueData.get(i));
+        list.add(map);
+    }
+
+    String dataPoints = gsonObj.toJson(list);
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -56,7 +77,94 @@
                         </div>
                     </section>
                     <section class="form-body">
-
+                        <div class="title">
+                            Revenue for this month
+                        </div>
+                        <div class="section-head">
+                            <div class="box">
+                                <span style="font-size: 2rem;">
+                                    Bird course
+                                </span>
+                                <span style="font-size: 4rem;font-weight: bolder">
+                                    120.00$
+                                </span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                                    </svg>
+                                    <span>
+                                        25%
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="box">
+                                <span style="font-size: 2rem;">
+                                    Online course
+                                </span>
+                                <span style="font-size: 4rem;font-weight: bolder">
+                                    290.00$
+                                </span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                                    </svg>
+                                    <span>
+                                        22%
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="box">
+                                <span style="font-size: 2rem;">
+                                    Private Consultation
+                                </span>
+                                <span style="font-size: 4rem;font-weight: bolder">
+                                    560.00$
+                                </span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                    </svg>
+                                    <span>
+                                        12%
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="box">
+                                <span style="font-size: 2rem;">
+                                    Workshop
+                                </span>
+                                <span style="font-size: 4rem;font-weight: bolder">
+                                    178.00$
+                                </span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                                    </svg>
+                                    <span>
+                                        56%
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="box">
+                                <span style="font-size: 2rem;">
+                                    Total
+                                </span>
+                                <span style="font-size: 4rem;font-weight: bolder">
+                                    1060.00$
+                                </span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                    </svg>
+                                    <span>
+                                        29%
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div style="height: 480px;overflow-y: hidden;margin-left: 3rem;">
+                            <div id="chartContainer" style="height: 492px; width: 98%;background: #617255; border-radius: 20px;"></div>
+                        </div>
                     </section>
                 </div>
             </div>
@@ -73,5 +181,28 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"
         ></script>
+        <script type="text/javascript">
+            window.onload = function () {
+
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    title: {
+                        text: "Revenue of all services for the last 6 months"
+                    },
+                    axisX: {
+                        title: "Month"
+                    },
+                    axisY: {
+                        title: "Revenue"
+                    },
+                    data: [{
+                            type: "column",
+                            dataPoints: <%= dataPoints%>
+                        }]
+                });
+                chart.render();
+
+            }
+        </script>
+        <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     </body>
 </html>
