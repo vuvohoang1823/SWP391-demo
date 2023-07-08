@@ -22,13 +22,12 @@
         <link rel="stylesheet" href="css/Staff_QuestionAndAnswer_QuestionDetail.css" />
     </head>
     <body>
-        <jsp:useBean id="f" class="DAO.FormApppointmentDAO"></jsp:useBean>
-        <jsp:useBean id="t" class="DAO.TrainerDAO" ></jsp:useBean>
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                     <!--            header-->
                 <%@ include file="header.jsp" %>
-
+            <c:if test="${not empty sessionScope.AnswerForm}">
+                        <c:set var="question" value="${sessionScope.AnswerForm}"/>
                 <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
@@ -85,8 +84,8 @@
                             <div class="forms-header">
                                 <div class="left-side"><b>Request Detail</b></div>
                                 <div class="right-side">
-                                    <span>Submitted: <b>10-6-2013</b></span>
-                                    <span><b>ID : 1100</b></span>
+                                    <span>Submitted: <b>${question.submitDate}</b></span>
+                                    <span><b>ID : ${question.id}</b></span>
                                 </div>
                             </div>
                             <form method="post">
@@ -104,7 +103,7 @@
                                                         class="form-control"
                                                         id="fullname"
                                                         placeholder="Full name"
-                                                        value="abc"
+                                                        value="${question.fullname}"
                                                         disabled
                                                         />
                                                 </div>
@@ -118,7 +117,7 @@
                                                     class="form-control"
                                                     id="email"
                                                     placeholder="Email"
-                                                    value="abc"
+                                                    value="${question.email}"
                                                     disabled
                                                     />
                                             </div>
@@ -141,7 +140,7 @@
                                                         class="form-control"
                                                         id="formtitle"
                                                         placeholder="Form title"
-                                                        value="10-6-2013"
+                                                        value="${question.submitDate}"
                                                         disabled
                                                         />
                                                 </div>
@@ -158,7 +157,7 @@
                                                         class="form-control"
                                                         id="formtitle"
                                                         placeholder="Form title"
-                                                        value="Basic Consultation Request"
+                                                        value="${question.titleQ}"
                                                         disabled
                                                         />
                                                 </div>
@@ -175,13 +174,7 @@
                                                     placeholder="Notes"
                                                     style="height: 100px"
                                                     disabled
-                                                    >i wdnwnwnwnwnwnwnnw
-
-
-
-
-
-                                                    nwnwnwnwnwnwnwnwnnwnwnwjdnjandjnwajnjawndja</textarea>
+                                                    >${question.titleMess}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -201,7 +194,7 @@
                                                     id="customernotes"
                                                     placeholder="Enter answer here"
                                                     disabled
-                                                    >abckzkkz</textarea>
+                                                    >${question.answer}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -210,6 +203,7 @@
                         </div>
                     </div>
                 </div>
+                            </c:if>
             </div>
         </div>
         <script>

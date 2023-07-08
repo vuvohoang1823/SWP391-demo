@@ -22,8 +22,7 @@
         <link rel="stylesheet" href="css/Staff_QuestionAndAnswer_QuestionDetail.css" />
     </head>
     <body>
-        <jsp:useBean id="f" class="DAO.FormApppointmentDAO"></jsp:useBean>
-        <jsp:useBean id="t" class="DAO.TrainerDAO" ></jsp:useBean>
+       
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                     <!--            header-->
@@ -80,16 +79,18 @@
                             </div>
                         </div>
                     </section>
+            <c:if test="${not empty sessionScope.QuestionForm}">
+                        <c:set var="question" value="${sessionScope.QuestionForm}"/>
                     <div class="container-fluid" style="padding: 0 2.5%">
                         <div class="forms-container">
                             <div class="forms-header">
                                 <div class="left-side"><b>Request Detail</b></div>
                                 <div class="right-side">
-                                    <span>Submitted: <b>10-6-2013</b></span>
-                                    <span><b>ID : 1100</b></span>
+                                    <span>Submitted: <b>${question.submitDate}</b></span>
+                                    <span><b>ID : ${question.id}</b></span>
                                 </div>
                             </div>
-                            <form method="post">
+                            <form method="post" action="FormAnswerbyStaff">
                                 <div class="form-customerDetails">
                                     <div class="form-name">
                                         <div class="name">Customer Information</div>
@@ -104,7 +105,7 @@
                                                         class="form-control"
                                                         id="fullname"
                                                         placeholder="Full name"
-                                                        value="abc"
+                                                        value="${question.fullname}"
                                                         disabled
                                                         />
                                                 </div>
@@ -117,8 +118,9 @@
                                                     type="text"
                                                     class="form-control"
                                                     id="email"
+                                                    name="email_text"
                                                     placeholder="Email"
-                                                    value="abc"
+                                                    value="${question.email}"
                                                     disabled
                                                     />
                                             </div>
@@ -141,7 +143,7 @@
                                                         class="form-control"
                                                         id="formtitle"
                                                         placeholder="Form title"
-                                                        value="10-6-2013"
+                                                        value="${question.submitDate}"
                                                         disabled
                                                         />
                                                 </div>
@@ -158,7 +160,7 @@
                                                         class="form-control"
                                                         id="formtitle"
                                                         placeholder="Form title"
-                                                        value="Basic Consultation Request"
+                                                        value="${question.titleQ}"
                                                         disabled
                                                         />
                                                 </div>
@@ -173,15 +175,10 @@
                                                     class="form-control long-input"
                                                     id="customernotes"
                                                     placeholder="Notes"
+                                                    name="message"
                                                     style="height: 100px"
                                                     disabled
-                                                    >i wdnwnwnwnwnwnwnnw
-
-
-
-
-
-                                                    nwnwnwnwnwnwnwnwnnwnwnwjdnjandjnwajnjawndja</textarea>
+                                                    >${question.titleMess}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -202,8 +199,11 @@
                                                     placeholder="Enter answer here"
                                                     style="height: 100px"
                                                     required
+                                                    name="message_answer"
                                                     ></textarea>
                                             </div>
+                                            <input type="hidden" name="email_email" value="${question.email}"/>
+                                             <input type="hidden" name="formid" value="${question.id}"/>
                                         </div>
                                     </div>
                                 </div>
@@ -222,8 +222,8 @@
                                                         You can review it in Answered Question List later.
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
+                                                        <button type="button" name="action" value="no" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" name="action" value="yes" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -233,6 +233,7 @@
                             </form>
                         </div>
                     </div>
+                        </c:if>
                 </div>
             </div>
         </div>

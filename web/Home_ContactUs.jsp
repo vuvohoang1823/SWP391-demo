@@ -122,20 +122,23 @@
 
                         <h1>QUESTION FORM</h1>
                     </div>
-                    <form action="" style="display: inline">
+                    <form action="InputFormGuest" style="display: inline" method="POST">
                         <div class="content">
                             <div class="row" style="justify-content: space-between">
                                 <input
                                     type="text"
+                                    name="fullname"
                                     placeholder="Full name"
                                     required
+                                    
                                     />
                             </div>
                             <div class="row">
-                                <input type="email" placeholder="Your email address" required />
+                                <input type="email" name="email" placeholder="Your email address" required />
                             </div>
                             <div class="row">
                                 <input
+                                    name="titleQ"
                                     type="text"
                                     placeholder="Question title"
                                     required
@@ -143,20 +146,23 @@
                             </div>
                             <div class="row" style="height: 15rem">
                                 <textarea
-                                    name="description"
+                             
+                                    name="titleMess"
                                     placeholder="Question message..."
                                     ></textarea>
                             </div>
+               <input type="hidden" name="DateSubmitt" id="currentDate">                          
+
                         </div>
                         <div class="button-container">
-                            <button>Submit form</button>
+                            <button type="submit" >Submit form</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
         <!--prevent default form-->
-        <script>
+<!--        <script>
             // Get all form elements using querySelectorAll
             var forms = document.querySelectorAll("form");
             // Attach an event listener to each form's submit event
@@ -177,9 +183,15 @@
                         },
                     }).showToast();
                     //reset form
-                    form.reset();
+                   
                 });
             });
-        </script>
+        </script>-->
+<script>
+            // Get the current date
+            var currentDate = new Date();
+            var formattedCurrentDate = currentDate.toISOString().split('T')[0];
+            document.getElementById('currentDate').value = formattedCurrentDate;
+</script>
     </body>
 </html>
