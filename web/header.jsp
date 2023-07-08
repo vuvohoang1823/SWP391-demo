@@ -110,7 +110,7 @@
                                     <div class="dropdown-menu" style="background-color: rgba(0,0,0,0); border: 0;">
                                         <ul class="subnav">
                                             <a class="dropdown-item" href="viewBookedService.jsp"><li>View Booked Services</li></a>
-                                            <a class="dropdown-item" href="birdcourselist.jsp"><li>View Profile</li></a>
+                                            <a class="dropdown-item" href="viewProfile.jsp"><li>View Profile</li></a>
                                             <a class="dropdown-item" href="LogoutController" style="text-decoration: none">     <li>Logout</li></a>
                                         </ul>
                                     </div>
@@ -317,6 +317,10 @@
                                 <%= isPageActive(currentPage, "Staff_ConsultationForm_Processing.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_ConsultationForm_FormDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_ConsultationForm_FormDetail_Approved.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseForm_pending.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseForm_pending-detail.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseForm_processing.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseForm_processing-detail.jsp")%>
                                 ">
                                 <a
                                     href="staff_birdCourseForm_pending.jsp"
@@ -353,6 +357,10 @@
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_History.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_CompletedDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_HistoryDetail.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_completed.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_completed-detail.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_history.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_history-detail.jsp")%>
                                 ">
                                 <a
                                     href="staff_birdCourseOrder_completed.jsp"
@@ -382,7 +390,7 @@
                                 <%= isPageActive(currentPage, "homepage.jsp")%>
                                 ">
                                 <a
-                                    href="#"
+                                    href="staff_services_birdCourse_create.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">

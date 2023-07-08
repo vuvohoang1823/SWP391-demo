@@ -1,0 +1,93 @@
+.heading{
+    height: 127px;
+    background: #B8C6C2;
+    font-size: 60px;
+    color: #617A55;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.body-container{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+    width: 120rem;
+    margin: 10rem auto;
+}
+.body-container .section-head {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 5rem;
+}
+
+.body-container .section-head span{
+    font-size: 4rem;
+    font-weight: bolder;
+}
+.body-container .section-head .image-container {
+    width: 267px;
+    height: 267px;
+    border-radius: 267px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body-container .section-head .image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.body-container .form-container {
+    width: 100%;
+}
+.body-container .form-container .col-lg-6 input{
+    font-size: 2.5rem;
+    width: 50rem;
+    margin-left: 5rem;
+    margin-bottom: 3rem;
+}
+.body-container .form-container .form-label{
+    margin-left: 5rem;
+    font-size: 2rem;
+    margin-top: 6rem;
+}
+.body-container .form-container .row p{
+    margin-left: 5rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
+.form-container .forms-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container .forms-footer div {
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+.form-container .forms-footer div button {
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    width: 233px;
+    height: 68px;
+    margin-bottom: 2rem;
+}
+.form-container .forms-footer div .approve {
+    border-radius: 10px;
+    background: #617A55;
+}
+.form-container .forms-footer div .decline{
+    border-radius: 10px;
+    background-color: white;
+    color: #617A55;
+    padding: 1rem 2rem;
+    border: 2px solid #617A55;
+}

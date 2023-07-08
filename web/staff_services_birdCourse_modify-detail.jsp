@@ -244,10 +244,10 @@
                                         </div>
                                         <div class="forms-footer">
                                             <div>
-                                                <button type="submit" name="action" value="approve" class="btn approve">Approve</button>
+                                                <button type="submit" name="action" value="approve" class="btn approve">Update</button>
                                             </div>
                                             <div>
-                                                <button type="submit"  name="action" value="deny"class="btn decline">Decline</button>
+                                                <button type="submit"  name="action" value="deny"class="btn decline">Delete</button>
                                             </div>
                                         </div>
                                     </div>

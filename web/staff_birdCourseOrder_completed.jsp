@@ -78,10 +78,10 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="staff_birdCourseForm_pending.jsp">Completed</a>
+                                            <a class="nav-link" href="staff_birdCourseOrder_pending.jsp">Completed</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="staff_birdCourseForm_history.jsp">History</a>
+                                            <a class="nav-link" href="staff_birdCourseOrder_history.jsp">History</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -130,11 +130,11 @@
                                 <form action="ProcessingOrderInfo" metdod="GET">
                                     <input type="hidden" name="bird_id" value="${order.birdID}">
                                     <td><b>${counter.count}</b></td>
-                                    <td><b>${order.courseName}</td>
-                                    <td><b>${order.customerName}</td>
-                                    <td><b>${order.typeBird}</td>
-                                    <td><b>${order.nameBird}</td>
-                                    <td><b>${order.create_date}</td>
+                                    <td><b>${order.courseName}</b></td>
+                                    <td><b>${order.customerName}</b></td>
+                                    <td><b>${order.typeBird}</b></td>
+                                    <td><b>${order.nameBird}</b></td>
+                                    <td><b></b></td>
                                     <td>
                                         <a >
                                             <button class="viewDetail">
