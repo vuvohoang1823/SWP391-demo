@@ -148,7 +148,7 @@
                                     <td>
                                         <div class="type">
                                             <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
-                                            <a href="Trainer_PrivateConsultation_CompletedDetail.jsp"><button class="viewDetail">View Detail</button></a>
+                                            <a href="ViewfromCompletedbyTrainer?id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
                                         </div>
                                     </td>
                                 </tr>
