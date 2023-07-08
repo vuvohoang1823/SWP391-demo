@@ -5,11 +5,15 @@
  */
 package Controller;
 
+import DAO.CourseOnlineDAO;
 import DAO.courseDAO;
 import entity.Course;
+import entity.service.CourseOnline;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import static java.util.Collections.list;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -25,25 +29,27 @@ import javax.servlet.http.HttpSession;
  * @author LAPTOP
  */
 @WebServlet(name = "ViewOnlineCourseDetailServlet", urlPatterns = {"/ViewOnlineCourseDetailServlet"})
-public class ViewOnlineCourseDetailServlet extends HttpServlet {
+public class ViewOnlineCourseDetailServlet1 extends HttpServlet {
 
-   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         String courseID = request.getParameter("courseID");
-        
+
         try (PrintWriter out = response.getWriter()) {
             courseDAO course = new courseDAO();
-            
+            CourseOnlineDAO courseOnline = new CourseOnlineDAO();
+
             Course online_course_detail = null;
-            if(!courseID.isEmpty()){
-                online_course_detail = course.getCourseByID(courseID);
-            }
-            
-            HttpSession session =  request.getSession(true);
+
+            online_course_detail = course.getCourseByID(courseID);
+            List<CourseOnline> list = courseOnline.getDetailOnlineCourse(courseID);
+
+            request.setAttribute("online_module", list);
+
+            HttpSession session = request.getSession(true);
             session.setAttribute("online_course_detail", online_course_detail);
-            
+
             RequestDispatcher rd = request.getRequestDispatcher("onlinecoursedetail.jsp");
             rd.forward(request, response);
         } catch (Exception ex) {
@@ -66,9 +72,9 @@ public class ViewOnlineCourseDetailServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ViewOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewOnlineCourseDetailServlet1.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ViewOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewOnlineCourseDetailServlet1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -86,9 +92,9 @@ public class ViewOnlineCourseDetailServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ViewOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewOnlineCourseDetailServlet1.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ViewOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewOnlineCourseDetailServlet1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
