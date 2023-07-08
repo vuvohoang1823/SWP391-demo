@@ -28,7 +28,7 @@
                 <%@ include file="header.jsp" %>
                 <jsp:useBean id="f" class="DAO.FormApppointmentDAO"></jsp:useBean>
                 <jsp:useBean id="t" class="DAO.TrainerDAO" ></jsp:useBean>
-                    <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
+                    <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                         <section class="form-head">
                             <div class="heading d-flex align-items-center">
                                 <svg
@@ -54,34 +54,34 @@
                                 <span style="padding-left: 2rem">Order List</span>
                             </div>
                             <div class="navbar navbar-expand-lg navbar-light">
-                                <a href="Staff_OrderList_Consult_History.jsp">
-                                    <div style="
-                                         position: absolute;
-                                         top: 35%;
-                                         left: 5rem;
-                                         font-size: 1.5rem;
-                                         color: #617a55;
-                                         ">
-                                        &lt; Back
-                                    </div>
-                                </a>
-                                <div class="container-fluid">
-                                    <div class="" id="navbarSupportedContent">
-                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
-                                            </li>
-                                            <li class="nav-item active">
-                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <a href="<%= previousPage%>">
+                                <div style="
+                                     position: absolute;
+                                     top: 35%;
+                                     left: 5rem;
+                                     font-size: 1.5rem;
+                                     color: #617a55;
+                                     ">
+                                    &lt; Back
+                                </div>
+                            </a>
+                            <div class="container-fluid">
+                                <div class="" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                        </section>
+                        </div>
+                    </section>
                     <c:if test="${not empty sessionScope.Appointment_Detail_History}">
                         <c:set var="detail" value="${sessionScope.Appointment_Detail_History}"/>
                         <c:set var="trainerID" value="${detail.request_trainer_id}"></c:set>
@@ -254,6 +254,13 @@
                 </div>
             </div>
         </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var headerWidth = document.getElementById('headerPage').offsetWidth;
+                var container = document.getElementById('containerPage');
+                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+            });
+        </script>
         <script>
             var duration = '${detail.duration}'; // Assuming the format is HH:mm:ss
 

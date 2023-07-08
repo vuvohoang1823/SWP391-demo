@@ -29,6 +29,9 @@
         <c:set var="role" value="${sessionScope.role}" />
         <!--change color on active page-->
         <%
+            String previousPage = request.getHeader("Referer");
+        %>
+        <%
             String currentPage = request.getRequestURI();
         %>
         <%!
@@ -42,7 +45,7 @@
         <!------------------------------->
         <c:choose>
             <c:when test="${role eq 'customer' || empty role}">
-                <div class="container-fluid customer">
+                <div id="headerPage" class="container-fluid customer">
                     <div class="row header">
                         <div class="col-lg-3 logo-section">
                             <img src="./img/icon.jpg" alt="">
@@ -127,6 +130,7 @@
 
             <c:when test="${role eq 'trainer'}">
                 <div
+                    id="headerPage"
                     class="bg-white col-2 col-md-4 col-lg-2 min-vh-100 d-flex flex-column p-0 sidebar-trainer"
                     style="width: 13%"
                     >
@@ -247,6 +251,7 @@
 
             <c:when test="${role eq 'staff'}">
                 <div
+                    id="headerPage"
                     class="bg-white col-2 col-md-4 col-lg-2 min-vh-100 d-flex flex-column p-0 sidebar-staff"
                     style="width: 13%"
                     >
@@ -320,9 +325,13 @@
                                 <%= isPageActive(currentPage, "Staff_ConsultationForm_Processing.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_ConsultationForm_FormDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_ConsultationForm_FormDetail_Approved.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseForm_pending.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseForm_processing.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseForm_detail.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseForm_detail-approved.jsp")%>
                                 ">
                                 <a
-                                    href="Staff_ConsultationForm_Pending.jsp"
+                                    href="staff_birdCourseForm_pending.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
@@ -356,9 +365,13 @@
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_History.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_CompletedDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Consult_HistoryDetail.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_completed.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_completed-detail.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_history.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_history-detail.jsp")%>
                                 ">
                                 <a
-                                    href="Staff_OrderList_Consult_Completed.jsp"
+                                    href="staff_birdCourseOrder_completed.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
@@ -382,10 +395,10 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "homepage.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_OnlineCourse.jsp")%>
                                 ">
                                 <a
-                                    href="#"
+                                    href="Staff_Services_OnlineCourse.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
@@ -404,6 +417,7 @@
                                 <%= isPageActive(currentPage, "Staff_list_ofblog.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_list_ofblog_unactive.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_update_blog.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_BlogDetail.jsp")%>
                                 ">
                                 <a
                                     href="Staff_list_ofblog.jsp"

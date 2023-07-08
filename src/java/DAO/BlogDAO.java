@@ -33,12 +33,13 @@ public class BlogDAO implements Serializable {
     ResultSet rs = null;
     DBUtils db = new DBUtils();
 
-    public List<BlogDTO> getLisofBlog() throws IOException, SQLException, ClassNotFoundException {
+    public List<BlogDTO> getLisofBlog(String status) throws IOException, SQLException, ClassNotFoundException {
         List<BlogDTO> list = new ArrayList<>();
-        String sql = "select * from tbl_blog where status = 'available'";
+        String sql = "select * from tbl_blog where status = ? ";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
+            ps.setString(1, status);
             rs = ps.executeQuery();
             while (rs.next()) {
                 // Validate DATE to String
@@ -213,7 +214,7 @@ public class BlogDAO implements Serializable {
     
     
     public BlogDTO GETdetailOfBLOG(String blog_id) throws IOException, SQLException {
-        String sql = "select* from tbl_blog where id =? and status = 'available'";
+        String sql = "select* from tbl_blog where id =?";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
@@ -300,7 +301,7 @@ public class BlogDAO implements Serializable {
         return null;
     }
 
-    // DELETE FUNCTION 
+    // DELETE FUNCTION
     public void DeleteBlog(String blog_id) {
         String sql = "update tbl_blog \n"
                 + "set status = 'unavailable'\n"
@@ -318,42 +319,61 @@ public class BlogDAO implements Serializable {
         }
     }
 
-    public boolean UpdateBlog(BlogDTO blog ) throws SQLException{
-       boolean updated = false;
+    // RESTORE FUNCTION
+    public void RestoreBlog(String blog_id) {
+        String sql = "update tbl_blog \n"
+                + "set status = 'available'\n"
+                + "where id = ?";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, blog_id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public boolean UpdateBlog(BlogDTO blog) throws SQLException {
+        boolean updated = false;
         String sql = "UPDATE tbl_blog SET date = ?, thumbnail = ?, title = ?, author = ?, introduction = ?, content1 = ?, content2 = ?, inconclusion = ?, contentIMG = ?, briefinfo = ? WHERE id = ?";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setDate(1,blog.getDate());
+            ps.setDate(1, blog.getDate());
             ps.setBytes(2, Base64.getDecoder().decode(blog.getThumbnail()));
-            ps.setString(3,blog.getTitle());
+            ps.setString(3, blog.getTitle());
             ps.setString(4, blog.getAuthor());
             ps.setString(5, blog.getIntroduction());
             ps.setString(6, blog.getContent1());
             ps.setString(7, blog.getContent2());
             ps.setString(8, blog.getInconclusion());
             ps.setBytes(9, Base64.getDecoder().decode(blog.getContentIMG()));
-            ps.setString(10,blog.getBriefinfo());
+            ps.setString(10, blog.getBriefinfo());
             ps.setString(11, blog.getBlogid());
             int rowsAffected = ps.executeUpdate();
-            updated = rowsAffected > 0 ;
-            
+            updated = rowsAffected > 0;
+
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
-        }finally {
-            if(con!=null ){
+        } finally {
+            if (con != null) {
                 con.close();
-            }if(ps!= null ){
+            }
+            if (ps != null) {
                 ps.close();
             }
         }
         return updated;
     }
 
-    public void CreateBlog(String blog_id,Date date , String thumbnail , String title, String author, String introduction,String content1,String content2,String contentIMG,String briefinfo ) {
+    public void CreateBlog(String blog_id, Date date, String thumbnail, String title, String author, String introduction, String content1, String content2, String contentIMG, String briefinfo) {
         String sql = "insert into tbl_blog(id,staff_id ,date,thumbnail , title,author , introduction,content1, content2,contentIMG , briefinfo,status)\n"
                 + "values(?,18,?,?,?,?,?,?,?,?,?,'available')";
         try {
@@ -364,7 +384,7 @@ public class BlogDAO implements Serializable {
             ps.setBytes(3, Base64.getDecoder().decode(thumbnail));
             ps.setString(4, title);
             ps.setString(5, author);
-            ps.setString(6,introduction);
+            ps.setString(6, introduction);
             ps.setString(7, content1);
             ps.setString(8, content2);
             ps.setBytes(9, Base64.getDecoder().decode(contentIMG));
@@ -376,10 +396,8 @@ public class BlogDAO implements Serializable {
             ex.printStackTrace();
         }
     }
-    
-    
-    
-     public int GenerateBlogID() throws ClassNotFoundException, SQLException, IOException {
+
+    public int GenerateBlogID() throws ClassNotFoundException, SQLException, IOException {
         String sql = "SELECT * FROM tbl_blog WHERE id = (SELECT MAX(TRY_CAST(id AS INT))FROM tbl_blog)";
         int newID = 0;
         try {
@@ -398,31 +416,29 @@ public class BlogDAO implements Serializable {
         return newID;
 
     }
-     public void UpdateBlog(String blog_id, Date date, String thumbnail, String title, String author, String introduction, String content1, String content2, String contentIMG, String briefinfo) {
-    String sql = "UPDATE tbl_blog SET date = ?, thumbnail = ?, title = ?, author = ?, introduction = ?, content1 = ?, content2 = ?, contentIMG = ?, briefinfo = ? WHERE id = ?";
 
-    try {
-        con = db.getConnection();
-        ps = con.prepareStatement(sql);
-        ps.setDate(1, date);
-        ps.setBytes(2, Base64.getDecoder().decode(thumbnail));
-        ps.setString(3, title);
-        ps.setString(4, author);
-        ps.setString(5, introduction);
-        ps.setString(6, content1);
-        ps.setString(7, content2);
-        ps.setBytes(8, Base64.getDecoder().decode(contentIMG));
-        ps.setString(9, briefinfo);
-        ps.setString(10, blog_id);
-        ps.executeUpdate();
-    } catch (SQLException ex) {
-        ex.printStackTrace();
-    } catch (ClassNotFoundException ex) {
-        ex.printStackTrace();
+    public void UpdateBlog(String blog_id, Date date, String thumbnail, String title, String author, String introduction, String content1, String content2, String contentIMG, String briefinfo) {
+        String sql = "UPDATE tbl_blog SET date = ?, thumbnail = ?, title = ?, author = ?, introduction = ?, content1 = ?, content2 = ?, contentIMG = ?, briefinfo = ? WHERE id = ?";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setDate(1, date);
+            ps.setBytes(2, Base64.getDecoder().decode(thumbnail));
+            ps.setString(3, title);
+            ps.setString(4, author);
+            ps.setString(5, introduction);
+            ps.setString(6, content1);
+            ps.setString(7, content2);
+            ps.setBytes(8, Base64.getDecoder().decode(contentIMG));
+            ps.setString(9, briefinfo);
+            ps.setString(10, blog_id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
     }
-}
-     
-     
-     
-    
+
 }

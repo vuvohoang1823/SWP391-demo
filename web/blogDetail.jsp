@@ -22,19 +22,18 @@
             <c:set var="detail" value="${sessionScope.BLOG_DETAIL}"/>
             <div class="body-container">
                 <section class="section-head">
-                    <!--                    <div class="search-bar">
-                                            <form onsubmit="event.preventDefault();" role="search">
-                                                <label for="search">Search for stuff</label>
-                                                <input
-                                                    id="search"
-                                                    type="search"
-                                                    placeholder="Search for Blogs, User, Hashtags..."
-                                                    autofocus
-                                                    required
-                                                    />
-                                                <button type="submit">Go</button>
-                                            </form>
-                                        </div>-->
+                    <a href="<%= previousPage%>">
+                        <div style="
+                             z-index: 1;
+                             position: absolute;
+                             top: 5rem;
+                             left: 5rem;
+                             font-size: 2.5rem;
+                             color: white;
+                             ">
+                            &lt; Back
+                        </div>
+                    </a>
                     <img src="data:images/jpg;base64,${detail.thumbnail}" draggable="false"/>
                     <div class="desc-container">
                         <div class="date-time">
@@ -98,7 +97,7 @@
                     <div class="blogs-container">
 
                         <div id="blogs-slider" class="blogs-slider">
-                            <c:forEach var="card" items="${blog.lisofBlog}">
+                            <c:forEach var="card" items="${blog.getLisofBlog('available')}">
                                 <!-- start item -->
                                 <div class="blog">
                                     <div class="img-container">

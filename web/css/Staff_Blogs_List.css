@@ -128,8 +128,19 @@
     padding: 1rem 2rem;
 }
 
+.blogs-container .blog-container .delete {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.blogs-container .blog-container .update {
+    position: absolute;
+    top: 1rem;
+    right: 9rem;
+}
 .update-button {
-    background-color: #4CAF50;
+    border-radius: 10px;
+    background-color: #F69C14;
     color: white;
     border: none;
     padding: 8px 16px;
@@ -137,16 +148,16 @@
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    border-radius: 4px;
     transition: background-color 0.3s;
 }
 
 .update-button:hover {
-    background-color: #45a049;
+    background-color: #bf780d;
 }
 
 .delete-button {
-    background-color: #f44336;
+    border-radius: 10px;
+    background-color: #FA5943;
     color: white;
     border: none;
     padding: 8px 16px;
@@ -154,10 +165,122 @@
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    border-radius: 4px;
     transition: background-color 0.3s;
 }
 
 .delete-button:hover {
     background-color: #d32f2f;
+}
+
+.restore-button {
+    border-radius: 10px;
+    background-color: #6adb14;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.restore-button:hover {
+    background-color: #4ea10e;
+}
+
+.create-button {
+    width: 204px;
+    height: 44px;
+    margin-left: 2rem;
+    border-radius: 10px;
+    white-space: nowrap;
+    background-color: #0A7E65;
+    padding: 0 2rem;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.create-button:hover {
+    background-color: #0A7E65;
+}
+
+.blogs-container {
+    display: flex;
+    padding: 0 2rem;
+    justify-content: center;
+}
+.blogs-container .blog-container {
+    position: relative;
+    flex-basis: calc(33.33% - 6rem);
+    margin: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    width: 0;
+    height: 517px;
+    padding: 0;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.25);
+}
+.blogs-container .blog-container img {
+    filter: brightness(0.5);
+    width: 100%;
+    height: 255px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: top;
+    object-position: top;
+}
+.blogs-container .blog-container .desc-container {
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+}
+.blogs-container .blog-container .desc-container .blog-description {
+    height: 100px;
+    line-height: 2rem;
+}
+.blogs-container .blog-container .desc-container div {
+    padding-top: 2rem;
+}
+.blogs-container .blog-container .desc-container h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 2rem;
+}
+.blogs-container .blog-container .desc-container .date-write {
+    padding-right: 3rem;
+    opacity: 0.8;
+    font-family: Montserrat;
+}
+.blogs-container .blog-container .button-container {
+    position: absolute;
+    bottom: 2rem;
+    align-self: center;
+    padding-top: 4rem;
+    width: 90%;
+}
+.blogs-container .blog-container .button-container form {
+    width: 100%;
+}
+.blogs-container .blog-container .button-container button {
+    width: 100%;
+    margin: 0 auto;
+    height: 3.8rem;
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 50px;
+    background: #617a55;
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: Inter;
+    font-weight: 700;
 }

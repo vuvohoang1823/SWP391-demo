@@ -90,7 +90,6 @@
                     <div class="container">
                         <div class="row">
                             <c:forEach items="${i.allCourseOnlineTraining}" var="onlinetraining">
-
                                 <div class="col-lg-4">
                                     <div class="card">
                                         <img
@@ -163,7 +162,10 @@
                                     </div>
                                 </div>
                             </c:forEach>
+<<<<<<< HEAD
                             
+=======
+>>>>>>> 347b895d4f6fe16fc49b4583977c840f2e978670
                         </div>
                     </div>
                 </div>
