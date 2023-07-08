@@ -42,16 +42,21 @@ public class NewPassword extends HttpServlet {
 
                 int rowCount = pst.executeUpdate();
                 if (rowCount > 0) {
-                    request.setAttribute("status", "resetSuccess");
+                    request.setAttribute("resetPassStatus", "resetSuccess");
                     dispatcher = request.getRequestDispatcher("signin.jsp");
                 } else {
-                    request.setAttribute("status", "resetFailed");
+                    request.setAttribute("resetPassStatus", "resetFailed");
                     dispatcher = request.getRequestDispatcher("signin.jsp");
                 }
                 dispatcher.forward(request, response);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+        if (!newPassword.equals(confPassword)) {
+            request.setAttribute("message", "Confirm password does not match.");
+            dispatcher = request.getRequestDispatcher("newPassword.jsp");
+            dispatcher.forward(request, response);
         }
     }
 

@@ -396,9 +396,11 @@
                             </li>
                             <li class="nav-item py-2 py-sm-4
                                 <%= isPageActive(currentPage, "Staff_Services_OnlineCourse.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_BirdCourse.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_Workshop.jsp")%>
                                 ">
                                 <a
-                                    href="Staff_Services_OnlineCourse.jsp"
+                                    href="Staff_Services_BirdCourse.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
