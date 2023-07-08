@@ -149,9 +149,11 @@
                             </tr>
                             </tbody>
                         </table>
+                    </section>
                 </div>
             </div>
         </div>
+
         <script>
             window.addEventListener('DOMContentLoaded', function () {
                 var headerWidth = document.getElementById('headerPage').offsetWidth;

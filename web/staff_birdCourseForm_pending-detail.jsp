@@ -19,7 +19,7 @@
             />
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/staff_formBirdCourse_detail.css" />
+        <link rel="stylesheet" href="css/staff_formBirdCourse_pending-detail.css" />
     </head>
     <body>
 

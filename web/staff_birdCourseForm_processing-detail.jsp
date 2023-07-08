@@ -19,7 +19,7 @@
             />
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/staff_formBirdCourse_detail.css" />
+        <link rel="stylesheet" href="css/staff_formBirdCourse_pending-detail.css" />
     </head>
     <body>
 
@@ -89,7 +89,6 @@
                             <div class="forms-header">
                                 <div class="left-side"><b>Form Detail</b></div>
                                 <div class="right-side">
-                                    <span>Submitted: <b>${BookingInfo.create_date}</b></span>
                                     <span><b>ID : #??</b></span>
                                     <span>Status: In-training</span>
                                 </div>
