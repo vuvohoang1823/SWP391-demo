@@ -58,6 +58,7 @@
                                 <li class="<%= isPageActive(currentPage, "workshop.jsp")%>
                                     <%= isPageActive(currentPage, "private_consultation.jsp")%>
                                     <%= isPageActive(currentPage, "online_course.jsp")%>
+                                    <%= isPageActive(currentPage, "onlinecoursedetail.jsp")%>
                                     <%= isPageActive(currentPage, "birdcourse.jsp")%>
                                     ">
                                     <a href="#" class="subnav-toggle">
@@ -70,7 +71,12 @@
                                     <ul class="subnav">
                                         <li class="subnav-content <%= isPageActive(currentPage, "workshop.jsp")%>"><a href="workshop.jsp">Workshops</a></li>
                                         <li class="subnav-content <%= isPageActive(currentPage, "private_consultation.jsp")%>"><a href="private_consultation.jsp">Private Consultant</a></li>
-                                        <li class="subnav-content <%= isPageActive(currentPage, "online_course.jsp")%>"><a href="online_course.jsp">Online Course</a></li>
+                                        <li class="subnav-content
+                                            <%= isPageActive(currentPage, "online_course.jsp")%>
+                                            <%= isPageActive(currentPage, "onlinecoursedetail.jsp")%>
+                                            ">
+                                            <a href="online_course.jsp">Online Course</a>
+                                        </li>
                                         <li class="subnav-content <%= isPageActive(currentPage, "birdcourse.jsp")%>"><a href="birdcourse.jsp">Bird Course</a></li>
                                     </ul>
                                 </li>
@@ -115,7 +121,7 @@
                                     </button>
                                     <div class="dropdown-menu" style="background-color: rgba(0,0,0,0); border: 0;">
                                         <ul class="subnav">
-                                            <a class="dropdown-item" href="viewBookedService.jsp"><li>View Booked Services</li></a>
+                                            <a class="dropdown-item" href="viewBookedService_BirdCourse.jsp"><li>View Booked Services</li></a>
                                             <a class="dropdown-item" href="viewProfile.jsp"><li>View Profile</li></a>
                                             <a class="dropdown-item" href="LogoutController" style="text-decoration: none">     <li>Logout</li></a>
                                         </ul>

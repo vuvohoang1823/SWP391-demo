@@ -18,17 +18,7 @@
     <body>
         <%@include file="header.jsp" %>
         <div class="container-fluid">
-            <div class="row tab-title">
-                <p>Booked Services</p>
-            </div>
-            <div class="row tab-nav">
-                <ul class="service-nav">
-                    <li><a href="">Bird Courses</a></li>
-                    <li><a href="viewBookedService_onlineCourse.jsp">Online Courses</a></li>
-                    <li><a href="viewBookedService_ws_inprogress.jsp">Workshops</a></li>
-                    <li><a href="">Private Consultant</a></li>
-                </ul>
-            </div>
+            <%@include file="viewBookedService_Head.jsp" %>
             <div class="filter-search">
                 <div class="filter-side">
                     <p>Service status: </p>
@@ -52,22 +42,15 @@
             <div class="result-container">
                 <div class="card-container">
                     <div class="card-detail">
-                        <img src="img/bird.jpg" alt="">
+                        <img src="img/bird.jpg" alt="bird.jpg">
                         <div class="description">
                             <p class="course-title">Mastering the Art of Avian Care and Handling</p>
-                            <p class="course-desc">In this course, you will delve into the foundations of communication,
-                                exploring different styles and understanding how to overcome common barriers.</p>
-                        </div>
-                        <button><a href="">View certificate</a></button>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card-detail">
-                        <img src="img/bird.jpg" alt="">
-                        <div class="description">
-                            <p class="course-title">Mastering the Art of Avian Care and Handling</p>
-                            <p class="course-desc">In this course, you will delve into the foundations of communication,
-                                exploring different styles and understanding how to overcome common barriers.</p>
+                            <div class="course-desc">
+                                <p>Training duration: 10 days</p>
+                                <p>Birds name: Simon</p>
+                                <p>Type: Mocking Jay</p>
+
+                            </div>
                         </div>
                         <button><a href="">View certificate</a></button>
                     </div>

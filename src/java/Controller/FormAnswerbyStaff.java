@@ -106,7 +106,7 @@ public class FormAnswerbyStaff extends HttpServlet {
                     htmlContent += "</tr>\n";
                     htmlContent += "<tr>\n";
                     htmlContent += "<td>Message</td>\n";
-                    htmlContent += "<td><textarea rows='5' cols='50' disable>" + messages + "</textarea></td>\n";
+                    htmlContent += "<td><textarea rows='5' cols='50' disabled style='background: white; color: black; font-weight: 700'>" + messages + "</textarea></td>\n";
                     htmlContent += "</tr>\n";
                     htmlContent += "<tr>\n";
                     htmlContent += "<td>Date Submitted</td>\n";

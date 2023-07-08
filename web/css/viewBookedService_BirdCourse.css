@@ -73,7 +73,7 @@ body {
     color:black;
     padding-bottom: 1rem;
 }
-.filter-option li:nth-child(1) a{
+.filter-option .active a{
     border-bottom: 7px var(--font-color) solid;
 }
 .filter-option li:nth-child(1){
