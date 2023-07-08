@@ -23,6 +23,8 @@
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
+                <jsp:useBean id="list" class="DAO.GuestDAO" scope="request"></jsp:useBean>
+
     </head>
     <body>
         <div class="container-fluid">
@@ -30,7 +32,6 @@
                 <!--            header-->
 
                 <%@ include file="header.jsp" %>
-
                 <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
@@ -116,26 +117,30 @@
                                 </tr>
                             </thead>
                             <!--loop start-->
+                            <c:forEach var="detail" items="${list.allFormListCOMPLETED}">
+                          
                             <tr>
-                                <td class="id">1</td>
+                                <td class="id">${detail.id}</td>
                                 <td class="title">
-                                    <span class="question-message">Where do i go for my workshop</span>
+                                    <span class="question-message">${detail.titleQ}</span>
                                 </td>
-                                <td class="customer">ABCa</td>
+                                <td class="customer">${detail.fullname}</td>
                                 <td class="customer">
-                                    <span class="question-message">abcdefgh@dgmail.com</span>
+                                    <span class="question-message">${detail.email}</span>
                                 </td>
-                                <td class="customer">2023-07-01</td>
+                                <td class="customer">${detail.submitDate}</td>
                                 <td class="customer">
-                                    <span class="question-message">Hi,adwahdbwajdwajdwadwadwbjadw</span>
+                                    <span class="question-message">${detail.titleMess}</span>
                                 </td>
                                 <td>
                                     <div class="type">
-                                        <a href="Staff_QuestionAndAnswer_AnswerDetail.jsp"><button class="viewDetail">View Detail</button></a>
+                                       <a href="ViewFormAnswerComplete?id=${detail.id}"><button class="viewDetail">View Detail</button></a>
                                     </div>
                                 </td>
                             </tr>
+                  
                             <!--loop end-->
+                            </c:forEach>
                         </table>
                     </section>
                 </div>

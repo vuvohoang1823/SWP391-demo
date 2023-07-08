@@ -23,6 +23,7 @@
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
+        <jsp:useBean id="f" class="DAO.GuestDAO" scope="request"></jsp:useBean>
     </head>
     <body>
         <div class="container-fluid">
@@ -116,26 +117,30 @@
                                 </tr>
                             </thead>
                             <!--loop start-->
+                            <c:forEach var="list" items="${f.allFormList}">
                             <tr>
-                                <td class="id">1</td>
+                            <input type="hidden" name="formid" value="${list.id}"/>
+                                <td class="id" name="formid">${list.id}</td>
                                 <td class="title">
-                                    <span class="question-message">Where do i go for my workshop</span>
+                                    <span class="question-message">${list.titleQ}</span>
                                 </td>
-                                <td class="customer">ABCa</td>
+                                <td class="customer">${list.fullname}</td>
                                 <td class="customer">
-                                    <span class="question-message">abcdefgh@dgmail.com</span>
+                                    <span class="question-message">${list.email}</span>
                                 </td>
-                                <td class="customer">2023-07-01</td>
+                                <td class="customer">${list.submitDate}</td>
                                 <td class="customer">
-                                    <span class="question-message">Hi,adwahdbwajdwajdwadwadwbjadw</span>
+                                    <span class="question-message">${list.titleMess}</span>
                                 </td>
                                 <td>
                                     <div class="type">
-                                        <a href="Staff_QuestionAndAnswer_QuestionDetail.jsp"><button class="viewDetail">View Detail</button></a>
+<!--                                        <a href="Staff_QuestionAndAnswer_QuestionDetail.jsp"><button class="viewDetail">View Detail</button></a>-->
+                                        <a href="ViewFormQuestionAnswer?id=${list.id}"><button class="viewDetail">View Detail</button></a>
                                     </div>
                                 </td>
                             </tr>
                             <!--loop end-->
+                            </c:forEach>
                         </table>
                     </section>
                 </div>
