@@ -73,7 +73,7 @@ public class RegistrationController extends HttpServlet {
             // Get new User_ID
             int user_id = dao.GenerateUser_ID();
             int customer_id = dao.GenerateCustomer_ID();
-            // validate fullname 
+            // validate fullname
 
             if (firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || contact.isEmpty() || username.isEmpty() || password.isEmpty() || confimpassword.isEmpty()) {
                 // Handle case when required fields are missing
@@ -89,6 +89,11 @@ public class RegistrationController extends HttpServlet {
             }
             if (dao.isUsernameTaken(username)) {
                 request.setAttribute("errorMessage", "Username is already taken.");
+                request.getRequestDispatcher("signUp.jsp").forward(request, response);
+                return; // Stop further execution
+            }
+            if (dao.isEmailTaken(email)) {
+                request.setAttribute("errorMessage", "Email is already registered.");
                 request.getRequestDispatcher("signUp.jsp").forward(request, response);
                 return; // Stop further execution
             }
@@ -149,7 +154,7 @@ public class RegistrationController extends HttpServlet {
             dispatcher = request.getRequestDispatcher("EnterOTPregister.jsp");
             mySession.setAttribute("otp", otpvalue);
             mySession.setAttribute("email", email);
-            // fullname 
+            // fullname
             mySession.setAttribute("fullname_params", FULLNAME);
             // "email"
             mySession.setAttribute("email_params", email);

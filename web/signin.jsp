@@ -44,14 +44,38 @@
                         </a>
                     </div>
                     <p style="user-select: none">Unlock a World of Discovery.<br /> Train your Birds Now!</p>
-                    <form class="form-control" action="MainController" method="POST">
+                    <form class="form-control" action="MainController" method="POST" style="position: relative">
+                        <c:if test="${requestScope.resetPassStatus eq 'resetSuccess'}">
+                            <p class="text-success" style="
+                               position: absolute;
+                               top: 0;
+                               left: 110px;
+                               font-size: 1.5rem;
+                               transform: translateY(-20px);
+                               text-transform: capitalize;
+                               ">
+                                Reset password success!
+                            </p>
+                        </c:if>
+                        <c:if test="${requestScope.createAccStatus eq 'createSuccess'}">
+                            <p class="text-success" style="
+                               position: absolute;
+                               top: 0;
+                               left: 110px;
+                               font-size: 1.5rem;
+                               transform: translateY(-20px);
+                               text-transform: capitalize;
+                               ">
+                                Create account success!
+                            </p>
+                        </c:if>
                         <label for="">Username</label>
                         <input class="email" type="text" name="txtUsername" placeholder="Username" required>
                         <label class="label-password" for="">Password</label>
                         <div class="password-toggle">
                             <input id="password" class="password" type="password" name="txtPassword" placeholder="Password" required
                                    style="margin-top: 0;">
-                            <i class="eye-icon fas fa-eye"></i>
+                            <i class="eye-icon fas fa-eye active"></i>
                         </div>
                         <button type="submit" class="login-btn" value="Login" name="action">Login</button>
                         <a href="forgotPassword.jsp">Forgot password?</a>
@@ -73,10 +97,10 @@
             function togglePasswordVisibility() {
                 if (passwordInput.type === 'password') {
                     passwordInput.type = 'text';
-                    eyeIcon.classList.add('active');
+                    eyeIcon.classList.remove('active');
                 } else {
                     passwordInput.type = 'password';
-                    eyeIcon.classList.remove('active');
+                    eyeIcon.classList.add('active');
                 }
             }
         </script>
