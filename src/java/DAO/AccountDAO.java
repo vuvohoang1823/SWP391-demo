@@ -157,4 +157,27 @@ public class AccountDAO implements Serializable {
         }
         return false;
     }
+
+    public boolean isEmailTaken(String email) throws ClassNotFoundException, SQLException {
+
+        String sql = "SELECT COUNT(*) FROM tbl_user WHERE gmail = ? ";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                return count > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+        }
+        return false;
+    }
 }

@@ -48,7 +48,7 @@ public class ValidateOtpRegitser extends HttpServlet {
 
         if (value == otp) {
             request.setAttribute("email", request.getParameter("email"));
-            request.setAttribute("status", "success");
+            request.setAttribute("createAccStatus", "createSuccess");
             // process regiter
             AccountDAO dao = new AccountDAO();
             String fullname = request.getParameter("fullname");
@@ -63,7 +63,7 @@ public class ValidateOtpRegitser extends HttpServlet {
             dispatcher.forward(request, response);
 
         } else {
-            request.setAttribute("message", "wrong otp");
+            request.setAttribute("errormessage", "wrong otp");
 
             dispatcher = request.getRequestDispatcher("EnterOTPregister.jsp");
             dispatcher.forward(request, response);
