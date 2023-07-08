@@ -851,6 +851,35 @@ public class FormApppointmentDAO implements Serializable {
             }
         }
     }
+     public void updateAppointmentFormDeny(String consultationId)
+            throws SQLException, ClassCastException {
+
+        String updateAppointmentSql = "UPDATE tbl_appointment SET status = 'deny' WHERE consultation_id = ?";
+
+
+        boolean result = false;
+
+        try {
+            con = db.getConnection();
+            // Update tbl_appointment
+            ps = con.prepareStatement(updateAppointmentSql);
+            ps.setString(1, consultationId);
+            ps.executeUpdate();
+
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+        }
+    }
 
     /*UPDATE IF USER  CHOOSE TRAINER */
     public void updateAppointmentAndTrainerChooseTrainer(String consultationId)

@@ -125,7 +125,7 @@
                                     <td>Actions</td>
                                 </tr>
                             </thead>
-                            <c:forEach var="card" items="${b.lisofBlog}">
+                            <c:forEach var="card" items="${b.lisofBlogunActive}">
                                 <tr>
                                     <td class="id">${card.blogid}</td>
                                     <td class="title blog-title">${card.title}</td>

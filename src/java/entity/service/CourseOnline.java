@@ -25,6 +25,25 @@ public class CourseOnline implements
     private Date date ; 
     private float amount ; 
     private String payment_id ; 
+    private String module_id;
+    private String module_name;
+    private String module_description;
+
+    public CourseOnline(String courseID, String content, String category, String title, int price, String module_id, String module_name, String module_description) {
+        this.courseID = courseID;
+        this.content = content;
+        this.category = category;
+        this.title = title;
+        this.price = price;
+        this.module_id = module_id;
+        this.module_name = module_name;
+        this.module_description = module_description;
+    }
+        public CourseOnline(String title, String image) {
+        this.title = title;
+        this.image = image;
+    }
+    
 
     public CourseOnline(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date date, float amount, String payment_id) {
         this.courseID = courseID;
@@ -40,9 +59,10 @@ public class CourseOnline implements
         this.payment_id = payment_id;
     }
 
-    public CourseOnline(String title, String image) {
+    public CourseOnline(String title, String image, String courseID) {
         this.title = title;
         this.image = image;
+        this.courseID = courseID;
     }
     
 
@@ -136,6 +156,30 @@ public class CourseOnline implements
 
     public void setPayment_id(String payment_id) {
         this.payment_id = payment_id;
+    }
+
+    public String getModule_id() {
+        return module_id;
+    }
+
+    public void setModule_id(String module_id) {
+        this.module_id = module_id;
+    }
+
+    public String getModule_name() {
+        return module_name;
+    }
+
+    public void setModule_name(String module_name) {
+        this.module_name = module_name;
+    }
+
+    public String getModule_description() {
+        return module_description;
+    }
+
+    public void setModule_description(String module_description) {
+        this.module_description = module_description;
     }
     
     

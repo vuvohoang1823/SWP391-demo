@@ -44,13 +44,21 @@ public class ConsultationUpdatePending extends HttpServlet {
             FormApppointmentDAO dao = new FormApppointmentDAO();
             try {
                 dao.updateAppointmentForm(consultationId,TrainerID, RequestTrainerID);
-                response.sendRedirect("Staff_ConsultationForm_Processing.jsp");
+                response.sendRedirect("Staff_ConsultationForm_Pending.jsp");
             } catch (SQLException | IOException ex) {
                 ex.printStackTrace();
-                response.sendRedirect("Staff_ConsultationForm_Processing.jsp");
+                response.sendRedirect("error.jsp");
             }
         } else if (action.equals("deny")) {
-            response.sendRedirect("deny.jsp");
+             String consultationId = request.getParameter("consultationId");
+           FormApppointmentDAO dao = new FormApppointmentDAO();
+           try{
+               dao.updateAppointmentFormDeny(consultationId);
+               response.sendRedirect("Staff_ConsultationForm_Pending.jsp");
+           } catch (SQLException | IOException ex) {
+                ex.printStackTrace();
+                response.sendRedirect("error.jsp");
+            }
 
         }
     }
