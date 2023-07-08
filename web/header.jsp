@@ -18,6 +18,9 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
             />
+        <!--toast-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <!--css-->
         <link rel="stylesheet" href="css/reset.css" type="text/css">
         <link rel="stylesheet" href="css/header.css" type="text/css">
     </head>
@@ -25,6 +28,9 @@
         <c:set var="user" value="${sessionScope.LOGIN_USER}"></c:set>
         <c:set var="role" value="${sessionScope.role}" />
         <!--change color on active page-->
+        <%
+            String previousPage = request.getHeader("Referer");
+        %>
         <%
             String currentPage = request.getRequestURI();
         %>
@@ -39,7 +45,7 @@
         <!------------------------------->
         <c:choose>
             <c:when test="${role eq 'customer' || empty role}">
-                <div class="container-fluid customer">
+                <div id="headerPage" class="container-fluid customer">
                     <div class="row header">
                         <div class="col-lg-3 logo-section">
                             <img src="./img/icon.jpg" alt="">
@@ -124,6 +130,7 @@
 
             <c:when test="${role eq 'trainer'}">
                 <div
+                    id="headerPage"
                     class="bg-white col-2 col-md-4 col-lg-2 min-vh-100 d-flex flex-column p-0 sidebar-trainer"
                     style="width: 13%"
                     >
@@ -244,6 +251,7 @@
 
             <c:when test="${role eq 'staff'}">
                 <div
+                    id="headerPage"
                     class="bg-white col-2 col-md-4 col-lg-2 min-vh-100 d-flex flex-column p-0 sidebar-staff"
                     style="width: 13%"
                     >
@@ -361,6 +369,10 @@
                                 <%= isPageActive(currentPage, "staff_birdCourseOrder_completed-detail.jsp")%>
                                 <%= isPageActive(currentPage, "staff_birdCourseOrder_history.jsp")%>
                                 <%= isPageActive(currentPage, "staff_birdCourseOrder_history-detail.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_completed.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_completed-detail.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_history.jsp")%>
+                                <%= isPageActive(currentPage, "staff_birdCourseOrder_history-detail.jsp")%>
                                 ">
                                 <a
                                     href="staff_birdCourseOrder_completed.jsp"
@@ -387,7 +399,7 @@
                                 </a>
                             </li>
                             <li class="nav-item py-2 py-sm-4
-                                <%= isPageActive(currentPage, "homepage.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_OnlineCourse.jsp")%>
                                 ">
                                 <a
                                     href="staff_services_birdCourse_create.jsp"
@@ -409,6 +421,7 @@
                                 <%= isPageActive(currentPage, "Staff_list_ofblog.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_list_ofblog_unactive.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_update_blog.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_BlogDetail.jsp")%>
                                 ">
                                 <a
                                     href="Staff_list_ofblog.jsp"

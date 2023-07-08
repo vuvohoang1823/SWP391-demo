@@ -73,14 +73,35 @@
                     <div class="image-container">
                         <img src="./img/contactUsCardImage.png" alt="Card Image" draggable="false"/>
                     </div>
-                    <div class="card-body">
-                        <input
-                            type="text"
-                            class="text-field"
-                            placeholder="Your email address"
-                            />
-                        <button class="button">Notify me</button>
-                    </div>
+                    <form style="display: inline">
+                        <div class="card-body">
+                            <input
+                                type="email"
+                                class="text-field"
+                                placeholder="Your email address"
+                                required
+                                />
+                            <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#confirmNewsletter">Notify me</button>
+                            <div class="modal fade" id="confirmNewsletter" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title" style="font-size: 3rem">Newsletter</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body fs-2" style="line-height: 2.5rem">
+                                            A newsletter will be sent to your email every week. <br>
+                                            Do you want to receive news about our page?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -99,43 +120,31 @@
                             </div>
                         </div>
 
-                        <h1>CONTACT FORM</h1>
+                        <h1>QUESTION FORM</h1>
                     </div>
-                    <form action="">
+                    <form action="" style="display: inline">
                         <div class="content">
                             <div class="row" style="justify-content: space-between">
                                 <input
                                     type="text"
-                                    placeholder="Last Name"
+                                    placeholder="Full name"
                                     required
-                                    style="width: 48%"
-                                    />
-                                <input
-                                    type="text"
-                                    placeholder="First Name"
-                                    required
-                                    style="width: 48%"
                                     />
                             </div>
                             <div class="row">
                                 <input type="email" placeholder="Your email address" required />
                             </div>
                             <div class="row">
-                                <input type="text" placeholder="Your phone number" required />
-                            </div>
-                            <div class="row">
                                 <input
                                     type="text"
-                                    placeholder="Contact request title"
+                                    placeholder="Question title"
                                     required
                                     />
                             </div>
                             <div class="row" style="height: 15rem">
                                 <textarea
                                     name="description"
-                                    rows="4"
-                                    cols="40"
-                                    placeholder="Request message..."
+                                    placeholder="Question message..."
                                     ></textarea>
                             </div>
                         </div>
@@ -146,5 +155,31 @@
                 </div>
             </div>
         </section>
+        <!--prevent default form-->
+        <script>
+            // Get all form elements using querySelectorAll
+            var forms = document.querySelectorAll("form");
+            // Attach an event listener to each form's submit event
+            forms.forEach(function (form) {
+                form.addEventListener("submit", function (event) {
+                    // Prevent the default form submission behavior
+                    event.preventDefault();
+                    // Show success toast
+                    Toastify({
+                        text: "Submit success",
+                        position: "center",
+                        close: true,
+                        gravity: "top",
+                        duration: 3000,
+                        style: {
+                            fontSize: "2rem",
+                            background: "linear-gradient(to right, #00b09b, #96c93d)",
+                        },
+                    }).showToast();
+                    //reset form
+                    form.reset();
+                });
+            });
+        </script>
     </body>
 </html>

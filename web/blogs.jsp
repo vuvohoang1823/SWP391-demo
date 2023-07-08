@@ -159,14 +159,14 @@
             </div>
             <div class="blogs-container row">
                 <!-- start of card -->
-                <c:forEach var="card" items="${blog.lisofBlog}">
+                <c:forEach var="card" items="${blog.getLisofBlog('available')}">
                     <div class="blog-container">
                         <img src="data:images/jpg;base64,${card.thumbnail}" draggable="false"/>
                         <div class="desc-container">
                             <h5 class="blog-title">${card.title}</h5>
                             <div class="date-write">
-                                <span>May, - ${card.date}</span>
-                                <span>${card.author}</span>
+                                <span>${card.date}</span>
+                                <span style="float: right">${card.author}</span>
                             </div>
                             <div class="blog-description">
                                 ${card.briefinfo}

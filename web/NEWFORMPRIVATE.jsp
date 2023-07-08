@@ -185,8 +185,8 @@
                                                         <c:forEach items="${i.trainerUnavailableWithfullSkill}" var="s">
                                                             <div class="trainer-item" >
                                                                 <img src="data:images/jpg;base64,${s.img}" alt="Trainer Avatar" class="trainer-avatar">
-                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="${s.trainerID}" id="trainer1">
-                                                                <label for="trainer">
+                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="${s.trainerID}" id="trainer-${s.trainerID}">
+                                                                <label for="trainer-${s.trainerID}">
                                                                     <span class="trainer-name">Name: ${s.fullName}</span><br/>
                                                                     <span> - </span>
                                                                     <span class="trainer-skill">Skill: ${s.skill_name}</span><br/>.

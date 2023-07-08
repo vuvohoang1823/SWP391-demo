@@ -99,7 +99,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing 2 pending form(s)
+                            Currently showing <c:out value="${a.pendingOrder.size()}" /> pending form(s)
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -129,57 +129,64 @@
                                         <a >
                                             <button class="viewDetail">
                                                 <b>View Detail<b>
-                                            </button>
-                                        </a>
-                                    </td>
+                                                        </button>
+                                                        </a>
+                                                        </td>
 
 
-                                    <!-- Modal -->
-                                    <%--<div class="modal fade" id="exampleModal${counter.index}" tabindex="-1"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h2 class="modal-title" id="exampleModalLabel">Select Trainer</h2>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="modal-body-item">
-                                                        <select class="custom-select" size="5" name="filterChose"
-                                                                style="width: 48rem;">
-                                                            <c:forEach items="${i.trainerUnavailable}" var="s">
-                                                                <option value="${s.trainerID}">${s.fullName}</option>
-                                                            </c:forEach>
-                                                        </select>
+                                                        <!-- Modal -->
+                                                        <%--<div class="modal fade" id="exampleModal${counter.index}" tabindex="-1"
+                                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h2 class="modal-title" id="exampleModalLabel">Select Trainer</h2>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="modal-body-item">
+                                                                            <select class="custom-select" size="5" name="filterChose"
+                                                                                    style="width: 48rem;">
+                                                                                <c:forEach items="${i.trainerUnavailable}" var="s">
+                                                                                    <option value="${s.trainerID}">${s.fullName}</option>
+                                                                                </c:forEach>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="footer-item" name="action" value="deny"
+                                                                                style="background-color: #617A55;width: 10rem;font-size: 2rem;border-radius: 3rem; height: 4rem; color: white; font-weight: bolder">
+                                                                            Deny
+                                                                        </button>
+                                                                        <button type="submit" class="footer-item" name="action" value="approve"
+                                                                                style="background-color: #617A55;width: 10rem;font-size: 2rem;border-radius: 3rem; height: 4rem; color: white; font-weight: bolder">
+                                                                            Approve
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>--%>
+                                                        </form>
+                                                        </tr>
+                                                    </c:forEach>
+                                                    </tbody>
+                                                    </table>
+                                                    </section>
                                                     </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="footer-item" name="action" value="deny"
-                                                            style="background-color: #617A55;width: 10rem;font-size: 2rem;border-radius: 3rem; height: 4rem; color: white; font-weight: bolder">
-                                                        Deny
-                                                    </button>
-                                                    <button type="submit" class="footer-item" name="action" value="approve"
-                                                            style="background-color: #617A55;width: 10rem;font-size: 2rem;border-radius: 3rem; height: 4rem; color: white; font-weight: bolder">
-                                                        Approve
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>--%>
-                                </form>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-</html>
+                                                    </div>
+                                                    </div>
+                                                    <script>
+                                                        window.addEventListener('DOMContentLoaded', function () {
+                                                            var headerWidth = document.getElementById('headerPage').offsetWidth;
+                                                            var container = document.getElementById('containerPage');
+                                                            container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+                                                        });
+                                                    </script>
+                                                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                                                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                                                    </body>
+                                                    </html>
 
 
 

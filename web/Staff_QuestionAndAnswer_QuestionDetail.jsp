@@ -29,7 +29,7 @@
                     <!--            header-->
                 <%@ include file="header.jsp" %>
 
-                <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
+                <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
                             <svg
@@ -55,7 +55,7 @@
                             <span style="padding-left: 2rem">Q&A</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="Staff_QuestionAndAnswer_List.jsp">
+                            <a href="<%= previousPage%>">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -217,7 +217,7 @@
                                                         <h1 class="modal-title" style="font-size: 3rem">Submit answer</h1>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <div class="modal-body fs-2">
+                                                    <div class="modal-body fs-2" style="line-height: 2.5rem">
                                                         This answer will be sent to the customer's email. <br>
                                                         You can review it in Answered Question List later.
                                                     </div>
@@ -236,6 +236,13 @@
                 </div>
             </div>
         </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var headerWidth = document.getElementById('headerPage').offsetWidth;
+                var container = document.getElementById('containerPage');
+                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+            });
+        </script>
         <!--adjust height and trim space-->
         <script>
             function adjustTextareaHeight(textarea) {

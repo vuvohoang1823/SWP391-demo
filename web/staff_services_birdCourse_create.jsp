@@ -20,7 +20,7 @@
 
                 <%@ include file="header.jsp" %>
 
-                <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
+                <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
                             <svg
@@ -81,7 +81,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="staff_birdCourseForm_processing.jsp">xxx</a>
                                         </li>
-                                        
+
                                     </ul>
                                 </div>
                                 <div class="search-container">
@@ -111,10 +111,10 @@
                             </div>
                             <div>
                                 <a href="staff_services_birdCourse_create-detail.jsp">
-                                            <button class="add-course">
-                                                Add new course
-                                            </button>
-                                        </a>
+                                    <button class="add-course">
+                                        Add new course
+                                    </button>
+                                </a>
                             </div>
                         </div>
                         <table
@@ -131,31 +131,37 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr>
-                                <form action="" method="">
-                                    <input type="hidden" name="" value="">
-                                    <td><b>${counter.count}</b></td>
-                                    <td><b>xxx</b></td>
-                                    <td><b>xxx</b></td>
-                                    <td><b>xxx</b></td>
-                                    <td>
-                                        <a href="staff_services_birdCourse_modify-detail.jsp">
-                                            <button class="modify">
-                                                <b>Modify</b>
-                                            </button>
-                                        </a>
-                                    </td>
-                                </form>
-                                </tr>
+                                <tr>
+                            <form action="" method="">
+                                <input type="hidden" name="" value="">
+                                <td><b>${counter.count}</b></td>
+                                <td><b>xxx</b></td>
+                                <td><b>xxx</b></td>
+                                <td><b>xxx</b></td>
+                                <td>
+                                    <a href="staff_services_birdCourse_modify-detail.jsp">
+                                        <button class="modify">
+                                            <b>Modify</b>
+                                        </button>
+                                    </a>
+                                </td>
+                            </form>
+                            </tr>
                             </tbody>
                         </table>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var headerWidth = document.getElementById('headerPage').offsetWidth;
+                var container = document.getElementById('containerPage');
+                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
 </html>
 
 
