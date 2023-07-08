@@ -67,7 +67,7 @@ public class FormAnswerbyStaff extends HttpServlet {
             LocalDateTime currentTime = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String formattedTime = currentTime.format(formatter);
-            //  
+            //
             if (email != null || !email.equals("")) {
                 //  String from = email;
                 String to = email;
@@ -93,7 +93,7 @@ public class FormAnswerbyStaff extends HttpServlet {
                     message.setFrom(new InternetAddress(email));// change accordingly
                     message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 //                message.setSubject("OTP from Bird Training Center");
-//                message.setText(messages);               
+//                message.setText(messages);
                     String htmlContent = "<h1>Email Details</h1>\n";
                     htmlContent += "<table border='1'>\n";
                     htmlContent += "<tr>\n";
@@ -106,7 +106,7 @@ public class FormAnswerbyStaff extends HttpServlet {
                     htmlContent += "</tr>\n";
                     htmlContent += "<tr>\n";
                     htmlContent += "<td>Message</td>\n";
-                    htmlContent += "<td><textarea rows='5' cols='50'>" + messages + "</textarea></td>\n";
+                    htmlContent += "<td><textarea rows='5' cols='50' disable>" + messages + "</textarea></td>\n";
                     htmlContent += "</tr>\n";
                     htmlContent += "<tr>\n";
                     htmlContent += "<td>Date Submitted</td>\n";
