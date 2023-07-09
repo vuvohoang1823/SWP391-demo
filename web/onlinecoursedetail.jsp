@@ -223,9 +223,9 @@
                 
                <form action="CustomerPaymentVNPAY" id="frmCreateOrder" method="post"> 
                 
-                <input type="hidden" name="courseID" value=${detail.courseID} />
+            <%--    <input type="hidden" name="courseID" value=${detail.courseID} />
                 <input type="hidden" name="price" value=${detail.price} />
-                <input type="hidden" name="userID" value=${sessionScope.LOGIN_USER.customer_id} />
+                <input type="hidden" name="userID" value=${sessionScope.LOGIN_USER.customer_id} /> --%>
                   <!-- ---->    
                     <div>
                            <input  value="${detail.price}" class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="hidden"  />

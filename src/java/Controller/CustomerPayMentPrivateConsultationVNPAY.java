@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
@@ -31,8 +30,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author hoang
  */
-@WebServlet(name = "CustomerPaymentVNPAY", urlPatterns = {"/CustomerPaymentVNPAY"})
-public class CustomerPaymentVNPAY extends HttpServlet {
+@WebServlet(name = "CustomerPayMentPrivateConsultationVNPAY", urlPatterns = {"/CustomerPayMentPrivateConsultationVNPAY"})
+public class CustomerPayMentPrivateConsultationVNPAY extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,13 +42,13 @@ public class CustomerPaymentVNPAY extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
     
     // Retrieve request parameters
     String orderType = request.getParameter("ordertype");
-    long amount = Integer.parseInt(request.getParameter("amount")) * 100;
+    long amount = Integer.parseInt(request.getParameter("amount"));
     String bankCode = request.getParameter("bankCode");
     
     // Set VNPay parameters

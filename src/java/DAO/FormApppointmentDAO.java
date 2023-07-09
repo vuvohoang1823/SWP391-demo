@@ -851,11 +851,11 @@ public class FormApppointmentDAO implements Serializable {
             }
         }
     }
-     public void updateAppointmentFormDeny(String consultationId)
+
+    public void updateAppointmentFormDeny(String consultationId)
             throws SQLException, ClassCastException {
 
         String updateAppointmentSql = "UPDATE tbl_appointment SET status = 'deny' WHERE consultation_id = ?";
-
 
         boolean result = false;
 
@@ -865,7 +865,6 @@ public class FormApppointmentDAO implements Serializable {
             ps = con.prepareStatement(updateAppointmentSql);
             ps.setString(1, consultationId);
             ps.executeUpdate();
-
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -1059,6 +1058,105 @@ public class FormApppointmentDAO implements Serializable {
             }
 
         }
+    }
+
+    // CUSTOMERS 
+    public List<AppointmentDDD> getAppointmentListBYCustomerID(int CustomerID) {
+        List<AppointmentDDD> list = new ArrayList<>();
+        String sql = "SELECT appointment.customer_id, appointment.consultation_id, customer.fullname AS customer_fullname, appointment.date, appointment.note, appointment.address, appointment.type, appointment.status,appointment.Request_trainer_id, appointment.duration , appointment.DateSubmit,appointment.amount,appointment.fullname,appointment.gmail,appointment.contact\n"
+                + "                         FROM tbl_appointment appointment\n"
+                + "                           JOIN tbl_customer customer ON customer.customer_id = appointment.customer_id\n"
+                + "                         WHERE appointment.customer_id = ? AND appointment.Request_trainer_id IS NOT NULL AND appointment.status IS NOT  NULL AND trainer_id IS NOT NULL and  appointment.amount  = 0 ORDER BY appointment.consultation_id DESC\n"
+                + "";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, CustomerID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String dateString = rs.getString(4); // Get the date as a string
+                java.sql.Date date = java.sql.Date.valueOf(dateString); // Convert the string to a java.sql.Date object
+                String dateStringsubmit = rs.getString(11);
+                java.sql.Date datesubmit = java.sql.Date.valueOf(dateStringsubmit);
+                AppointmentDDD ddd = new AppointmentDDD(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        date,
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getTime(10),
+                        datesubmit,
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getString(14),
+                        rs.getString(15)
+                );
+                list.add(ddd);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
+        return list;
+    }
+
+    // CompleteCustomer
+    /*HISTORY*/
+    public List<AppointmentDDD> getAppointmentFormHistorybyCustomerID(String customerID) {
+        List<AppointmentDDD> list = new ArrayList<>();
+
+        String sql = " SELECT appointment.customer_id, appointment.consultation_id, customer.fullname AS customer_fullname, appointment.date, appointment.note, appointment.address, appointment.type, appointment.status,appointment.Request_trainer_id, appointment.duration , appointment.DateSubmit,appointment.amount,appointment.fullname,appointment.gmail,appointment.contact\n"
+                + "                           FROM tbl_appointment appointment\n"
+                + "                           JOIN tbl_customer customer ON customer.customer_id = appointment.customer_id\n"
+                + "                          WHERE appointment.customer_id = ? AND  appointment.tracking = 'complete' ORDER BY CONVERT(INT, appointment.consultation_id) DESC\n"
+                + "\n"
+                + "";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, customerID);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String dateString = rs.getString(4); // Get the date as a string
+                java.sql.Date date = java.sql.Date.valueOf(dateString); // Convert the string to a java.sql.Date object
+                String dateStringsubmit = rs.getString(11);
+                java.sql.Date datesubmit = java.sql.Date.valueOf(dateStringsubmit);
+                AppointmentDDD appointment = new AppointmentDDD(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        date,
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getTime(10),
+                        datesubmit,
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getString(14),
+                        rs.getString(15)
+                );
+                list.add(appointment);
+
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return list;
+
     }
 
 }
