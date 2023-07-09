@@ -141,6 +141,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         id="email"
+                                                        name="email_email"
                                                         placeholder="Email"
                                                         value="${detail.gmail}"
                                                         disabled

@@ -26,7 +26,7 @@
                     <li><a href="">Bird Courses</a></li>
                     <li><a href="viewBookedService_onlineCourse.jsp">Online Courses</a></li>
                     <li><a href="viewBookedService_ws_inprogress.jsp">Workshops</a></li>
-                    <li><a href="">Private Consultant</a></li>
+                    <li><a href="Customer_private_consultation_payment.jsp">Private Consultant</a></li>
                 </ul>
             </div>
             <div class="filter-search">
