@@ -271,8 +271,8 @@
                                                                                         <c:forEach items="${t.trainerUnavailableWithfullSkill}" var="trainerinfo">
                                                                                             <div class="trainer-item">
                                                                                                 <img src="data:images/jpg;base64,${trainerinfo.img}" alt="Trainer Avatar" class="trainer-avatar">
-                                                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer1" ${g.fullName eq trainerinfo.fullName ? 'checked' : ''} >
-                                                                                                <label for="trainer1">
+                                                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer-${trainerinfo.trainerID}" ${g.fullName eq trainerinfo.fullName ? 'checked' : ''} >
+                                                                                                <label for="trainer-${trainerinfo.trainerID}">
                                                                                                     <span class="trainer-name">Name: ${trainerinfo.fullName}</span>
                                                                                                     <span> - </span>
                                                                                                     <span class="trainer-skill">Skill: ${trainerinfo.skill_name}</span>
@@ -350,8 +350,8 @@
                                                                                         <c:forEach items="${t.trainerUnavailableWithfullSkill}" var="trainerinfo">
                                                                                             <div class="trainer-item">
                                                                                                 <img src="data:images/jpg;base64,${trainerinfo.img}" alt="Trainer Avatar" class="trainer-avatar">
-                                                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer1">
-                                                                                                <label for="trainer1">
+                                                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer-${trainerinfo.trainerID}">
+                                                                                                <label for="trainer-${trainerinfo.trainerID}">
                                                                                                     <span class="trainer-name">Name: ${trainerinfo.fullName}</span>
                                                                                                     <span> - </span>
                                                                                                     <span class="trainer-skill">Skill: ${trainerinfo.skill_name}</span>

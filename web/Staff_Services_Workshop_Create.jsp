@@ -355,7 +355,7 @@
                                 </div>
                                 <div class="forms-footer">
                                     <div>
-                                        <button type="submit" name="action" value="update" class="btn update">Update</button>
+                                        <button type="submit" name="action" value="update" class="btn create">Create</button>
                                     </div>
                                     <div>
                                         <button type="submit" name="action" value="update" class="btn close">Cancel</button>
