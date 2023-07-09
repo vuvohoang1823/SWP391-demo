@@ -1,8 +1,12 @@
 package Controller;
 
+import DAO.AccountDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -28,11 +32,20 @@ public class ForgotPassword extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String email = request.getParameter("email");
+        AccountDAO accDao = new AccountDAO();
+        boolean checkEmail = false;
+        try {
+            checkEmail = accDao.isEmailTaken(email);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
+        }
         RequestDispatcher dispatcher = null;
         int otpvalue = 0;
         HttpSession mySession = request.getSession();
 
-        if (email != null || !email.equals("")) {
+        if (email != null && !email.equals("") && checkEmail) {
             // sending otp
             Random rand = new Random();
             otpvalue = rand.nextInt(999999);
@@ -73,6 +86,10 @@ public class ForgotPassword extends HttpServlet {
             mySession.setAttribute("email", email);
             dispatcher.forward(request, response);
             //request.setAttribute("status", "success");
+        } else {
+            dispatcher = request.getRequestDispatcher("forgotPassword.jsp");
+            request.setAttribute("message", "This email has not been registered.");
+            dispatcher.forward(request, response);
         }
 
     }

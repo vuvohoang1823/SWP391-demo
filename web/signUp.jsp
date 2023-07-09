@@ -46,7 +46,18 @@
                     <p style="color: red; align-content: center;">
                         ${requestScope.error}
                     </p>
-                    <form class="form-control" action="MainController" method="post">
+                    <form class="form-control" action="MainController" method="post" style="position: relative">
+                        <c:if test="${requestScope.errorMessage != null}">
+                            <p class="text-danger" style="
+                               position: absolute;
+                               top: 0;
+                               left: 60px;
+                               font-size: 1.5rem;
+                               transform: translateY(-20px);
+                               ">
+                                ${requestScope.errorMessage}
+                            </p>
+                        </c:if>
                         <div class="customer-name">
                             <div class="fn-container">
                                 <label for="">First name</label>
@@ -67,7 +78,7 @@
                         <label class="label-password" for="">Password</label>
                         <div class="password-toggle">
                             <input id="password" class="password" name="txtpassword" type="password" placeholder="Password" required>
-                            <i class="eye-icon fas fa-eye"></i>
+                            <i class="eye-icon fas fa-eye active"></i>
                         </div>
                         <label class="label-confirm" for="">Confirm</label>
                         <input class="confirm"  name="confirm" type="password" placeholder="Confirm password">
@@ -89,10 +100,10 @@
             function togglePasswordVisibility() {
                 if (passwordInput.type === 'password') {
                     passwordInput.type = 'text';
-                    eyeIcon.classList.add('active');
+                    eyeIcon.classList.remove('active');
                 } else {
                     passwordInput.type = 'password';
-                    eyeIcon.classList.remove('active');
+                    eyeIcon.classList.add('active');
                 }
             }
         </script>

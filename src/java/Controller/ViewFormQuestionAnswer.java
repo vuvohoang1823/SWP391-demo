@@ -5,14 +5,11 @@
  */
 package Controller;
 
-import DAO.courseDAO;
-import entity.Course;
+import DAO.GuestDAO;
+import entity.GuestDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,33 +19,36 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author LAPTOP
+ * @author hoang
  */
-@WebServlet(name = "ViewOnlineCourseDetailServlet", urlPatterns = {"/ViewOnlineCourseDetailServlet"})
-public class ViewOnlineCourseDetailServlet extends HttpServlet {
+@WebServlet(name = "ViewFormQuestionAnswer", urlPatterns = {"/ViewFormQuestionAnswer"})
+public class ViewFormQuestionAnswer extends HttpServlet {
 
-   
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String courseID = request.getParameter("courseID");
-        
-        try (PrintWriter out = response.getWriter()) {
-            courseDAO course = new courseDAO();
-            
-            Course online_course_detail = null;
-            if(!courseID.isEmpty()){
-                online_course_detail = course.getCourseByID(courseID);
-            }
-            
-            HttpSession session =  request.getSession(true);
-            session.setAttribute("online_course_detail", online_course_detail);
-            
-            RequestDispatcher rd = request.getRequestDispatcher("onlinecoursedetail.jsp");
-            rd.forward(request, response);
-        } catch (Exception ex) {
-            System.out.println(ex);
+        String id = request.getParameter("id");
+        try{
+//             
+            GuestDAO dao = new GuestDAO();
+            GuestDTO formquestion = null;
+            formquestion = dao.getOneFormListbyID(id);
+            HttpSession session = request.getSession(true);
+            session.setAttribute("QuestionForm", formquestion);
+            request.getRequestDispatcher("Staff_QuestionAndAnswer_QuestionDetail.jsp").forward(request, response);
+        }catch(Exception e){
+            e.printStackTrace();
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,13 +63,7 @@ public class ViewOnlineCourseDetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ViewOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ViewOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -83,13 +77,7 @@ public class ViewOnlineCourseDetailServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ViewOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ViewOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

@@ -58,6 +58,7 @@
                                 <li class="<%= isPageActive(currentPage, "workshop.jsp")%>
                                     <%= isPageActive(currentPage, "private_consultation.jsp")%>
                                     <%= isPageActive(currentPage, "online_course.jsp")%>
+                                    <%= isPageActive(currentPage, "onlinecoursedetail.jsp")%>
                                     <%= isPageActive(currentPage, "birdcourse.jsp")%>
                                     ">
                                     <a href="#" class="subnav-toggle">
@@ -70,15 +71,21 @@
                                     <ul class="subnav">
                                         <li class="subnav-content <%= isPageActive(currentPage, "workshop.jsp")%>"><a href="workshop.jsp">Workshops</a></li>
                                         <li class="subnav-content <%= isPageActive(currentPage, "private_consultation.jsp")%>"><a href="private_consultation.jsp">Private Consultant</a></li>
-                                        <li class="subnav-content <%= isPageActive(currentPage, "online_course.jsp")%>"><a href="online_course.jsp">Online Course</a></li>
+                                        <li class="subnav-content
+                                            <%= isPageActive(currentPage, "online_course.jsp")%>
+                                            <%= isPageActive(currentPage, "onlinecoursedetail.jsp")%>
+                                            ">
+                                            <a href="online_course.jsp">Online Course</a>
+                                        </li>
                                         <li class="subnav-content <%= isPageActive(currentPage, "birdcourse.jsp")%>"><a href="birdcourse.jsp">Bird Course</a></li>
                                     </ul>
                                 </li>
-                                <li class="<%= isPageActive(currentPage, "blogs.jsp")%>
+                                <li class="
+                                    <%= isPageActive(currentPage, "blogs.jsp")%>
                                     <%= isPageActive(currentPage, "blogDetail.jsp")%>
                                     ">
-                                    <a href="blogs.jsp">Blog</a></li>
-                                <li class="<%= isPageActive(currentPage, "contact.jsp")%>"><a href="contact.jsp">Contact</a></li>
+                                    <a href="blogs.jsp">Blog</a>
+                                </li>
                             </ul>
                         </div>
                         <c:choose>
@@ -115,7 +122,7 @@
                                     </button>
                                     <div class="dropdown-menu" style="background-color: rgba(0,0,0,0); border: 0;">
                                         <ul class="subnav">
-                                            <a class="dropdown-item" href="viewBookedService.jsp"><li>View Booked Services</li></a>
+                                            <a class="dropdown-item" href="viewBookedService_BirdCourse.jsp"><li>View Booked Services</li></a>
                                             <a class="dropdown-item" href="viewProfile.jsp"><li>View Profile</li></a>
                                             <a class="dropdown-item" href="LogoutController" style="text-decoration: none">     <li>Logout</li></a>
                                         </ul>
@@ -400,9 +407,11 @@
                             </li>
                             <li class="nav-item py-2 py-sm-4
                                 <%= isPageActive(currentPage, "Staff_Services_OnlineCourse.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_BirdCourse.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_Workshop.jsp")%>
                                 ">
                                 <a
-                                    href="staff_services_birdCourse_create.jsp"
+                                    href="Staff_Services_BirdCourse.jsp"
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">

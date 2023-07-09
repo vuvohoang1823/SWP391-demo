@@ -5,14 +5,10 @@
  */
 package Controller;
 
-import DAO.BookingDAO;
-import entity.BookingDTO;
+import DAO.GuestDAO;
+import entity.GuestDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,22 +19,43 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author hoang
  */
-@WebServlet(name = "ProcessingOrderInfo", urlPatterns = {"/ProcessingOrderInfo"})
-public class ProcessingOrderInfo extends HttpServlet {
+@WebServlet(name = "InputFormGuest", urlPatterns = {"/InputFormGuest"})
+public class InputFormGuest extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
-
+        String fullname = request.getParameter("fullname");
+        String email = request.getParameter("email");
+        String titleQ = request.getParameter("titleQ");
+        String titleMess = request.getParameter("titleMess");
+        String DateSubmitt = request.getParameter("DateSubmitt");
+        /*ValidateString(dateSubmit) --> Time(dateSubmit) */
+        java.sql.Date dateSubmitSql = null;
+        if (!DateSubmitt.isEmpty()) {
+            dateSubmitSql = java.sql.Date.valueOf(DateSubmitt);
+        } else {
+            System.out.println("Error message with NumberFormatException");
+        }
+        //  call dao
+        GuestDAO dao = new GuestDAO();
         try {
-            BookingDAO bookingDAO = new BookingDAO();
-            BookingDTO booking = bookingDAO.getBookingByBirdID(bird_id);
-            request.setAttribute("BookingInfo", booking);
-        } finally {
-            RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseForm_processing-detail.jsp");
-            rd.forward(request, response);
+            // tao id + 1
+            int id = dao.GenerateFormID();
+            // call dto
+            dao.InputGuestForm(id, fullname, email, titleQ, titleMess,dateSubmitSql);
+            response.sendRedirect("homepage.jsp");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -54,13 +71,7 @@ public class ProcessingOrderInfo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -74,13 +85,7 @@ public class ProcessingOrderInfo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

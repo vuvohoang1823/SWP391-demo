@@ -75,9 +75,6 @@
                                         <li class="nav-item active">
                                             <a class="nav-link" href="Staff_OrderList_Consult_Completed">Private Consultant</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Contact Us</a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>

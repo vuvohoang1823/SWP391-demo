@@ -73,7 +73,7 @@
                             <span style="padding-left: 2rem">Services</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="<%= previousPage%>">
+                            <a href="Trainer_PrivateConsultation_List.jsp">
                                 <div style="
                                      position: absolute;
                                      top: 35%;

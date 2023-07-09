@@ -62,9 +62,6 @@
                                 ">
                                 <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
                             </li>
-                            <li class="nav-item <%= isPageActive(currentPage, "homepage.jsp")%>">
-                                <a class="nav-link" href=".jsp">Contact Us</a>
-                            </li>
                         </ul>
                     </div>
                 </div>

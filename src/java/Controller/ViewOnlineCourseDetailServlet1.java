@@ -5,11 +5,15 @@
  */
 package Controller;
 
-import DAO.BookingDAO;
-import entity.BookingDTO;
+import DAO.CourseOnlineDAO;
+import DAO.courseDAO;
+import entity.Course;
+import entity.service.CourseOnline;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import static java.util.Collections.list;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -18,27 +22,38 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author hoang
+ * @author LAPTOP
  */
-@WebServlet(name = "ProcessingOrderInfo", urlPatterns = {"/ProcessingOrderInfo"})
-public class ProcessingOrderInfo extends HttpServlet {
+@WebServlet(name = "ViewOnlineCourseDetailServlet", urlPatterns = {"/ViewOnlineCourseDetailServlet"})
+public class ViewOnlineCourseDetailServlet1 extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
+        String courseID = request.getParameter("courseID");
 
-        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
+        try (PrintWriter out = response.getWriter()) {
+            courseDAO course = new courseDAO();
+            CourseOnlineDAO courseOnline = new CourseOnlineDAO();
 
-        try {
-            BookingDAO bookingDAO = new BookingDAO();
-            BookingDTO booking = bookingDAO.getBookingByBirdID(bird_id);
-            request.setAttribute("BookingInfo", booking);
-        } finally {
-            RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseForm_processing-detail.jsp");
+            Course online_course_detail = null;
+
+            online_course_detail = course.getCourseByID(courseID);
+            List<CourseOnline> list = courseOnline.getDetailOnlineCourse(courseID);
+
+            request.setAttribute("online_module", list);
+
+            HttpSession session = request.getSession(true);
+            session.setAttribute("online_course_detail", online_course_detail);
+
+            RequestDispatcher rd = request.getRequestDispatcher("onlinecoursedetail.jsp");
             rd.forward(request, response);
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
     }
 
@@ -56,10 +71,10 @@ public class ProcessingOrderInfo extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewOnlineCourseDetailServlet1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewOnlineCourseDetailServlet1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -76,10 +91,10 @@ public class ProcessingOrderInfo extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ViewOnlineCourseDetailServlet1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewOnlineCourseDetailServlet1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

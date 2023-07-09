@@ -5,40 +5,47 @@
  */
 package Controller;
 
-import DAO.BookingDAO;
-import entity.BookingDTO;
+import DAO.GuestDAO;
+import entity.GuestDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author hoang
  */
-@WebServlet(name = "ProcessingOrderInfo", urlPatterns = {"/ProcessingOrderInfo"})
-public class ProcessingOrderInfo extends HttpServlet {
+@WebServlet(name = "ViewFormAnswerComplete", urlPatterns = {"/ViewFormAnswerComplete"})
+public class ViewFormAnswerComplete extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
-
-        try {
-            BookingDAO bookingDAO = new BookingDAO();
-            BookingDTO booking = bookingDAO.getBookingByBirdID(bird_id);
-            request.setAttribute("BookingInfo", booking);
-        } finally {
-            RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseForm_processing-detail.jsp");
-            rd.forward(request, response);
+         String id = request.getParameter("id");
+        try{
+//             
+            GuestDAO dao = new GuestDAO();
+            GuestDTO formanswer = null;
+            formanswer = dao.getOneFormListCompletebyID(id);
+            HttpSession session = request.getSession(true);
+            session.setAttribute("AnswerForm", formanswer);
+            request.getRequestDispatcher("Staff_QuestionAndAnswer_AnswerDetail.jsp").forward(request, response);
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -54,13 +61,7 @@ public class ProcessingOrderInfo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -74,13 +75,7 @@ public class ProcessingOrderInfo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

@@ -88,6 +88,7 @@ html {
     width: 100%
 }
 .customer .menu-content .subnav > li:hover{
+    cursor: pointer;
     background-color: #E9E6E6;
 }
 /*buttons*/
