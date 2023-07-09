@@ -292,19 +292,14 @@
                             <c:set var="username" value="${user.username}"></c:set>
                                 <div class="dropdown auth-section w-100 flex-column">
                                     <div class="m-4 text-center" style="color: #617A55; font-size: 20px; font-weight: 700;">Welcome</div>
-                                    <button class="btn btn-secondary dropdown-toggle user-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="btn btn-secondary user-button">
                                         <span><svg width="16" height="16" viewBox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M9.5 0.00173437C8.6944 -0.017608 7.89308 0.125002 7.14317 0.421175C6.39327 0.717349 5.70993 1.1611 5.13335 1.72634C4.55677 2.29157 4.09859 2.96687 3.78576 3.71251C3.47294 4.45815 3.31179 5.25908 3.31179 6.06817C3.31179 6.87726 3.47294 7.67819 3.78576 8.42383C4.09859 9.16947 4.55677 9.84476 5.13335 10.41C5.70993 10.9752 6.39327 11.419 7.14317 11.7152C7.89308 12.0113 8.6944 12.1539 9.5 12.1346C10.3056 12.1539 11.1069 12.0113 11.8568 11.7152C12.6067 11.419 13.2901 10.9752 13.8667 10.41C14.4432 9.84476 14.9014 9.16947 15.2142 8.42383C15.5271 7.67819 15.6882 6.87726 15.6882 6.06817C15.6882 5.25908 15.5271 4.45815 15.2142 3.71251C14.9014 2.96687 14.4432 2.29157 13.8667 1.72634C13.2901 1.1611 12.6067 0.717349 11.8568 0.421175C11.1069 0.125002 10.3056 -0.017608 9.5 0.00173437ZM6.04545 15.5997C4.4421 15.5997 2.90442 16.2392 1.77067 17.3775C0.63693 18.5158 0 20.0597 0 21.6696V26H19V21.6696C19 20.0597 18.3631 18.5158 17.2293 17.3775C16.0956 16.2392 14.5579 15.5997 12.9545 15.5997H6.04545Z"
                                                 fill="white" />
                                             </svg></span>
                                         ${username}
-                                </button>
-                                <div class="dropdown-menu" style="background-color: rgba(0,0,0,0); border: 0;">
-                                    <ul class="subnav">
-                                        <a class="dropdown-item" href="LogoutController" style="text-decoration: none">     <li>Logout</li></a>
-                                    </ul>
-                                </div>
+                                </span>
                             </div>
                         </c:otherwise>
                     </c:choose>
