@@ -155,7 +155,7 @@
                                                 "
                                                 />
                                             <div class="review">
-                                                <b class="star col-lg-4">5/5</b>
+                                                <b class="star col-lg-4">5/5⭐</b>
                                                 <b class="review-count col-lg-9">based on 100 reviews</b>
                                             </div>
                                         </div>
