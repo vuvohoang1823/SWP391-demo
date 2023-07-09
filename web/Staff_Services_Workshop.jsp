@@ -35,7 +35,7 @@
                     <section class="form-body">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <div class="update">
-                                <a href="Staff_AddBlog">
+                                <a href="Staff_Services_Workshop_Create.jsp">
                                     <button class="create-button">Create new item</button>
                                 </a>
                             </div>
