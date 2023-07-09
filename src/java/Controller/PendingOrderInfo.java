@@ -29,15 +29,15 @@ public class PendingOrderInfo extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         int bird_id = Integer.parseInt(request.getParameter("bird_id"));
-        
+
         try {
             BookingDAO bookingDAO = new BookingDAO();
             BookingDTO booking = bookingDAO.getCourseByBirdID(bird_id);
             request.setAttribute("BookingInfo", booking);
-        }finally{
-            RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseForm_detail.jsp");
+        } finally {
+            RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseForm_pending-detail.jsp");
             rd.forward(request, response);
         }
     }

@@ -80,11 +80,12 @@
                                         <li class="subnav-content <%= isPageActive(currentPage, "birdcourse.jsp")%>"><a href="birdcourse.jsp">Bird Course</a></li>
                                     </ul>
                                 </li>
-                                <li class="<%= isPageActive(currentPage, "blogs.jsp")%>
+                                <li class="
+                                    <%= isPageActive(currentPage, "blogs.jsp")%>
                                     <%= isPageActive(currentPage, "blogDetail.jsp")%>
                                     ">
-                                    <a href="blogs.jsp">Blog</a></li>
-                                <li class="<%= isPageActive(currentPage, "contact.jsp")%>"><a href="contact.jsp">Contact</a></li>
+                                    <a href="blogs.jsp">Blog</a>
+                                </li>
                             </ul>
                         </div>
                         <c:choose>

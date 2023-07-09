@@ -138,7 +138,7 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body fs-2">
-                                                        Do you want to delete this blog?
+                                                        Do you want to delete this course?
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
