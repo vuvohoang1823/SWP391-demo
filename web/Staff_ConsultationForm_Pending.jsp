@@ -98,25 +98,6 @@
                                     </td>
                                 </tr>
                             </thead>
-
-                            <%--       <c:set var="form" value="${f.appointmentFormPending}" />
-                                   <c:choose>
-                                       <c:when test="${not empty form.request_trainer_id}">
-                                           <c:if test="${form.request_trainer_id.matches('\\d+')}">
-                                               <c:set var="trainerid" value="${form.request_trainer_id}" />
-                                           </c:if>
-                                       </c:when>
-                                       <c:otherwise>
-                                           <c:set var="trainerid" value="${null}" />
-                                       </c:otherwise>
-                                   </c:choose> --%>
-                            <%--     <c:set var="trainer" value="${tr.getTrainerInfo(trainerid)}" />--%>
-
-                            <%--     <c:set var="g" value="${f.appointmentFormPending}"></c:set>
-                                 <c:set var="requestidd" value="${g.request_trainer_id}"></c:set>
-                                     <c:set var="trainername" value="${tr.getTrainerNameByRequestTrainerId(requestidd)}"></c:set>
-                                 <c:set var="trainername" value="${not empty requestidd ? tr.getTrainerNameByRequestTrainerId(requestidd) : 'N/A'}"></c:set> --%>
-
                             <c:forEach items="${f.appointmentFormPending}" var="b" varStatus="counter" >
                                 <c:set var="requestidd" value="${b.request_trainer_id}" />
                                 <c:set var="trainername" value="${not empty requestidd ? tr.getTrainerNameByRequestTrainerId(requestidd) : 'N/A'}" />
@@ -126,7 +107,6 @@
                                     <td class="title">Basic Consultation Request</td>
                                     <td class="customer">${b.fullname}</td>
                                     <td class="customer">${b.duration} - ${b.date}</td>
-                                    <%--   <td class="customer">${not empty trainer ? b.request_trainer_id : 'N/A'}</td>  --%>
                                     <td class="customer">${trainername}</td>
                                     <td class="customer">${b.dateSubmit}</td>
                                     <td>

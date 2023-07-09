@@ -240,8 +240,8 @@
                                                                             <!--start of trainer -->
                                                                             <c:forEach items="${i.trainerUnavailable}" var="trainerinfo">
                                                                                 <div class="trainer-item">
-                                                                                    <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer1">
-                                                                                    <label for="trainer1">
+                                                                                    <input class="trainer-input" type="radio" name="selected-trainer" value="${trainerinfo.trainerID}" id="trainer-${trainerinfo.trainerID}">
+                                                                                    <label for="trainer-${trainerinfo.trainerID}">
                                                                                         <span class="trainer-name">Name: ${trainerinfo.fullName}</span>
                                                                                     </label>
                                                                                 </div>

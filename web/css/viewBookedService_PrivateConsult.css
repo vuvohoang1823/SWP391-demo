@@ -36,13 +36,6 @@ body {
     height: 5.6rem
 }
 /* toggle sub-nav */
-.service-nav li:nth-child(2){
-    background-color: var(--bg-select);
-}
-.service-nav li:nth-child(2) a{
-    color:#617A55
-}
-/* toggle sub-nav */
 .service-nav li a{
     font-size: 2rem;
     font-weight: 700;
@@ -80,11 +73,9 @@ body {
     color:black;
     padding-bottom: 1rem;
 }
-/*toggle filter*/
-.filter-option li:nth-child(2) a{
+.filter-option .active a{
     border-bottom: 7px var(--font-color) solid;
 }
-/*toggle filter*/
 .filter-option li:nth-child(1){
     margin-left: 10rem;
     margin-right: 6.5rem;
@@ -125,25 +116,25 @@ body {
     align-items: center;
 }
 .result-container .card-container{
-    max-width: 1307px;
-    width: 1307px;
-    height: 446px;
+    max-width: 750px;
+    width: 750px;
+    height: 320px;
     background-color: white;
     border-radius: 2rem;
     margin-bottom: 3rem;
 }
 .result-container .card-container .card-detail{
+    position: relative;
     display: flex;
     flex-direction: row;
     padding: 2rem 2rem;
     justify-content: center;
-    align-items: center;
 }
 .card-detail img{
     object-fit: cover;
     border-radius: 20px;
-    width: 324px;
-    height: 378px;
+    width: 224px;
+    height: 278px;
 }
 .card-detail .description{
     padding-left: 3rem;
@@ -160,13 +151,17 @@ body {
     font-size: 2rem;
     font-weight: 400;
     max-width: 61rem;
+    line-height: 2.5rem;
 }
 .card-detail button{
+    right: 2rem;
+    position: absolute;
     height: 7rem;
     width: 25rem;
     border-color: transparent;
     border-radius: 1rem;
     background: #F69C14;
+    bottom: 2rem;
 }
 .card-detail button a{
     display:inline-block;

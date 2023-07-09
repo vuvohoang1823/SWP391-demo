@@ -29,7 +29,15 @@
         <jsp:useBean id="i" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
             <section class="section-contactUs">
                 <!--left side-->
-                <div class="left" style="background-image: url(./img/homeContactBackground.png);">
+                <div class="left" style="position: relative">
+                    <img src="./img/homeContactBackground.png"
+                         style="
+                         z-index: -1;
+                         position: absolute;
+                         filter: brightness(0.5);
+                         width: 100%;
+                         height: 100%"
+                         />
                     <div class="heading1">
                         <h1>CONTACT US</h1>
                         <hr size="2" color="white" />
@@ -82,19 +90,6 @@
                         <div>Email: contact@birdtrainingcenter.com</div>
                         <div>Phone: 0923457623</div>
                     </div>
-                    <div class="card">
-                        <div class="image-container">
-                            <img src="./img/contactUsCardImage.png" alt="Card Image" />
-                        </div>
-                        <div class="card-body">
-                            <input
-                                type="text"
-                                class="text-field"
-                                placeholder="Your email address"
-                                />
-                            <button class="button">Notify me</button>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- right side -->
@@ -113,11 +108,6 @@
                             </div>
                             <h1>CONSULTATION FORM</h1>
                         </div>
-
-
-
-
-
                         <form action="formappointmentservlet" method="POST" id="myForm">
                             <div class="content">
                                 <!---Chinh name nho chinh ca dong 479-488 ---->

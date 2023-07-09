@@ -43,7 +43,7 @@ body {
     display: inline-block;
     margin-top: 1.8rem;
     padding: 0 4.4rem;
-    color:black
+    color: black;
 }
 .filter-search{
     margin-top: 3rem;
@@ -116,6 +116,9 @@ body {
     align-items: center;
 }
 .result-container .card-container{
+    max-width: 1307px;
+    width: 1307px;
+    height: 446px;
     background-color: white;
     border-radius: 2rem;
     margin-bottom: 3rem;
@@ -126,6 +129,12 @@ body {
     padding: 2rem 2rem;
     justify-content: center;
     align-items: center;
+}
+.card-detail img{
+    object-fit: cover;
+    border-radius: 20px;
+    width: 324px;
+    height: 378px;
 }
 .card-detail .description{
     padding-left: 3rem;

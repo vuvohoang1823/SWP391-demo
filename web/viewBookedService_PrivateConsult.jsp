@@ -3,17 +3,30 @@
     Created on : Jul 3, 2023, 1:10:32 AM
     Author     : thang
 --%>
+<%@page import="entity.CustomerDTO"%>
+<%@page import="DAO.CustomerDAO"%>
+<%@page import="entity.UserDTO"%>
+<%
+    // Retrieve the UserDTO object from the session
+    CustomerDTO user = (CustomerDTO) session.getAttribute("LOGIN_USER");
 
+    // Create an instance of the CustomerDAO
+    CustomerDAO customerDAO = new CustomerDAO();
+
+    // Get the customer ID using the user ID
+    int customerID = customerDAO.getCustomerID(user.getUser_id());
+%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/viewBookedService_BirdCourse.css">
+        <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
+        <jsp:useBean id="t" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
+        <link rel="stylesheet" href="css/viewBookedService_PrivateConsult.css">
     </head>
     <body>
         <%@include file="header.jsp" %>
@@ -23,7 +36,7 @@
                 <div class="filter-side">
                     <p>Service status: </p>
                     <ul class="filter-option">
-                        <li class="active"><a href="viewBookedService_PrivateConsult.jsp">In-progress</a></li>
+                        <li class="active"><a href="viewBookedService_PrivateConsult.jsp">Upcoming</a></li>
                         <li><a href="viewBookedService_PrivateConsult_complete.jsp">Completed</a></li>
                     </ul>
                 </div>
@@ -40,21 +53,32 @@
             </div>
             <p class="search-result">Currently showing <span class="search-counter">2</span> available item(s)</p>
             <div class="result-container">
-                <div class="card-container">
+                <c:set var="customerId" value="<%=customerID%>"></c:set>
+                 <c:forEach var="list" items="${f.getAppointmentListBYCustomerID(customerId)}">
+                <c:set var="trainerID" value="${list.request_trainer_id}"></c:set>
+                <c:set  var="trainer" value="${t.getrainerbyIDCUstomerField(trainerID)}"></c:set>
+                     <div class="card-container">
                     <div class="card-detail">
-                        <img src="img/bird.jpg" alt="bird.jpg">
-                        <div class="description">
-                            <p class="course-title">Mastering the Art of Avian Care and Handling</p>
-                            <div class="course-desc">
-                                <p>Training duration: 10 days</p>
-                                <p>Birds name: Simon</p>
-                                <p>Type: Mocking Jay</p>
-
-                            </div>
+                        <div class="col-lg-4 d-flex align-items-center">
+                            <img src="data:images/jpg;base64,${trainer.img}"/>
                         </div>
-                        <button><a href="">To course</a></button>
+                        
+                        <div class="description col-lg-8">
+                            <p class="course-title">Basic Consultation</p>
+                            
+                           
+                            <div class="course-desc">
+                                <p><b>Customer:</b>${list.customer_fullname}</p>
+                                <p><b>Time:</b> ${list.duration}</p>
+                                <p><b>Date:</b> ${list.date}</p>
+                                <p><b>Trainer name:</b>${trainer.fullName}</p>
+                                <p><b>Consultation fee:</b> $100/hour</p>
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
+                                </c:forEach>
             </div>
         </div>
         <%@include file="footer.jsp" %>

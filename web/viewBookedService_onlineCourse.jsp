@@ -18,7 +18,21 @@
     <body>
         <%@include file="header.jsp" %>
         <div class="container-fluid">
+<<<<<<< HEAD
+            <div class="row tab-title">
+                <p>Booked Services</p>
+            </div>
+            <div class="row tab-nav">
+                <ul class="service-nav">
+                    <li><a href="">Bird Courses</a></li>
+                    <li><a href="viewBookedService_onlineCourse.jsp">Online Courses</a></li>
+                    <li><a href="viewBookedService_ws_inprogress.jsp">Workshops</a></li>
+                    <li><a href="Customer_private_consultation_payment.jsp">Private Consultant</a></li>
+                </ul>
+            </div>
+=======
             <%@include file="viewBookedService_Head.jsp" %>
+>>>>>>> 20b3babd1f23d769dfaa3e420e8cd657bbd51387
             <div class="filter-search">
                 <div class="filter-side">
                     <p>Service status: </p>

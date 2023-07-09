@@ -1,0 +1,189 @@
+/*# sourceMappingURL=formList.css.map */
+.heading {
+    background-color: white;
+    font-weight: bold;
+    font-size: 5rem;
+    height: 116px;
+    padding-left: 3rem;
+}
+.form-head {
+    margin-bottom: 3rem;
+}
+.form-head .navbar {
+    background-color: #617A554D;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.212);
+}
+.form-head .navbar .container-fluid {
+    justify-content: center !important;
+}
+.form-head .navbar .navbar-nav .nav-item {
+    padding: 1rem 6rem;
+}
+.form-head .navbar .navbar-nav .nav-item .nav-link {
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.form-head .navbar .navbar-nav .nav-item .nav-link:hover {
+    color: #617A55;
+}
+.form-head .navbar .navbar-nav .active a{
+    color: #617A55 !important;
+}
+
+.form-body .navbar {
+    padding: 0 2.5rem;
+}
+.form-body .navbar .navbar-brand {
+    font-size: 1.5rem;
+}
+
+.form-body .navbar form {
+    width: 100%;
+    display: flex;
+    font-size: 2rem;
+    flex-direction: row;
+}
+.form-body .navbar form .search-container {
+    display: flex;
+    align-items: center;
+    width: 100%
+}
+.form-body .navbar form .navbar-nav .nav-item:hover {
+    background-color: rgba(97, 122, 85, 0.1);
+}
+.form-body .navbar form .navbar-nav .nav-item .nav-link {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    color: black;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.form-body .navbar form .search-container .input-group {
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px 0px #00000040;
+}
+.form-body .navbar form .search-container .input-group input {
+    font-size: 2rem;
+}
+.workshops-container .workshop-container {
+    position: relative;
+}
+.workshops-container .workshop-container {
+    border-radius: 20px;
+    width: 923px;
+    height: 350px;
+}
+.workshops-container .workshop-container .img-container {
+    padding: 2rem;
+}
+.workshops-container .workshop-container .img-container img {
+    border-radius: 20px;
+    object-fit: cover;
+    width: 217px;
+    height: 310px;
+}
+.workshops-container .workshop-container .desc-container {
+    padding: 2rem;
+}
+.workshops-container .workshop-container .desc-container .title {
+    width: 457px;
+    color: #617A55;
+    font-size: 25px;
+    font-weight: 700;
+}
+.workshops-container .workshop-container .desc-container .description {
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 2rem;
+}
+.workshops-container .workshop-container .desc-container .time-location {
+    color: #000;
+    font-size: 15px;
+    line-height: 2.5rem;
+}
+.workshops-container .workshop-container .desc-container .price {
+    color: #617A55;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+.workshops-container .workshop-container .desc-container .close-date {
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+}
+.workshops-container .workshop-container .desc-container .close-date .date{
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+.workshops-container .workshop-container .delete {
+    width: unset;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.workshops-container .workshop-container .update {
+    width: unset;
+    position: absolute;
+    top: 1rem;
+    right: 9rem;
+}
+.update-button {
+    border-radius: 10px;
+    background-color: #F69C14;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.update-button:hover {
+    background-color: #bf780d;
+}
+
+.delete-button {
+    border-radius: 10px;
+    background-color: #FA5943;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+.create-button {
+    width: 204px;
+    height: 44px;
+    margin-right: 3rem;
+    border-radius: 10px;
+    white-space: nowrap;
+    background-color: #0A7E65;
+    padding: 0 2rem;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.create-button:hover {
+    background-color: #0A7E65;
+}

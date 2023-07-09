@@ -46,7 +46,7 @@
                                         <span>${detail.author}</span>
                                         <span>10 minutes reading</span>
                                     </div>
-                                    <h1>
+                                    <h1 class="blog-title">
                                         ${detail.title}
                                     </h1>
                                 </div>
@@ -102,6 +102,22 @@
                 var container = document.getElementById('containerPage');
                 container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
             });
+        </script>
+        <!--        trim title-->
+        <script>
+            // Get all question message elements
+            var blogTitle = document.getElementsByClassName("blog-title");
+
+            // Loop through each question message element
+            for (var i = 0; i < blogTitle.length; i++) {
+                var title = blogTitle[i].textContent.trim();
+
+                // Remove any leading or trailing spaces and invisible characters
+                title = title.replace(/^\s+|\s+$/g, "");
+
+                // Remove non-printable characters using regular expression
+                title = title.replace(/[^ -~]+/g, "");
+            }
         </script>
         <!--bs5-->
         <script

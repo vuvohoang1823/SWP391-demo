@@ -54,7 +54,7 @@
                         <span style="padding-left: 2rem">Blogs</span>
                     </div>
                     <div class="navbar navbar-expand-lg navbar-light" style="height: 60px">
-                        <a href="<%= previousPage%>">
+                        <a href="Staff_list_ofblog.jsp">
                             <div style="
                                  position: absolute;
                                  top: 35%;

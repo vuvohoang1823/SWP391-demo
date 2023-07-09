@@ -122,7 +122,7 @@ public class BlogDAO implements Serializable {
         return list;
     }
 
-        public List<BlogDTO> getLisofBlogunActive() throws IOException, SQLException, ClassNotFoundException {
+    public List<BlogDTO> getLisofBlogunActive() throws IOException, SQLException, ClassNotFoundException {
         List<BlogDTO> list = new ArrayList<>();
         String sql = "select * from tbl_blog where status = 'unavailable'";
         try {
@@ -209,10 +209,7 @@ public class BlogDAO implements Serializable {
         }
         return list;
     }
-    
-    
-    
-    
+
     public BlogDTO GETdetailOfBLOG(String blog_id) throws IOException, SQLException {
         String sql = "select* from tbl_blog where id =?";
         try {
@@ -373,9 +370,9 @@ public class BlogDAO implements Serializable {
         return updated;
     }
 
-    public void CreateBlog(String blog_id, Date date, String thumbnail, String title, String author, String introduction, String content1, String content2, String contentIMG, String briefinfo) {
-        String sql = "insert into tbl_blog(id,staff_id ,date,thumbnail , title,author , introduction,content1, content2,contentIMG , briefinfo,status)\n"
-                + "values(?,18,?,?,?,?,?,?,?,?,?,'available')";
+    public void CreateBlog(String blog_id, Date date, String thumbnail, String title, String author, String introduction, String content1, String content2, String inconclusion, String contentIMG, String briefinfo) {
+        String sql = "insert into tbl_blog(id,staff_id ,date,thumbnail , title,author , introduction,content1, content2, inconclusion, contentIMG , briefinfo,status)\n"
+                + "values(?,18,?,?,?,?,?,?,?,?,?,?,'available')";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
@@ -387,8 +384,9 @@ public class BlogDAO implements Serializable {
             ps.setString(6, introduction);
             ps.setString(7, content1);
             ps.setString(8, content2);
-            ps.setBytes(9, Base64.getDecoder().decode(contentIMG));
-            ps.setString(10, briefinfo);
+            ps.setString(9, inconclusion);
+            ps.setBytes(10, Base64.getDecoder().decode(contentIMG));
+            ps.setString(11, briefinfo);
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

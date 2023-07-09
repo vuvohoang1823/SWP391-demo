@@ -86,6 +86,9 @@
                                     ">
                                     <a href="blogs.jsp">Blog</a>
                                 </li>
+                                <li class="">
+                                    <a href="homepage.jsp#contact-us">Contact us</a>
+                                </li>
                             </ul>
                         </div>
                         <c:choose>
@@ -404,6 +407,7 @@
                                 <%= isPageActive(currentPage, "Staff_Services_OnlineCourse.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_Services_BirdCourse.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_Services_Workshop.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_Workshop_Update.jsp")%>
                                 ">
                                 <a
                                     href="Staff_Services_BirdCourse.jsp"
@@ -459,19 +463,10 @@
                                     class="d-flex d-sm-flex nav-link text-black"
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
-                                        <svg
-                                            width="20"
-                                            height="22"
-                                            viewBox="0 0 20 22"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                        <path
-                                            d="M18.8235 0H1.17647C0.529412 0 0 0.45 0 1V21C0 21.55 0.529412 22 1.17647 22H18.8235C19.4706 22 20 21.55 20 21V1C20 0.45 19.4706 0 18.8235 0ZM17.6471 20H2.35294V2H17.6471V20ZM4.85294 15.75C4.85294 15.2 5.38235 14.75 6.02941 14.75H13.9706C14.6176 14.75 15.1471 15.2 15.1471 15.75C15.1471 16.3 14.6176 16.75 13.9706 16.75H6.02941C5.38235 16.75 4.85294 16.3 4.85294 15.75ZM5.02941 11C5.02941 10.45 5.55882 10 6.20588 10H13.9412C14.5882 10 15.1176 10.45 15.1176 11C15.1176 11.55 14.5882 12 13.9412 12H6.20588C5.55882 12 5.02941 11.55 5.02941 11ZM5.02941 6.25C5.02941 5.7 5.55882 5.25 6.20588 5.25H13.9412C14.5882 5.25 15.1176 5.7 15.1176 6.25C15.1176 6.8 14.5882 7.25 13.9412 7.25H6.20588C5.55882 7.25 5.02941 6.8 5.02941 6.25Z"
-                                            fill="black"
-                                            />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-square" viewBox="0 0 16 16">
+                                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
                                         </svg>
-
                                         <span class="fs-2 ms-3 d-none d-sm-inline">Q&A</span>
                                     </div>
                                 </a>
