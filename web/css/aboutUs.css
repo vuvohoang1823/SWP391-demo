@@ -1,7 +1,138 @@
-
+html{
+    font-size: 10px;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #DDE6F1;
+}
+/*HEADER*/
+.header{
+    padding: 1.6rem 0;
+    background-color: #617a554d
+}
+.logo-section{
+    display: flex;
+    align-items: center;
+}
+.logo-section img{
+    width: 10.2rem;
+    height: 6.4rem;
+    margin-left: 4.1rem;
+}
+.logo-section p{
+    margin-bottom: 0;
+    margin-left: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+.memu-section{
+}
+.menu-section .menu-content{
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-content > li{
+    list-style-type: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding-bottom: 2rem;
+}
+.menu-content li a{
+    color: #000000;
+    text-decoration: none;
+}
+.menu-content li a img{
+    width: 2.1rem;
+    height: 1.8rem
+}
+.menu-content > li:nth-child(2) a{
+    color: #617A55
+}
+.menu-content > li:not(:nth-child(1)){
+    padding-left: 6rem
+}
+.triangle{
+    display:none;
+    position: absolute;
+    z-index: 2;
+    top: 6rem;
+    margin-left: 8.2rem;
+    width:0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-bottom: 1rem solid white;
+}
+.menu-content .subnav{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    top: 6.9rem;
+    background-color: #fff;
+    padding: 1rem 1rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 1rem
+}
+.menu-content li:hover .subnav, .menu-content li:hover .triangle{
+    display: block
+}
+.subnav > li{
+    list-style-type: none;
+    padding: 1.5rem 1.6rem;
+    width: 100%
+}
+.subnav > li:hover{
+    background-color: #E9E6E6;
+}
+.auth-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.auth-section .login{
+    border-style: none;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color:#617A55;
+    outline: none;
+}
+.login a{
+    color:#617A55;
+}
+.auth-section .login:hover{
+    opacity: 0.8;
+}
+.auth-section .signup{
+    border-radius: 5rem;
+    padding: 1.6rem 4.7rem;
+    margin-left: 2rem;
+    font-weight: 700;
+    color: white;
+    font-size: 2.5rem;
+    border-color: #617A55;
+    background-color: #617A55;
+    border-style: none;
+    outline: #617A55;
+}
+.auth-section .signup:focus{
+    border-color: #617A55;
+    background-color: #617A55;
+}
+.auth-section .signup:hover{
+    opacity: 0.8;
+}
+.signup a{
+    color: white;
+}
+/*END OF HEADING*/
 .body-intro{
     background: rgba(97, 122, 85, 0.3);
-    height: calc(36em + 120px)
+    height: calc(57.6rem + 12rem)
 }
 .body-intro .img-section{
     display: flex;
@@ -9,41 +140,41 @@
 
 }
 .img-section .img1{
-    margin-top: 30px;
-    width: 36em;
-    height: 35em;
+    margin-top: 3rem;
+    width: 57.6rem;
+    height: 56rem;
 }
 .img-section .img2{
-    margin-left: 15px;
-    margin-top: 100px;
-    width: 24.1em;
-    height: 28em;
+    margin-left: 1.5rem;
+    margin-top: 10rem;
+    width: 38.56rem;
+    height: 44.8rem;
 }
 .content-section{
-    /*margin-top: 66px*/
+    margin-top: 6.6rem
 }
 .content-section .title{
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     font-weight: 700;
     color:#617A55;
-    font-size: 30px;
+    font-size: 3rem;
 }
 .content-section .sub-title{
     font-weight: 800;
     color: black;
-    font-size: 60px;
-    line-height: 72.6px;
+    font-size: 6rem;
+    line-height: 7.26rem;
     margin-bottom: 0;
 }
 .content-section .content{
     font-weight: 400;
-    font-size: 20px;
-    line-height: 24.2px;
+    font-size: 2rem;
+    line-height: 2.42rem;
     margin-bottom: 0;
-    margin-top: 20px
+    margin-top: 2rem
 }
 .bullet-point{
-    margin-top: 50px;
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
 }
@@ -51,33 +182,34 @@
     display: flex;
 }
 .bullet-point .top img, .bullet-point .bottom img{
-    width: 2em;
-    height: 2em
+    width: 3.2rem;
+    height: 3.2rem
 }
 .bullet-point .top p, .bullet-point .bottom p{
     font-weight: 700;
-    font-size: 25px;
-    margin-top: -4px;
-    margin-left: 15px;
+    font-size: 2.5rem;
+    margin-top: 0.2rem;
+    margin-left: 1.5rem;
+    margin-bottom: 4rem
 }
 .body-ourteam .title{
     margin-bottom: 0;
-    margin-top: 3em;
+    margin-top: 4.8rem;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 3rem;
     color: #617A55;
     text-align: center;
 }
 .body-ourteam .sub-title{
     margin-bottom: 0;
-    margin-top: 20px;
+    margin-top: 2rem;
     font-weight: 800;
-    font-size: 60px;
-    line-height: 72.61px;
+    font-size: 6rem;
+    line-height: 7.261rem;
     text-align: center;
 }
 .body-showcase{
-    margin-top: 93px;
+    margin-top: 9.3rem;
 
 }
 .trainer{
@@ -87,74 +219,82 @@
     align-items: center;
 }
 .trainer > img{
-    width: 268px;
-    height: 268px;
-    box-shadow: 0px 0px 10px 2px rgba(176, 176, 176, 0.47);
-    border-radius: 15px;
+    width: 26.8rem;
+    height: 26.8rem;
+    box-shadow: 0px 0px 1rem 0.2rem rgba(176, 176, 176, 0.47);
+    border-radius: 1.5rem;
 }
 .trainer > .name{
     font-weight: 700;
-    font-size: 40px;
-    margin: 0
+    font-size: 4rem;
+    margin-top: 2rem
 }
 .trainer:nth-child(1) > .name{
     font-weight: 700;
-    font-size: 40px;
+    font-size: 4rem;
     color: #E39C46;
 }
 .trainer:nth-child(2) > .name{
     font-weight: 700;
-    font-size: 40px;
+    font-size: 4rem;
     color: #237EEF;
 }
 .trainer:nth-child(3) > .name{
     font-weight: 700;
-    font-size: 40px;
+    font-size: 4rem;
     color: #EF7B6B;
 }
 .trainer:nth-child(4) > .name{
     font-weight: 700;
-    font-size: 40px;
+    font-size: 4rem;
     color: #977CF0;
 }
 .trainer > .role{
+    margin-top:1rem;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 2.5rem;
 }
 .body-why{
-    margin-top: 113px;
+    margin-top: 11.3rem;
     background-color: rgba(97, 122, 85, 0.3);
-    height: 757px
+    height: 75.7rem
 }
 .why-content{
-    margin-top: 40px;
-    padding-left: 70px
+    margin-top: 4rem;
+    padding-left: 7rem
 }
 .why-content .title{
     font-weight: 700;
     color: #617A55;
-    font-size: 30px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 .why-content .sub-title{
     color: black;
     font-weight: 800;
-    font-size: 60px;
+    font-size: 6rem;
+    line-height: 7.26rem;
+    margin-bottom: 3rem;
 }
 .why-content .content{
     font-weight: 400;
-    font-size: 20px;
+    font-size: 2rem;
+    line-height: 2.42rem;
 }
 .percentage{
-    margin-top: 50px
+    margin-top: 5rem
+}
+.goal{
+    margin-bottom: 2.5rem;
 }
 .goal > p{
     font-weight: 700;
-    font-size: 25px;
-    margin-bottom: 5px;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 .goal .shape1{
-    width: 703px;
-    height: 30px;
+    width: 70.3rem;
+    height: 3rem;
     background-color: #BDB6B6;
 }
 .shape1 .fill-75{
@@ -163,17 +303,18 @@
     background-color: #237EEF;
 }
 .fill-75 p{
-    padding: 4px 0;
-    margin-left: 30em
+    font-size: 2rem;
+    padding-top: 0.5rem;
+    margin-left: 48rem
 }
 .guarantee > p{
     font-weight: 700;
-    font-size: 25px;
-    margin-bottom: 5px;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 .guarantee .shape2{
-    width:703px;
-    height: 30px;
+    width:70.3rem;
+    height: 3rem;
     background-color: #BDB6B6;
 }
 .shape2 .fill-100{
@@ -182,8 +323,9 @@
     background-color: #237EEF;
 }
 .fill-100 p{
-    padding: 4px 0;
-    margin-left: 40.2em
+    font-size: 2rem;
+    padding-top: 0.5rem;
+    margin-left: 64.32rem
 }
 .why-images{
     display: flex;
@@ -194,69 +336,70 @@
 
 }
 .why-images img{
-    width: 568px;
-    height: 588px;
+    width: 56.8rem;
+    height: 58.8rem;
 }
 .why-images .commitment{
-    border-radius: 30px;
+    border-radius: 3rem;
     background-color: #fff;
-    padding: 15px 21px;
+    padding: 1.5rem 2.1rem;
     position: absolute;
-    bottom: 20px
+    bottom: 2rem
 }
 .why-images .commitment .check{
     display: flex;
     align-items: center;
-    margin-top: 10px
+    margin-top: 1rem
 }
 .why-images .commitment .check > img{
-    width: 2em;
-    height: 2em;
+    width: 3.2rem;
+    height: 3.2rem;
 }
 .why-images .commitment .check > p{
     font-weight: 600;
-    font-size: 25px;
-    margin-left: 10px;
+    font-size: 2.5rem;
+    margin-left: 1rem;
     margin-bottom: 0;
 }
 .body-result{
-    margin-top: 3em
+    margin-top: 4.8rem
 }
 .body-result .title{
     text-align: center;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 3rem;
     color: #617A55;
+    margin-bottom: 1rem;
 }
 .body-result .sub-title{
     text-align: center;
     font-weight: 800;
-    font-size: 60px;
+    font-size: 6rem
 }
 .result-showcase{
-    margin-top: 80px;
+    margin-top: 8rem;
     display: flex;
     justify-content: space-evenly;
 }
 .card{
-    border-radius: 30px;
-    box-shadow: 0px 0px 10px 2px rgba(176, 176, 176, 0.47);
-    width: 268px;
-    height: 268px;
+    border-radius: 3rem;
+    box-shadow: 0px 0px 1rem 0.2rem rgba(176, 176, 176, 0.47);
+    width: 26.8rem;
+    height: 26.8rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .card > .number{
-    margin-top: 1em;
-}
-.card > .number{
-    font-size: 50px;
+    font-size: 5rem;
     font-weight: 800;
+    margin-top: 7rem;
 }
 .card > .desc{
+    margin-top: 2rem;
     text-align: center;
-    font-size: 30px;
+    font-size: 3rem;
     font-weight: 700;
 }
 .card:nth-child(1) > .number{
@@ -271,48 +414,48 @@
 .card:nth-child(4) > .number{
     color: #977CF0;
 }
-.footer{
-    background-color: black;
-    margin-top: 100px;
-    height: 200px;
+footer {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    background-color: #b8c6c2;
+    margin-top: 5%;
+    height: fit-content;
+    padding: 3%;
+}
+footer .logo-column {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: left;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+footer .logo-column .logo-container {
+    display: flex;
+    width: fit-content;
     justify-content: center;
 }
-.footer .title{
-    color:white;
-    font-size: 30px;
-    font-weight: 500;
+footer .logo-column .logo-container .logo-text {
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 3rem;
+    margin-left: 2rem;
 }
-.footer-logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+footer .logo-column .logo-container .logo-image {
+    /* flex: 0 0 100%; */
 }
-.footer-logo > .logo{
-    margin-left: 24px
+footer .logo-column .logo-container .logo-image img {
+    max-width: 13rem;
+    object-fit: contain;
+    object-position: center;
 }
-.footer-logo .fb{
-    width: 23.23px;
-    height: 46.46px;
+footer .column {
+    flex-basis: 16.6666666667%;
+    line-height: 200%;
+    font-size: 1.5rem;
 }
-.footer-logo .ins{
-    width: 46.46px;
-    height: 47.23px;
+footer .column .contact-info-footer p {
+    line-height: 205%;
 }
-.footer-logo .ytb{
-    width: 48px;
-    height: 46px
-}
-
-
-
-
-
-
-
-
-
-
-

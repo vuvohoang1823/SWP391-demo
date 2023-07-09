@@ -20,9 +20,9 @@
         <link rel="stylesheet" href="css/birdCourse.css" type="text/css">
         <jsp:useBean id="i" class="DAO.courseDAO" scope="request"></jsp:useBean>
 
-        <title>JSP Page</title>
-    </head>
-    <body>
+            <title>JSP Page</title>
+        </head>
+        <body>
         <%@include file="header.jsp" %>
         <div class="body-container">
             <section class="section-head">
@@ -111,81 +111,84 @@
             <section class="section-course">
                 <div class="container">
                     <div class="row">
-                <c:forEach items="${i.allCourseBirdCourse}" var="birdcourse">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img
-                                     src="data:images/jpg;base64,${birdcourse.image}"
-                                    class="card-img-top"
-                                    alt="Product 1"
-                                    />
-                                <div class="card-body">
-                                    <div class="extra-price">
-                                        <div class="button-container">
-                                            <a href="detail?cid=${birdcourse.courseID}""><button>Enroll</button></a>
-                                            <!--                                        <button class="btn btn-primary"><a href="bir">Enroll<a/></button>-->
-                                        </div>
-                                        <p>£${birdcourse.price}</p>
-                                    </div>
-                                    <h5 class="card-title">
-                                        ${birdcourse.title}
-                                    </h5>
-                                    <div class="card-text">
-                                        <div style="display: inline">
-                                            <span style="color: #617a55">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="25"
-                                                    height="25"
-                                                    fill="currentColor"
-                                                    class="bi bi-clock-fill"
-                                                    viewBox="0 0 16 16"
-                                                    >
-                                                <path
-                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
-                                                    />
-                                                </svg>
-                                            </span>
-                                            <span>3 weeks</span>
-                                        </div>
-                                        <div style="display: inline">
-                                            <span style="color: #617a55">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="25"
-                                                    height="25"
-                                                    fill="currentColor"
-                                                    class="bi bi-grid-3x2-gap-fill"
-                                                    viewBox="0 0 16 16"
-                                                    >
-                                                <path
-                                                    d="M1 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V4zM1 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V9z"
-                                                    />
-                                                </svg>
-                                            </span>
-                                            <span>6 modules</span>
-                                        </div>
-                                    </div>
-                                    <hr
-                                        style="
-                                        border: 1px solid black;
-                                        width: 100%;
-                                        padding: 0 2%;
-                                        margin: 20px auto;
-                                        "
+                        <c:forEach items="${i.allCourseBirdCourse}" var="birdcourse">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img
+                                        src="data:images/jpg;base64,${birdcourse.image}"
+                                        class="card-img-top"
+                                        alt="Product 1"
                                         />
-                                    <div class="review">
-                                        <b class="star col-lg-4" style="font-size: 15px">5/5⭐</b>
-                                        <b class="review-count col-lg-9"style="font-size: 15px">based on 100 reviews</b>
+                                    <div class="card-body">
+                                        <div class="extra-price">
+                                            <div class="button-container">
+                                                <a href="detail?cid=${birdcourse.courseID}""><button>Enroll</button></a>
+                                                <!--                                        <button class="btn btn-primary"><a href="bir">Enroll<a/></button>-->
+                                            </div>
+                                            <p>£${birdcourse.price}</p>
+                                        </div>
+                                        <h5 class="card-title">
+                                            ${birdcourse.title}
+                                        </h5>
+                                        <div class="card-text">
+                                            <div style="display: inline">
+                                                <span style="color: #617a55">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="25"
+                                                        height="25"
+                                                        fill="currentColor"
+                                                        class="bi bi-clock-fill"
+                                                        viewBox="0 0 16 16"
+                                                        >
+                                                    <path
+                                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                                <span>3 weeks</span>
+                                            </div>
+                                            <div style="display: inline">
+                                                <span style="color: #617a55">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="25"
+                                                        height="25"
+                                                        fill="currentColor"
+                                                        class="bi bi-grid-3x2-gap-fill"
+                                                        viewBox="0 0 16 16"
+                                                        >
+                                                    <path
+                                                        d="M1 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V4zM1 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V9z"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                                <span>6 modules</span>
+                                            </div>
+                                        </div>
+                                        <hr
+                                            style="
+                                            border: 1px solid black;
+                                            width: 100%;
+                                            padding: 0 2%;
+                                            margin: 20px auto;
+                                            "
+                                            />
+                                        <div class="review">
+                                            <b class="star col-lg-4" style="font-size: 15px">5/5⭐</b>
+                                            <b class="review-count col-lg-9"style="font-size: 15px">based on 100 reviews</b>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                </c:forEach>
-        <%@include file="footer.jsp" %>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+                        </c:forEach>
+                    </div>
+                </div>
+            </section>
+            <%@include file="footer.jsp" %>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     </body>
 </html>
