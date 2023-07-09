@@ -10,10 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/viewBookedService_BirdCourse.css">
+        <link rel="stylesheet" href="css/viewBookedService_PrivateConsult.css">
     </head>
     <body>
         <%@include file="header.jsp" %>
@@ -23,7 +21,7 @@
                 <div class="filter-side">
                     <p>Service status: </p>
                     <ul class="filter-option">
-                        <li class="active"><a href="viewBookedService_PrivateConsult.jsp">In-progress</a></li>
+                        <li class="active"><a href="viewBookedService_PrivateConsult.jsp">Upcoming</a></li>
                         <li><a href="viewBookedService_PrivateConsult_complete.jsp">Completed</a></li>
                     </ul>
                 </div>
@@ -42,17 +40,19 @@
             <div class="result-container">
                 <div class="card-container">
                     <div class="card-detail">
-                        <img src="img/bird.jpg" alt="bird.jpg">
-                        <div class="description">
-                            <p class="course-title">Mastering the Art of Avian Care and Handling</p>
+                        <div class="col-lg-4 d-flex align-items-center">
+                            <img src="img/martin.jpg" alt="bird.jpg">
+                        </div>
+                        <div class="description col-lg-8">
+                            <p class="course-title">Basic Consult</p>
                             <div class="course-desc">
-                                <p>Training duration: 10 days</p>
-                                <p>Birds name: Simon</p>
-                                <p>Type: Mocking Jay</p>
-
+                                <p><b>Customer:</b> Nguyen van A</p>
+                                <p><b>Time:</b> 7AM</p>
+                                <p><b>Date:</b> 11/11/2011</p>
+                                <p><b>Trainer name:</b> Simon</p>
+                                <p><b>Consultation fee:</b> $100/hour</p>
                             </div>
                         </div>
-                        <button><a href="">To course</a></button>
                     </div>
                 </div>
             </div>

@@ -127,7 +127,7 @@
                                     </form>
                                 </div>
                                 <div class="delete">
-                                    <form class="deleteForm" action="DeleteBlogServlet" method="post" style="display: inline;">
+                                    <form class="deleteForm" action="" method="post" style="display: inline;">
                                         <input type="hidden" name="blogId" value="${card.blogid}" />
                                         <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${card.blogid}">Delete</button>
                                         <div class="modal fade" id="confirmDelete-${card.blogid}" tabindex="-1" aria-hidden="true">

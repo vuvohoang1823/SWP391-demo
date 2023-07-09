@@ -117,6 +117,20 @@
                                             ${card.briefinfo}
                                         </div>
                                     </div>
+                                    <div class="button-container">
+                                        <form
+                                            action="Staff_BlogDetail"
+                                            method="post"
+                                            style="display: inline"
+                                            >
+                                            <input
+                                                type="hidden"
+                                                name="blogId"
+                                                value="${card.blogid}"
+                                                />
+                                            <button type="submit">View detail</button>
+                                        </form>
+                                    </div>
                                     <div class="update">
                                         <form action="UpdateBlogServlet" method="post" style="display: inline;">
                                             <input type="hidden" name="blogId" value="${card.blogid}" />
@@ -160,6 +174,22 @@
                 var container = document.getElementById('containerPage');
                 container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
             });
+        </script>
+        <!--        trim title-->
+        <script>
+            // Get all question message elements
+            var blogTitle = document.getElementsByClassName("blog-title");
+
+            // Loop through each question message element
+            for (var i = 0; i < blogTitle.length; i++) {
+                var title = blogTitle[i].textContent.trim();
+
+                // Remove any leading or trailing spaces and invisible characters
+                title = title.replace(/^\s+|\s+$/g, "");
+
+                // Remove non-printable characters using regular expression
+                title = title.replace(/[^ -~]+/g, "");
+            }
         </script>
         <!--show toast on forms-->
         <script>

@@ -41,7 +41,7 @@
                             <span>${detail.author}</span>
                             <span>10 minutes reading</span>
                         </div>
-                        <h1>
+                        <h1 class="blog-title">
                             ${detail.title}
                         </h1>
                     </div>

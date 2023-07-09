@@ -40,20 +40,21 @@ public class AddBlogServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-                String title = request.getParameter("title");
+        String title = request.getParameter("title");
         String date = request.getParameter("date");
         String author = request.getParameter("author");
         String briefinfo = request.getParameter("briefinfo");
         String introduction = request.getParameter("introduction");
         String content1 = request.getParameter("content1");
         String content2 = request.getParameter("content2");
-        Part thumbnailPart  = request.getPart("thumbnail");
+        String inconclusion = request.getParameter("inconclusion");
+        Part thumbnailPart = request.getPart("thumbnail");
         Part contentIMGPart = request.getPart("contentIMG");
         // validate thuymbnail
         String thumbnailFileName = thumbnailPart.getSubmittedFileName();
         InputStream thumbnailinputStream = thumbnailPart.getInputStream();
         String thumbnailBase64 = convertToBase64(thumbnailinputStream);
-        
+
         // validate contentimg
         String contentIMGFileName = contentIMGPart.getSubmittedFileName();
         InputStream contentIMGinputStream = contentIMGPart.getInputStream();
@@ -68,23 +69,23 @@ public class AddBlogServlet extends HttpServlet {
 
         BlogDAO dao = new BlogDAO();
         // generate id
-       int blog_id = dao.GenerateBlogID();
-       String blog_id_string = String.valueOf(blog_id);
-        dao.CreateBlog(blog_id_string,dateSql , thumbnailBase64, title, author, introduction, content1, content2, contentIMGBase64, briefinfo);
+        int blog_id = dao.GenerateBlogID();
+        String blog_id_string = String.valueOf(blog_id);
+        dao.CreateBlog(blog_id_string, dateSql, thumbnailBase64, title, author, introduction, content1, content2, inconclusion, contentIMGBase64, briefinfo);
         request.getRequestDispatcher("Staff_AddBlog.jsp").forward(request, response);
-        
-    
+
     }
+
     private String convertToBase64(InputStream inputStream) throws IOException {
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    byte[] buffer = new byte[4096];
-    int bytesRead;
-    while ((bytesRead = inputStream.read(buffer)) != -1) {
-        outputStream.write(buffer, 0, bytesRead);
-    }
-    byte[] bytes = outputStream.toByteArray();
-    String base64String = Base64.getEncoder().encodeToString(bytes);
-    return base64String;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, bytesRead);
+        }
+        byte[] bytes = outputStream.toByteArray();
+        String base64String = Base64.getEncoder().encodeToString(bytes);
+        return base64String;
 
     }
 
