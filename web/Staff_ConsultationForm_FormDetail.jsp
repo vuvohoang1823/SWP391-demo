@@ -96,6 +96,7 @@
                                     </div>
                                 </div>
                                 <form method="post" action="ConsultationUpdatePending">
+                                   
                                     <div class="form-customerDetails">
                                         <div class="form-name">
                                             <div class="name">Customer Information</div>
@@ -111,6 +112,7 @@
                                                             id="fullname"
                                                             placeholder="Full name"
                                                             value="${detail.customer_fullname}"
+
                                                             disabled
                                                             />
                                                     </div>
@@ -138,7 +140,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         id="email"
-                                                        name="email_email"
+                                                     
                                                         placeholder="Email"
                                                         value="${detail.gmail}"
                                                         disabled
@@ -393,8 +395,13 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
-                                    <input type="hidden" name="consultationId" value="${detail.consultation_id}" />
+                                    <input type="hidden" name="consultationId" value="${detail.consultation_id}" /> 
+                                    <input type="hidden" name="email_email" value="${detail.gmail}" />
+                                    <input type="hidden" name="fullname" value="${detail.customer_fullname}" />
+                                    <input type="hidden" name="date" value="${detail.date}" />
+                                    <input type="hidden" name="duration" value="${detail.duration}" />
 
                                     <div class="forms-footer">
                                         <div>
