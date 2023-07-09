@@ -90,27 +90,29 @@
                             <tbody>
                                 <c:forEach items="${a.processingBooking}" var="order" varStatus="counter">
                                     <tr>
-                                <form action="ProcessingOrderInfo" method="GET">
-                                    <input type="hidden" name="bird_id" value="${order.birdID}">
-                                    <td><b>${counter.count}</b></td>
-                                    <td><b>${order.courseName}</b></td>
-                                    <td><b>${order.customerName}</b></td>
-                                    <td><b>${order.nameBird}</b></td>
-                                    <td><b>${order.typeBird}</b></td>
-                                    <td><b>${order.create_date}</b></td>
-                                    <td><b>${order.status}</b></td>
-                                    <td>
-                                        <a >
-                                            <button class="viewDetail">
-                                                <b>View Detail</b>
-                                            </button>
-                                        </a>
-                                    </td>
-                                </form>
-                                </tr>
-                            </c:forEach>
+
+                                        <td><b>${counter.count}</b></td>
+                                        <td><b>${order.courseName}</b></td>
+                                        <td><b>${order.customerName}</b></td>
+                                        <td><b>${order.nameBird}</b></td>
+                                        <td><b>${order.typeBird}</b></td>
+                                        <td><b>${order.create_date}</b></td>
+                                        <td><b>${order.status}</b></td>
+                                        <td>
+                                            <form action="ProcessingOrderInfo" method="GET">
+                                                <input type="hidden" name="bird_id" value="${order.birdID}">
+                                                <a >
+                                                    <button class="viewDetail">
+                                                        <b>View Detail</b>
+                                                    </button>
+                                                </a>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
+                    </section>
                 </div>
             </div>
         </div>

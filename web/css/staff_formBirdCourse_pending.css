@@ -37,7 +37,9 @@
 .form-body .navbar .navbar-brand {
     font-size: 1.5rem;
 }
-
+.form-body .table-form .id {
+    font-weight: bold;
+}
 .form-body .navbar form {
     width: 100%;
     display: flex;

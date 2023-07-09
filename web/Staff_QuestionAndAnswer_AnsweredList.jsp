@@ -23,13 +23,13 @@
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
-                <jsp:useBean id="list" class="DAO.GuestDAO" scope="request"></jsp:useBean>
+        <jsp:useBean id="list" class="DAO.GuestDAO" scope="request"></jsp:useBean>
 
-    </head>
-    <body>
-        <div class="container-fluid">
-            <div class="row flex-nowrap">
-                <!--            header-->
+        </head>
+        <body>
+            <div class="container-fluid">
+                <div class="row flex-nowrap">
+                    <!--            header-->
 
                 <%@ include file="header.jsp" %>
                 <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
@@ -100,7 +100,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing 2 pending question(s)
+                            Currently showing <c:out value="${list.allFormListCOMPLETED.size()}" /> question(s)
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -118,28 +118,25 @@
                             </thead>
                             <!--loop start-->
                             <c:forEach var="detail" items="${list.allFormListCOMPLETED}">
-                          
-                            <tr>
-                                <td class="id">${detail.id}</td>
-                                <td class="title">
-                                    <span class="question-message">${detail.titleQ}</span>
-                                </td>
-                                <td class="customer">${detail.fullname}</td>
-                                <td class="customer">
-                                    <span class="question-message">${detail.email}</span>
-                                </td>
-                                <td class="customer">${detail.submitDate}</td>
-                                <td class="customer">
-                                    <span class="question-message">${detail.titleMess}</span>
-                                </td>
-                                <td>
-                                    <div class="type">
-                                       <a href="ViewFormAnswerComplete?id=${detail.id}"><button class="viewDetail">View Detail</button></a>
-                                    </div>
-                                </td>
-                            </tr>
-                  
-                            <!--loop end-->
+                                <tr>
+                                    <td class="id">${detail.id}</td>
+                                    <td class="title">
+                                        <span class="question-message">${detail.titleQ}</span>
+                                    </td>
+                                    <td class="customer">${detail.fullname}</td>
+                                    <td class="customer">
+                                        <span class="question-message">${detail.email}</span>
+                                    </td>
+                                    <td class="customer">${detail.submitDate}</td>
+                                    <td class="customer">
+                                        <span class="question-message">${detail.titleMess}</span>
+                                    </td>
+                                    <td>
+                                        <div class="type">
+                                            <a href="ViewFormAnswerComplete?id=${detail.id}"><button class="viewDetail">View Detail</button></a>
+                                        </div>
+                                    </td>
+                                </tr>
                             </c:forEach>
                         </table>
                     </section>

@@ -37,7 +37,7 @@ public class ProcessingOrderInfo extends HttpServlet {
             BookingDTO booking = bookingDAO.getBookingByBirdID(bird_id);
             request.setAttribute("BookingInfo", booking);
         } finally {
-            RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseForm_detail-approved.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseForm_processing-detail.jsp");
             rd.forward(request, response);
         }
     }

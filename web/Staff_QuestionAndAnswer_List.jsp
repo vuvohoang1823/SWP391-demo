@@ -24,11 +24,11 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
         <jsp:useBean id="f" class="DAO.GuestDAO" scope="request"></jsp:useBean>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <div class="row flex-nowrap">
-                <!--            header-->
+        </head>
+        <body>
+            <div class="container-fluid">
+                <div class="row flex-nowrap">
+                    <!--            header-->
 
                 <%@ include file="header.jsp" %>
 
@@ -100,7 +100,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing 2 pending question(s)
+                            Currently showing <c:out value="${f.allFormList.size()}" /> pending question(s)
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -118,28 +118,28 @@
                             </thead>
                             <!--loop start-->
                             <c:forEach var="list" items="${f.allFormList}">
-                            <tr>
-                            <input type="hidden" name="formid" value="${list.id}"/>
-                                <td class="id" name="formid">${list.id}</td>
-                                <td class="title">
-                                    <span class="question-message">${list.titleQ}</span>
-                                </td>
-                                <td class="customer">${list.fullname}</td>
-                                <td class="customer">
-                                    <span class="question-message">${list.email}</span>
-                                </td>
-                                <td class="customer">${list.submitDate}</td>
-                                <td class="customer">
-                                    <span class="question-message">${list.titleMess}</span>
-                                </td>
-                                <td>
-                                    <div class="type">
-<!--                                        <a href="Staff_QuestionAndAnswer_QuestionDetail.jsp"><button class="viewDetail">View Detail</button></a>-->
-                                        <a href="ViewFormQuestionAnswer?id=${list.id}"><button class="viewDetail">View Detail</button></a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <!--loop end-->
+                                <tr>
+                                    <td class="id" name="formid">${list.id}</td>
+                                    <td class="title">
+                                        <span class="question-message">${list.titleQ}</span>
+                                    </td>
+                                    <td class="customer">${list.fullname}</td>
+                                    <td class="customer">
+                                        <span class="question-message">${list.email}</span>
+                                    </td>
+                                    <td class="customer">${list.submitDate}</td>
+                                    <td class="customer">
+                                        <span class="question-message">${list.titleMess}</span>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="formid" value="${list.id}"/>
+                                        <div class="type">
+                                            <!--                                        <a href="Staff_QuestionAndAnswer_QuestionDetail.jsp"><button class="viewDetail">View Detail</button></a>-->
+                                            <a href="ViewFormQuestionAnswer?id=${list.id}"><button class="viewDetail">View Detail</button></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!--loop end-->
                             </c:forEach>
                         </table>
                     </section>

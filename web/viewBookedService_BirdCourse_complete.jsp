@@ -1,6 +1,6 @@
 <%--
-    Document   : viewBookedService_onlineCourse_complete
-    Created on : Jul 6, 2023, 3:17:10 AM
+    Document   : viewBookedService
+    Created on : Jul 3, 2023, 1:10:32 AM
     Author     : thang
 --%>
 
@@ -10,10 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/viewBookedService_onlineCourse_complete.css">
+        <link rel="stylesheet" href="css/viewBookedService_BirdCourse.css">
     </head>
     <body>
         <%@include file="header.jsp" %>
@@ -23,8 +21,8 @@
                 <div class="filter-side">
                     <p>Service status: </p>
                     <ul class="filter-option">
-                        <li><a href="viewBookedService_onlineCourse.jsp">In-progress</a></li>
-                        <li><a href="viewBookedService_onlineCourse_complete.jsp">Completed</a></li>
+                        <li><a href="viewBookedService_BirdCourse.jsp">In-progress</a></li>
+                        <li class="active"><a href="viewBookedService_BirdCourse_complete.jsp">Completed</a></li>
                     </ul>
                 </div>
                 <div class="search-side">

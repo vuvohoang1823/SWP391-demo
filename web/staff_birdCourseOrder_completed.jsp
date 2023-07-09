@@ -86,24 +86,25 @@
                             <tbody>
                                 <c:forEach items="${a.history}" var="order" varStatus="counter">
                                     <tr>
-                                <form action="ProcessingOrderInfo" metdod="GET">
-                                    <input type="hidden" name="bird_id" value="${order.birdID}"/>
-                                    <td><b>${counter.count}</b></td>
-                                    <td><b>${order.courseName}</b></td>
-                                    <td><b>${order.customerName}</b></td>
-                                    <td><b>${order.typeBird}</b></td>
-                                    <td><b>${order.nameBird}</b></td>
-                                    <td><b></b></td>
-                                    <td>
-                                        <a >
-                                            <button class="viewDetail">
-                                                <b>View Detail</b>
-                                            </button>
-                                        </a>
-                                    </td>
-                                </form>
-                                </tr>
-                            </c:forEach>
+
+                                        <td><b>${counter.count}</b></td>
+                                        <td><b>${order.courseName}</b></td>
+                                        <td><b>${order.customerName}</b></td>
+                                        <td><b>${order.typeBird}</b></td>
+                                        <td><b>${order.nameBird}</b></td>
+                                        <td><b></b></td>
+                                        <td>
+                                            <form action="ProcessingOrderInfo" metdod="GET">
+                                                <input type="hidden" name="bird_id" value="${order.birdID}"/>
+                                                <a >
+                                                    <button class="viewDetail">
+                                                        <b>View Detail</b>
+                                                    </button>
+                                                </a>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </section>

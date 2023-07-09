@@ -12,12 +12,15 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.sqljdbc4.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.javax.mail-1.6.0.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.activation-1.1.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.activation-1.1.jar-1}</file>
@@ -29,11 +32,15 @@
                     <file>${file.reference.gson-2.8.2.jar}</file>
                 </library>
                 <library dirs="200">
+<<<<<<< HEAD
                     <file>${file.reference.activation-1.1.jar-2}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.javax.mail-1.6.0.jar-2}</file>
+=======
+                    <file>${file.reference.gson-2.8.2.jar-1}</file>
+>>>>>>> 20b3babd1f23d769dfaa3e420e8cd657bbd51387
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">

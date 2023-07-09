@@ -130,7 +130,7 @@
                                     name="fullname"
                                     placeholder="Full name"
                                     required
-                                    
+
                                     />
                             </div>
                             <div class="row">
@@ -146,12 +146,12 @@
                             </div>
                             <div class="row" style="height: 15rem">
                                 <textarea
-                             
+
                                     name="titleMess"
                                     placeholder="Question message..."
                                     ></textarea>
                             </div>
-               <input type="hidden" name="DateSubmitt" id="currentDate">                          
+                            <input type="hidden" name="DateSubmitt" id="currentDate">
 
                         </div>
                         <div class="button-container">
@@ -161,15 +161,15 @@
                 </div>
             </div>
         </section>
-        <!--prevent default form-->
-<!--        <script>
+        prevent default form
+        <script>
             // Get all form elements using querySelectorAll
             var forms = document.querySelectorAll("form");
             // Attach an event listener to each form's submit event
             forms.forEach(function (form) {
                 form.addEventListener("submit", function (event) {
                     // Prevent the default form submission behavior
-                    event.preventDefault();
+//                    event.preventDefault();
                     // Show success toast
                     Toastify({
                         text: "Submit success",
@@ -181,17 +181,21 @@
                             fontSize: "2rem",
                             background: "linear-gradient(to right, #00b09b, #96c93d)",
                         },
+                        onClick: function () {
+                            form.submit();
+                        }
                     }).showToast();
-                    //reset form
-                   
+                    setTimeout(function () {
+                        form.submit();
+                    }, 2000);
                 });
             });
-        </script>-->
-<script>
+        </script>
+        <script>
             // Get the current date
             var currentDate = new Date();
             var formattedCurrentDate = currentDate.toISOString().split('T')[0];
             document.getElementById('currentDate').value = formattedCurrentDate;
-</script>
+        </script>
     </body>
 </html>

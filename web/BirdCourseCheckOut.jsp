@@ -47,9 +47,6 @@
                                                                 <li class="nav-item ">
                                                                     <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp"><b>Private Consultant</b></a>
                                                                 </li>
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="#"><b>Contact Us</b></a>
-                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>

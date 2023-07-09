@@ -1,6 +1,6 @@
 <%--
-    Document   : viewBookedService_onlineCourse
-    Created on : Jul 6, 2023, 3:20:01 AM
+    Document   : viewBookedService
+    Created on : Jul 3, 2023, 1:10:32 AM
     Author     : thang
 --%>
 
@@ -13,32 +13,18 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/viewBookedService_onlineCourse.css">
+        <link rel="stylesheet" href="css/viewBookedService_BirdCourse.css">
     </head>
     <body>
         <%@include file="header.jsp" %>
         <div class="container-fluid">
-<<<<<<< HEAD
-            <div class="row tab-title">
-                <p>Booked Services</p>
-            </div>
-            <div class="row tab-nav">
-                <ul class="service-nav">
-                    <li><a href="">Bird Courses</a></li>
-                    <li><a href="viewBookedService_onlineCourse.jsp">Online Courses</a></li>
-                    <li><a href="viewBookedService_ws_inprogress.jsp">Workshops</a></li>
-                    <li><a href="Customer_private_consultation_payment.jsp">Private Consultant</a></li>
-                </ul>
-            </div>
-=======
             <%@include file="viewBookedService_Head.jsp" %>
->>>>>>> 20b3babd1f23d769dfaa3e420e8cd657bbd51387
             <div class="filter-search">
                 <div class="filter-side">
                     <p>Service status: </p>
                     <ul class="filter-option">
-                        <li><a href="viewBookedService_onlineCourse.jsp">In-progress</a></li>
-                        <li><a href="viewBookedService_onlineCourse_complete.jsp">Completed</a></li>
+                        <li class="active"><a href="viewBookedService_PrivateConsult.jsp">In-progress</a></li>
+                        <li><a href="viewBookedService_PrivateConsult_complete.jsp">Completed</a></li>
                     </ul>
                 </div>
                 <div class="search-side">
@@ -56,22 +42,15 @@
             <div class="result-container">
                 <div class="card-container">
                     <div class="card-detail">
-                        <img src="img/bird.jpg" alt="">
+                        <img src="img/bird.jpg" alt="bird.jpg">
                         <div class="description">
                             <p class="course-title">Mastering the Art of Avian Care and Handling</p>
-                            <p class="course-desc">In this course, you will delve into the foundations of communication,
-                                exploring different styles and understanding how to overcome common barriers.</p>
-                        </div>
-                        <button><a href="">To course</a></button>
-                    </div>
-                </div>
-                <div class="card-container">
-                    <div class="card-detail">
-                        <img src="img/bird.jpg" alt="">
-                        <div class="description">
-                            <p class="course-title">Mastering the Art of Avian Care and Handling</p>
-                            <p class="course-desc">In this course, you will delve into the foundations of communication,
-                                exploring different styles and understanding how to overcome common barriers.</p>
+                            <div class="course-desc">
+                                <p>Training duration: 10 days</p>
+                                <p>Birds name: Simon</p>
+                                <p>Type: Mocking Jay</p>
+
+                            </div>
                         </div>
                         <button><a href="">To course</a></button>
                     </div>
