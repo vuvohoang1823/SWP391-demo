@@ -116,6 +116,8 @@ body {
     align-items: center;
 }
 .result-container .card-container{
+    max-width: 1307px;
+    width: 1307px;
     background-color: white;
     border-radius: 2rem;
     margin-bottom: 3rem;
@@ -126,6 +128,12 @@ body {
     padding: 2rem 2rem;
     justify-content: center;
     align-items: center;
+}
+.card-detail img{
+    object-fit: cover;
+    border-radius: 20px;
+    width: 324px;
+    height: 378px;
 }
 .card-detail .description{
     padding-left: 3rem;

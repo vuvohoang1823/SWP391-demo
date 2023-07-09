@@ -1,5 +1,5 @@
 :root{
-    --bg-color:rgb(97, 122, 85, 0.4);
+    --bg-color: #b8c6c2;
     --font-color: #617A55;
     --bg-select: rgb(97, 122, 85, 0.4)
 }
@@ -12,7 +12,7 @@ body {
     background-color: #DDE6F1;
 }
 .tab-title{
-    background-color: var(--bg-color)
+    background-color: var(--bg-color);
 }
 .tab-title p{
     font-size: 5rem;
