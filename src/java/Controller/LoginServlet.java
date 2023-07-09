@@ -36,7 +36,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
-    private final String INDEX_PAGE = "Signin.jsp";
+    private final String INDEX_PAGE = "signin.jsp";
 //    private final String SEARCH_PAGE = "search.html";
     private final String HOME_PAGE = "homepage.jsp";
     private final String ERROR = "error.jsp";
@@ -102,7 +102,8 @@ public class LoginServlet extends HttpServlet {
                 cookie.setMaxAge(60 * 5);
                 response.addCookie(cookie);
             } else {
-                url = ERROR;
+                request.setAttribute("loginAccStatus", "fail");
+                url = INDEX_PAGE;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
