@@ -1,0 +1,43 @@
+:root{
+    --bg-color: #b8c6c2;
+    --font-color: #617A55;
+    --bg-select: rgb(97, 122, 85, 0.4)
+}
+html{
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #DDE6F1;
+}
+.tab-title{
+    background-color: var(--bg-color);
+}
+.tab-title p{
+    font-size: 5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--font-color);
+    padding: 2.7rem 0
+}
+.tab-nav{
+    background-color: #fff;
+    height: 5.6rem
+}
+.tab-nav .service-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%
+
+}
+.service-nav li{
+    height: 5.6rem
+}
+.service-nav .active {
+    background-color: var(--bg-select);
+}
+.service-nav .active a{
+    color:#617A55 !important;
+}

@@ -1,0 +1,350 @@
+html {
+    font-size: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/*customer*/
+.customer {
+    height: 13vh;
+}
+.customer .active>a{
+    color: #617A55 !important;
+}
+.customer .header{
+    padding: 1.6rem 0;
+    background-color: #627b564d;
+
+}
+.customer .logo-section{
+    display: flex;
+    align-items: center;
+}
+.customer .logo-section img{
+    width: 10.2rem;
+    height: 6.4rem;
+    margin-left: 4.1rem;
+}
+.customer .logo-section p{
+    margin-bottom: 0;
+    margin-left: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+.customer .memu-section{
+}
+.customer .menu-section .menu-content{
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.customer .menu-content > li{
+    list-style-type: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding-bottom: 2rem;
+}
+.customer .menu-content li a{
+    color: #000000;
+    text-decoration: none;
+}
+.customer .menu-content li a img{
+    width: 2.1rem;
+    height: 1.8rem
+}
+.customer .menu-content > li:not(:nth-child(1)){
+    padding-left: 6rem
+}
+.customer .menu-content .triangle{
+    display:none;
+    position: absolute;
+    z-index: 2;
+    top: 6.6rem;
+    margin-left: 7rem;
+    width:0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-bottom: 1rem solid white;
+}
+.customer .menu-content .subnav{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    top: 7.5rem;
+    background-color: #fff;
+    padding: 1rem 1rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 1rem
+}
+.customer .menu-content li:hover .subnav, .menu-content li:hover .triangle{
+    display: block
+}
+.customer .menu-content .subnav > li{
+    list-style-type: none;
+    padding: 1.5rem 1.6rem;
+    width: 100%
+}
+.customer .menu-content .subnav > li:hover{
+    cursor: pointer;
+    background-color: #E9E6E6;
+}
+/*buttons*/
+.customer .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+.customer .button-container .signin-button {
+    padding-right: 2rem;
+    float: right;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    min-width: 100px;
+    height: 35px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #80957c;
+    text-decoration: none;
+    cursor: pointer;
+}
+.customer .button-container .signin-button:hover {
+    color: #617a55;
+}
+@media screen and (max-width: 500px) {
+    .customer .button-container .signin-button {
+        right: 15px;
+    }
+}
+.customer .button-container .signup-button {
+    width: 186px;
+    height: 62px;
+    flex-shrink: 0;
+    float: right;
+    background-color: #617a55;
+    border-radius: 50px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+.customer .button-container .signup-button:hover {
+    background-color: #468847;
+}
+@media screen and (max-width: 500px) {
+    .header-container .button-container .signup-button {
+        right: 15px;
+    }
+}
+/*welcome*/
+.customer .customer .auth-section {
+    display: flex;
+    justify-content: center;
+}
+.customer .auth-section .user-button {
+    background-color: #617a55;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.customer .auth-section .subnav{
+    width: 28rem;
+    z-index: 1;
+    background-color: white;
+    padding: 1rem 1rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.customer .auth-section .triangle {
+    z-index: 4;
+    position: absolute;
+    bottom: 91%;
+    right: 50%;
+    width:0;
+    height: 0;
+    border-left: 1.6rem solid transparent;
+    border-right: 1.6rem solid transparent;
+    border-bottom: 1.6rem solid white;
+}
+.customer .auth-section .subnav a li {
+    list-style-type: none;
+    padding: 1rem 1rem 1rem 1.5rem;
+    width: 100%
+}
+.customer .auth-section .subnav a{
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.customer .auth-section .subnav a:hover{
+    background-color: #E9E6E6;
+}
+
+/*trainer*/
+.sidebar-trainer {
+    z-index: 99;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+}
+.sidebar-trainer .active>a {
+    color: #617A55 !important;
+    background-color: rgba(97, 122, 85, 0.1);
+}
+.sidebar-trainer .logo-container {
+    background-color: #323232;
+    height: 116px;
+}
+.sidebar-trainer .logo-container .logo-image img {
+    width: 75px;
+    height: 47px;
+    object-fit: contain;
+    object-position: center;
+}
+.sidebar-trainer .logo-container .logo-text {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.sidebar-trainer .nav-pills li a {
+    padding-left: 14%;
+    height: 5rem;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+}
+.sidebar-trainer .nav-pills li a:hover {
+    background-color: rgba(97, 122, 85, 0.1);
+}
+.sidebar-trainer .auth-section {
+    display: flex;
+    justify-content: center;
+    width: 25vw;
+}
+.sidebar-trainer .auth-section .user-button {
+    width: 166px;
+    align-self: center;
+    background-color: #617a55;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+}
+.sidebar-trainer .auth-section .subnav {
+    width: 29rem;
+    z-index: 1;
+    background-color: #fff;
+    padding: 1rem 1rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.sidebar-trainer .auth-section .subnav a {
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.sidebar-trainer .auth-section .subnav a li {
+    list-style-type: none;
+    padding: 1rem 1rem 1rem 1.5rem;
+    width: 100%;
+}
+.sidebar-trainer .auth-section .subnav a:hover {
+    background-color: #e9e6e6;
+}
+.sidebar-trainer .auth-section .subnav a:hover svg path {
+    fill: #617a55 !important;
+}
+.sidebar-trainer .auth-section .triangle {
+    position: absolute;
+    bottom: 91%;
+    right: 50%;
+    width: 0;
+    height: 0;
+    border-left: 1.6rem solid transparent;
+    border-right: 1.6rem solid transparent;
+    border-bottom: 1.6rem solid white;
+}
+
+/*staff*/
+.sidebar-staff {
+    z-index: 99;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+}
+.sidebar-staff .active>a {
+    color: #617A55 !important;
+    background-color: rgba(97, 122, 85, 0.1);
+}
+
+.sidebar-staff .logo-container {
+    background-color: #323232;
+    height: 116px;
+}
+.sidebar-staff .logo-container .logo-image img {
+    width: 75px;
+    height: 47px;
+    object-fit: contain;
+    object-position: center;
+}
+.sidebar-staff .logo-container .logo-text {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.sidebar-staff .nav-pills li a {
+    padding-left: 14%;
+    height: 5rem;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+}
+.sidebar-staff .nav-pills li a:hover {
+    background-color: rgba(97, 122, 85, 0.1);
+}
+.sidebar-staff .auth-section {
+    display: flex;
+    justify-content: center;
+    width: 25vw;
+}
+.sidebar-staff .auth-section .user-button {
+    width: 166px;
+    align-self: center;
+    background-color: #617a55;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+}
+.sidebar-staff .auth-section .subnav {
+    width: 29rem;
+    z-index: 1;
+    background-color: #fff;
+    padding: 1rem 1rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.sidebar-staff .auth-section .subnav a {
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.sidebar-staff .auth-section .subnav a li {
+    list-style-type: none;
+    padding: 1rem 1rem 1rem 1.5rem;
+    width: 100%;
+}
+.sidebar-staff .auth-section .subnav a:hover {
+    background-color: #e9e6e6;
+}
+.sidebar-staff .auth-section .subnav a:hover svg path {
+    fill: #617a55 !important;
+}
+.sidebar-staff .auth-section .triangle {
+    position: absolute;
+    bottom: 91%;
+    right: 50%;
+    width: 0;
+    height: 0;
+    border-left: 1.6rem solid transparent;
+    border-right: 1.6rem solid transparent;
+    border-bottom: 1.6rem solid white;
+}
+
