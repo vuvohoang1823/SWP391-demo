@@ -1,0 +1,104 @@
+html {
+    font-size: 10px;
+    font-family: 'Inter', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+.body-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #DDE6F1;
+}
+.body-container .profile {
+    text-align: center;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    padding: 3rem 3rem;
+    background-color: white;
+    margin: 4rem 3rem 3rem;
+
+}
+.body-container .profile p{
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+}
+.body-container .profile a{
+    font-size: 1rem;
+    color: #617a55;
+}
+.body-container .list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    padding: 3rem 3rem;
+    background-color: white;
+    margin: 4rem 3rem 3rem;
+}
+.body-container .list a {
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-weight: bolder;
+}
+.body-container .list a:hover{
+    background-color: #b8c6c2;
+}
+.body-container .list .click{
+    color: #617a55;
+}
+.body-container .col-xl-10 {
+    margin-top: 4rem;
+}
+.body-container .title p:nth-child(1){
+    font-size: 3rem;
+    color: #617a55;
+    font-weight: bold;
+}
+.body-container .title p:nth-child(2){
+    font-size: 6rem;
+    font-weight: bolder;
+    margin-bottom: 3rem;
+}
+.body-container .card {
+    display: flex;
+    flex-direction: row;
+    margin: 10rem 10rem;
+}
+.body-container .card img {
+    width: 20vw;
+    height: 30vh;
+}
+.body-container .text {
+    text-align: center;
+    align-items: center;
+}
+.body-container .text p {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    font-size: 6rem;
+}
+.body-container .text button {
+    background-color: #F69C14;
+    width: 18rem;
+    height: 4rem;
+    border-width: 0;
+}
+.body-container .text button a{
+    color: white;
+    font-weight: bolder;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
