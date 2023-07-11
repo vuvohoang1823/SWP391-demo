@@ -60,6 +60,7 @@
                                     <%= isPageActive(currentPage, "online_course.jsp")%>
                                     <%= isPageActive(currentPage, "onlinecoursedetail.jsp")%>
                                     <%= isPageActive(currentPage, "birdcourse.jsp")%>
+                                    <%= isPageActive(currentPage, "birdcoursedetail.jsp")%>
                                     ">
                                     <a href="#" class="subnav-toggle">
                                         Service
@@ -69,15 +70,25 @@
                                     </a>
                                     <div class="triangle"></div>
                                     <ul class="subnav">
-                                        <li class="subnav-content <%= isPageActive(currentPage, "workshop.jsp")%>"><a href="workshop.jsp">Workshops</a></li>
-                                        <li class="subnav-content <%= isPageActive(currentPage, "private_consultation.jsp")%>"><a href="private_consultation.jsp">Private Consultant</a></li>
+                                        <li class="subnav-content
+                                            <%= isPageActive(currentPage, "workshop.jsp")%>
+                                            ">
+                                            <a href="workshop.jsp">Workshops</a></li>
+                                        <li class="subnav-content
+                                            <%= isPageActive(currentPage, "private_consultation.jsp")%>
+                                            ">
+                                            <a href="private_consultation.jsp">Private Consultant</a></li>
                                         <li class="subnav-content
                                             <%= isPageActive(currentPage, "online_course.jsp")%>
                                             <%= isPageActive(currentPage, "onlinecoursedetail.jsp")%>
                                             ">
                                             <a href="online_course.jsp">Online Course</a>
                                         </li>
-                                        <li class="subnav-content <%= isPageActive(currentPage, "birdcourse.jsp")%>"><a href="birdcourse.jsp">Bird Course</a></li>
+                                        <li class="subnav-content
+                                            <%= isPageActive(currentPage, "birdcourse.jsp")%>
+                                            <%= isPageActive(currentPage, "birdcoursedetail.jsp")%>
+                                            ">
+                                            <a href="birdcourse.jsp">Bird Course</a></li>
                                     </ul>
                                 </li>
                                 <li class="
