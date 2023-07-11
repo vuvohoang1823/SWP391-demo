@@ -17,7 +17,7 @@
                 <div class="row flex-nowrap">
                 <%@ include file="header.jsp" %>
 
-                <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
+                <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
                         <div class="heading d-flex align-items-center">
                             <svg
@@ -40,27 +40,7 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Services</span>
-                        </div>
-                        <div class="navbar navbar-expand-lg navbar-light">
-                            <div class="container-fluid">
-                                <div class="" id="navbarSupportedContent">
-                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="staff_services_birdCourse_create.jsp">Bird Course</a>
-                                        </li>
-                                        <li class="nav-item ">
-                                            <a class="nav-link" href="#">Private Consultant</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Workshop</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Online Course</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <span style="padding-left: 2rem">Account List</span>
                         </div>
                     </section>
                     <section class="form-body">
@@ -156,13 +136,23 @@
                             </c:forEach>
                             </tbody>
                         </table>
+                    </section>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var headerWidth = document.getElementById('headerPage').offsetWidth;
+                var container = document.getElementById('containerPage');
+                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+            });
+        </script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>
 
 

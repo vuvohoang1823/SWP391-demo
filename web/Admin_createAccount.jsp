@@ -17,6 +17,8 @@
             integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
             crossorigin="anonymous"
             />
+        <!--w3s-->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Admin_createAccount.css" />
@@ -52,10 +54,10 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Services</span>
+                            <span style="padding-left: 2rem">Account List</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="staff_services_birdCourse_create.jsp">
+                            <a href="Admin_listAccount.jsp">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -66,7 +68,7 @@
                                     &lt; Back
                                 </div>
                             </a>
-                            <div class="container-fluid">
+                            <div class="container-fluid" style="visibility: hidden">
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item active">
@@ -86,7 +88,7 @@
                     <div class="container-fluid" style="padding: 0 2.5%">
                         <div class="forms-container">
                             <div class="forms-header">
-                                <div class="left-side"><b>Form Detail</b></div>
+                                <div class="left-side"><b>Create Account</b></div>
                             </div>
                             <form action="AddAccountServlet" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="" value="">

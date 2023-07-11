@@ -69,6 +69,18 @@
                                 Create account success!
                             </p>
                         </c:if>
+                        <c:if test="${requestScope.loginAccStatus eq 'fail'}">
+                            <p class="text-danger" style="
+                               position: absolute;
+                               top: 0;
+                               left: 110px;
+                               font-size: 1.5rem;
+                               transform: translateY(-20px);
+                               text-transform: capitalize;
+                               ">
+                                Wrong username or password.
+                            </p>
+                        </c:if>
                         <label for="">Username</label>
                         <input class="email" type="text" name="txtUsername" placeholder="Username" required>
                         <label class="label-password" for="">Password</label>

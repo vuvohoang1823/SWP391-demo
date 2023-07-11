@@ -28,11 +28,11 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Tạo mới đơn hàng</title>
+        <title>Booked Services</title>
         <!-- Bootstrap core CSS -->
         <link href="/vnpay_jsp/assets/bootstrap.min.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="/vnpay_jsp/assets/jumbotron-narrow.css" rel="stylesheet">      
+        <link href="/vnpay_jsp/assets/jumbotron-narrow.css" rel="stylesheet">
         <script src="/vnpay_jsp/assets/jquery-1.11.3.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -71,39 +71,41 @@
             </div>
 
             <c:set var="customerId" value="<%=customerID%>"></c:set>
-                <p class="search-result">Currently showing <span class="search-counter">2</span> available item(s)</p>
+            <p class="search-result">Currently showing <c:out value="${f.getAppointmentFormHistorybyCustomerID(customerId).size()}" /> available item(s)</p>
+            <div class="result-container">
                 <div class="result-container">
-                <c:forEach var="list" items="${f.getAppointmentFormHistorybyCustomerID(customerId)}">
-                    <c:set var="trainerID" value="${list.request_trainer_id}"></c:set>
-                    <c:set  var="trainer" value="${t.getrainerbyIDCUstomerField(trainerID)}"></c:set>
-                        <div class="card-container">    
-                            <div class="card-detail">
-                                <div class="col-lg-4 d-flex align-items-center">
-                                    <img src="data:images/jpg;base64,${trainer.img}"/>
-                            </div>
-                            <div class="description col-lg-8">
-                                <p class="course-title">Basic Consult</p>
-                                <div class="course-desc">
-                                    <p><b>Customer:</b${list.customer_fullname}</p>
-                                    <p><b>Time:</b>${list.duration}</p>
-                                    <p><b>Date:</b>${list.date}</p>
-                                    <p><b>Trainer name:</b>${trainer.fullName}</p>
-                                    <p><b>Consultation fee:</b> $100/hour</p>
-                                    <p><b>Total fee:</b> ${list.amount}</p>
+                    <c:forEach var="list" items="${f.getAppointmentFormHistorybyCustomerID(customerId)}">
+                        <c:set var="trainerID" value="${list.request_trainer_id}"></c:set>
+                        <c:set  var="trainer" value="${t.getrainerbyIDCUstomerField(trainerID)}"></c:set>
+                            <div class="card-container">
+                                <div class="card-detail">
+                                    <div class="col-lg-4 d-flex align-items-center">
+                                        <img src="data:images/jpg;base64,${trainer.img}"/>
                                 </div>
-                            </div>
-                       <%-- <c:if test="${list.history eq 'yes'}">--%>     
-                                <form action="CustomerPaymentVNPAY" id="frmCreateOrder" method="post"> 
+                                <div class="description col-lg-8">
+                                    <p class="course-title">Basic Consult</p>
+                                    <div class="course-desc">
+                                        <p><b>Customer: </b>${list.customer_fullname}</p>
+                                        <p><b>Time: </b>${list.duration}</p>
+                                        <p><b>Date: </b>${list.date}</p>
+                                        <p><b>Type: </b><span id="consultType">${list.type}</span></p>
+                                        <p><b>Trainer name: </b>${trainer.fullName}</p>
+                                        <p><b>Consultation fee: </b><span id="consultPrice"></span></p>
+                                        <p><b>Total fee: </b>$${list.amount}</p>
+                                    </div>
+                                </div>
+                                <%-- <c:if test="${list.history eq 'yes'}">--%>
+                                <form action="CustomerPaymentVNPAY" id="frmCreateOrder-${list.consultation_id}" method="post">
 
                                     <div>
                                         <input  value="${list.amount}000" class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="hidden"  />
                                     </div>
-                                    <!--- phuong thuc thanh toan---->             
+                                    <!--- phuong thuc thanh toan---->
                                     <input type="hidden"  id="bankCode" name="bankCode" value="">
                                     <!--- phuong thuc thanh toan---->
                                     <!-- language--->
-                                    <div>           
-                                        <input type="hidden" id="language"  name="language" value="vn">                        
+                                    <div>
+                                        <input type="hidden" id="language"  name="language" value="vn">
                                     </div>
                                     <!-- language--->
 
@@ -118,43 +120,69 @@
                                     </button>
 
                                 </form>
-                          <%--  </c:if> --%>
+                                <%--  </c:if> --%>
+                            </div>
                         </div>
-                    </div>
-                </c:forEach>
+                    </c:forEach>
 
+                </div>
             </div>
-        </div>
 
 
-        <%@include file="footer.jsp" %>
+            <%@include file="footer.jsp" %>
 
-        <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
-        <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
-        <script type="text/javascript">
-            $("#frmCreateOrder").submit(function () {
-                var postData = $("#frmCreateOrder").serialize();
-                var submitUrl = $("#frmCreateOrder").attr("action");
-                $.ajax({
-                    type: "POST",
-                    url: submitUrl,
-                    data: postData,
-                    dataType: 'JSON',
-                    success: function (x) {
-                        if (x.code === '00') {
-                            if (window.vnpay) {
-                                vnpay.open({width: 768, height: 600, url: x.data});
-                            } else {
-                                location.href = x.data;
-                            }
-                            return false;
-                        } else {
-                            alert(x.Message);
-                        }
+            <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
+            <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
+            <!--        get price-->
+            <script>
+                // Get all elements with class "abc"
+                var elements = document.getElementsByClassName("description");
+                // Loop through each element
+                for (var i = 0; i < elements.length; i++) {
+                    var element = elements[i];
+                    // Find the consultType and consultPrice elements within the current element
+                    var consultTypeElement = element.querySelector("#consultType");
+                    var consultPriceElement = element.querySelector("#consultPrice");
+                    // Get the consultType value and update the consultPrice accordingly
+                    var consultType = consultTypeElement.textContent.toLowerCase();
+                    if (consultType === "online") {
+                        consultPriceElement.textContent = "$100/hour"; // Update consultPrice for online consultation
+                    } else if (consultType === "offline") {
+                        consultPriceElement.textContent = "$150/hour"; // Update consultPrice for offline consultation
                     }
+                }
+            </script>
+            <script type="text/javascript">
+                // Query all forms with IDs starting with 'frmCreateOrder-'
+                var forms = document.querySelectorAll('[id^="frmCreateOrder-"]');
+                // Attach submit event handler to each form
+                forms.forEach(function (form) {
+                    form.addEventListener("submit", function (event) {
+                        // Serialize the form data
+                        var postData = new URLSearchParams(new FormData(form)).toString();
+                        // Get the form action URL
+                        var submitUrl = form.getAttribute("action");
+                        // Send an AJAX request
+                        $.ajax({
+                            type: "POST",
+                            url: submitUrl,
+                            data: postData,
+                            dataType: 'JSON',
+                            success: function (x) {
+                                if (x.code === '00') {
+                                    if (window.vnpay) {
+                                        vnpay.open({width: 768, height: 600, url: x.data});
+                                    } else {
+                                        location.href = x.data;
+                                    }
+                                    return false;
+                                } else {
+                                    alert(x.Message);
+                                }
+                            }
+                        });
+                    });
                 });
-                return false;
-            });
-        </script>  
+            </script>
     </body>
 </html>

@@ -4,7 +4,7 @@
 }
 
 footer {
-    margin-top: 5rem;
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
