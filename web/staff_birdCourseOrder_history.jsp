@@ -66,7 +66,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing <c:out value="${a.history.size()}" /> data
+                            Currently showing <c:out value="${a.history.size()}" /> pending form(s)
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -80,6 +80,7 @@
                                     <td>Bird type</td>
                                     <td>Bird name</td>
                                     <td>Checkout date</td>
+                                    <td></td>
                                     <td></td>
                                 </tr>
                             </thead>

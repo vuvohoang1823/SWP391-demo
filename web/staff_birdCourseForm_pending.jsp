@@ -71,7 +71,7 @@
                                     <td>Customer</td>
                                     <td>Bird Type</td>
                                     <td>Request date</td>
-                                    <td>Action</td>
+                                    <td></td>
                                 </tr>
                             </thead>
                             <tbody>

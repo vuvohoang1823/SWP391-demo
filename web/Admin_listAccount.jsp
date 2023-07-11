@@ -65,22 +65,12 @@
                     </section>
                     <section class="form-body">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <div class="navbar-brand">Action:</div>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
+                            <div class="update">
+                                <a href="Admin_createAccount.jsp">
+                                    <button class="create-button">Create new item</button>
+                                </a>
+                            </div>
                             <form class="form-inline my-2 my-lg-0">
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="staff_birdCourseForm_pending.jsp">xxx</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="staff_birdCourseForm_processing.jsp">xxx</a>
-                                        </li>
-
-                                    </ul>
-                                </div>
                                 <div class="search-container">
                                     <div style="white-space: nowrap; padding-right: 2rem">Search by ID</div>
                                     <div class="input-group">
@@ -103,18 +93,8 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            <!--                            <div>
-                                                            Currently showing 2 pending form(s)
-                                                        </div>-->
-                            <div>
-                                <a href="admin_services_account_create-detail.jsp">
-                                    <a href="Admin_createAccount.jsp">
-                                        <button>
-                                            Add new account
-                                        </button>
-                                    </a>
-
-                                </a>
+                            <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 2rem 0;">
+                                Currently showing 2 service(s)
                             </div>
                         </div>
                         <table
@@ -123,12 +103,12 @@
                             >
                             <thead>
                                 <tr>
-                                    <td>No</td>
+                                    <td>ID</td>
                                     <td>Username</td>
                                     <td>Full name</td>
                                     <td>Role</td>
                                     <!--<td>Email</td>-->
-                                    <td>Action</td>
+                                    <td></td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -149,7 +129,7 @@
                                     <form action="AccountDetail" method="POST">
                                         <input type="hidden" name="user_id" value="${user.user_id}">
                                         <input type="hidden" name="role" value="${user.role}">
-                                        <button type="submit">Modify</button>
+                                        <button type="submit" class="viewDetail"><b>Modify</b></button>
                                     </form>
                                 </td>
                                 </tr>

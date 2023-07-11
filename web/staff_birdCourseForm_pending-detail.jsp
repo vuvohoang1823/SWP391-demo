@@ -77,9 +77,6 @@
                                         <li class="nav-item ">
                                             <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -91,8 +88,7 @@
                                 <div class="left-side"><b>Form Detail</b></div>
                                 <div class="right-side">
                                     <span>Submitted: <b>${BookingInfo.create_date}</b></span>
-                                    <span><b>ID : #??</b></span>
-                                    <span>Status: In-training</span>
+                                    <span><b>ID:#${BookingInfo.birdID}</b></span>
                                 </div>
                             </div>
                             <form action="SetTrainerToBooking" method="post">
@@ -271,7 +267,7 @@
                                     <div> <button type="submit" name="action" value="approve" class="btn approve">Approve</button>
                                     </div>
                                     <div>
-                                        <button type="submit"  name="action" value="deny"class="btn decline">Decline</button>
+                                        <button type="submit"  name="action" value="deny"class="btn btn-secondary decline">Decline</button>
                                     </div>
                                 </div>
                             </form>

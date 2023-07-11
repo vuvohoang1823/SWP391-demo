@@ -54,8 +54,8 @@
                             </svg>
                             <span style="padding-left: 2rem">Services</span>
                         </div>
-                        <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="staff_services_birdCourse_create.jsp">
+                        <div class="navbar navbar-expand-lg navbar-light" style="height: 60px">
+                            <a href="Admin_listAccount.jsp">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -66,27 +66,12 @@
                                     &lt; Back
                                 </div>
                             </a>
-                            <div class="container-fluid">
-                                <div class="" id="navbarSupportedContent">
-                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item active">
-                                            <a class="nav-link " href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
-                                        </li>
-                                        <li class="nav-item ">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </section>
                     <div class="container-fluid" style="padding: 0 2.5%">
                         <div class="forms-container">
                             <div class="forms-header">
-                                <div class="left-side"><b>Form Detail</b></div>
+                                <div class="left-side"><b>Create Account</b></div>
                             </div>
                             <form action="AddAccountServlet" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="" value="">
@@ -94,7 +79,7 @@
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <div class="mb-3">
+                                                <div class="mb-5">
                                                     <label for="" class="form-label">Full name</label>
                                                     <input
                                                         type="text"
@@ -106,7 +91,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
-                                                <div class="mb-3">
+                                                <div class="mb-5">
                                                     <label for="" class="form-label">Phone</label>
                                                     <input
                                                         type="text"
@@ -119,7 +104,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <div class="mb-3">
+                                                <div class="mb-5">
                                                     <label for="" class="form-label">Username</label>
                                                     <input
                                                         type="text"
@@ -130,22 +115,8 @@
                                                         required/>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="" class="form-label">Email</label>
-                                                    <input
-                                                        type="email"
-                                                        class="form-control"
-                                                        id=""
-                                                        value=""
-                                                        name="email"
-                                                        required/>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
+                                                <div class="mb-5">
                                                     <label for="categoryname" class="form-label">Role</label>
                                                     <div class="input-group">
                                                         <input
@@ -220,32 +191,47 @@
                                                 </div>
                                             </div
                                         </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="mb-5">
+                                                    <label for="" class="form-label">Email</label>
+                                                    <input
+                                                        type="email"
+                                                        class="form-control"
+                                                        id=""
+                                                        value=""
+                                                        name="email"
+                                                        required/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="mb-5">
+                                                    <!--                                                    <label for="" class="form-label">Avatar</label>
+                                                                                                        <input type="file" name="thumbnail" class="form-control"/><img src="data:images/jpg;base64,${course.image}" height="200px" width="300px" alt=""/>
+                                                                                                        <input type="hidden" name="img" value="${course.image}"/>-->
+                                                    <label for="contentIMG" class="form-label">Item image</label>
+                                                    <input type="file" id="contentIMG" name="contentIMG" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>
+                                                    <div class="img-container d-flex justify-content-center">
+                                                        <img class="showImg" src="data:images/jpg;base64," height="5px" width="50px" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="mb-3">
-                                            <label for="" class="form-label">
-                                                Avatar
-                                            </label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="file" id="thumbnail" name="thumbnail" class="form-control" accept="image/*" multiple>
-                                        </div>
+                                    <div class="forms-footer">
+                                        <button type="submit" name="action" value="checkout" class="btn approve">Create new account</button>
                                     </div>
                                 </div>
-                                <div class="forms-footer">
-                                    <button type="submit" name="action" value="checkout" class="btn approve">Create new account</button>
-                                </div>
-                        </div>
 
+                        </div>
                     </div>
+
                 </div>
 
             </div>
 
-        </div>
-
-    </form>
-</div>
+        </form>
+    </div>
 </div>
 <script>
     function chooseFile(fileInput) {
