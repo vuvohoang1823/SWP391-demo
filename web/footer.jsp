@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/footer.css" type="text/css">
     </head>
     <body>
-        <footer class="footer-container">
+        <footer id="mainFooter" class="footer-container">
             <div class="logo-column">
                 <div class="logo-container">
                     <div class="logo-image">
@@ -84,6 +84,18 @@
                 </div>
             </div>
         </footer>
+        <script>
+            // Get the footer element
+            const footer = document.getElementById('mainFooter');
+
+            // Retrieve the computed margin top of the footer
+            const computedStyle = getComputedStyle(footer);
+            const marginTop = computedStyle.marginTop;
+
+            // Set the minimum margin for the footer
+            const minTop = '3rem'; // Adjust the value as per your needs
+            footer.style.marginTop = 'calc(' + marginTop + ' + ' + minTop + ')';
+        </script>
         <!--toast-->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <!--bs5-->

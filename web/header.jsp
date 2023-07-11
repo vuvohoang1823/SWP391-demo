@@ -456,6 +456,102 @@
                                     </div>
                                 </a>
                             </li>
+                            <!--end of nav tabs-->
+                            <li><hr style="border: 1px solid black" /></li>
+                            <li class="nav-item py-2 py-sm-4">
+                                <a
+                                    href="LogoutController"
+                                    class="d-flex nav-link text-black"
+                                    >
+                                    <div class="d-flex align-items-center" style="margin: 3% 0;">
+                                        <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_2147_395)">
+                                        <path d="M23.034 10.3201L8.95667 10.3201C8.50735 10.3201 8.14417 10.6281 8.14417 11.0076C8.14417 11.3871 8.50735 11.6951 8.95667 11.6951L22.9837 11.6951L20.0449 14.1818C19.7272 14.4499 19.7272 14.8857 20.0449 15.1539C20.3625 15.422 20.8769 15.422 21.1937 15.1539L25.9932 10.9862L21.1937 6.81794C21.0345 6.68388 20.8273 6.6165 20.6193 6.6165C20.4113 6.6165 20.2041 6.68388 20.0449 6.81794C19.7272 7.08606 19.7272 7.52125 20.0449 7.79006L23.034 10.3201ZM1.63441 22H15.4469C16.3447 22 17.0719 21.3847 17.0719 20.625V14.4375H15.4364L15.4364 19.7862C15.4364 20.2455 14.996 20.6181 14.4532 20.6181H2.65329C2.10973 20.6181 1.67016 20.2455 1.67016 19.7862L1.64417 2.2055C1.64417 1.74625 2.08373 1.37362 2.62729 1.37362H14.4516C14.9944 1.37362 15.4347 1.74625 15.4347 2.2055L15.4347 7.5845L17.0703 7.58244L17.0703 1.37431C17.0703 0.614626 16.3431 -0.000686646 15.4453 -0.000686646H1.6336C0.73579 -0.000686646 0.00778961 0.614626 0.00778961 1.37431L0.00778961 20.6243C0.00778961 21.384 0.73579 21.9993 1.63279 21.9993L1.63441 22Z" fill="black"/>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_2147_395">
+                                            <rect width="26" height="22" fill="white" transform="matrix(-1 0 0 -1 26 22)"/>
+                                        </clipPath>
+                                        </defs>
+                                        </svg>
+                                        <span class="fs-2 ms-3 d-none d-sm-inline">Logout</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </c:when>
+
+
+            <c:when test="${role eq 'admin'}">
+                <div
+                    id="headerPage"
+                    class="bg-white col-2 col-md-4 col-lg-2 min-vh-100 d-flex flex-column p-0 sidebar-staff"
+                    style="width: 13%"
+                    >
+                    <a
+                        href="#"
+                        class="d-flex text-decoration-none align-items-center text-white nav-logo mb-4 logo-container"
+                        >
+                        <span class="d-block d-sm-none w-auto">
+                            <img src=./img/logo_white.png alt="page logo" style="width:
+                                 5rem;"/>
+                        </span>
+                        <span class="fs-4 m-auto d-none d-sm-inline">
+                            <div class="d-flex p-3">
+                                <div class="logo-image">
+                                    <img src=./img/logo_white.png alt="page logo" />
+                                </div>
+                                <div class="logo-text">
+                                    <p style="margin: 0">BIRD</p>
+                                    <p style="margin: 0">TRAINING</p>
+                                    <p style="margin: 0">CENTER</p>
+                                </div>
+                            </div>
+                        </span>
+                    </a>
+                    <c:choose>
+                        <c:when test="${empty user}">
+                            <c:redirect url="signin.jsp" />
+                        </c:when>
+                        <c:otherwise>
+                            <c:set var="username" value="${user.username}"></c:set>
+                                <div class="dropdown auth-section w-100 flex-column">
+                                    <div class="m-4 text-center" style="color: #617A55; font-size: 20px; font-weight: 700;">Welcome</div>
+                                    <span class="btn btn-secondary user-button">
+                                        <span><svg width="16" height="16" viewBox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.5 0.00173437C8.6944 -0.017608 7.89308 0.125002 7.14317 0.421175C6.39327 0.717349 5.70993 1.1611 5.13335 1.72634C4.55677 2.29157 4.09859 2.96687 3.78576 3.71251C3.47294 4.45815 3.31179 5.25908 3.31179 6.06817C3.31179 6.87726 3.47294 7.67819 3.78576 8.42383C4.09859 9.16947 4.55677 9.84476 5.13335 10.41C5.70993 10.9752 6.39327 11.419 7.14317 11.7152C7.89308 12.0113 8.6944 12.1539 9.5 12.1346C10.3056 12.1539 11.1069 12.0113 11.8568 11.7152C12.6067 11.419 13.2901 10.9752 13.8667 10.41C14.4432 9.84476 14.9014 9.16947 15.2142 8.42383C15.5271 7.67819 15.6882 6.87726 15.6882 6.06817C15.6882 5.25908 15.5271 4.45815 15.2142 3.71251C14.9014 2.96687 14.4432 2.29157 13.8667 1.72634C13.2901 1.1611 12.6067 0.717349 11.8568 0.421175C11.1069 0.125002 10.3056 -0.017608 9.5 0.00173437ZM6.04545 15.5997C4.4421 15.5997 2.90442 16.2392 1.77067 17.3775C0.63693 18.5158 0 20.0597 0 21.6696V26H19V21.6696C19 20.0597 18.3631 18.5158 17.2293 17.3775C16.0956 16.2392 14.5579 15.5997 12.9545 15.5997H6.04545Z"
+                                                fill="white" />
+                                            </svg></span>
+                                        ${username}
+                                </span>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+                    <div class="bg-white p-2">
+                        <ul class="nav nav-pills flex-column mt-5">
+                            <li class="nav-item py-2 py-sm-4
+                                <%= isPageActive(currentPage, "Admin_listAccount.jsp")%>
+                                <%= isPageActive(currentPage, "Admin_createAccount.jsp")%>
+                                <%= isPageActive(currentPage, "Admin_updateAccount.jsp")%>
+                                ">
+                                <a
+                                    href="Dashboard"
+                                    class="d-flex nav-link text-black"
+                                    >
+                                    <div class="d-flex align-items-center" style="margin: 3% 0;">
+                                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 19V7" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M20 7H1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1 6.976C1 2.05476 2.11336 1 7.308 1H13.692C18.8866 1 20 2.05476 20 6.976V13.024C20 17.9452 18.8866 19 13.692 19H7.308C2.11336 19 1 17.9452 1 13.024V6.976Z" stroke="black" stroke-width="2"/>
+                                        </svg>
+                                        <span class="fs-2 ms-3 d-none d-sm-inline">Account</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <!--end of nav tabs-->
                             <li><hr style="border: 1px solid black" /></li>
                             <li class="nav-item py-2 py-sm-4">
                                 <a

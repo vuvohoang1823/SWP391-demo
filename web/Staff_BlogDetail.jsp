@@ -67,7 +67,7 @@
                                     <div>
                                         <!-- hard code -->
                                         <br />
-                                        <b>1. Understanding of the post Blog Detail</b>
+                                        <b>1. Understanding of the post:</b>
                                         <!--------------->
                                         ${detail.content1}
                                         <!-- hard code -->

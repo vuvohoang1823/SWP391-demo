@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Controller;
+
 import DAO.FormApppointmentDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,14 +33,14 @@ public class updateAppointmentComplete_transform_History extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-      String consultationID = request.getParameter("consultationId");
-      FormApppointmentDAO dao = new FormApppointmentDAO();
-      try{
-         dao.updateAppointmentHistory(consultationID);
-         response.sendRedirect("Staff_OrderList_Consult_History.jsp");
-      }catch(Exception e){
-          e.printStackTrace();
-      }
+        String consultationID = request.getParameter("consultationId");
+        FormApppointmentDAO dao = new FormApppointmentDAO();
+        try {
+            dao.updateAppointmentHistory(consultationID);
+            response.sendRedirect("Staff_OrderList_Consult_Completed.jsp");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

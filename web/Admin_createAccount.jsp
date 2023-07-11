@@ -17,6 +17,8 @@
             integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
             crossorigin="anonymous"
             />
+        <!--w3s-->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Admin_createAccount.css" />
@@ -52,7 +54,7 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Services</span>
+                            <span style="padding-left: 2rem">Account List</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light" style="height: 60px">
                             <a href="Admin_listAccount.jsp">
@@ -66,6 +68,21 @@
                                     &lt; Back
                                 </div>
                             </a>
+                            <div class="container-fluid" style="visibility: hidden">
+                                <div class="" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item active">
+                                            <a class="nav-link " href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </section>
                     <div class="container-fluid" style="padding: 0 2.5%">
