@@ -101,12 +101,12 @@
                                                 <div class="button-container">
                                                     <button class="btn btn-primary">
                                                         <a href="MainController?action=view_online_course_detail&courseID=${onlinetraining.courseID}" style="text-decoration: none;color: white">Enroll</a>
-                                                    
+
                                                     </button>
                                                 </div>
                                                 <p>£${onlinetraining.price}</p>
                                             </div>
-                                            <h5 class="card-title">
+                                            <h5 class="card-title course-title">
                                                 ${onlinetraining.title}
                                             </h5>
                                             <div class="card-text">
@@ -231,7 +231,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                         end of product 
+                                                         end of product
                                                         <div class="col-md-4">
                                                             <div class="card">
                                                                 <img
@@ -301,7 +301,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                         end of product 
+                                                         end of product
                                                     </div>
                                                 </div>
                                             </div>
@@ -313,6 +313,31 @@
                 </div>
             </section>
         </div>
+        <!--        trim title-->
+        <script>
+            // Get all question message elements
+            var blogTitle = document.getElementsByClassName("course-title");
+
+            // Loop through each question message element
+            for (var i = 0; i < blogTitle.length; i++) {
+                var title = blogTitle[i].textContent.trim();
+
+                // Remove any leading or trailing spaces and invisible characters
+                title = title.replace(/^\s+|\s+$/g, "");
+
+                // Remove non-printable characters using regular expression
+                title = title.replace(/[^ -~]+/g, "");
+
+                const titleLength = 20;
+
+                // Check if the title length is greater than 10
+                if (title.length > titleLength) {
+                    // Truncate the title and append "..."
+                    var truncatedMessage = title.substring(0, titleLength) + "...";
+                    blogTitle[i].textContent = truncatedMessage;
+                }
+            }
+        </script>
         <!-- end of body -->
         <%@ include file="footer.jsp" %>
     </body>

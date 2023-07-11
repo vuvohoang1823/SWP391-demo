@@ -94,26 +94,27 @@
                                     required
                                     />
                                 <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#confirmNewsletter">Notify me</button>
-                                <div class="modal fade" id="confirmNewsletter" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title" style="font-size: 3rem">Newsletter</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body fs-2" style="line-height: 2.5rem">
-                                                A newsletter will be sent to your email every week. <br>
-                                                Do you want to receive news about our page?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="confirmNewsletter" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title" style="font-size: 3rem">Newsletter</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body fs-2" style="line-height: 2.5rem">
+                            A newsletter will be sent to your email every week. <br>
+                            Do you want to receive news about our page?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
+                        </div>
                     </div>
                 </div>
             </div>

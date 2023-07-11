@@ -66,7 +66,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing <c:out value="${a.history.size()}" /> pending form(s)
+                            Currently showing <c:out value="${a.completedBooking.size()}" /> form(s)
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -95,7 +95,7 @@
                                     <td><b>${order.nameBird}</b></td>
                                     <td><b>${order.end_date}</b></td>
                                     <td>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                 style="
                                                 font-size: 1.5rem;
                                                 border-radius: 5px;
@@ -103,7 +103,7 @@
                                                 color: black;
                                                 padding: 1rem 2rem;
                                                 border: 2px solid;
-                                                height: 4rem;  
+                                                height: 4rem;
                                                 width: 12rem;
                                                 ">
                                             <b>Checkout</b>

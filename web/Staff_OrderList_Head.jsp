@@ -38,7 +38,7 @@
                     fill="black"
                     />
                 </svg>
-                <span style="padding-left: 2rem">Form List</span>
+                <span style="padding-left: 2rem">Order List</span>
             </div>
             <div class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">

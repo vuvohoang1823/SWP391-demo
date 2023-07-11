@@ -31,20 +31,16 @@
         <title>Booked Services</title>
         <!-- Bootstrap core CSS -->
         <link href="/vnpay_jsp/assets/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
         <!-- Custom styles for this template -->
         <link href="/vnpay_jsp/assets/jumbotron-narrow.css" rel="stylesheet">
         <script src="/vnpay_jsp/assets/jquery-1.11.3.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/reset.css" type="text/css">
-        <link rel="stylesheet" href="css/onlinecourseDetail.css" type="text/css">
-        <link rel="stylesheet" href="css/reset.css" type="text/css">
-        <link rel="stylesheet" href="css/onlinecourseDetail.css" type="text/css">
-        <title>JSP Page</title>
         <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/viewBookedService_PrivateConsult.css">
         <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
         <jsp:useBean id="t"  class="DAO.TrainerDAO"></jsp:useBean>
-            <link rel="stylesheet" href="css/viewBookedService_PrivateConsult.css">
         </head>
         <body>
         <%@include file="header.jsp" %>
@@ -124,65 +120,61 @@
                             </div>
                         </div>
                     </c:forEach>
-
                 </div>
             </div>
-
-
-            <%@include file="footer.jsp" %>
-
-            <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
-            <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
-            <!--        get price-->
-            <script>
-                // Get all elements with class "abc"
-                var elements = document.getElementsByClassName("description");
-                // Loop through each element
-                for (var i = 0; i < elements.length; i++) {
-                    var element = elements[i];
-                    // Find the consultType and consultPrice elements within the current element
-                    var consultTypeElement = element.querySelector("#consultType");
-                    var consultPriceElement = element.querySelector("#consultPrice");
-                    // Get the consultType value and update the consultPrice accordingly
-                    var consultType = consultTypeElement.textContent.toLowerCase();
-                    if (consultType === "online") {
-                        consultPriceElement.textContent = "$100/hour"; // Update consultPrice for online consultation
-                    } else if (consultType === "offline") {
-                        consultPriceElement.textContent = "$150/hour"; // Update consultPrice for offline consultation
-                    }
+        </div>
+        <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
+        <!--        get price-->
+        <script>
+            // Get all elements with class "abc"
+            var elements = document.getElementsByClassName("description");
+            // Loop through each element
+            for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                // Find the consultType and consultPrice elements within the current element
+                var consultTypeElement = element.querySelector("#consultType");
+                var consultPriceElement = element.querySelector("#consultPrice");
+                // Get the consultType value and update the consultPrice accordingly
+                var consultType = consultTypeElement.textContent.toLowerCase();
+                if (consultType === "online") {
+                    consultPriceElement.textContent = "$100/hour"; // Update consultPrice for online consultation
+                } else if (consultType === "offline") {
+                    consultPriceElement.textContent = "$150/hour"; // Update consultPrice for offline consultation
                 }
-            </script>
-            <script type="text/javascript">
-                // Query all forms with IDs starting with 'frmCreateOrder-'
-                var forms = document.querySelectorAll('[id^="frmCreateOrder-"]');
-                // Attach submit event handler to each form
-                forms.forEach(function (form) {
-                    form.addEventListener("submit", function (event) {
-                        // Serialize the form data
-                        var postData = new URLSearchParams(new FormData(form)).toString();
-                        // Get the form action URL
-                        var submitUrl = form.getAttribute("action");
-                        // Send an AJAX request
-                        $.ajax({
-                            type: "POST",
-                            url: submitUrl,
-                            data: postData,
-                            dataType: 'JSON',
-                            success: function (x) {
-                                if (x.code === '00') {
-                                    if (window.vnpay) {
-                                        vnpay.open({width: 768, height: 600, url: x.data});
-                                    } else {
-                                        location.href = x.data;
-                                    }
-                                    return false;
+            }
+        </script>
+        <script type="text/javascript">
+            // Query all forms with IDs starting with 'frmCreateOrder-'
+            var forms = document.querySelectorAll('[id^="frmCreateOrder-"]');
+            // Attach submit event handler to each form
+            forms.forEach(function (form) {
+                form.addEventListener("submit", function (event) {
+                    // Serialize the form data
+                    var postData = new URLSearchParams(new FormData(form)).toString();
+                    // Get the form action URL
+                    var submitUrl = form.getAttribute("action");
+                    // Send an AJAX request
+                    $.ajax({
+                        type: "POST",
+                        url: submitUrl,
+                        data: postData,
+                        dataType: 'JSON',
+                        success: function (x) {
+                            if (x.code === '00') {
+                                if (window.vnpay) {
+                                    vnpay.open({width: 768, height: 600, url: x.data});
                                 } else {
-                                    alert(x.Message);
+                                    location.href = x.data;
                                 }
+                                return false;
+                            } else {
+                                alert(x.Message);
                             }
-                        });
+                        }
                     });
                 });
-            </script>
+            });
+        </script>
+        <%@include file="footer.jsp" %>
     </body>
 </html>

@@ -20,6 +20,7 @@ code {
 html,
 body {
     height: 100%;
+    width: 100vw;
 }
 
 html,
@@ -130,7 +131,7 @@ section {
 
 body {
     line-height: 1;
-    box-sizing: border-box;
+    box-sizing: initial;
 }
 
 ol,
