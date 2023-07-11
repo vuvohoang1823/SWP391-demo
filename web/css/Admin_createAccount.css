@@ -156,21 +156,24 @@
     border-radius: 0px 5px 5px 0px !important;
     background: #617A55;
 }
+.forms-container  .form-body .input-group .modal .modal-content{
+    width: 40rem;
+}
 .forms-container  .form-body .input-group .modal .modal-header .modal-title{
     font-size: 3rem !important;
 }
 .forms-container  .form-body .input-group .modal .modal-body{
     font-size: 2rem;
 }
-.forms-container  .form-body .input-group .modal .modal-body .role-item {
+.forms-container  .form-body .input-group .modal .modal-body .category-item {
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
-.forms-container  .form-body .input-group .modal .modal-body .role-item .role-input {
+.forms-container  .form-body .input-group .modal .modal-body .category-item .category-input {
     margin-right: 1rem;
 }
-.forms-container  .form-body .input-group .modal .modal-body .role-item .role-name {
+.forms-container  .form-body .input-group .modal .modal-body .category-item .category-name {
     font-weight: bold;
 }
 .forms-container .forms-footer {
@@ -189,4 +192,23 @@
 .forms-container .forms-footer .approve {
     border-radius: 10px;
     background: #2B7ADF;
+}
+.forms-container .forms-footer .decline{
+    border-radius: 10px;
+}
+.img-container {
+    border-radius: 5px;
+    border: 1px dashed rgba(0, 0, 0, 0.25);
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    width: 370px !important;
+    height: 402px;
+}
+.img-container .showImg {
+    border-radius: 20px;
+    object-fit: contain;
+    object-position: center;
+    width: 217px;
+    height: 310px;
 }

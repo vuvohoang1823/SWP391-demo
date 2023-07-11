@@ -95,28 +95,38 @@
                                     <td><b>${order.nameBird}</b></td>
                                     <td><b>${order.end_date}</b></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #617A55;width: 10rem;font-size: 2rem">
-                                            Checkout
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+                                                style="
+                                                font-size: 1.5rem;
+                                                border-radius: 5px;
+                                                background-color: white;
+                                                color: black;
+                                                padding: 1rem 2rem;
+                                                border: 2px solid;
+                                                height: 4rem;  
+                                                width: 12rem;
+                                                ">
+                                            <b>Checkout</b>
                                         </button>
 
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
+                                            <div class="modal-dialog modal-dialog-centered" style="width: 40rem;">
                                                 <div class="modal-content">
-                                                    <div class="modal-header">
+                                                    <div class="modal-header" style="background: #617255">
                                                         <h5 class="modal-title" id="exampleModalLabel"></h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        Complete this purchase ?
+                                                    <div class="modal-body" style="font-size: 2rem;">
+                                                        Complete this purchase?
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" class="footer-item" name="action" value="deny"
-                                                                style="background-color: #617A55;width: 10rem;font-size: 2rem;border-radius: 3rem; height: 4rem; color: white; font-weight: bolder">
+                                                        <button type="submit" class="footer-item btn btn-secondary" name="action" value="deny"
+                                                                style="width: 10rem;font-size: 1.5rem; height: 3rem; color: white;">
                                                             Cancel
                                                         </button>
-                                                        <button type="submit" class="footer-item" name="action" value="approve"
-                                                                style="background-color: #617A55;width: 10rem;font-size: 2rem;border-radius: 3rem; height: 4rem; color: white; font-weight: bolder">
+                                                        <button type="submit" class="footer-item btn btn-primary" name="action" value="approve"
+                                                                style="width: 10rem;font-size: 1.5rem;height: 3rem; color: white;">
                                                             Checkout
                                                         </button>
                                                     </div>

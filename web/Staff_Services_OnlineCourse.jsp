@@ -149,7 +149,7 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>
+                            </div>     
                             <!-- end of card -->
                         </div>
                     </section>

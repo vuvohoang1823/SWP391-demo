@@ -78,9 +78,6 @@
                                         <li class="nav-item ">
                                             <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Contact Us</a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -91,8 +88,7 @@
                             <div class="forms-header">
                                 <div class="left-side"><b>Form Detail</b></div>
                                 <div class="right-side">
-                                    <span><b>ID : #??</b></span>
-                                    <span>Status: In-training</span>
+<!--                                    <span><b>ID : #??</b></span>-->
                                 </div>
                             </div>
                             <form action="SetTrainerToBooking" method="post">

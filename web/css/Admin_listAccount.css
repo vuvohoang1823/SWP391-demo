@@ -47,7 +47,7 @@
 .form-body .navbar form .search-container {
     display: flex;
     align-items: center;
-    width: 45%
+    width: 100%
 }
 .form-body .navbar form .navbar-nav .nav-item:hover {
     background-color: rgba(97, 122, 85, 0.1);
@@ -103,7 +103,31 @@
     color: black;
     padding: 1rem 2rem;
 }
-
+.create-button {
+    width: 204px;
+    height: 44px;
+    margin-right: 3rem;
+    border-radius: 10px;
+    white-space: nowrap;
+    background-color: #0A7E65;
+    padding: 0 2rem;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+.form-body .table-form .viewDetail {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 1rem 2rem;
+    margin-right: -6rem;
+}
 
 
 
