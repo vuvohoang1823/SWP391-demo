@@ -72,3 +72,183 @@
     text-underline-position: under;
     text-underline-offset: 5px;
 }
+.form-body .title{
+    font-size: 4rem;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    margin: 3rem;
+}
+.form-body .section-head{
+    display: flex;
+    flex-direction: row;
+}
+.form-body .section-head .box{
+    border: 8px solid #617A55;
+    display: flex;
+    flex-direction: column;
+    width: 17%;
+    height: 12rem;
+    margin: 3rem 0 3rem 3rem;
+    justify-content: center;
+    align-items: center;
+    line-height: 4rem;
+    background: white;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+/*Top service*/
+.accordion .accordion-item .accordion-body {
+    width: 100%;
+    ;
+}
+
+.accordion .accordion-item .accordion-body .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.accordion .accordion-item .accordion-body .content .logo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.accordion .accordion-item .accordion-body .content .logo-container .logo {
+    background-color: #977CF0;
+    border-radius: 10px;
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.accordion .accordion-item .accordion-body .content .logo-container .logo svg {
+    background-color: #977CF0;
+}
+
+.accordion .accordion-item .accordion-body .content .logo-container .title {
+    margin-left: 2rem;
+    font-size: 3rem;
+    color: #977CF0;
+}
+
+.accordion .accordion-item .accordion-body .content .stat_content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30rem;
+}
+
+.accordion .accordion-item .accordion-body .content .stat_content span:nth-child(1) {
+    font-size: 1.5rem;
+}
+
+.accordion .accordion-item .accordion-body .content .stat_content span:nth-child(2) {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.accordion .accordion-item .accordion-collapse .heading {
+    font-size: 2.5rem;
+    justify-content: center;
+    display: flex;
+    margin-top: 3rem;
+}
+
+.accordion .accordion-item .accordion-collapse .card-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.accordion .accordion-item .accordion-collapse .card-container .card-item {
+    margin: 4rem;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    height: 45rem;
+    border-radius: 10px;
+    width: 28rem;
+}
+
+.accordion .accordion-item .accordion-collapse .card-container .card-item img {
+    height: 50%;
+    width: 100%;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.accordion .accordion-item .accordion-collapse .card-container .card-item .text {
+    padding: 3rem 2rem 1rem 2rem;
+    line-height: 3rem;
+}
+.accordion .accordion-item .accordion-collapse .card-container .card-item .text .title {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+.accordion .accordion-item .accordion-collapse .card-container .card-item .text .content {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: bold;
+}
+/*Top service*/
+
+
+
+
+
+
+
+
+/*Top trainer*/
+.top-trainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+.top-trainer .card-item{
+    margin: 4rem;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    height: 45rem;
+    border-radius: 10px;
+    width: 28rem;
+}
+.top-trainer .card-item {
+    margin: 4rem;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    height: 45rem;
+    border-radius: 10px;
+    width: 28rem;
+}
+
+.top-trainer .card-item img {
+    height: 50%;
+    width: 100%;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.top-trainer .card-item .text {
+    padding: 3rem 2rem 1rem 2rem;
+    line-height: 4rem;
+}
+.top-trainer .card-item .text .title {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.top-trainer .card-item .text .content {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+/*Top trainer*/
