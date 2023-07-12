@@ -1,12 +1,12 @@
-.heading{
-    height: 127px;
+.profileHeading{
     background: #B8C6C2;
-    font-size: 60px;
+}
+.profileHeading p {
+    font-size: 5rem;
+    font-weight: 700;
+    text-align: center;
     color: #617A55;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 2.7rem 0;
 }
 .body-container{
     background: white;
@@ -19,13 +19,15 @@
 }
 .body-container .section-head {
     position: absolute;
-    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin-top: 5rem;
 }
 
 .body-container .section-head span{
+    text-align: center;
+    display: block;
+    width: 100%;
     font-size: 4rem;
     font-weight: bolder;
 }
@@ -90,4 +92,27 @@
     color: #617A55;
     padding: 1rem 2rem;
     border: 2px solid #617A55;
+}
+
+.password-toggle{
+    position: relative;
+
+}
+.password-toggle i{
+    top: 1.6rem;
+    position: absolute;
+    right: 2rem;
+}
+/* Eye icon styles */
+.eye-icon:before {
+    content: "\f06e";
+    /* Eye-slash icon Unicode value */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.eye-icon.active:before {
+    content: "\f070";
+    /* Eye icon Unicode value */
 }

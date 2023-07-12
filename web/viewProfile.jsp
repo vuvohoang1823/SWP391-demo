@@ -79,7 +79,7 @@
                     <div class="col-lg-6">
                         <label for="" class="form-label">Password</label>
                         <input
-                            type="text"
+                            type="password"
                             class="form-control"
                             id=""
                             placeholder="hoangkimnam"
@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <div class="forms-footer">
-                    <div> 
+                    <div>
                         <button type="submit" name="action" value="approve" class="btn approve">Update</button>
                     </div>
                     <div>

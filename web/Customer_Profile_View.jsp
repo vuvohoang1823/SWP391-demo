@@ -17,8 +17,8 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
-        <div class="heading">
-            Account Information
+        <div class="profileHeading">
+            <p>Account Information</p>
         </div>
         <c:set var="customer" value="${sessionScope.CUSTOMER_INFO}"/>
         <div class="body-container">
@@ -77,15 +77,15 @@
                                 id=""
                                 placeholder=""
                                 value="${customer.username}"
-                                
-                            disabled
-                            />
+
+                                disabled
+                                />
                             <input type="hidden" name="username" value="${customer.username}" />
                         </div>
                         <div class="col-lg-6">
                             <label for="" class="form-label">Password</label>
                             <input
-                                type="text"
+                                type="password"
                                 class="form-control"
                                 id=""
                                 placeholder=""
@@ -110,12 +110,12 @@
                                             </div>
                                         </div>-->
                     <div class="forms-footer">
-                        <div> 
+                        <div>
                             <button type="submit" name="action" value="approve" class="btn approve">Edit</button>
                         </div>
-<!--                        <div>
-                            <button type="submit"  name="action" value="deny"class="btn decline">Cancel</button>
-                        </div>-->
+                        <!--                        <div>
+                                                    <button type="submit"  name="action" value="deny"class="btn decline">Cancel</button>
+                                                </div>-->
                     </div>
                 </form>
             </div>

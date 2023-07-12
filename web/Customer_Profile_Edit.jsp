@@ -17,12 +17,24 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
-        <div class="heading">
-            Account Information
+        <div class="profileHeading">
+            <p>Account Information</p>
         </div>
         <c:set var="customer" value="${sessionScope.CUSTOMER_INFO}"/>
 
-        <div class="body-container">
+        <div class="body-container" style="position: relative">
+            <a href="Customer_Profile_View.jsp">
+                <div style="
+                     z-index: 1;
+                     position: absolute;
+                     top: 8rem;
+                     left: 8rem;
+                     font-size: 2.5rem;
+                     color: black;
+                     ">
+                    &lt; Cancel
+                </div>
+            </a>
             <form action="Customer_UpdateProfileServlet" method="POST" enctype="multipart/form-data">
                 <div class="section-head">
                     <div class="image-container">
@@ -34,8 +46,6 @@
                     </span>
                 </div>
                 <div class="form-container">
-
-
                     <div class="row" style="padding-top: 32rem;">
                         <p>
                             Edit Personal Information
@@ -81,21 +91,16 @@
                                 name="username"
                                 placeholder=""
                                 value="${customer.username}"
-
                                 readonly
                                 />
                         </div>
                         <div class="col-lg-6">
                             <label for="" class="form-label">Password</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id=""
-                                name="password"
-                                placeholder=""
-                                value="${customer.password}"
-                                required
-                                />
+                            <div class="password-toggle">
+                                <input id="password" class="form-control password" type="password" name="password" placeholder="Password" value="${customer.password}" required
+                                       style="margin-top: 0;">
+                                <i class="eye-icon fas fa-eye active"></i>
+                            </div>
                         </div>
                     </div>
                     <input type="hidden" name="userID" value="${sessionScope.LOGIN_USER.customer_id}" />
@@ -113,7 +118,7 @@
                                             </div>
                                         </div>-->
                     <div class="forms-footer">
-                        <div> 
+                        <div>
                             <button type="submit" name="action" value="approve" class="btn approve">Update</button>
                         </div>
                         <!--                        <div>
@@ -123,6 +128,22 @@
                 </div>
             </form>
         </div>
+        <script>
+            const passwordInput = document.querySelector('.password');
+            const eyeIcon = document.querySelector('.eye-icon');
+
+            eyeIcon.addEventListener('click', togglePasswordVisibility);
+
+            function togglePasswordVisibility() {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    eyeIcon.classList.remove('active');
+                } else {
+                    passwordInput.type = 'password';
+                    eyeIcon.classList.add('active');
+                }
+            }
+        </script>
         <%@include file="footer.jsp" %>
     </body>
 </html>
