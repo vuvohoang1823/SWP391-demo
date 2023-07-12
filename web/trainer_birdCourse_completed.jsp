@@ -1,50 +1,18 @@
-<%--
-    Document   : ConsultationForm
-    Created on : Jun 15, 2023, 2:21:36 AM
-    Author     : thang
---%>
-<%@page import="entity.Trainer"%>
-<%@page import="DAO.AppointmentDAO"%>
-<%@page import="entity.TrainerDTO"%>
-<%@page import="DAO.TrainerDAO1"%>
-<%@page import="entity.UserDTO"%>
-<%@page import="entity.TrainerSP"%>
-
-<%
-    // Retrieve the UserDTO object from the session
-    TrainerSP user = (TrainerSP) session.getAttribute("LOGIN_USER");
-
-    // Create an instance of the CustomerDAO
-    TrainerDAO1 trainerDAO = new TrainerDAO1();
-
-    // Get the customer ID using the user ID
-    int trainerID = trainerDAO.getTrainerID(user.getUserID());
-%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <!-- boostrap -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-            crossorigin="anonymous"
-            />
-        <!-- w3Table -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-        <!-- css -->
-        <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/Staff_ConsultationForm_List.css" />
-        <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
-        </head>
-        <body>
-            <div class="container-fluid">
-                <div class="row flex-nowrap">
-                    <!--            header-->
+        <title>Tracking ${BookingDTO.nameBird}</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/reset.css" type="text/css">
+        <link rel="stylesheet" href="css/trainer_birdCourse_completed.css" type="text/css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <!--            header-->
                 <%@ include file="header.jsp" %>
 
                 <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
@@ -62,10 +30,10 @@
                             <div class="container-fluid">
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Trainer_Tracking">Bird Course</a>
-                                        </li>
                                         <li class="nav-item active">
+                                            <a class="nav-link" href="trainer_trackingBirdCourse.jsp">Bird Course</a>
+                                        </li>
+                                        <li class="nav-item ">
                                             <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">Private Consultant</a>
                                         </li>
                                         <li class="nav-item">
@@ -85,15 +53,15 @@
                             <form class="form-inline my-2 my-lg-0">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">In-progress</a>
+                                        <li class="nav-item ">
+                                            <a class="nav-link" href="trainer_trackingBirdCourse.jsp">In-progress</a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item active">
                                             <a class="nav-link" href="Trainer_PrivateConsultation_Completed.jsp">Completed</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="search-container">
+                                <div class="search-container" >
                                     <div style="white-space: nowrap; padding-right: 2rem;">Search by ID</div>
                                     <div class="input-group">
                                         <input
@@ -115,7 +83,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing 2 pending form(s)
+                            Currently showing <c:out value="" /> order(s)
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -124,52 +92,48 @@
                             <thead>
                                 <tr>
                                     <td>ID</td>
-                                    <td>Title</td>
-                                    <td>Customer</td>
-                                    <td>Appointment date request</td>
-                                    <td>Trainer request</td>
-                                    <td>Submitted date</td>
-                                    <td>
-                                        <div style="display: flex; justify-content: space-around;">
-                                            <div style="padding-right: 11rem; height: 100%;">Type</div>
-                                            <div style="height: 100%;"></div>
-                                        </div>
-                                    </td>
+                                    <td>Course name</td>
+                                    <td>Customer name</td>
+                                    <td>Bird type</td>
+                                    <td>Bird name</td>
+                                    <td>Checkout date</td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>
                             </thead>
-                            <c:set var="trainerId" value="<%=trainerID%>"></c:set>
-                            <c:forEach items="${f.getAppointmentListBYTrainerID(trainerId)}" var="b" varStatus="counter" >
-                                <tr>
-                                    <td class="id">${counter.count}</td>
-                                    <td class="title">Basic Consultation Request</td>
-                                    <td class="customer">${b.fullname}</td>
-                                    <td class="customer">${b.duration} - ${b.date}</td>
-                                    <td class="customer">${sessionScope.LOGIN_USER.fullName}</td>
-                                    <td class="customer">${b.dateSubmit}</td>
-                                    <td>
-                                        <div class="type">
-                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(b.type)}"/>">${b.type}</div>
-                                            <a href="MainController?action=view_form_byTrainer&consultation_id=${b.consultation_id}"><button class="viewDetail">View Detail</button></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                            <tbody>
+                                <c:forEach items="${a.history}" var="order" varStatus="counter">
+                                    <tr>
+                                        <td><b>${counter.count}</b></td>
+                                        <td><b>${order.courseName}</b></td>
+                                        <td><b>${order.customerName}</b></td>
+                                        <td><b>${order.typeBird}</b></td>
+                                        <td><b>${order.nameBird}</b></td>
+                                        <td><b>${order.create_date}</b></td>
+                                        <td><b></b></td>
+                                        <td>
+                                            <form action="ProcessingOrderInfo" metdod="GET">
+                                                <input type="hidden" name="bird_id" value="${order.birdID}">
+                                                <a >
+                                                    <button class="viewDetail">
+                                                        <b>View Detail</b>
+                                                    </button>
+                                                </a>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
                         </table>
                     </section>
                 </div>
             </div>
         </div>
-        <script>
-            window.addEventListener('DOMContentLoaded', function () {
-                var headerWidth = document.getElementById('headerPage').offsetWidth;
-                var container = document.getElementById('containerPage');
-                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
-            });
-        </script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-            crossorigin="anonymous"
-        ></script>
+        <!--    <div style="background-color: red; height: 10rem; justify-content: center; align-items: center; display: flex;font-size: 5rem">
+                MODULE
+            </div>-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     </body>
 </html>
+
+
