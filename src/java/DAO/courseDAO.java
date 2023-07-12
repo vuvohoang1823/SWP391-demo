@@ -340,7 +340,7 @@ public class courseDAO implements Serializable {
     /*GET ALL BIRD COURSE*/
     public List<Course> getAllCourseBirdCourse() throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
-        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img from tbl_course JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
+        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_course.duration, tbl_courseImg.img from tbl_course JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
                 + "where tbl_course.category = 'bird training' and tbl_course.status='available'";
 
         try {
@@ -372,6 +372,7 @@ public class courseDAO implements Serializable {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getInt(7),
+                        rs.getInt(8),
                         base64Image);
                 list.add(course);
             }

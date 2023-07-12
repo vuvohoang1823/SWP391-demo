@@ -146,7 +146,7 @@
                                                         />
                                                     </svg>
                                                 </span>
-                                                <span>3 weeks</span>
+                                                <span>${birdcourse.duration} days</span>
                                             </div>
                                             <div style="display: inline">
                                                 <span style="color: #617a55">
