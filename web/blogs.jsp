@@ -49,14 +49,15 @@
                         ></button>
                 </div>
                 <div class="search-bar">
-<!--                    <form onsubmit="event.preventDefault();" role="search" action="SearchBlog" method="post">-->
+                    <!--                    <form onsubmit="event.preventDefault();" role="search" action="SearchBlog" method="post">-->
                     <form  action="SearchBlog" method="post">
                         <label for="search">Search for stuff</label>
                         <input
                             id="search"
                             type="search"
                             name="txtSearch"
-                            placeholder="Search for Blogs, User, Hashtags..."
+                            placeholder="Search for Blog by name"
+                            value="${requestScope.SearchValue}"
                             autofocus
                             required
                             />
@@ -161,9 +162,12 @@
             </div>
             <div class="blogs-container row">
                 <!-- start of card -->
-                <c:set var="seachValue" value="${sessionScope.BlogListSearch}"/>
+                <c:set var="seachValue" value="${requestScope.BlogListSearch}"/>
+                <c:set var="searchMessage" value="${requestScope.searchMessage}"/>
+
                 <c:set var="BlogListSearch" value="${blog.getLisofBlog('available')}"/>
-                <c:set var="listForm" value="${ empty seachValue ? BlogListSearch : seachValue}"/>
+                <c:set var="listForm" value="${ empty searchMessage ? BlogListSearch : seachValue}"/>
+                <div class="fs-1 text-center m-5 fw-bold"><c:out value="${searchMessage}" /></div>
                 <c:forEach var="card" items="${listForm}">
                     <div class="blog-container">
                         <img src="data:images/jpg;base64,${card.thumbnail}" draggable="false"/>

@@ -340,7 +340,7 @@ public class courseDAO implements Serializable {
     /*GET ALL BIRD COURSE*/
     public List<Course> getAllCourseBirdCourse() throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
-        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img from tbl_course JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
+        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_course.duration, tbl_courseImg.img from tbl_course JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
                 + "where tbl_course.category = 'bird training' and tbl_course.status='available'";
 
         try {
@@ -372,6 +372,7 @@ public class courseDAO implements Serializable {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getInt(7),
+                        rs.getInt(8),
                         base64Image);
                 list.add(course);
             }
@@ -1346,20 +1347,19 @@ public class courseDAO implements Serializable {
         }
     }
 
-    public void UpdateBirdCourse(int course_id, String content, String category, String title, int price, int duration) {
+    public void UpdateBirdCourse(int course_id, String content, String title, int price, int duration) {
 //        String sql = "Update tbl_course(course_id, trainer_id, staff_id, content, category, title, price, duration, end_enroll_date, start_date, status)"
-        String sql = "Update tbl_course set content=?, category=?, title=?, price=?, duration=?"
+        String sql = "Update tbl_course set content=?, title=?, price=?, duration=?"
                 + " where course_id= ?";
 
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, content);
-            ps.setString(2, category);
-            ps.setString(3, title);
-            ps.setInt(4, price);
-            ps.setInt(5, duration);
-            ps.setInt(6, course_id);
+            ps.setString(2, title);
+            ps.setInt(3, price);
+            ps.setInt(4, duration);
+            ps.setInt(5, course_id);
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

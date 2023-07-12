@@ -784,4 +784,41 @@ public class BookingDAO implements Serializable {
         return list;
     }
 
+    public List getHistoryByTrainerID(int trainer_id) throws SQLException {
+        List<BookingDTO> list = new ArrayList<>();
+        String sql = "SELECT c.fullname AS customer_fullname, cr.title AS course_title, cr.price, t.fullname AS trainer_fullname, b.bird_id, b.name AS bird_name, b.type AS bird_type, bo.status, bo.start_date, bo.end_date, bo.checkout_date\n"
+                + "FROM tbl_customer c \n"
+                + "INNER JOIN tbl_Booking bo ON c.customer_id = bo.customer_id\n"
+                + "INNER JOIN tbl_course cr ON bo.course_id = cr.course_id\n"
+                + "INNER JOIN tbl_trainer t ON bo.trainer_id = t.trainer_id\n"
+                + "INNER JOIN tbl_bird b ON bo.bird_id = b.bird_id\n"
+                + "WHERE bo.status = 'checkout' AND bo.trainer_id = ? ORDER BY bo.checkout_date DESC";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, trainer_id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                BookingDTO booking = new BookingDTO(rs.getString(4), rs.getString(2), rs.getInt(3), rs.getString(1), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(9), rs.getDate(10), rs.getString(8), rs.getDate(11));
+                list.add(booking);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+    }
+
 }

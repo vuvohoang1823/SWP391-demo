@@ -32,6 +32,7 @@
     font-weight: bolder;
 }
 .body-container .section-head .image-container {
+    position: relative;
     width: 267px;
     height: 267px;
     border-radius: 267px;
@@ -40,7 +41,29 @@
     align-items: center;
     justify-content: center;
 }
-
+.body-container .section-head .image-container .changePfpIcon {
+    position: absolute;
+    color: white;
+    opacity: 0;
+}
+.body-container .section-head .image-container:hover .changePfpIcon {
+    opacity: 100;
+    transition: opacity 0.25s ease-in-out;
+}
+.body-container .section-head .image-container:hover .showImg{
+    filter: brightness(0.5);
+    transition: filter 0.25s ease-in-out;
+}
+.body-container .section-head .image-container .imgInput {
+    position: absolute;
+    z-index: 1;
+    border-radius: 267px;
+    padding: 0;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
 .body-container .section-head .image-container img {
     width: 100%;
     height: auto;

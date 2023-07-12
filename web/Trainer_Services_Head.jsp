@@ -40,7 +40,7 @@
                                 <%= isPageActive(currentPage, "trainer_trackingBirdCourse.jsp")%>
                                 <%= isPageActive(currentPage, "trainer_birdCourse_completed.jsp")%>
                                 ">
-                                <a class="nav-link" href="trainer_trackingBirdCourse.jsp">Bird Course</a>
+                                <a class="nav-link" href="Trainer_Tracking">Bird Course</a>
                             </li>
                             <li class="nav-item
                                 <%= isPageActive(currentPage, "Trainer_PrivateConsultation_List.jsp")%>

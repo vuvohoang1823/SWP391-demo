@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : online_course_detail
     Created on : Jun 14, 2023, 8:40:43 PM
     Author     : vuvoh
@@ -18,18 +18,28 @@
         <%@ include file="header.jsp" %>
         <c:if test="${not empty sessionScope.online_course_detail}">
             <c:set var="detail" value="${sessionScope.online_course_detail}"/>
-        <section class="section-head">
-            <p>
-                COURSE INFORMATION
-            </p>
-            <p>
-                ${detail.title}
-            </p>
+            <section class="section-head" style="position: relative">
+                <p>
+                    COURSE INFORMATION
+                </p>
+                <p>
+                    ${detail.title}
+                </p>
+                <a href="<%= previousPage%>">
+                    <div style="
+                         z-index: 1;
+                         position: absolute;
+                         top: 6rem;
+                         left: 10rem;
+                         font-size: 2.5rem;
+                         color: white;
+                         ">
+                        &lt; Back
+                    </div>
+                </a>
+            </section>
 
 
-        </section>
-
-        
             <section class="section-body" style="background-color: #DDE6F1">
                 <div class="col-xl-5">
                     <div class="body-content-left">
@@ -167,98 +177,98 @@
                 </div>
                 <hr>
             </section>
-                        
-                        
+
+
             <section class="section-footer" style="background-color: #DDE6F1">
                 <p style="font-size: 3rem; font-weight: bolder;text-align: center;padding-bottom: 3rem">
                     MODULES FOR THIS COURSE
                 </p>
-                
+
                 <c:forEach var="module" items="${online_module}" varStatus="count">
-                <div class="module-container">
-                    <div class="content-left">
-                        <p style="font-weight: bolder; font-size: 3rem">
-                            Module ${count.index + 1}
-                        </p>
+                    <div class="module-container">
+                        <div class="content-left">
+                            <p style="font-weight: bolder; font-size: 3rem">
+                                Module ${count.index + 1}
+                            </p>
+                        </div>
+                        <div class="content-right">
+                            <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                                <!--Getting used to the training mode for the first time-->
+                                ${module.module_name}
+                            </p>
+                            <p style="font-size: 2rem">
+                                <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
+                                ${module.module_description}
+                            </p>
+                            <hr>
+                        </div>
                     </div>
-                    <div class="content-right">
-                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                            <!--Getting used to the training mode for the first time-->
-                            ${module.module_name}
-                        </p>
-                        <p style="font-size: 2rem">
-                            <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
-                            ${module.module_description}
-                        </p>
-                        <hr>
-                    </div>
-                </div>
                 </c:forEach>
-                
-<!--                <div class="module-container">
-                    <div class="content-left">
-                        <p style="font-weight: bolder; font-size: 3rem">
-                            Module 2
-                        </p>
-                    </div>
-                    <div class="content-right">
-                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                            Practice flying techniques
-                        </p>
-                        <p style="font-size: 2rem">
-                            In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.
-                        </p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="module-container">
-                    <div class="content-left">
-                        <p style="font-weight: bolder; font-size: 3rem">
-                            Module 3
-                        </p>
-                    </div>
-                    <div class="content-right">
-                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                            Outdoor Access
-                        </p>
-                        <p style="font-size: 2rem">
-                            In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.
-                        </p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="module-container">
-                    <div class="content-left">
-                        <p style="font-weight: bolder; font-size: 3rem">
-                            Module 4
-                        </p>
-                    </div>
-                    <div class="content-right">
-                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                            Strengthen the connection
-                        </p>
-                        <p style="font-size: 2rem">
-                            In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.
-                        </p>
-                        <hr>
-                    </div>
-                </div>
-                <div class="module-container">
-                    <div class="content-left">
-                        <p style="font-weight: bolder; font-size: 3rem">
-                            Module 5
-                        </p>
-                    </div>
-                    <div class="content-right">
-                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                            Check for safe behavior before you let go
-                        </p>
-                        <p style="font-size: 2rem">
-                            In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.
-                        </p>
-                        <hr>
-                    </div>
-                </div>-->
+
+                <!--                <div class="module-container">
+                                    <div class="content-left">
+                                        <p style="font-weight: bolder; font-size: 3rem">
+                                            Module 2
+                                        </p>
+                                    </div>
+                                    <div class="content-right">
+                                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                                            Practice flying techniques
+                                        </p>
+                                        <p style="font-size: 2rem">
+                                            In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.
+                                        </p>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="module-container">
+                                    <div class="content-left">
+                                        <p style="font-weight: bolder; font-size: 3rem">
+                                            Module 3
+                                        </p>
+                                    </div>
+                                    <div class="content-right">
+                                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                                            Outdoor Access
+                                        </p>
+                                        <p style="font-size: 2rem">
+                                            In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.
+                                        </p>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="module-container">
+                                    <div class="content-left">
+                                        <p style="font-weight: bolder; font-size: 3rem">
+                                            Module 4
+                                        </p>
+                                    </div>
+                                    <div class="content-right">
+                                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                                            Strengthen the connection
+                                        </p>
+                                        <p style="font-size: 2rem">
+                                            In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.
+                                        </p>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="module-container">
+                                    <div class="content-left">
+                                        <p style="font-weight: bolder; font-size: 3rem">
+                                            Module 5
+                                        </p>
+                                    </div>
+                                    <div class="content-right">
+                                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                                            Check for safe behavior before you let go
+                                        </p>
+                                        <p style="font-size: 2rem">
+                                            In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.
+                                        </p>
+                                        <hr>
+                                    </div>
+                                </div>-->
             </section>
             <p id="payment" style="font-size: 3rem;font-weight: bolder;padding:5rem 5rem;background-color: white">
                 SECURE CHECKOUT
@@ -278,24 +288,24 @@
                 <p style="font-size: 4rem;font-weight: bolder;margin-top: 4rem;margin-bottom: 4rem">
                     Express Checkout
                 </p>
-                
-                
+
+
                 <form action="MainController" method="POST">
-             
-                <input type="hidden" name="courseID" value=${detail.courseID} />
-                <input type="hidden" name="price" value=${detail.price} />
-                <input type="hidden" name="userID" value=${sessionScope.LOGIN_USER.customer_id} />
-                
-                <button class="vnpay" type="submit" name="action" value="payment_online_course">
-                    <a>
-                        <p>
-                            Continue with
-                        </p>
-                        <img src="img/vnpay.png">
-                    </a>
-                </button>
-                    
-                    </form>
+
+                    <input type="hidden" name="courseID" value=${detail.courseID} />
+                    <input type="hidden" name="price" value=${detail.price} />
+                    <input type="hidden" name="userID" value=${sessionScope.LOGIN_USER.customer_id} />
+
+                    <button class="vnpay" type="submit" name="action" value="payment_online_course">
+                        <a>
+                            <p>
+                                Continue with
+                            </p>
+                            <img src="img/vnpay.png">
+                        </a>
+                    </button>
+
+                </form>
             </div>
             <div class="col-xl-5">
                 <p style="font-size: 4rem;font-weight: bolder;margin-bottom: 4rem">

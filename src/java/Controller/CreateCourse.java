@@ -34,7 +34,6 @@ public class CreateCourse extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try {
             String title = request.getParameter("title");
-            String category = request.getParameter("selected-category");
             String content = request.getParameter("content");
             int price = Integer.parseInt(request.getParameter("price"));
             int duration = Integer.parseInt(request.getParameter("duration"));
@@ -46,7 +45,7 @@ public class CreateCourse extends HttpServlet {
 
             courseDAO courseDAO = new courseDAO();
             int course_id = courseDAO.generateCourseID();
-            courseDAO.createBirdCourse(course_id, content, category, title, price, duration);
+            courseDAO.createBirdCourse(course_id, content, "bird training", title, price, duration);
             int img_id = courseDAO.generateCourseImgID();
             courseDAO.createBirdCourseImg(img_id, course_id, thumbnailBase64);
         } finally {

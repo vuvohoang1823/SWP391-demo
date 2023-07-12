@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : Jun 14, 2023, 8:45:25 PM
     Author     : vuvoh
 */
@@ -52,6 +52,7 @@ hr{
     width: 50rem;
 }
 .section-body .col-xl-5 .body-content-left img{
+    object-fit: cover;
     width: 40rem;
     margin: 3.5rem 2rem;
 }
@@ -195,6 +196,7 @@ hr{
     flex-direction: row;
 }
 .form-container .col-xl-5 .payment-detail img{
+    object-fit: cover;
     width: 30rem;
     height: 40rem;
     margin: 4rem 4rem 4rem 2.5rem;

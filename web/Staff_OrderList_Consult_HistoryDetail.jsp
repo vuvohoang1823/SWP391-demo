@@ -54,31 +54,31 @@
                                 <span style="padding-left: 2rem">Order List</span>
                             </div>
                             <div class="navbar navbar-expand-lg navbar-light">
-                                <a href="<%= previousPage%>">
-                                <div style="
-                                     position: absolute;
-                                     top: 35%;
-                                     left: 5rem;
-                                     font-size: 1.5rem;
-                                     color: #617a55;
-                                     ">
-                                    &lt; Back
-                                </div>
-                            </a>
-                            <div class="container-fluid">
-                                <div class="" id="navbarSupportedContent">
-                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
-                                        </li>
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
-                                        </li>
-                                    </ul>
+                                <a href="Staff_OrderList_Consult_History.jsp">
+                                    <div style="
+                                         position: absolute;
+                                         top: 35%;
+                                         left: 5rem;
+                                         font-size: 1.5rem;
+                                         color: #617a55;
+                                         ">
+                                        &lt; Back
+                                    </div>
+                                </a>
+                                <div class="container-fluid">
+                                    <div class="" id="navbarSupportedContent">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
+                                            </li>
+                                            <li class="nav-item active">
+                                                <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
                     <c:if test="${not empty sessionScope.Appointment_Detail_History}">
                         <c:set var="detail" value="${sessionScope.Appointment_Detail_History}"/>
                         <c:set var="trainerID" value="${detail.request_trainer_id}"></c:set>
@@ -258,24 +258,24 @@
                 container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
             });
         </script>
-<!--        <script>
-            var duration = '${detail.duration}'; // Assuming the format is HH:mm:ss
+        <!--        <script>
+                    var duration = '${detail.duration}'; // Assuming the format is HH:mm:ss
 
-            var durationParts = duration.split(":");
-            var hours = parseInt(durationParts[0], 10);
-            var minutes = parseInt(durationParts[1], 10);
-            var seconds = parseInt(durationParts[2], 10);
+                    var durationParts = duration.split(":");
+                    var hours = parseInt(durationParts[0], 10);
+                    var minutes = parseInt(durationParts[1], 10);
+                    var seconds = parseInt(durationParts[2], 10);
 
-            hours += 2;
+                    hours += 2;
 
-            if (hours > 23) {
-                hours -= 24;
-            }
+                    if (hours > 23) {
+                        hours -= 24;
+                    }
 
-            var soonDuration = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
+                    var soonDuration = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
 
-            document.getElementById("formtitle").value = '${detail.date} - from ' + duration;
-        </script>-->
+                    document.getElementById("formtitle").value = '${detail.date} - from ' + duration;
+                </script>-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

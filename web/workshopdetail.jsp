@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : workshopdetail.jsp
     Created on : Jun 14, 2023, 10:08:28 PM
     Author     : vuvoh
@@ -17,9 +17,24 @@
     <body>
         <%@include file="header.jsp" %>
         <div class="body-header">
-            <p>
-                WORKSHOP INFORMATION
-            </p>
+            <div style="position: relative">
+                <p>
+                    WORKSHOP INFORMATION
+                </p>
+                <a href="<%= previousPage%>">
+                    <div style="
+                         z-index: 1;
+                         position: absolute;
+                         top: 5rem;
+                         left: 10rem;
+                         font-size: 2.5rem;
+                         color: white;
+                         ">
+                        &lt; Back
+                    </div>
+                </a>
+            </div>
+
             <c:if test="${not empty sessionScope.workshop_detail}">
                 <c:set var="detail" value="${sessionScope.workshop_detail}"/>
                 <section class="section-workshops">
@@ -38,14 +53,6 @@
                                         </div>
                                         <div class="col-md-9">
                                             <div class="card-body">
-
-
-
-
-
-
-
-
                                                 <h5 class="card-title">
                                                     ${detail.title}<br/>
                                                 </h5>
@@ -58,7 +65,7 @@
                                                     <br/>
                                                     <p>${detail.sub_content_4}</p>
                                                     <br/>
-                                                   
+
                                                 </div>
                                                 <div class="card-text">
                                                     <b>Starting date:</b> ${detail.start_date} <br />
@@ -127,23 +134,23 @@
             <p style="font-size: 4rem;font-weight: bolder;margin-top: 4rem;margin-bottom: 4rem">
                 Express Checkout
             </p>
-            
 
 
 
-<!--                <input type="hidden" name="courseID" value=/>
-                <input type="hidden" name="price" value= />
-                <input type="hidden" name="userID" value= />-->
 
-                <button  class="vnpay" >
-                    <a href="MainController?action=payment_workshop&courseID=${detail.courseID}&price=${detail.price}&userID=${sessionScope.LOGIN_USER.customer_id}">
-                        <p>
-                            Continue with
-                        </p>
-                        <img src="img/vnpay.png">
-                    </a>
-                </button>
-                
+            <!--                <input type="hidden" name="courseID" value=/>
+                            <input type="hidden" name="price" value= />
+                            <input type="hidden" name="userID" value= />-->
+
+            <button  class="vnpay" >
+                <a href="MainController?action=payment_workshop&courseID=${detail.courseID}&price=${detail.price}&userID=${sessionScope.LOGIN_USER.customer_id}">
+                    <p>
+                        Continue with
+                    </p>
+                    <img src="img/vnpay.png">
+                </a>
+            </button>
+
         </div>
         <div class="col-xl-5">
             <p style="font-size: 4rem;font-weight: bolder;margin-bottom: 4rem">

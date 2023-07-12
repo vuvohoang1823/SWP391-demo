@@ -22,7 +22,7 @@
             <c:set var="detail" value="${sessionScope.BLOG_DETAIL}"/>
             <div class="body-container">
                 <section class="section-head">
-                    <a href="<%= previousPage%>">
+                    <a href="blogs.jsp">
                         <div style="
                              z-index: 1;
                              position: absolute;

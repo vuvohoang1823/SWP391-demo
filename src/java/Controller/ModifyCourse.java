@@ -35,11 +35,6 @@ public class ModifyCourse extends HttpServlet {
         try {
             if (action.equals("update")) {
                 String title = request.getParameter("title");
-                String oldCategory = request.getParameter("category");
-                String category = request.getParameter("selected-category");
-                if (category == null) {
-                    category = oldCategory;
-                }
                 String content = request.getParameter("content");
                 int price = Integer.parseInt(request.getParameter("price"));
                 int duration = Integer.parseInt(request.getParameter("duration"));
@@ -49,7 +44,7 @@ public class ModifyCourse extends HttpServlet {
                 InputStream thumbnailinputStream = image.getInputStream();
                 String thumbnailBase64 = convertToBase64(thumbnailinputStream);
 
-                courseDAO.UpdateBirdCourse(course_id, content, category, title, price, duration);
+                courseDAO.UpdateBirdCourse(course_id, content, title, price, duration);
                 courseDAO.UpdateBirdCourseImg(course_id, thumbnailBase64);
 
             } else if (action.equals("delete")) {
@@ -59,7 +54,7 @@ public class ModifyCourse extends HttpServlet {
             }
 
         } finally {
-            RequestDispatcher rd = request.getRequestDispatcher("Staff_listCourse.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("Staff_Services_BirdCourse.jsp");
             rd.forward(request, response);
         }
     }

@@ -55,7 +55,7 @@
                             <span style="padding-left: 2rem">Form List</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="<%= previousPage%>">
+                            <a href="Staff_ConsultationForm_Processing.jsp">
                                 <div style="
                                      position: absolute;
                                      top: 35%;
@@ -271,24 +271,24 @@
                 priceHour.value = "$150/hour";
             }
         </script>
-<!--        <script>
-            var duration = '${detail.duration}'; // Assuming the format is HH:mm:ss
+        <!--        <script>
+                    var duration = '${detail.duration}'; // Assuming the format is HH:mm:ss
 
-            var durationParts = duration.split(":");
-            var hours = parseInt(durationParts[0], 10);
-            var minutes = parseInt(durationParts[1], 10);
-            var seconds = parseInt(durationParts[2], 10);
+                    var durationParts = duration.split(":");
+                    var hours = parseInt(durationParts[0], 10);
+                    var minutes = parseInt(durationParts[1], 10);
+                    var seconds = parseInt(durationParts[2], 10);
 
-            hours += 2;
+                    hours += 2;
 
-            if (hours > 23) {
-                hours -= 24;
-            }
+                    if (hours > 23) {
+                        hours -= 24;
+                    }
 
-            var soonDuration = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
+                    var soonDuration = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
 
-            document.getElementById("dateRequested").value = '${detail.date} - from ' + duration + ' to ' + soonDuration;
-        </script>-->
+                    document.getElementById("dateRequested").value = '${detail.date} - from ' + duration + ' to ' + soonDuration;
+                </script>-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

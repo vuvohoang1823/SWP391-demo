@@ -160,32 +160,6 @@
 
                                             <input type="hidden" id="role" name="role" value="${USER.role}">
                                         </div>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="mb-5">
-                                                    <label for="" class="form-label">Email</label>
-                                                    <input
-                                                        type="email"
-                                                        class="form-control"
-                                                        id=""
-                                                        value=""
-                                                        name="email"
-                                                        required/>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="mb-5">
-                                                    <!--                                                    <label for="" class="form-label">Avatar</label>
-                                                                                                        <input type="file" name="thumbnail" class="form-control"/><img src="data:images/jpg;base64,${course.image}" height="200px" width="300px" alt=""/>
-                                                                                                        <input type="hidden" name="img" value="${course.image}"/>-->
-                                                    <label for="contentIMG" class="form-label">Item image</label>
-                                                    <input type="file" id="contentIMG" name="contentIMG" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>
-                                                    <div class="img-container d-flex justify-content-center">
-                                                        <img class="showImg" src="data:images/jpg;base64," height="5px" width="50px" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="forms-footer">
                                             <button type="submit" name="action" value="cancel" class="btn btn-secondary decline" style="width: 40rem;margin: 4rem;">Cancel</button>
                                             <button type="submit" name="action" value="update" class="btn approve" style="width: 40rem;margin: 4rem;">Update account</button>

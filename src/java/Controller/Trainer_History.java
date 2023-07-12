@@ -5,15 +5,17 @@
  */
 package Controller;
 
-import DAO.BlogDAO;
-import entity.BlogDTO;
+import DAO.BookingDAO;
+import DAO.TrainerDAO;
+import entity.BookingDTO;
+import entity.TrainerSP;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,31 +27,28 @@ import javax.servlet.http.HttpSession;
  *
  * @author hoang
  */
-@WebServlet(name = "SearchBlog", urlPatterns = {"/SearchBlog"})
-public class SearchBlog extends HttpServlet {
+@WebServlet(name = "Trainer_History", urlPatterns = {"/Trainer_History"})
+public class Trainer_History extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        String txtSearch = request.getParameter("txtSearch");
-        BlogDAO dao = new BlogDAO();
-        List<BlogDTO> dto = new ArrayList<>();
-        dto = dao.SearchBlog(txtSearch);
-        if (null != dto) {
-            request.setAttribute("searchMessage", "Found " + dto.size() + " blog(s).");
+
+        TrainerSP user = (TrainerSP) request.getSession().getAttribute("LOGIN_USER");
+        TrainerDAO trainerDAO = new TrainerDAO();
+        int trainer_id = user.getTrainerID();
+        Logger logger = Logger.getLogger(getClass().getName());
+        logger.info("trainer id = " + trainer_id);
+
+        try {
+            BookingDAO bookingDAO = new BookingDAO();
+            List<BookingDTO> bookingDTO = bookingDAO.getHistoryByTrainerID(trainer_id);
+            HttpSession session = request.getSession(true);
+            session.setAttribute("BookingDTO", bookingDTO);
+        } finally {
+            RequestDispatcher rd = request.getRequestDispatcher("trainer_birdCourse_completed.jsp");
+            rd.forward(request, response);
         }
-        request.setAttribute("BlogListSearch", dto);
-        request.setAttribute("SearchValue", txtSearch);
-        request.getRequestDispatcher("blogs.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,9 +66,7 @@ public class SearchBlog extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(SearchBlog.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SearchBlog.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Trainer_History.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -87,9 +84,7 @@ public class SearchBlog extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(SearchBlog.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SearchBlog.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Trainer_History.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
