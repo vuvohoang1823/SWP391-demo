@@ -107,71 +107,13 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="categoryname" class="form-label">Category</label>
-                                                    <div class="input-group">
-                                                        <input
-                                                            id="category"
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder="Choose category"
-                                                            disabled
-                                                            />
-                                                        <input
-                                                            id="hiddenCategoryName"
-                                                            type="hidden" value=""
-                                                            />
-                                                        <button
-                                                            class="btn btn-primary"
-                                                            type="button"
-                                                            id="button-addon2"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#chooseCategory"
-                                                            >
-                                                            Select category
-                                                        </button>
-                                                        <div
-                                                            class="modal fade"
-                                                            id="chooseCategory"
-                                                            tabindex="-1"
-                                                            data-bs-backdrop="static"
-                                                            data-bs-keyboard="false"
-                                                            >
-                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h1 class="modal-title fs-5">Role</h1>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="category-list">
-                                                                            <div class="category-item">
-                                                                                <input class="category-input" type="radio" name="selected-category" value="bird training" id="cate_1" required>
-                                                                                <label for="cate_1">
-                                                                                    <span class="category-name">Bird training</span>
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="category-item">
-                                                                                <input class="category-input" type="radio" name="selected-category" value="workshop" id="cate_2">
-                                                                                <label for="cate_2">
-                                                                                    <span class="category-name">Workshop</span>
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="category-item">
-                                                                                <input class="category-input" type="radio" name="selected-category" value="online" id="cate_3">
-                                                                                <label for="cate_3">
-                                                                                    <span class="category-name">Online</span>
-                                                                                </label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-primary" id="" data-bs-dismiss="modal" onclick="saveCategory()">Save changes</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <label for="" class="form-label">Price</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id=""
+                                                        name="price"
+                                                        required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -189,19 +131,6 @@
                                                         required/>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="" class="form-label">Price</label>
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id=""
-                                                        name="price"
-                                                        required/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Content</label>

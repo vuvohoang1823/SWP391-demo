@@ -1347,20 +1347,19 @@ public class courseDAO implements Serializable {
         }
     }
 
-    public void UpdateBirdCourse(int course_id, String content, String category, String title, int price, int duration) {
+    public void UpdateBirdCourse(int course_id, String content, String title, int price, int duration) {
 //        String sql = "Update tbl_course(course_id, trainer_id, staff_id, content, category, title, price, duration, end_enroll_date, start_date, status)"
-        String sql = "Update tbl_course set content=?, category=?, title=?, price=?, duration=?"
+        String sql = "Update tbl_course set content=?, title=?, price=?, duration=?"
                 + " where course_id= ?";
 
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, content);
-            ps.setString(2, category);
-            ps.setString(3, title);
-            ps.setInt(4, price);
-            ps.setInt(5, duration);
-            ps.setInt(6, course_id);
+            ps.setString(2, title);
+            ps.setInt(3, price);
+            ps.setInt(4, duration);
+            ps.setInt(5, course_id);
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
