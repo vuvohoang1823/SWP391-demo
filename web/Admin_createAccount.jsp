@@ -207,14 +207,10 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-5">
-                                                    <!--                                                    <label for="" class="form-label">Avatar</label>
-                                                                                                        <input type="file" name="thumbnail" class="form-control"/><img src="data:images/jpg;base64,${course.image}" height="200px" width="300px" alt=""/>
-                                                                                                        <input type="hidden" name="img" value="${course.image}"/>-->
-                                                    <label for="contentIMG" class="form-label">Item image</label>
-                                                    <input type="file" id="contentIMG" name="contentIMG" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>
-                                                    <div class="img-container d-flex justify-content-center">
-                                                        <img class="showImg" src="data:images/jpg;base64," height="5px" width="50px" alt="">
-                                                    </div>
+                                                    <label for="" class="form-label">
+                                                        Avatar
+                                                    </label>
+                                                    <input type="file" id="thumbnail" name="thumbnail" class="form-control" accept="image/*" multiple>
                                                 </div>
                                             </div>
                                         </div>

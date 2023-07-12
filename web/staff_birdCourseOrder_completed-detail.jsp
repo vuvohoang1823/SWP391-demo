@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,7 +21,9 @@
             />
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/staff_birdCourseOrder_completed-detail.css" />
+        <link rel="stylesheet" href="css/staff_formBirdCourse_pending-detail.css" />
+        <link rel="stylesheet" href="css/orderList.css" type="text/css">
+
     </head>
     <body>
 
@@ -53,7 +57,7 @@
                                 fill="black"
                                 />
                             </svg>
-                            <span style="padding-left: 2rem">Order List</span>
+                            <span style="padding-left: 2rem">Form List</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
                             <a href="<%= previousPage%>">
@@ -71,13 +75,10 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item active">
-                                            <a class="nav-link " href="staff_birdCourseOrder_completed-detail.jsp">Bird Course</a>
+                                            <a class="nav-link " href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
                                         </li>
                                         <li class="nav-item ">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Private Consultant</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Contact Us</a>
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -89,12 +90,10 @@
                             <div class="forms-header">
                                 <div class="left-side"><b>Form Detail</b></div>
                                 <div class="right-side">
-                                    <span>Submitted: <b>${BookingInfo.create_date}</b></span>
-                                    <span><b>ID : #??</b></span>
-                                    <span>Status: In-training</span>
+                                    <span><b>ID : #${BookingInfo.birdID}</b></span>
                                 </div>
                             </div>
-                            <form action="SetTrainerToBooking" method="post">
+                            <form action="CheckOutBirdCourse" method="post">
                                 <input type="hidden" name="bird_id" value="${BookingInfo.birdID}">
                                 <div class="form-customerDetails">
                                     <div class="form-name">
@@ -108,7 +107,7 @@
                                                     type="text"
                                                     class="form-control"
                                                     id=""
-                                                    placeholder="Address"
+                                                    placeholder="Fullname"
                                                     value="${BookingInfo.customerName}"
                                                     disabled
                                                     />
@@ -122,7 +121,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         id=""
-                                                        placeholder="Full name"
+                                                        placeholder="Bird name"
                                                         value="${BookingInfo.nameBird}"
                                                         disabled
                                                         />
@@ -135,7 +134,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         id=""
-                                                        placeholder="Phone number"
+                                                        placeholder="Type "
                                                         value="${BookingInfo.typeBird}"
                                                         disabled
                                                         />
@@ -193,37 +192,105 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="trainername" class="form-label">Trainer requested</label>
-                                                    <div class="input-group">
-                                                        <input
-                                                            id="trainername"
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder="None"
-                                                            disabled
-                                                            />
-                                                        <!--only this gets submitted-->
-                                                        <input
-                                                            id="hiddenTrainerName"
-                                                            type="hidden"
-                                                            />
-                                                    </div>
+                                                    <label for="" class="form-label">Trainer assigned</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id=""
+                                                        placeholder="Bird Course Name"
+                                                        value="${BookingInfo.trainerName}"
+                                                        disabled
+                                                        />
                                                 </div>
                                             </div>
-
                                         </div>
-
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Start date</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id=""
+                                                        placeholder="N/A"
+                                                        value="${BookingInfo.start_date}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">End date</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id=""
+                                                        placeholder="N/A"
+                                                        value="${BookingInfo.end_date}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Checkout date</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id=""
+                                                        placeholder="N/A"
+                                                        value="${BookingInfo.checkout_date}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
                                 <div class="forms-footer">
-                                    <button type="submit" name="action" value="checkout" class="btn approve">Checkout form</button>
+                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            style="
+                                            font-size: 1.5rem;
+                                            border-radius: 5px;
+                                            background-color: white;
+                                            color: black;
+                                            padding: 1rem 2rem;
+                                            border: 2px solid;
+                                            height: 4rem;
+                                            width: 12rem;
+                                            ">
+                                        <b>Checkout</b>
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" style="width: 40rem;">
+                                            <div class="modal-content">
+                                                <div class="modal-header" style="background: #617255">
+                                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body" style="font-size: 2rem;">
+                                                    Complete this purchase?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="footer-item btn btn-secondary" name="action" value="deny"
+                                                            style="width: 10rem;font-size: 1.5rem; height: 3rem; color: white;">
+                                                        Cancel
+                                                    </button>
+                                                    <button type="submit" class="footer-item btn btn-primary" name="action" value="approve"
+                                                            style="width: 10rem;font-size: 1.5rem;height: 3rem; color: white;">
+                                                        Checkout
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                         </div>
 
                     </div>
                 </div>
-
                 </form>
             </div>
         </div>
@@ -269,3 +336,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
+
+

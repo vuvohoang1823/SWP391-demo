@@ -60,7 +60,7 @@ public class UpdateCourse extends HttpServlet {
             }
 
         } finally {
-            RequestDispatcher rd = request.getRequestDispatcher("Staff_listCourse.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("Staff_Services_BirdCourse.jsp");
             rd.forward(request, response);
         }
     }
