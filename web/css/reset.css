@@ -10,6 +10,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #dde6f1;
+    line-height: 1;
+    box-sizing: inherit;
 }
 
 code {
@@ -127,11 +129,6 @@ menu,
 nav,
 section {
     display: block;
-}
-
-body {
-    line-height: 1;
-    box-sizing: initial;
 }
 
 ol,

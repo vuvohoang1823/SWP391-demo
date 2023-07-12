@@ -239,6 +239,7 @@
         var headerWidth = document.getElementById('headerPage').offsetWidth;
         var container = document.getElementById('containerPage');
         container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+        container.style.boxSizing = 'border-box';
     });
 </script>
 <script>
