@@ -54,6 +54,33 @@ public class SearchFormConsultation extends HttpServlet {
             session.setAttribute("ListPending", dto);
             request.getRequestDispatcher("Staff_ConsultationForm_Pending.jsp").forward(request, response);
         } 
+        if(actionButton.equals("processing")){
+            FormApppointmentDAO dao = new FormApppointmentDAO();
+            List<AppointmentDDD> dto = new ArrayList<>();
+            dto = dao.SEARCHAppointmentFormProcessingbyCustomer(SeachValue);
+            HttpSession session = request.getSession(true);
+            
+            session.setAttribute("ListProcessing", dto);
+            request.getRequestDispatcher("Staff_ConsultationForm_Processing.jsp").forward(request, response);
+        } 
+        if(actionButton.equals("completed")){
+            FormApppointmentDAO dao = new FormApppointmentDAO();
+            List<AppointmentDDD> dto = new ArrayList<>();
+            dto = dao.SEARCHAppointmentFormCompltedbyCustomer(SeachValue);
+            HttpSession session = request.getSession(true);
+            
+            session.setAttribute("ListCompleted", dto);
+            request.getRequestDispatcher("Staff_OrderList_Consult_Completed.jsp").forward(request, response);
+        } 
+        if(actionButton.equals("history")){
+            FormApppointmentDAO dao = new FormApppointmentDAO();
+            List<AppointmentDDD> dto = new ArrayList<>();
+            dto = dao.SEARCHAppointmentFormHistorybyCustomer(SeachValue);
+            HttpSession session = request.getSession(true);
+            
+            session.setAttribute("LisHistory", dto);
+            request.getRequestDispatcher("Staff_OrderList_Consult_History.jsp").forward(request, response);
+        } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
