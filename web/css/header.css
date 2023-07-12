@@ -7,6 +7,9 @@ html {
 .customer {
     height: 13vh;
 }
+.customer * {
+    box-sizing: border-box !important;
+}
 .customer .active>a{
     color: #617A55 !important;
 }

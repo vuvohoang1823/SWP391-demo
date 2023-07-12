@@ -62,7 +62,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 2rem 0;">
-                            Currently showing 2 service(s)
+                            Currently showing 2 workshop(s)
                         </div>
                         <div class="workshops-container d-flex flex-column align-items-center">
                             <!--start workshop-->

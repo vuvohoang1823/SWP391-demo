@@ -51,7 +51,7 @@
                     <div class="container-fluid" style="padding: 0 2.5%">
                         <div class="forms-container">
                             <div class="forms-header">
-                                <div class="left-side"><b>Form Detail</b></div>
+                                <div class="left-side"><b>Course Detail</b></div>
                             </div>
                             <form action="UpdateCourse" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="course_id" value="${course.courseID}">

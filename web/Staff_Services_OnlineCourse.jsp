@@ -62,7 +62,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 2rem 0;">
-                            Currently showing 2 service(s)
+                            Currently showing 2 course(s)
                         </div>
                         <div class="blogs-container" style="flex-wrap: wrap">
                             <!-- start of card -->
@@ -121,7 +121,7 @@
                                     </div>
                                 </div>
                                 <div class="update">
-                                    <form action="UpdateBlogServlet" method="post" style="display: inline;">
+                                    <form action="" method="post" style="display: inline;">
                                         <input type="hidden" name="blogId" value="${card.blogid}" />
                                         <button class="update-button " type="submit" name="action" value="update">Update</button>
                                     </form>
@@ -149,7 +149,7 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>     
+                            </div>
                             <!-- end of card -->
                         </div>
                     </section>

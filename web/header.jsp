@@ -55,11 +55,14 @@
                             <ul class="menu-content">
                                 <li class="<%= isPageActive(currentPage, "homepage.jsp")%>"><a href="homepage.jsp">Home</a></li>
                                 <li class="<%= isPageActive(currentPage, "about_us.jsp")%>"><a href="about_us.jsp">About us</a></li>
-                                <li class="<%= isPageActive(currentPage, "workshop.jsp")%>
+                                <li class="
+                                    <%= isPageActive(currentPage, "workshop.jsp")%>
+                                    <%= isPageActive(currentPage, "workshopdetail.jsp")%>
                                     <%= isPageActive(currentPage, "private_consultation.jsp")%>
                                     <%= isPageActive(currentPage, "online_course.jsp")%>
                                     <%= isPageActive(currentPage, "onlinecoursedetail.jsp")%>
                                     <%= isPageActive(currentPage, "birdcourse.jsp")%>
+                                    <%= isPageActive(currentPage, "birdcoursedetail.jsp")%>
                                     ">
                                     <a href="#" class="subnav-toggle">
                                         Service
@@ -69,15 +72,26 @@
                                     </a>
                                     <div class="triangle"></div>
                                     <ul class="subnav">
-                                        <li class="subnav-content <%= isPageActive(currentPage, "workshop.jsp")%>"><a href="workshop.jsp">Workshops</a></li>
-                                        <li class="subnav-content <%= isPageActive(currentPage, "private_consultation.jsp")%>"><a href="private_consultation.jsp">Private Consultant</a></li>
+                                        <li class="subnav-content
+                                            <%= isPageActive(currentPage, "workshop.jsp")%>
+                                            <%= isPageActive(currentPage, "workshopdetail.jsp")%>
+                                            ">
+                                            <a href="workshop.jsp">Workshops</a></li>
+                                        <li class="subnav-content
+                                            <%= isPageActive(currentPage, "private_consultation.jsp")%>
+                                            ">
+                                            <a href="private_consultation.jsp">Private Consultant</a></li>
                                         <li class="subnav-content
                                             <%= isPageActive(currentPage, "online_course.jsp")%>
                                             <%= isPageActive(currentPage, "onlinecoursedetail.jsp")%>
                                             ">
                                             <a href="online_course.jsp">Online Course</a>
                                         </li>
-                                        <li class="subnav-content <%= isPageActive(currentPage, "birdcourse.jsp")%>"><a href="birdcourse.jsp">Bird Course</a></li>
+                                        <li class="subnav-content
+                                            <%= isPageActive(currentPage, "birdcourse.jsp")%>
+                                            <%= isPageActive(currentPage, "birdcoursedetail.jsp")%>
+                                            ">
+                                            <a href="birdcourse.jsp">Bird Course</a></li>
                                     </ul>
                                 </li>
                                 <li class="
@@ -390,9 +404,11 @@
                             <li class="nav-item py-2 py-sm-4
                                 <%= isPageActive(currentPage, "Staff_Services_OnlineCourse.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_Services_BirdCourse.jsp")%>
-                                <%= isPageActive(currentPage, "Staff_Services_Workshop.jsp")%>
-                                <%= isPageActive(currentPage, "Staff_Services_Workshop_Update.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_createCourse.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_updateCourse.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_Workshop.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_Workshop_Create.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_Workshop_Update.jsp")%>
                                 ">
                                 <a
                                     href="Staff_Services_BirdCourse.jsp"
@@ -543,9 +559,9 @@
                                     >
                                     <div class="d-flex align-items-center" style="margin: 3% 0;">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="30" fill="black" class="bi bi-person-vcard" viewBox="0 0 16 16">
-  <path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z"/>
-  <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z"/>
-</svg>
+                                        <path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z"/>
+                                        <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z"/>
+                                        </svg>
                                         <span class="fs-2 ms-3 d-none d-sm-inline">Account</span>
                                     </div>
                                 </a>
