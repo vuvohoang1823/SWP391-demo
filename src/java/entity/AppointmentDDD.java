@@ -53,7 +53,22 @@ public class AppointmentDDD implements Serializable {
     }
     
     
-    
+      public AppointmentDDD(String customer_id, String consultation_id, String customer_fullname, Date date, String note, String address, String type, String status, String request_trainer_id, Time duration, Date dateSubmit, int amount,String history) {
+        this.customer_id = customer_id;
+        this.consultation_id = consultation_id;
+        this.customer_fullname = customer_fullname;
+        this.date = date;
+        this.note = note;
+        this.address = address;
+        this.type = type;
+        this.status = status;
+        this.request_trainer_id = request_trainer_id;
+        this.duration = duration;
+        this.dateSubmit = dateSubmit;
+        this.amount = amount;
+        this.history = history;
+        
+    }
     
 
     public AppointmentDDD(String customer_id, String consultation_id, String customer_fullname, Date date, String note, String address, String type, String status, String request_trainer_id, Time duration, Date dateSubmit, int amount, String fullname, String gmail, String contact,String trackingcourse) {

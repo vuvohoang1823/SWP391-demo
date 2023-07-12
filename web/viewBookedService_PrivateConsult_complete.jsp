@@ -90,7 +90,7 @@
                                         <p><b>Total fee: </b>$${list.amount}</p>
                                     </div>
                                 </div>
-                                <%-- <c:if test="${list.history eq 'yes'}">--%>
+                                 <c:if test="${ empty list.history }"> 
                                 <form action="CustomerPaymentVNPAY" id="frmCreateOrder-${list.consultation_id}" method="post">
 
                                     <div>
@@ -116,7 +116,7 @@
                                     </button>
 
                                 </form>
-                                <%--  </c:if> --%>
+                                 </c:if> 
                             </div>
                         </div>
                     </c:forEach>
