@@ -62,7 +62,7 @@
                                     <%= isPageActive(currentPage, "online_course.jsp")%>
                                     <%= isPageActive(currentPage, "onlinecoursedetail.jsp")%>
                                     <%= isPageActive(currentPage, "birdcourse.jsp")%>
-                                    <%= isPageActive(currentPage, "birdcoursedetail.jsp")%>
+                                    <%= isPageActive(currentPage, "formBirdCourse.jsp")%>
                                     ">
                                     <a href="#" class="subnav-toggle">
                                         Service
@@ -89,7 +89,7 @@
                                         </li>
                                         <li class="subnav-content
                                             <%= isPageActive(currentPage, "birdcourse.jsp")%>
-                                            <%= isPageActive(currentPage, "birdcoursedetail.jsp")%>
+                                            <%= isPageActive(currentPage, "formBirdCourse.jsp")%>
                                             ">
                                             <a href="birdcourse.jsp">Bird Course</a></li>
                                     </ul>

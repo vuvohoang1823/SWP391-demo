@@ -40,47 +40,54 @@ public class SearchFormConsultation extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String actionButton = request.getParameter("action");
         String SeachValue = request.getParameter("txtSearch");
-        
-        
+
         Logger logger = Logger.getLogger(getClass().getName());
-         logger.info("action:" + actionButton);
-         logger.info("search valuye: "+SeachValue);
-        if(actionButton.equals("pending")){
+        logger.info("action:" + actionButton);
+        logger.info("search valuye: " + SeachValue);
+        if (actionButton.equals("pending")) {
             FormApppointmentDAO dao = new FormApppointmentDAO();
             List<AppointmentDDD> dto = new ArrayList<>();
             dto = dao.SEARCHAppointmentFormPendingbyCustomer(SeachValue);
-            HttpSession session = request.getSession(true);
-            
-            session.setAttribute("ListPending", dto);
+            if (null != dto) {
+                request.setAttribute("searchMessage", dto.size());
+            }
+            request.setAttribute("ListPending", dto);
+            request.setAttribute("SeachValue", SeachValue);
             request.getRequestDispatcher("Staff_ConsultationForm_Pending.jsp").forward(request, response);
-        } 
-        if(actionButton.equals("processing")){
+        }
+        if (actionButton.equals("processing")) {
             FormApppointmentDAO dao = new FormApppointmentDAO();
             List<AppointmentDDD> dto = new ArrayList<>();
             dto = dao.SEARCHAppointmentFormProcessingbyCustomer(SeachValue);
-            HttpSession session = request.getSession(true);
-            
-            session.setAttribute("ListProcessing", dto);
+            if (null != dto) {
+                request.setAttribute("searchMessage", dto.size());
+            }
+            request.setAttribute("ListProcessing", dto);
+            request.setAttribute("SeachValue", SeachValue);
             request.getRequestDispatcher("Staff_ConsultationForm_Processing.jsp").forward(request, response);
-        } 
-        if(actionButton.equals("completed")){
+        }
+        if (actionButton.equals("completed")) {
             FormApppointmentDAO dao = new FormApppointmentDAO();
             List<AppointmentDDD> dto = new ArrayList<>();
             dto = dao.SEARCHAppointmentFormCompltedbyCustomer(SeachValue);
-            HttpSession session = request.getSession(true);
-            
-            session.setAttribute("ListCompleted", dto);
+            if (null != dto) {
+                request.setAttribute("searchMessage", dto.size());
+            }
+            request.setAttribute("ListCompleted", dto);
+            request.setAttribute("SeachValue", SeachValue);
             request.getRequestDispatcher("Staff_OrderList_Consult_Completed.jsp").forward(request, response);
-        } 
-        if(actionButton.equals("history")){
+        }
+        if (actionButton.equals("history")) {
             FormApppointmentDAO dao = new FormApppointmentDAO();
             List<AppointmentDDD> dto = new ArrayList<>();
             dto = dao.SEARCHAppointmentFormHistorybyCustomer(SeachValue);
-            HttpSession session = request.getSession(true);
-            
-            session.setAttribute("LisHistory", dto);
+            if (null != dto) {
+                request.setAttribute("searchMessage", dto.size());
+            }
+            request.setAttribute("LisHistory", dto);
+            request.setAttribute("SeachValue", SeachValue);
             request.getRequestDispatcher("Staff_OrderList_Consult_History.jsp").forward(request, response);
-        } 
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

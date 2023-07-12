@@ -44,8 +44,11 @@ public class SearchBlog extends HttpServlet {
         BlogDAO dao = new BlogDAO();
         List<BlogDTO> dto = new ArrayList<>();
         dto = dao.SearchBlog(txtSearch);
-        HttpSession session = request.getSession(true);
-        session.setAttribute("BlogListSearch", dto);
+        if (null != dto) {
+            request.setAttribute("searchMessage", "Found " + dto.size() + " blog(s).");
+        }
+        request.setAttribute("BlogListSearch", dto);
+        request.setAttribute("SearchValue", txtSearch);
         request.getRequestDispatcher("blogs.jsp").forward(request, response);
     }
 

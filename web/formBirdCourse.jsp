@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : online_course_detail
     Created on : Jun 14, 2023, 8:40:43 PM
     Author     : vuvoh
@@ -17,13 +17,25 @@
     </head><body>
         <%@ include file="header.jsp" %>
 
-        <section class="section-head">
+        <section class="section-head" style="position: relative">
             <p>
                 COURSE INFORMATION
             </p>
             <p>
                 ${detail.title}
             </p>
+            <a href="<%= previousPage%>">
+                <div style="
+                     z-index: 1;
+                     position: absolute;
+                     top: 6rem;
+                     left: 10rem;
+                     font-size: 2.5rem;
+                     color: white;
+                     ">
+                    &lt; Back
+                </div>
+            </a>
         </section>
         <section class="section-body" style="background-color: #DDE6F1">
             <div class="col-xl-5">
@@ -201,7 +213,7 @@
             <div class="payment-detail">
                 <div class="detail-content">
                     <div class="col-xl">
-                        <img  src="data:images/jpg;base64,${detail.image}"> 
+                        <img  src="data:images/jpg;base64,${detail.image}">
                     </div>
                     <div class="col-xl detail">
                         <p>
@@ -272,28 +284,28 @@
         });
     </script>
     <script>
-                                                        // Get all question message elements
-                                                        var blogDescription = document.getElementsByClassName("blog-description");
+        // Get all question message elements
+        var blogDescription = document.getElementsByClassName("blog-description");
 
-                                                        // Loop through each question message element
-                                                        for (var i = 0; i < blogDescription.length; i++) {
-                                                            var description = blogDescription[i].textContent.trim();
+        // Loop through each question message element
+        for (var i = 0; i < blogDescription.length; i++) {
+            var description = blogDescription[i].textContent.trim();
 
-                                                            // Remove any leading or trailing spaces and invisible characters
-                                                            description = description.replace(/^\s+|\s+$/g, "");
+            // Remove any leading or trailing spaces and invisible characters
+            description = description.replace(/^\s+|\s+$/g, "");
 
-                                                            // Remove non-printable characters using regular expression
-                                                            description = description.replace(/[^ -~]+/g, "");
+            // Remove non-printable characters using regular expression
+            description = description.replace(/[^ -~]+/g, "");
 
-                                                            const descriptionLength = 500;
+            const descriptionLength = 500;
 
-                                                            // Check if the description length is greater than 10
-                                                            if (description.length > descriptionLength) {
-                                                                // Truncate the description and append "..."
-                                                                var truncatedMessage = description.substring(0, descriptionLength) + "...";
-                                                                blogDescription[i].textContent = truncatedMessage;
-                                                            }
-                                                        }
-                        </script>
+            // Check if the description length is greater than 10
+            if (description.length > descriptionLength) {
+                // Truncate the description and append "..."
+                var truncatedMessage = description.substring(0, descriptionLength) + "...";
+                blogDescription[i].textContent = truncatedMessage;
+            }
+        }
+    </script>
 </body>
 </html>

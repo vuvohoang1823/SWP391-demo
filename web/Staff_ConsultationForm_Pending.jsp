@@ -61,6 +61,7 @@
                                             id="trainername"
                                             type="search"
                                             name="txtSearch"
+                                            value="${requestScope.SeachValue}"
                                             class="form-control mr-sm-2"
                                             />
                                         <button
@@ -78,8 +79,13 @@
                                 </div>
                             </form>
                         </nav>
+                        <c:set var="searchMessage" value="${requestScope.searchMessage}"/>
+                        <c:set var="seachValue" value="${requestScope.ListPending}"/>
+
+                        <c:set var="ListPending" value="${f.appointmentFormPending}"/>
+                        <c:set var="listForm" value="${ empty searchMessage ? ListPending : seachValue}"/>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing <c:out value="${f.appointmentFormPending.size()}" /> pending form(s)
+                            Currently showing ${empty searchMessage ? ListPending.size() : seachValue.size()} pending form(s)
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -101,9 +107,6 @@
                                     </td>
                                 </tr>
                             </thead>
-                            <c:set var="seachValue" value="${sessionScope.ListPending}"/>
-                            <c:set var="ListPending" value="${f.appointmentFormPending}"/>
-                            <c:set var="listForm" value="${ empty seachValue ? ListPending : seachValue}"/>
                             <c:forEach items="${listForm}" var="b" varStatus="counter" >
                                 <c:set var="requestidd" value="${b.request_trainer_id}" />
                                 <c:set var="trainername" value="${not empty requestidd ? tr.getTrainerNameByRequestTrainerId(requestidd) : 'N/A'}" />
