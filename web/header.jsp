@@ -217,7 +217,6 @@
                                 <%= isPageActive(currentPage, "Trainer_PrivateConsultation_CompletedDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Trainer_Workshop_FormList.jsp")%>
                                 <%= isPageActive(currentPage, "Trainer_Workshop_Completed.jsp")%>
-                                <%= isPageActive(currentPage, "trainer_services_BirdCourse.jsp")%>
                                 ">
                                 <a
                                     href="Trainer_PrivateConsultation_List.jsp"
@@ -417,6 +416,8 @@
                             </li>
                             <li class="nav-item py-2 py-sm-4
                                 <%= isPageActive(currentPage, "Staff_Services_OnlineCourse.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_OnlineCourse_Create.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_OnlineCourse_Update.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_Services_BirdCourse.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_createCourse.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_updateCourse.jsp")%>
