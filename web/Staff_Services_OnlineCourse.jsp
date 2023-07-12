@@ -35,7 +35,7 @@
                     <section class="form-body">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <div class="update">
-                                <a href="Staff_AddBlog">
+                                <a href="Staff_Services_OnlineCourse_Create.jsp">
                                     <button class="create-button">Create new item</button>
                                 </a>
                             </div>
@@ -121,7 +121,7 @@
                                     </div>
                                 </div>
                                 <div class="update">
-                                    <form action="" method="post" style="display: inline;">
+                                    <form action="Staff_Services_OnlineCourse_Update.jsp" method="post" style="display: inline;">
                                         <input type="hidden" name="blogId" value="${card.blogid}" />
                                         <button class="update-button " type="submit" name="action" value="update">Update</button>
                                     </form>

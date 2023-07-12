@@ -43,7 +43,7 @@
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <form class="form-inline my-2 my-lg-0">
+                            <form class="form-inline my-2 my-lg-0" action="SearchFormConsultation" method="post">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active">
@@ -60,11 +60,14 @@
                                         <input
                                             id="trainername"
                                             type="search"
+                                            name="txtSearch"
                                             class="form-control mr-sm-2"
                                             />
                                         <button
                                             class="btn btn-light"
                                             type="submit"
+                                            name="action"
+                                            value="pending"
                                             id="button-addon2"
                                             >
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -98,7 +101,10 @@
                                     </td>
                                 </tr>
                             </thead>
-                            <c:forEach items="${f.appointmentFormPending}" var="b" varStatus="counter" >
+                            <c:set var="seachValue" value="${sessionScope.ListPending}"/>
+                            <c:set var="ListPending" value="${f.appointmentFormPending}"/>
+                            <c:set var="listForm" value="${ empty seachValue ? ListPending : seachValue}"/>
+                            <c:forEach items="${listForm}" var="b" varStatus="counter" >
                                 <c:set var="requestidd" value="${b.request_trainer_id}" />
                                 <c:set var="trainername" value="${not empty requestidd ? tr.getTrainerNameByRequestTrainerId(requestidd) : 'N/A'}" />
 
