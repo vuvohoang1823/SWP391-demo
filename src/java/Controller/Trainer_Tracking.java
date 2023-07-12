@@ -24,6 +24,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -44,7 +45,8 @@ public class Trainer_Tracking extends HttpServlet {
             BookingDAO bookingDAO = new BookingDAO();
             BookingDTO bookingDTO = bookingDAO.getCourseByTrainerID(trainer_id);
 
-            request.setAttribute("BookingDTO", bookingDTO);
+            HttpSession session = request.getSession(true);
+            session.setAttribute("BookingDTO", bookingDTO);
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher("trainer_trackingBirdCourse.jsp");
             rd.forward(request, response);

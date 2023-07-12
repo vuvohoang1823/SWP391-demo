@@ -197,7 +197,7 @@
                                 </button>
                                 <div class="dropdown-menu" style="background-color: rgba(0,0,0,0); border: 0;">
                                     <ul class="subnav">
-                                        <a class="dropdown-item" href="#"><li>View Profile</li></a>
+                                        <!--<a class="dropdown-item" href="#"><li>View Profile</li></a>-->
                                         <a class="dropdown-item" href="LogoutController" style="text-decoration: none">
                                             <li>Logout</li>
                                         </a>
@@ -306,9 +306,7 @@
                                 </button>
                                 <div class="dropdown-menu" style="background-color: rgba(0,0,0,0); border: 0;">
                                     <ul class="subnav">
-                                        <a class="dropdown-item" href="#">
-                                            <li>View Profile</li>
-                                        </a>
+                                        <!--<a class="dropdown-item" href="#"><li>View Profile</li> </a>-->
                                         <a class="dropdown-item" href="LogoutController" style="text-decoration: none">
                                             <li>Logout</li>
                                         </a>
@@ -560,9 +558,7 @@
                                 </button>
                                 <div class="dropdown-menu" style="background-color: rgba(0,0,0,0); border: 0;">
                                     <ul class="subnav">
-                                        <a class="dropdown-item" href="#">
-                                            <li>View Profile</li>
-                                        </a>
+                                        <!--<a class="dropdown-item" href="#"><li>View Profile</li></a>-->
                                         <a class="dropdown-item" href="LogoutController" style="text-decoration: none">
                                             <li>Logout</li>
                                         </a>

@@ -90,33 +90,33 @@
                                         <p><b>Total fee: </b>$${list.amount}</p>
                                     </div>
                                 </div>
-                                 <c:if test="${ empty list.history }"> 
-                                <form action="CustomerPaymentVNPAY" id="frmCreateOrder-${list.consultation_id}" method="post">
+                                <c:if test="${ empty list.history }">
+                                    <form action="CustomerPaymentVNPAY" id="frmCreateOrder-${list.consultation_id}" method="post">
 
-                                    <div>
-                                        <input  value="${list.amount}000" class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="hidden"  />
-                                    </div>
-                                    <!--- phuong thuc thanh toan---->
-                                    <input type="hidden"  id="bankCode" name="bankCode" value="">
-                                    <!--- phuong thuc thanh toan---->
-                                    <!-- language--->
-                                    <div>
-                                        <input type="hidden" id="language"  name="language" value="vn">
-                                    </div>
-                                    <!-- language--->
+                                        <div>
+                                            <input  value="${list.amount}000" class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="hidden"  />
+                                        </div>
+                                        <!--- phuong thuc thanh toan---->
+                                        <input type="hidden"  id="bankCode" name="bankCode" value="">
+                                        <!--- phuong thuc thanh toan---->
+                                        <!-- language--->
+                                        <div>
+                                            <input type="hidden" id="language"  name="language" value="vn">
+                                        </div>
+                                        <!-- language--->
 
-                                    <button class="vnpay" class="btn btn-default" type="submit" >
+                                        <button class="vnpay" class="btn btn-default" type="submit" >
 
-                                        <a>
-                                            <p>
-                                                Continue with VNPAY
-                                            </p>
+                                            <a>
+                                                <p>
+                                                    Continue with VNPAY
+                                                </p>
 
-                                        </a>
-                                    </button>
+                                            </a>
+                                        </button>
 
-                                </form>
-                                 </c:if> 
+                                    </form>
+                                </c:if>
                             </div>
                         </div>
                     </c:forEach>

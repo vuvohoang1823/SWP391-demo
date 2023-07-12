@@ -126,7 +126,7 @@
 .form-body .table-form .type .offline {
     background: #FA5943;
 }
-.form-body .table-form .type .viewDetail {
+.form-body .table-form .viewDetail {
     font-size: 1.5rem;
     border-radius: 5px;
     background-color: white;
@@ -208,7 +208,7 @@
     font-size: 3rem;
     font-weight: bolder;
     text-decoration: none;
-    
+
 }*/
 .section-body .section-body-content .col-lg-5 .button2 {
     height: 5.8rem;
@@ -242,7 +242,7 @@
 }
 .section-body .section-body-content .col-lg-5 .modal .modalbody input{
     margin-left: 2rem;
-    transform: scale(2); 
+    transform: scale(2);
 }
 .section-body .section-body-content .col-lg-5 .modal .modalbody label{
     font-size: 2rem;
