@@ -25,16 +25,18 @@
         <div class="body-container">
             <section class="section-head">
                 <div class="desc-container">
-                    <h2>ONLINE COURSE</h2>
-                    <h1>Unlock Your Potential as a Skilled and Inspiring Trainer</h1>
-                    <p>
-                        Our online course on becoming a trainer is designed to empower
-                        individuals like you to embark on a journey of professional growth
-                        and fulfillment. Whether you aspire to train in corporate settings,
-                        educational institutions, or any other field, this comprehensive
-                        course will equip you with the essential skills and knowledge to
-                        excel as a trainer.
-                    </p>
+                    <div style="height: 83%; overflow-y: hidden">
+                        <h2>ONLINE COURSE</h2>
+                        <h1>Unlock Your Potential as a Skilled and Inspiring Trainer</h1>
+                        <p>
+                            Our online course on becoming a trainer is designed to empower
+                            individuals like you to embark on a journey of professional growth
+                            and fulfillment. Whether you aspire to train in corporate settings,
+                            educational institutions, or any other field, this comprehensive
+                            course will equip you with the essential skills and knowledge to
+                            excel as a trainer.
+                        </p>
+                    </div>
                     <div class="button-container">
                         <button>Explore Course</button>
                     </div>
