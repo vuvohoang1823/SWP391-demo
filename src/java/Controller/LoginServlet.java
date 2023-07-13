@@ -100,7 +100,7 @@ public class LoginServlet extends HttpServlet {
 
                 //store cookie dung de remember password
                 Cookie cookie = new Cookie(username, password);
-                cookie.setMaxAge(60 * 5);
+                cookie.setMaxAge(60*5);
                 response.addCookie(cookie);
             } else {
                 request.setAttribute("loginAccStatus", "fail");
