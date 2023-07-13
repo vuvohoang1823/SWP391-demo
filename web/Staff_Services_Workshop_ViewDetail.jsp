@@ -72,169 +72,164 @@
                     <div class="container-fluid" style="padding: 0 2.5%">
                         <div class="forms-container">
                             <div class="forms-header">
-                                <div class="left-side"><b>Create New Item</b></div>
+                                <div class="left-side"><b>Update Item</b></div>
                                 <div class="right-side">
                                     <span><b>ID : #1</b></span>
                                 </div>
                             </div>
-                            
-                            
-                            <form action="Staff_CreateNewWorkshopServlet" method="POST" enctype="multipart/form-data">
-                                
+                            <c:set var="workshop" value="${sessionScope.staff_workshop_detail}"/>
+                            <form action="Staff_Services_Workshop_Update.jsp" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" value="${workshop.courseID}" name="courseID"/>
                                 <div class="form-formDetails">
                                     <div class="form-body">
-                                        
                                         <div class="row">
-                                            <!--Image-->
                                             <div class="col-lg-5 mb-5">
-                                                <label for="contentIMG" class="form-label">*Item image</label>
-                                                <input type="file" id="contentIMG" name="workshop_image" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>
+<!--                                                <label for="contentIMG" class="form-label">*Item image</label>
+                                                <input type="file" id="contentIMG" name="contentIMG" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>-->
                                                 <div class="img-container d-flex justify-content-center">
-                                                    <img class="showImg" src="" height="50px" width="50px" alt="">
+                                                    <img class="showImg" src="data:images/jpg;base64,${workshop.image}" height="50px" width="50px" alt="">
                                                 </div>
                                             </div>
-                                                
-                                                
                                             <div class="col-lg-7 row">
-                                                
-                                                <!--Price-->
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
                                                         <label for="title" class="form-label">*Item price</label>
-                                                        <input
+<!--                                                        <input
                                                             type="text"
                                                             class="form-control"
                                                             id="title"
                                                             name="price"
                                                             placeholder="Enter title"
-                                                            value=""
+                                                            value="{workshop.price}"
                                                             required
-                                                            />
+                                                            />-->
+                                                            <input type="text" name="price" value="${workshop.price}" class="form-control" placeholder="Enter title" >
                                                     </div>
                                                 </div>
-                                                            
-                                                 <!--Course ID:-->           
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
                                                         <label for="title" class="form-label">*Item id</label>
-                                                        <input
+<!--                                                        <input
                                                             type="text"
                                                             class="form-control"
                                                             id="title"
                                                             name="courseID"
                                                             placeholder="Enter title"
-                                                            value=""
+                                                            value="{workshop.courseID}"
                                                             required
-                                                            />
+                                                            />-->
+                                                            <input type="text" name="courseID" value="${workshop.courseID}" class="form-control" placeholder="Enter title" >  
                                                     </div>
                                                 </div>
-                                                 
-                                                 <!--title-->
                                                 <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Item title</label>
-                                                        <textarea id="briefinfo"
+<!--                                                        <textarea id="briefinfo"
                                                                   name="title"
                                                                   class="form-control long-input"
                                                                   placeholder="Enter brief info"
                                                                   required
-                                                                  ></textarea>
+                                                                  >{workshop.title}</textarea>-->
+                                                                  <input type="text" name="title" class="form-control long-input" value="${workshop.title}" class="form-control" placeholder="Enter title" >
                                                     </div>
                                                 </div>
-                                                    
-                                                 <!--Content-->   
                                                 <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Item description</label>
-                                                        <textarea id="briefinfo"
+<!--                                                        <textarea id="briefinfo"
                                                                   name="content"
                                                                   class="form-control long-input"
                                                                   placeholder="Enter brief info"
                                                                   required
-                                                                  ></textarea>
+                                                                  >{workshop.content}</textarea>-->
+                                                                  <textarea class="form-control long-input" name="content" placeholder="Enter introduction" required>${workshop.content}</textarea>
                                                     </div>
                                                 </div>
-                                                 
-                                                 <!--sub_content_1-->
-                                                 <div class="col-lg-12">
+                                                    
+                                                    <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 1</label>
-                                                        <textarea id="briefinfo"
-                                                                  name="sub_content_1"
+<!--                                                        <textarea id="briefinfo"
+                                                                  name="content"
                                                                   class="form-control long-input"
                                                                   placeholder="Enter brief info"
                                                                   required
-                                                                  ></textarea>
+                                                                  >{workshop.content}</textarea>-->
+                                                                  <textarea class="form-control long-input" name="sub_content_1" placeholder="Enter introduction" required>${workshop.sub_content_1}</textarea>
                                                     </div>
                                                 </div>
-                                                 
-                                                 
-                                                 <!--sub_content_2-->
-                                                 <div class="col-lg-12">
+                                                    
+                                                    <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 2</label>
-                                                        <textarea id="briefinfo"
-                                                                  name="sub_content_2"
+<!--                                                        <textarea id="briefinfo"
+                                                                  name="content"
                                                                   class="form-control long-input"
                                                                   placeholder="Enter brief info"
                                                                   required
-                                                                  ></textarea>
+                                                                  >{workshop.content}</textarea>-->
+                                                                  <textarea class="form-control long-input" name="sub_content_2" placeholder="Enter introduction" required>${workshop.sub_content_2}</textarea>
                                                     </div>
                                                 </div>
-                                                 
-                                                 <!--sub_content_3-->
-                                                 <div class="col-lg-12">
+                                                    
+                                                    <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 3</label>
-                                                        <textarea id="briefinfo"
-                                                                  name="sub_content_3"
+<!--                                                        <textarea id="briefinfo"
+                                                                  name="content"
                                                                   class="form-control long-input"
                                                                   placeholder="Enter brief info"
                                                                   required
-                                                                  ></textarea>
+                                                                  >{workshop.content}</textarea>-->
+                                                                  <textarea class="form-control long-input" name="sub_content_3" placeholder="Enter introduction" required>${workshop.sub_content_3}</textarea>
                                                     </div>
                                                 </div>
-                                                 
-                                                 <!--sub_content_4-->
-                                                 <div class="col-lg-12">
+                                                    
+                                                    <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 4</label>
-                                                        <textarea id="briefinfo"
-                                                                  name="sub_content_4"
+<!--                                                        <textarea id="briefinfo"
+                                                                  name="content"
                                                                   class="form-control long-input"
                                                                   placeholder="Enter brief info"
                                                                   required
-                                                                  ></textarea>
+                                                                  >{workshop.content}</textarea>-->
+                                                                  <textarea class="form-control long-input" name="sub_content_4" placeholder="Enter introduction" required>${workshop.sub_content_4}</textarea>
                                                     </div>
                                                 </div>
-                                                 
+                                                    
                                             </div>
                                         </div>
-                                        
-                                        
                                         <div class="row">
-                                            
-                                            <!--end_enroll_date-->
                                             <div class="col-lg-3">
                                                 <div class="mb-5">
                                                     <div class="mb-5">
                                                         <label for="date" class="form-label">*Close registration date</label>
-                                                        <input type="date" id="date" name="end_enroll_date"  value="" class="form-control" required>
+                                                        <!--<input type="date" id="date" name="end_enroll_date"  value="{workshop.end_enroll_date}"class="form-control" required>-->
+                                                        <input type="date" name="end_enroll_date" value="${workshop.end_enroll_date}" class="form-control" required>
                                                     </div>
                                                 </div>
                                             </div>
-                                                    
-                                            <!--start_date-->        
                                             <div class="col-lg-3">
                                                 <div class="mb-5">
                                                     <div class="mb-5">
                                                         <label for="date" class="form-label">*Starting date</label>
-                                                        <input type="date" id="date" name="start_date"  value="" class="form-control" required>
+                                                        <!--<input type="date" id="date" name="start_date"  value="{workshop.start_date}"class="form-control" required>-->
+                                                        <input type="date" name="start_date" value="${workshop.start_date}" class="form-control" required>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!--                                            <div class="col-lg-3">
+                                                                                            <div class="mb-5">
+                                                                                                <div class="mb-5">
+                                                                                                    <label for="date" class="form-label">*Starting time</label>
+                                                                                                    <input type="date" id="date" name="date"  value="{detail.date}"class="form-control" required>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>-->
+                                        </div>
+                                        <div class="row mb-5">
                                             
-                                            <!--trainerID-->
                                             <div class="col-lg-3 mb-5">
                                                 <label for="title" class="form-label">*Trainer ID</label>
                                                 <input
@@ -243,22 +238,22 @@
                                                     id="title"
                                                     name="trainerID"
                                                     placeholder="Enter title"
-                                                    value="${detail.title}"
+                                                    value="${workshop.trainerID}"
                                                     required
                                                     />
-                                            </div>        
-                                                    
+                                            </div>
                                         </div>
-                                            
                                     </div>
                                 </div>
+                                <input type="hidden" name="staffID" value="${workshop.staffID}" />
+                                <input type="hidden" name="category" value="${workshop.category}" />
                                 <div class="forms-footer">
                                     <div>
-                                        <button type="submit" name="action" value="update" class="btn create">Create</button>
+                                        <button type="submit" name="action" value="update" class="btn update">Edit</button>
                                     </div>
-                                    <div>
+<!--                                    <div>
                                         <button type="submit" name="action" value="update" class="btn close">Cancel</button>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </form>
                         </div>

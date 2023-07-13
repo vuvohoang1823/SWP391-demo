@@ -74,9 +74,9 @@
                             <div class="forms-header">
                                 <div class="left-side"><b>Modify Account</b></div>
                             </div>
-                            <form action="UpdateAccount" method="POST">
-                                <input type="hidden" name="user_id" value="${USER.user_id}">
+                            <form action="UpdateAccount" method="POST">    
                                 <div class="form-customerDetails">
+                                    <input type="hidden" name="user_id" value="${USER.user_id}">
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-lg-6">

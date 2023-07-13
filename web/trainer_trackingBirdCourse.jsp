@@ -149,7 +149,7 @@
 
                                                         <input type="hidden" name="bird_id" value="${BookingDTO.birdID}">
                                                         <div>
-                                                            <input type="radio" name="status" value="checkin" id="status" checked disabled>
+                                                            <input type="radio" name="status" value="checkin" id="status">
                                                             <label for="status">
                                                                 <span style="color: #FA5943">Check-In</span>
                                                             </label>

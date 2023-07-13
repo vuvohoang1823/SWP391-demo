@@ -22,11 +22,12 @@
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Staff_Services_Workshop.css" />
-    </head>
-    <body>
-        <div class="container-fluid">
-            <div class="row flex-nowrap">
-                <!--            header-->
+        <jsp:useBean id="i" class="DAO.courseDAO" scope="request"></jsp:useBean>
+        </head>
+        <body>
+            <div class="container-fluid">
+                <div class="row flex-nowrap">
+                    <!--            header-->
 
                 <%@ include file="header.jsp" %>
 
@@ -62,65 +63,77 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 2rem 0;">
-                            Currently showing 2 workshop(s)
+                            <!--Currently showing 2 service(s)-->
                         </div>
                         <div class="workshops-container d-flex flex-column align-items-center">
                             <!--start workshop-->
-                            <div class="workshop-container bg-white row mb-5">
-                                <div class="img-container col-lg-3">
-                                    <img src="img/bluebirdgirl.png"/>
-                                </div>
-                                <div class="desc-container col-lg-9">
-                                    <div class="title mb-3">
-                                        Advanced Recall Techniques: Developing Reliable Flight Responses
+                            <c:forEach items="${i.allCourseWorkshop}" var="workshop" >
+                                <div class="workshop-container bg-white row mb-5">
+                                    <div class="img-container col-lg-3">
+                                        <img src="data:images/jpg;base64,${workshop.image}"/>
                                     </div>
-                                    <div class="description mb-3">
-                                        This hands-on course is designed to help bird owners develop a harmonious bond with their avian companions by exploring the fascinating world of whistle training. Whether you have a parrot, cockatiel, or canary, this workshop offers a unique opportunity to tap into their natural vocal abilities and unlock a whole new level of communication.
-                                    </div>
-                                    <div class="time-location mb-3">
-                                        <b>Starting date:</b> May 25, 2023 <br>
-                                        <b>Time:</b> 2:00 PM - 4:00 PM <br>
-                                        <b>Location/Venue:</b> Central Community Center <br>
-                                        <b>Target Audience:</b> Bird owners of all experience levels
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center" style="margin-top: 2rem">
-                                        <div class="price">£120.00</div>
-                                        <div class="close-date">
-                                            <div>Close registration</div>
-                                            <div class="date">12/07/2023</div>
+                                    <div class="desc-container col-lg-9">
+                                        <div class="title mb-3">
+                                            ${workshop.title}
+                                        </div>
+                                        <div class="description mb-3">
+                                            ${workshop.content}
+                                        </div>
+                                        <div class="time-location mb-3">
+                                            <b>Starting date:</b> ${workshop.start_date} <br>
+                                            <b>Time:</b> 2:00 PM - 4:00 PM <br>
+                                            <b>Location/Venue:</b> Central Community Center <br>
+                                            <b>Target Audience:</b> Bird owners of all experience levels
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center" style="margin-top: 2rem">
+                                            <div class="price">£${workshop.price}</div>
+                                            <div class="close-date">
+                                                <div>Close registration</div>
+                                                <div class="date">${workshop.end_enroll_date}</div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="update">
-                                    <form action="Staff_Services_Workshop_Update.jsp" method="post" style="display: inline;">
-                                        <input type="hidden" name="blogId" value="${card.blogid}" />
-                                        <button class="update-button " type="submit" name="action" value="update">Update</button>
-                                    </form>
-                                </div>
-                                <div class="delete">
-                                    <form class="deleteForm" action="" method="post" style="display: inline;">
-                                        <input type="hidden" name="blogId" value="${card.blogid}" />
-                                        <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${card.blogid}">Delete</button>
-                                        <div class="modal fade" id="confirmDelete-${card.blogid}" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title" style="font-size: 3rem">Delete</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body fs-2">
-                                                        Do you want to delete this workshop?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" name="action" value="delete" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
+                                    <div class="update">
+                                        <form action="Staff_ViewWorkshopDetailServlet" method="post" style="display: inline;">
+                                            <input type="hidden" name="courseID" value="${workshop.courseID}" />
+                                            <button class="update-button " type="submit" name="action" value="update">Update</button>
+                                        </form>
+                                    </div>
+
+
+                                    <div class="delete">
+                                        <form action="Staff_DeleteWorkshopServlet" method="post" style="display: inline;">
+                                            <input type="hidden" name="courseID" value="${workshop.courseID}" />
+                                            <button class="update-button " type="submit" name="action" value="update">Delete</button>
+                                        </form>
+                                    </div>
+                                         <%--   
+                                    <div class="delete">
+                                        <form class="Staff_DeleteWorkshopServlet" action="" method="post" style="display: inline;">
+                                            <input type="hidden" name="courseID" value="${workshop.courseID}" />
+                                            <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${workshop.courseID}">Delete</button>
+                                            <div class="modal fade" id="confirmDelete-${workshop.courseID}" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title" style="font-size: 3rem">Delete</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body fs-2">
+                                                            Do you want to delete this workshop?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" name="action" value="delete" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
+                                                --%>
                                 </div>
-                            </div>
+                            </c:forEach>
                             <!--end workshop-->
                         </div>
                     </section>
