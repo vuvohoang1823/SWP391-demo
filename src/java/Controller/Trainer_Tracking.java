@@ -30,7 +30,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author hoang
  */
-@WebServlet(name = "Trainer_Tracking", urlPatterns = {"/Trainer_Tracking"})
+@WebServlet(name = "Trainer_Tracking", urlPatterns = { "/Trainer_Tracking" })
 public class Trainer_Tracking extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -45,7 +45,7 @@ public class Trainer_Tracking extends HttpServlet {
             BookingDAO bookingDAO = new BookingDAO();
             BookingDTO bookingDTO = bookingDAO.getCourseByTrainerID(trainer_id);
 
-//            request.setAttribute("BookingDTO", bookingDTO);
+            // request.setAttribute("BookingDTO", bookingDTO);
             HttpSession session = request.getSession(true);
             session.setAttribute("BookingDTO", bookingDTO);
 
@@ -55,14 +55,15 @@ public class Trainer_Tracking extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
+    // + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -81,10 +82,10 @@ public class Trainer_Tracking extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

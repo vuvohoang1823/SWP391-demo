@@ -60,7 +60,7 @@
                         </div>
                     </section>
                     <section class="form-body">
-                        <div class="title">
+                        <div class="title-head">
                             Revenue for this month
                         </div>
                         <div class="section-head">
@@ -109,7 +109,7 @@
                         <div style="height: 480px;overflow-y: hidden;margin-left: 3rem;">
                             <div id="chartContainer" style="height: 492px; width: 98%;background: #617255; border-radius: 20px;"></div>
                         </div>
-                        <div class="title">
+                        <div class="title-head">
                             Service overall
                         </div>
                         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -154,7 +154,7 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="stat_content">
+                                                <div class="stat_content" style="margin-left: 30rem">
                                                     <span>
                                                         Total Bird Courses
                                                     </span>
@@ -162,7 +162,7 @@
                                                         20
                                                     </span>
                                                 </div>
-                                                <div class="stat_content">
+                                                <div class="stat_content" style="margin-left: 30rem">
                                                     <span>
                                                         Total Enrolled Customers
                                                     </span>
@@ -182,9 +182,7 @@
                                     </span>
                                     <div class="card-container">
                                         <div class="card-item">
-                                            <div class="">
                                                 <img src="img/trainer2.jpg">
-                                            </div>
                                             <div class="text">
                                                 <div class="title">
                                                     Bird Course Name
@@ -202,9 +200,7 @@
                                             </div>
                                         </div>
                                         <div class="card-item">
-                                            <div class="">
                                                 <img src="img/trainer2.jpg">
-                                            </div>
                                             <div class="text">
                                                 <div class="title">
                                                     Bird Course Name
@@ -222,9 +218,7 @@
                                             </div>
                                         </div>
                                         <div class="card-item">
-                                            <div class="">
                                                 <img src="img/trainer2.jpg">
-                                            </div>
                                             <div class="text">
                                                 <div class="title">
                                                     Bird Course Name
@@ -276,7 +270,7 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="stat_content">
+                                                <div class="stat_content" style="margin-left: 26.5rem">
                                                     <span>
                                                         Total Online Courses
                                                     </span>
@@ -284,7 +278,7 @@
                                                         20
                                                     </span>
                                                 </div>
-                                                <div class="stat_content">
+                                                <div class="stat_content" style="margin-left: 28.5rem">
                                                     <span>
                                                         Total Enrolled Customers
                                                     </span>
@@ -304,9 +298,7 @@
                                     </span>
                                     <div class="card-container">
                                         <div class="card-item">
-                                            <div class="">
                                                 <img src="img/trainer2.jpg">
-                                            </div>
                                             <div class="text">
                                                 <div class="title">
                                                     Online Course Name
@@ -324,9 +316,7 @@
                                             </div>
                                         </div>
                                         <div class="card-item">
-                                            <div class="">
                                                 <img src="img/trainer2.jpg">
-                                            </div>
                                             <div class="text">
                                                 <div class="title">
                                                     Online Course Name
@@ -344,9 +334,7 @@
                                             </div>
                                         </div>
                                         <div class="card-item">
-                                            <div class="">
                                                 <img src="img/trainer2.jpg">
-                                            </div>
                                             <div class="text">
                                                 <div class="title">
                                                     Online Course Name
@@ -400,7 +388,7 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="stat_content">
+                                                <div class="stat_content" style="margin-left: 31.5rem">
                                                     <span>
                                                         Total Workshops
                                                     </span>
@@ -408,7 +396,7 @@
                                                         20
                                                     </span>
                                                 </div>
-                                                <div class="stat_content">
+                                                <div class="stat_content" style="margin-left: 31.5rem">
                                                     <span>
                                                         Total Enrolled Customers
                                                     </span>
@@ -428,9 +416,7 @@
                                     </span>
                                     <div class="card-container">
                                         <div class="card-item">
-                                            <div class="">
                                                 <img src="img/trainer2.jpg">
-                                            </div>
                                             <div class="text">
                                                 <div class="title">
                                                     Workshop Name
@@ -448,9 +434,7 @@
                                             </div>
                                         </div>
                                         <div class="card-item">
-                                            <div class="">
                                                 <img src="img/trainer2.jpg">
-                                            </div>
                                             <div class="text">
                                                 <div class="title">
                                                     Workshop Name
@@ -468,9 +452,7 @@
                                             </div>
                                         </div>
                                         <div class="card-item">
-                                            <div class="">
                                                 <img src="img/trainer2.jpg">
-                                            </div>
                                             <div class="text">
                                                 <div class="title">
                                                     Workshop Name
@@ -492,8 +474,7 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                    <button class="accordion-button toggle1" type="button" disabled>
                                         <div class="accordion-body">
                                             <div class="content">
                                                 <div class="logo-container">
@@ -513,7 +494,7 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="stat_content">
+                                                <div class="stat_content" style="margin-left: 17.5rem">
                                                     <span>
                                                         Total Hours
                                                     </span>
@@ -521,7 +502,7 @@
                                                         20
                                                     </span>
                                                 </div>
-                                                <div class="stat_content">
+                                                <div class="stat_content" style="margin-left: 34.6rem">
                                                     <span>
                                                         Total Enrolled Customers
                                                     </span>
@@ -541,9 +522,7 @@
                                     </span>
                                     <div class="card-container">
                                         <div class="card-item">
-                                            <div class="">
                                                 <img src="img/trainer2.jpg">
-                                            </div>
                                             <div class="text">
                                                 <div class="title">
                                                     Bird Course Name
@@ -564,14 +543,12 @@
                                 </div> -->
                             </div>
                         </div>
-                        <div class="title">
+                        <div class="title-head">
                             Top 3 trainers of last month
                         </div>
                         <div class="top-trainer">
                             <div class="card-item">
-                                <div class="">
                                     <img src="img/Ellipse 2.png">
-                                </div>
                                 <div class="text">
                                     <div class="title">
                                         Trainer Name
@@ -588,9 +565,7 @@
                                 </div>
                             </div>
                             <div class="card-item">
-                                <div class="">
                                     <img src="img/Ellipse 2.png">
-                                </div>
                                 <div class="text">
                                     <div class="title">
                                         Trainer Name
@@ -607,9 +582,7 @@
                                 </div>
                             </div>
                             <div class="card-item">
-                                <div class="">
                                     <img src="img/Ellipse 2.png">
-                                </div>
                                 <div class="text">
                                     <div class="title">
                                         Trainer Name
