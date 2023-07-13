@@ -151,12 +151,15 @@
 .accordion .accordion-item .accordion-body .content .stat_content span:nth-child(1) {
     font-size: 1.5rem;
 }
-
-.accordion .accordion-item .accordion-body .content .stat_content span:nth-child(2) {
+.accordion .accordion-item .accordion-body .content .stat_content .stat_number{
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+.accordion .accordion-item .accordion-body .content .stat_content .stat_number span:nth-child(1) {
     font-size: 2rem;
     font-weight: bold;
 }
-
 .accordion .accordion-item .accordion-collapse .heading {
     font-size: 2.5rem;
     justify-content: center;
