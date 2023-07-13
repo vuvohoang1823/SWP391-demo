@@ -65,7 +65,6 @@
                             <div class="description col-lg-8">
                                 <p class="course-title">Basic Consultation</p>
                                 <div class="course-desc">
-                                    <p><b>id: </b>${list.consultation_id}</p>
                                     <p><b>Customer: </b>${list.customer_fullname}</p>
                                     <p><b>Time: </b>${list.duration}</p>
                                     <p><b>Date: </b>${list.date}</p>

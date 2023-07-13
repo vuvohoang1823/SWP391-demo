@@ -31,10 +31,7 @@
                 <div class="content">
                     <h1>READY TO EXPLORE THE BEAUTY OF WONDERFUL WORLD</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                        commodi rem voluptatem assumenda? Expedita eveniet perspiciatis
-                        consequatur nemo. In quae cum facilis asperiores ipsam possimus
-                        nesciunt illo vitae quos ex?
+                        Welcome to the world of bird training! Bird Training Centers provide a unique and specialized environment where birds and their owners can come together to learn and develop essential skills. Whether you are a first-time bird owner or an experienced enthusiast, these centers offer a range of services to help you enhance your bond with your feathered companion and ensure their well-being.
                     </p>
                 </div>
             </section>
@@ -59,7 +56,7 @@
                                 behaviour, husbandry, enrichment and more.
                             </div>
                             <div class="button-container">
-                                <a href="birdcourse" style="text-decoration: none"><button>LEARN MORE</button></a>
+                                <a href="birdcourse.jsp" style="text-decoration: none"><button>LEARN MORE</button></a>
                             </div>
                         </div>
                         <div class="col-lg-3 image-container">
@@ -73,7 +70,7 @@
                                 and On Demand!
                             </div>
                             <div class="button-container">
-                                <a href="workshop" style="text-decoration: none"><button>LEARN MORE</button></a>
+                                <a href="workshop.jsp" style="text-decoration: none"><button>LEARN MORE</button></a>
                             </div>
                         </div>
                     </div>
@@ -86,7 +83,7 @@
                                 and other animal related businesses.
                             </div>
                             <div class="button-container">
-                                <a href="onlinecourse" style="text-decoration: none"><button>LEARN MORE</button></a>
+                                <a href="online_course.jsp" style="text-decoration: none"><button>LEARN MORE</button></a>
                             </div>
                         </div>
                         <div class="col-lg-3 image-container">
@@ -100,7 +97,7 @@
                                 enrichment and more!
                             </div>
                             <div class="button-container">
-                                <a href="privateconsultation" style="text-decoration: none"><button>LEARN MORE</button></a>
+                                <a href="private_consultation.jsp" style="text-decoration: none"><button>LEARN MORE</button></a>
                             </div>
                         </div>
                         <div class="col-lg-3 image-container">
