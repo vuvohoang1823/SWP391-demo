@@ -266,5 +266,30 @@
                 </div>
             </div>
         </section>
+        <!--        trim title-->
+        <script>
+            // Get all question message elements
+            var blogTitle = document.getElementsByClassName("card-title");
+
+            // Loop through each question message element
+            for (var i = 0; i < blogTitle.length; i++) {
+                var title = blogTitle[i].textContent.trim();
+
+                // Remove any leading or trailing spaces and invisible characters
+                title = title.replace(/^\s+|\s+$/g, "");
+
+                // Remove non-printable characters using regular expression
+                title = title.replace(/[^ -~]+/g, "");
+
+                const titleLength = 25;
+
+                // Check if the title length is greater than 10
+                if (title.length > titleLength) {
+                    // Truncate the title and append "..."
+                    var truncatedMessage = title.substring(0, titleLength) + "...";
+                    blogTitle[i].textContent = truncatedMessage;
+                }
+            }
+        </script>
     </body>
 </html>
