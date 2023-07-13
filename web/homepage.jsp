@@ -31,10 +31,7 @@
                 <div class="content">
                     <h1>READY TO EXPLORE THE BEAUTY OF WONDERFUL WORLD</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                        commodi rem voluptatem assumenda? Expedita eveniet perspiciatis
-                        consequatur nemo. In quae cum facilis asperiores ipsam possimus
-                        nesciunt illo vitae quos ex?
+                        Welcome to the world of bird training! Bird Training Centers provide a unique and specialized environment where birds and their owners can come together to learn and develop essential skills. Whether you are a first-time bird owner or an experienced enthusiast, these centers offer a range of services to help you enhance your bond with your feathered companion and ensure their well-being.
                     </p>
                 </div>
             </section>
