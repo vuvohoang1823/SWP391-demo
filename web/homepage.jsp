@@ -56,7 +56,7 @@
                                 behaviour, husbandry, enrichment and more.
                             </div>
                             <div class="button-container">
-                                <a href="birdcourse" style="text-decoration: none"><button>LEARN MORE</button></a>
+                                <a href="birdcourse.jsp" style="text-decoration: none"><button>LEARN MORE</button></a>
                             </div>
                         </div>
                         <div class="col-lg-3 image-container">
@@ -70,7 +70,7 @@
                                 and On Demand!
                             </div>
                             <div class="button-container">
-                                <a href="workshop" style="text-decoration: none"><button>LEARN MORE</button></a>
+                                <a href="workshop.jsp" style="text-decoration: none"><button>LEARN MORE</button></a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                                 and other animal related businesses.
                             </div>
                             <div class="button-container">
-                                <a href="onlinecourse" style="text-decoration: none"><button>LEARN MORE</button></a>
+                                <a href="online_course.jsp" style="text-decoration: none"><button>LEARN MORE</button></a>
                             </div>
                         </div>
                         <div class="col-lg-3 image-container">
@@ -97,7 +97,7 @@
                                 enrichment and more!
                             </div>
                             <div class="button-container">
-                                <a href="privateconsultation" style="text-decoration: none"><button>LEARN MORE</button></a>
+                                <a href="private_consultation.jsp" style="text-decoration: none"><button>LEARN MORE</button></a>
                             </div>
                         </div>
                         <div class="col-lg-3 image-container">
