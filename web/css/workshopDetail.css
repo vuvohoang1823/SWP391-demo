@@ -1,0 +1,212 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 14, 2023, 11:34:02 PM
+    Author     : vuvoh
+*/
+
+html {
+    font-size: 10px;
+    font-family: 'Inter', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+hr{
+    background-color: black;
+}
+.body-header{
+    background-color: #B8C6C2;   
+}
+.body-header > p{
+    color: #617a55;
+    font-size: 3rem;
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 5rem;
+}
+.section-workshops .container{
+    padding-bottom: 10rem;
+}
+  .section-workshops .row {
+    justify-content: center;
+}
+  .section-workshops .row .card {
+    border-radius: 15px;
+    margin-top: 5%;
+    padding: 3%;
+}
+  .section-workshops .row .card .card-img {
+    border-radius: 7%;
+}
+  .section-workshops .row .card .card-body {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
+    line-height: 150%;
+}
+  .section-workshops .row .card .card-body .card-title {
+    font-size: 3rem;
+    width: 70%;
+    font-weight: bold;
+    color: #617a55;
+}
+  .section-workshops .row .card .card-body .desc-text {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+  .section-workshops .row .card .card-body .card-text {
+    padding-top: 3rem;
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+  .section-workshops .row .card .card-body .extra-price {
+    padding-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+  .section-workshops .row .card .card-body .extra-price .button-container {
+    width: 40%;
+    font-weight: bold;
+    font-size: 18px;
+}
+  .section-workshops .row .card .card-body .extra-price .button-container button {
+    border: 0px;
+    border-radius: 15px;
+    background-color: #f69c14;
+    color: white;
+    padding: 1.5rem 5rem;
+}
+  .section-workshops .row .card .card-body .extra-price p {
+    display: flex;
+    align-items: center;
+    margin-right: 10%;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #617a55;
+}
+  .section-workshops .foot-button {
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+  .section-workshops .foot-button button {
+    width: 90%;
+    border: 0;
+    border-radius: 30px;
+    color: white;
+    background-color: #617a55;
+    padding: 0.7rem 0.7rem;
+    font-weight: bold;
+    font-size: 3rem;
+}
+.form-container{
+    display: flex;
+    flex-direction: row;
+}
+.form-container .col-xl-6{
+    margin-left: 10rem;
+}
+/*.form-container .col-xl-6 button{
+    width: 60rem;
+    height: 6rem;
+    margin-bottom: 3rem;
+    border-width: 0;
+    background-color: #f69c14;
+}
+.form-container .col-xl-6 button a{
+    font-size: 4rem;
+    font-weight: bolder;
+    color: white;
+}*/
+.form-container .col-xl-6 .logged-in{
+    border-style: solid;
+    border-width: 1px;
+    width: 50rem;
+    height: 5rem;
+    font-size: 2rem;
+    text-align: center;
+    align-items: center;
+    background-color: #F5F5F5;
+}
+.form-container .col-xl-6 .vnpay{
+    width: 50rem;
+    height: 8rem;
+    border-width: 0;
+    background-color: #f69c14;
+}
+.form-container .col-xl-6 .vnpay a{
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    color: white;
+}
+.form-container .col-xl-6 .vnpay img{
+    width: 20rem;
+    height: 7rem;
+}
+.form-container .col-xl-5{
+    margin-top: 4rem;
+    margin-right: 1000rem;
+    margin-bottom: 10rem;
+}
+.form-container .col-xl-5 .payment-detail{
+    background-color: #F5F5F5;
+}
+.form-container .col-xl-5 .payment-detail .detail-content{
+    display: flex;
+    flex-direction: row;
+}
+.form-container .col-xl-5 .payment-detail img{
+    width: 30rem;
+    height: 40rem;
+    margin: 4rem 4rem 4rem 2.5rem;
+}
+.form-container .col-xl-5 .payment-detail .detail{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 3rem;
+    justify-content: center;
+}
+.form-container .col-xl-5 .payment-detail .detail p{
+    margin-right: 4rem;
+    margin-bottom: 4rem;
+    color: #617a55;
+    font-weight: bolder;
+}
+.form-container .col-xl-5 .price-content{
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+}
+.form-container .col-xl-5 .price-content p{
+    margin-bottom: 4rem;
+}
+.form-container .col-xl-5 .total{
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 3rem;
+}
+.form-container .col-xl-5 .total p{
+    margin-bottom: 3rem;
+}
+.footer-container{
+    margin-top: 0;
+}

@@ -1,0 +1,275 @@
+/*# sourceMappingURL=formList.css.map */
+.heading {
+    background-color: white;
+    font-weight: bold;
+    font-size: 5rem;
+    height: 116px;
+    padding-left: 3rem;
+}
+.form-head {
+    margin-bottom: 3rem;
+}
+.form-head .navbar {
+    background-color: #617A554D;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.212);
+}
+.form-head .navbar .container-fluid {
+    justify-content: center !important;
+}
+.form-head .navbar .navbar-nav .nav-item {
+    padding: 1rem 6rem;
+}
+.form-head .navbar .navbar-nav .nav-item .nav-link {
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.form-head .navbar .navbar-nav .nav-item .nav-link:hover {
+    color: #617A55;
+}
+.form-head .navbar .navbar-nav .active a{
+    color: #617A55 !important;
+}
+
+.form-body .navbar {
+    padding: 0 2.5rem;
+}
+.form-body .navbar .navbar-brand {
+    font-size: 1.5rem;
+}
+
+.form-body .navbar form {
+    width: 100%;
+    display: flex;
+    font-size: 2rem;
+    flex-direction: row;
+}
+.form-body .navbar form .search-container {
+    display: flex;
+    align-items: center;
+    width: 100%
+}
+.form-body .navbar form .navbar-nav .nav-item:hover {
+    background-color: rgba(97, 122, 85, 0.1);
+}
+.form-body .navbar form .navbar-nav .nav-item .nav-link {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    color: black;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.form-body .navbar form .search-container .input-group {
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px 0px #00000040;
+}
+.form-body .navbar form .search-container .input-group input {
+    font-size: 2rem;
+}
+.form-body .navbar form .navbar-nav .active {
+    text-decoration: underline 5px #617A55;
+    text-underline-position: under;
+    text-underline-offset: 5px;
+}
+
+
+.form-body .table-form {
+    font-size: 1.5rem;
+}
+.form-body .table-form thead tr{
+    height: 58px;
+    background: #E2E8E7;
+}
+.form-body .table-form thead tr td {
+    vertical-align: middle;
+}
+.form-body .table-form tbody tr td {
+    height: 68px;
+    font-size: 1.3rem;
+    vertical-align: middle;
+}
+.form-body .table-form .id {
+    font-weight: bold;
+}
+.form-body .table-form .title {
+    font-weight: bold;
+}
+.form-body .table-form .customer {
+    font-weight: bold;
+}
+.form-body .table-form .type {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+}
+.form-body .table-form .type .onlineStatus {
+    text-transform: capitalize;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: white;
+    border-radius: 20px;
+    width: 75px;
+    height: 34px;
+}
+.form-body .table-form .type .online {
+    background: #8EAC50;
+}
+.form-body .table-form .type .offline {
+    background: #FA5943;
+}
+.form-body .table-form .type .viewDetail {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 1rem 2rem;
+}
+
+.blogs-container .blog-container .delete {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.blogs-container .blog-container .update {
+    position: absolute;
+    top: 1rem;
+    right: 9rem;
+}
+.update-button {
+    border-radius: 10px;
+    background-color: #F69C14;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.update-button:hover {
+    background-color: #bf780d;
+}
+
+.delete-button {
+    border-radius: 10px;
+    background-color: #FA5943;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+.restore-button {
+    border-radius: 10px;
+    background-color: #6adb14;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.restore-button:hover {
+    background-color: #4ea10e;
+}
+
+.create-button {
+    width: 204px;
+    height: 44px;
+    margin-right: 3rem;
+    border-radius: 10px;
+    white-space: nowrap;
+    background-color: #0A7E65;
+    padding: 0 2rem;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.create-button:hover {
+    background-color: #0A7E65;
+}
+
+.blogs-container {
+    display: flex;
+    padding: 0 2rem;
+    justify-content: center;
+}
+.blogs-container .blog-container {
+    position: relative;
+    flex-basis: 282px;
+    margin: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    width: 0;
+    height: 517px;
+    padding: 0;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.25);
+}
+.blogs-container .blog-container img {
+    filter: brightness(0.5);
+    width: 100%;
+    height: 255px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+}
+.blogs-container .blog-container .desc-container {
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+}
+.blogs-container .blog-container .extra-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #617A55;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.blogs-container .blog-container .desc-container .blog-description {
+    height: 100px;
+    line-height: 2rem;
+}
+.blogs-container .blog-container .desc-container h5 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.blogs-container .blog-container .desc-container .card-text {
+    display: flex;
+    justify-content: space-between;
+}
+.blogs-container .blog-container .desc-container .review {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+.blogs-container .blog-container .desc-container .review .review-count {
+    white-space: nowrap;
+}
+
+

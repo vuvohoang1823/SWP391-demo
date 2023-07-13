@@ -1,0 +1,236 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 14, 2023, 8:45:25 PM
+    Author     : vuvoh
+*/
+html {
+    font-size: 10px;
+    font-family: 'Inter', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+hr{
+    background-color: black;
+}
+.section-head {
+    background-color: #b8c6c2;
+}
+.section-head p:nth-child(1){
+    font-size: 2rem;
+    text-align: center;
+    color: #617a55;
+    font-weight: bolder;
+    padding: 6rem 0 2rem 0;
+}
+.section-head p:nth-child(2){
+    font-size: 3.5rem;
+    font-weight: bolder;
+    text-align: center;
+    padding: 2rem 0 6rem 0;
+}
+.section-body{
+    display: flex;
+    flex-direction: row;
+}
+.section-body .col-xl-5{
+    padding: 5rem 5rem 5rem 5rem;
+}
+.section-body .col-xl-5 .body-content-left{
+    background-color: white;
+    height: 80rem;
+    /*margin: 5rem 5rem;*/
+    text-align: center;
+    width: 50rem;
+}
+.section-body .col-xl-5 .body-content-left img{
+    width: 40rem;
+    margin: 3.5rem 2rem;
+}
+.section-body .col-xl-5 .body-content-left p{
+    font-size: 2rem;
+    font-weight: bolder;
+    padding-top: 1rem;
+}
+.section-body .col-xl-5 .body-content-left .week-module{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 3rem;
+}
+.section-body .col-xl-5 .body-content-left .review{
+    font-size: 2rem;
+    padding-bottom: 3rem;
+}
+.section-body .col-xl-5 .body-content-left button {
+    background-color: #f69c14;
+    width: 40rem;
+    height: 4rem;
+    border-width: 0;
+}
+.section-body .col-xl-5 .body-content-left button a{
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    border-width: 0;
+}
+
+.section-body .col-xl-7{
+    margin-top: 5rem;
+    font-size: 2rem;
+}
+.section-body .col-xl-7 img{
+    width: 2rem;
+}
+.section-body .col-xl-7 .first-content{
+    border-style: solid;
+    border-width: 1px;
+    width: 90rem;
+    height: 18rem;
+    margin-bottom: 10rem;
+}
+.section-body .col-xl-7 .first-content p{
+    margin: 1rem 1rem;
+}
+.section-body .col-xl-7 .second-content {
+    margin-bottom: 10rem;
+}
+.line-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.line {
+    border: none;
+    border-top: 1px solid #000;
+}
+
+.line-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #DDE6F1;
+    padding: 0 10px;
+}
+.section-footer .module-container{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5rem;
+}
+.section-footer .module-container .content-left{
+    padding-right: 10rem;
+    padding-left: 5rem;
+}
+.section-footer .module-container .content-right{
+    padding-right: 15rem;
+}
+.form-container{
+    display: flex;
+    flex-direction: row;
+}
+.form-container .col-xl-6{
+    margin-left: 10rem;
+}
+/*.form-container .col-xl-6 button{
+    width: 60rem;
+    height: 6rem;
+    margin-bottom: 3rem;
+    border-width: 0;
+    background-color: #f69c14;
+}
+.form-container .col-xl-6 button a{
+    font-size: 4rem;
+    font-weight: bolder;
+    color: white;
+}*/
+.form-container .col-xl-6 .logged-in{
+    border-style: solid;
+    border-width: 1px;
+    width: 50rem;
+    height: 5rem;
+    font-size: 2rem;
+    text-align: center;
+    align-items: center;
+    background-color: #F5F5F5;
+}
+.form-container .col-xl-6 .vnpay{
+    width: 50rem;
+    height: 8rem;
+    border-width: 0;
+    background-color: #f69c14;
+}
+.form-container .col-xl-6 .vnpay a{
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    color: white;
+}
+.form-container .col-xl-6 .vnpay img{
+    width: 20rem;
+    height: 7rem;
+}
+.form-container .col-xl-5{
+    margin-top: 4rem;
+    margin-right: 1000rem;
+    margin-bottom: 10rem;
+}
+.form-container .col-xl-5 .payment-detail{
+    background-color: #F5F5F5;
+}
+.form-container .col-xl-5 .payment-detail .detail-content{
+    display: flex;
+    flex-direction: row;
+}
+.form-container .col-xl-5 .payment-detail img{
+    width: 30rem;
+    height: 40rem;
+    margin: 4rem 4rem 4rem 2.5rem;
+}
+.form-container .col-xl-5 .payment-detail .detail{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 3rem;
+    justify-content: center;
+}
+.form-container .col-xl-5 .payment-detail .detail p{
+    margin-right: 4rem;
+    margin-bottom: 4rem;
+    color: #617a55;
+    font-weight: bolder;
+}
+.form-container .col-xl-5 .price-content{
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+}
+.form-container .col-xl-5 .price-content p{
+    margin-bottom: 4rem;
+}
+.form-container .col-xl-5 .total{
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 3rem;
+}
+.form-container .col-xl-5 .total p{
+    margin-bottom: 3rem;
+}
+.footer-container{
+    margin-top: 0;
+}
