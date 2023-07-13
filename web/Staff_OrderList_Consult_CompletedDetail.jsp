@@ -247,7 +247,8 @@
                                         </div>
                                     </div>
                                     <input type="hidden" name="consultationId" value="${detail.consultation_id}" />
-
+                                    <input type="hidden" name="email_email" value="${detail.gmail}" />
+                                    <input type="hidden" name="fullname" value="${detail.fullname}" />
                                     <div class="forms-footer">
                                         <button type="submit" name="action" value="checkout" class="btn approve">Checkout form</button>
                                     </div>

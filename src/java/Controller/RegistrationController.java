@@ -137,12 +137,21 @@ public class RegistrationController extends HttpServlet {
                 });
                 // compose message
                 try {
+                    String subject = "Bird Training System - Account Registration OTP";
+                    String messageContent = "Dear User,\n\n"
+                            + "Thank you for choosing the Bird Training System. To complete your account registration, please use the following One-Time Password (OTP):\n\n"
+                            + "OTP: " + otpvalue + "\n\n"
+                            + "Please enter this OTP on the registration page within the next 10 minutes to verify your account.\n\n"
+                            + "If you didn't initiate this registration, please disregard this email.\n\n"
+                            + "Best regards,\n"
+                            + "Your Bird Training System Team";
+
                     MimeMessage message = new MimeMessage(session);
                     message.setFrom(new InternetAddress(email));// change accordingly
                     message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-                    message.setSubject("Hello");
-                    message.setText("your OTP is: " + otpvalue);
                     // send message
+                    message.setSubject(subject);
+                    message.setText(messageContent);
                     Transport.send(message);
                     System.out.println("message sent successfully");
                 } catch (MessagingException e) {

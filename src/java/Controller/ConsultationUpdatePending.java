@@ -55,13 +55,8 @@ public class ConsultationUpdatePending extends HttpServlet {
             String fullname= request.getParameter("fullname");
             String date = request.getParameter("date");
             String duration = request.getParameter("duration");
-
-            Logger logger = Logger.getLogger(getClass().getName());
-            logger.info("******************************");
-            logger.info("Email: " + email);
-            logger.info("Message" + fullname);
            
-            logger.info("******************************");
+        
             RequestDispatcher dispatcher = null;
             int otpvalue = 0;
             HttpSession mySession = request.getSession();
@@ -97,6 +92,7 @@ public class ConsultationUpdatePending extends HttpServlet {
                     message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 //                message.setSubject("OTP from Bird Training Center");
 //                message.setText(messages);
+                    String subject = "Congratulations ,your pending private consultation are accepted";
                     String htmlContent = "";
                     htmlContent += "<h1>Your Private Consultation Approved - Bird Training System</h1>\n";
                     htmlContent += "<p>Dear ," + fullname + "</p>\n\n" ;
