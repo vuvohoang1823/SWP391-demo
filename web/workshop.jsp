@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="container searchbar-container">
-                    <form id="searchForm" action="/SWP391_MiniCapstone/workshop.jsp?">
+                    <form id="searchForm" action="workshop.jsp?">
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="input-group">
