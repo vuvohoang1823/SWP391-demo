@@ -77,30 +77,29 @@ public class UpdateServlet extends HttpServlet {
         } else {
             System.out.println("Error message with NumberFormatException");
         }
-//         byte[] thumbnail = Base64.getDecoder().decode(thumbnailBase64);
-//         byte[] contentIMG = Base64.getDecoder().decode(contentIMGBase64);
-//        String thumbnailBase64String = convertToBase64(thumbnail);
-//        String contentIMGBase64String = convertToBase64(contentIMG);
-        // validate Part
-//        Part thumbnailPart = request.getPart("thumbnail");
-//        logger.info("thumbnail :" + thumbnailPart);
-//        byte[] thumbnailBytes = convertPartToByteArray(thumbnailPart);
-//        logger.info("thumbnail :" + thumbnailBytes);
-//        String thumbnailBase64 = Base64.getEncoder().encodeToString(thumbnailBytes);
-        // Retrieve the contentIMG file part
-
+        String thumbnailPartData = request.getParameter("thumbnailIMGolddata");
         Part thumbnailPart = request.getPart("thumbnail");
+        String thumbnailBase64 = null;
+        if (thumbnailPart != null && thumbnailPart.getSize() > 0) {
         byte[] thumbnailBytes = convertPartToByteArray(thumbnailPart);
-        String thumbnailBase64 = Base64.getEncoder().encodeToString(thumbnailBytes);
+         thumbnailBase64 = Base64.getEncoder().encodeToString(thumbnailBytes);
+        }else{
+          thumbnailBase64 = thumbnailPartData;   
+        }
+ 
+        
 
-        logger.info("thumbnail : " + thumbnailBase64);
-
+        String contentIMGPartIMG = request.getParameter("contentIMGolddata");
         Part contentIMGPart = request.getPart("contentIMG");
-        byte[] contentIMGBytes = convertPartToByteArray(contentIMGPart);
-        String contentIMGBase64 = Base64.getEncoder().encodeToString(contentIMGBytes);
+        String contentIMGBase64 = null;
+        if (contentIMGPart != null && contentIMGPart.getSize() > 0) {
+            byte[] contentIMGBytes = convertPartToByteArray(contentIMGPart);
+            contentIMGBase64 = Base64.getEncoder().encodeToString(contentIMGBytes);
+        } else  {
+             contentIMGBase64 = contentIMGPartIMG;
+        }
 
-        logger.info("hello");
-        logger.info("IMG CONTENT :" + contentIMGBase64);
+        
 
         BlogDAO dao = new BlogDAO();
 

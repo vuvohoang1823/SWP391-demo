@@ -131,11 +131,12 @@
                                             <div class="row mb-5">
                                                 <div class="col-lg-5 mb-5">
                                                     <label for="thumbnail" class="form-label">Thumbnail:</label>
-                                                    <input type="file" id="thumbnail" name="thumbnail" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required/>
+                                                    <input type="file" id="thumbnail" name="thumbnail" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" />
                                                 </div>
                                                 <div class="img-container d-flex justify-content-center">
-                                                    <img class="showImg" src="data:images/jpg;base64,${detail.thumbnail}" alt="">
+                                                    <img class="showImg" src="data:images/jpg;base64,${detail.thumbnail}" alt="" name="thumbnailimg">
                                                 </div>
+                                                <input type="hidden" name="thumbnailIMGolddata" value="${detail.thumbnail}"/>
                                             </div>
                                             <div class="row">
                                                 <div class="mb-5">
@@ -170,11 +171,12 @@
                                             <div class="row mb-5">
                                                 <div class="col-lg-5 mb-5">
                                                     <label for="contentIMG" class="form-label">Content Image:</label>
-                                                    <input type="file" id="contentIMG" name="contentIMG" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>
+                                                    <input type="file" id="contentIMG" name="contentIMG" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" >
                                                 </div>
                                                 <div class="img-container d-flex justify-content-center">
-                                                    <img class="showImg" src="data:images/jpg;base64,${detail.contentIMG}" height="50px" width="50px" alt="">
+                                                    <img class="showImg" src="data:images/jpg;base64,${detail.contentIMG}" height="50px" width="50px" alt="" >
                                                 </div>
+                                                <input type="hidden" value="${detail.contentIMG}" name="contentIMGolddata" >
                                             </div>
                                         </div>
                                     </div>
