@@ -182,19 +182,30 @@ html {
     font-size: 18px;
 }
 .body-container .section-workshops .row .card .card-body .extra-price .button-container button {
+    font-weight: 700;
     border: 0px;
     border-radius: 15px;
     background-color: #f69c14;
     color: white;
     padding: 1.5rem 5rem;
 }
-.body-container .section-workshops .row .card .card-body .extra-price p {
-    display: flex;
-    align-items: center;
-    margin-right: 10%;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #617a55;
+.body-container .section-workshops .row .card .card-body .extra-price .price {
+    color: #617A55;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+.body-container .section-workshops .row .card .card-body .extra-price .close-date {
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+}
+.body-container .section-workshops .row .card .card-body .extra-price .close-date .date{
+    padding-top: 1rem;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
 }
 .body-container .section-workshops .foot-button {
     padding-top: 3rem;

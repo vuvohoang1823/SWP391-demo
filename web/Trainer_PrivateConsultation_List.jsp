@@ -67,7 +67,7 @@
                                     </ul>
                                 </div>
                                 <div class="search-container">
-                                    <div style="white-space: nowrap; padding-right: 2rem;">Search by ID</div>
+                                    <div style="white-space: nowrap; padding-right: 2rem;">Search by customer</div>
                                     <div class="input-group">
                                         <input
                                             id="trainername"

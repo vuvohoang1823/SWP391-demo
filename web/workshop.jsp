@@ -44,7 +44,6 @@
                             advanced techniques in a supportive and engaging environment.
                         </p>
                     </div>
-
                     <div class="button-container">
                         <button>Explore Workshops</button>
                     </div>
@@ -171,9 +170,14 @@
                                                         <a href="MainController?action=view_workshop_detail&courseID=${workshop.courseID}">
                                                             <button>More Information</button>
                                                         </a>
-
                                                     </div>
-                                                    <p>£${workshop.price}</p>
+                                                    <div class="d-flex align-items-center" style="justify-content: space-around; flex-grow: 1">
+                                                        <div class="price">£${workshop.price}</div>
+                                                        <div class="close-date">
+                                                            <div>Close registration</div>
+                                                            <div class="date">${workshop.end_enroll_date}</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

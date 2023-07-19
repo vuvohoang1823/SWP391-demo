@@ -72,7 +72,7 @@
                         <label class="label-phone" for="">Email</label>
                         <input class="phone" name="email" type="email" placeholder=Email required>
                         <label class="label-phone" for="">Phone number</label>
-                        <input class="phone" name="contact" type="text" placeholder="Phone number" required>
+                        <input class="phone" name="contact" type="text" placeholder="Phone number (10 digits)" pattern="[0-9]{10}" required>
                         <label class="label-username" for="">Username</label>
                         <input class="username" name="txtusername" type="text" placeholder="Username" required>
                         <label class="label-password" for="">Password</label>

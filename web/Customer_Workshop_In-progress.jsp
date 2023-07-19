@@ -63,11 +63,9 @@
                     </svg>
                 </div>
             </div>
-            <p class="search-result">Currently showing
-                <!--<span class="search-counter">2</span>-->
-                available item(s)</p>
-                <c:set var="customerId" value="<%=customerID%>" />
-                <c:forEach var="wo" items="${workshop.getAllCourseWORKSHOPInprogressByCustomerID(customerId)}">
+            <c:set var="customerId" value="<%=customerID%>" />
+            <p class="search-result">Currently showing ${workshop.getAllCourseWORKSHOPInprogressByCustomerID(customerId).size()} available item(s)</p>
+            <c:forEach var="wo" items="${workshop.getAllCourseWORKSHOPInprogressByCustomerID(customerId)}">
                 <div class="search-card">
                     <div class="card">
                         <img src="data:images/jpg;base64,${wo.image}" alt="" class="card-img">

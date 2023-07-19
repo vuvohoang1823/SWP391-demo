@@ -143,24 +143,21 @@ section .heading h2 {
 .blogs-header .carousel-inner .carousel-item .carousel-caption h5 {
     color: #fff;
     font-size: 6rem;
-    font-family: Montserrat;
     font-weight: 800;
 }
 .blogs-header .carousel-inner .carousel-item .carousel-caption .button-container {
-    padding-top: 4rem;
+    padding-top: 3rem;
+    font-weight: bold;
+    font-size: 2.5rem;
 }
-.blogs-header .carousel-inner .carousel-item .carousel-caption .button-container a button {
-    width: 17rem;
-    height: 4rem;
-    flex-shrink: 0;
-    border: 0;
+.blogs-header .carousel-inner .carousel-item .carousel-caption .button-container button {
+    border: 0px;
     border-radius: 50px;
-    background: #617a55;
+    background-color: #617a55;
+    color: white;
+    padding: 1rem 1rem;
+    width: 50%;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #fff;
-    font-size: 25px;
-    font-family: Inter;
-    font-weight: 700;
 }
 
 .blogs-body .blogs-container {
@@ -201,8 +198,15 @@ section .heading h2 {
 .blogs-body .blogs-container .blog-container .desc-container div {
     padding-top: 2rem;
 }
-.blogs-body .blogs-container .blog-container .desc-container h5 {
+.blogs-body .blogs-container .blog-container .desc-container .blog-title {
     font-size: 2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2em; /* Adjust the line height as needed */
+    height: 2.4em; /* Adjust the height as needed */
 }
 .blogs-body .blogs-container .blog-container .desc-container .date-write {
     padding-right: 3rem;

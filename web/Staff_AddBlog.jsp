@@ -214,7 +214,7 @@
                             </div>
                             <div class="forms-footer">
                                 <div>
-                                    <button type="submit" name="action" value="add_blog" class="btn update">Submit</button>
+                                    <button type="submit" name="action" value="add_blog" class="btn update">Create</button>
                                 </div>
                             </div>
                         </form>

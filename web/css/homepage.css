@@ -123,6 +123,7 @@
     padding-bottom: 2.4rem;
 }
 .service-container .service-body .row .description-container .button-container button {
+    font-weight: 700;
     font-size: 2rem;
     border: 0;
     border-radius: 30px;

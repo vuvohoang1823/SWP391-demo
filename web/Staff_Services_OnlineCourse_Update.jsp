@@ -58,7 +58,7 @@
                     <div class="container-fluid" style="padding: 0 2.5%">
                         <div class="forms-container">
                             <div class="forms-header">
-                                <div class="left-side"><b>Create Item</b></div>
+                                <div class="left-side"><b>Create Course</b></div>
                                 <div class="right-side">
                                     <span><b>ID : #1</b></span>
                                 </div>

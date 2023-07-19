@@ -100,9 +100,14 @@
                                                                 </div>
                                                             </div>
                                                         </c:otherwise>
-
                                                     </c:choose>
-                                                    <p>£${detail.price}</p>
+                                                    <div class="d-flex align-items-center" style="justify-content: space-around; flex-grow: 1">
+                                                        <div class="price">£${detail.price}</div>
+                                                        <div class="close-date">
+                                                            <div>Close registration</div>
+                                                            <div class="date">${detail.end_enroll_date}</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
 

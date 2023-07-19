@@ -81,9 +81,7 @@
                                 The Art of Imitation: How Mockingbirds Master the Art of Mimicry
                             </h5>
                             <div class="button-container">
-                                <a href="#">
-                                    <button>Read more</button>
-                                </a>
+                                <button>Read more</button>
                             </div>
                         </div>
                     </div>
@@ -190,31 +188,6 @@
                 <!-- end of card -->
             </div>
         </section>
-        <!--        trim title-->
-        <script>
-            // Get all question message elements
-            var blogTitle = document.getElementsByClassName("blog-title");
-
-            // Loop through each question message element
-            for (var i = 0; i < blogTitle.length; i++) {
-                var title = blogTitle[i].textContent.trim();
-
-                // Remove any leading or trailing spaces and invisible characters
-                title = title.replace(/^\s+|\s+$/g, "");
-
-                // Remove non-printable characters using regular expression
-                title = title.replace(/[^ -~]+/g, "");
-
-                const titleLength = 30;
-
-                // Check if the title length is greater than 10
-                if (title.length > titleLength) {
-                    // Truncate the title and append "..."
-                    var truncatedMessage = title.substring(0, titleLength) + "...";
-                    blogTitle[i].textContent = truncatedMessage;
-                }
-            }
-        </script>
         <!--        trim description-->
         <script>
             // Get all question message elements

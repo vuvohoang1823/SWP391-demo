@@ -190,7 +190,7 @@
                             </div>
                             <input type="hidden" class="hide" name="token" id="token" value="">
                             <div class="btn-container">
-                                <a class="m-0" href="<%= previousPage%>">
+                                <a class="m-0" href="signUp.jsp">
                                     <button type="button">Back</button>
                                 </a>
                                 <button name="recover-submit" value="Create Account" type="submit">Create Account</button>

@@ -104,34 +104,34 @@
                                     <div class="delete">
                                         <form action="Staff_DeleteWorkshopServlet" method="post" style="display: inline;">
                                             <input type="hidden" name="courseID" value="${workshop.courseID}" />
-                                            <button class="update-button " type="submit" name="action" value="update">Delete</button>
+                                            <button class="delete-button " type="submit" name="action" value="update">Delete</button>
                                         </form>
                                     </div>
-                                         <%--   
-                                    <div class="delete">
-                                        <form class="Staff_DeleteWorkshopServlet" action="" method="post" style="display: inline;">
-                                            <input type="hidden" name="courseID" value="${workshop.courseID}" />
-                                            <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${workshop.courseID}">Delete</button>
-                                            <div class="modal fade" id="confirmDelete-${workshop.courseID}" tabindex="-1" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title" style="font-size: 3rem">Delete</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body fs-2">
-                                                            Do you want to delete this workshop?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
-                                                            <button type="submit" name="action" value="delete" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                                --%>
+                                    <%--
+                               <div class="delete">
+                                   <form class="Staff_DeleteWorkshopServlet" action="" method="post" style="display: inline;">
+                                       <input type="hidden" name="courseID" value="${workshop.courseID}" />
+                                       <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${workshop.courseID}">Delete</button>
+                                       <div class="modal fade" id="confirmDelete-${workshop.courseID}" tabindex="-1" aria-hidden="true">
+                                           <div class="modal-dialog modal-dialog-centered">
+                                               <div class="modal-content">
+                                                   <div class="modal-header">
+                                                       <h1 class="modal-title" style="font-size: 3rem">Delete</h1>
+                                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                   </div>
+                                                   <div class="modal-body fs-2">
+                                                       Do you want to delete this workshop?
+                                                   </div>
+                                                   <div class="modal-footer">
+                                                       <button type="button" class="btn btn-secondary fs-2" data-bs-dismiss="modal">Close</button>
+                                                       <button type="submit" name="action" value="delete" class="btn btn-primary fs-2" data-bs-dismiss="modal">Yes</button>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </form>
+                               </div>
+                                    --%>
                                 </div>
                             </c:forEach>
                             <!--end workshop-->

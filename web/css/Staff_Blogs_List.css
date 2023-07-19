@@ -244,8 +244,13 @@
     padding: 1.5rem 2rem;
 }
 .blogs-container .blog-container .desc-container .blog-description {
-    height: 100px;
-    line-height: 2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2em; /* Adjust the line height as needed */
+    height: 6em; /* Adjust the height as needed */
 }
 .blogs-container .blog-container .desc-container div {
     padding-top: 2rem;

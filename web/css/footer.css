@@ -29,7 +29,6 @@ footer .logo-column .logo-container {
     justify-content: center;
 }
 footer .logo-column .logo-container .logo-text {
-    cursor: pointer;
     color: black;
     text-decoration: none;
     font-weight: bold;

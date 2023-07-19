@@ -17,24 +17,28 @@
     </head>
     <body style='margin:0'>
         <%@ include file="header.jsp" %>
-
-        <div class="row body-intro">
-            <div class="col-lg-5 img-section">
-                <img src="img/trainer1.jpg" alt="" class="img1">
-                <img src="img/bird.jpg" alt="" class="img2">
+        <section class="section-head">
+            <div class="img-container">
+                <div class="image2">
+                    <img src="img/trainer1.jpg" alt="" class="img1">
+                </div>
+                <div class="image1">
+                    <img src="img/bird.jpg" alt="" class="img2">
+                </div>
             </div>
-            <div class="col-lg-7 content-section">
-                <p class="title">OUR MISSION</p>
-                <p class="sub-title">Our Mission Is To Create a Partnership
-                    Between Birds and Owner
-                </p>
-                <p class="content">
-                    At Bird Training Center, we are driven to cultivate a
-                    strong and harmonious bond <br />between birds and their owners.
-                    Creating a genuine partnership between humans <br /> and birds is
-                    the key to nurturing a thriving relationship filled with
-                    understanding, trust.
-                </p>
+            <div class="desc-container">
+                <div style="height: 70%; overflow-y: hidden">
+                    <h2>OUR MISSION</h2>
+                    <h1>Our Mission Is To Create a Partnership
+                        Between Birds and Owner</h1>
+                    <p>
+                        At Bird Training Center, we are driven to cultivate a
+                        strong and harmonious bond between birds and their owners.
+                        Creating a genuine partnership between humans and birds is
+                        the key to nurturing a thriving relationship filled with
+                        understanding, trust.
+                    </p>
+                </div>
                 <div class="bullet-point">
                     <div class="top">
                         <img src="img/check.jpg" alt="">
@@ -46,7 +50,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <div class="body-ourteam">
             <p class="title">OUR TEAM</p>
             <p class="sub-title">Professional Trainers Guiding

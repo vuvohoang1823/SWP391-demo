@@ -25,6 +25,7 @@
 }
 
 .body-container .section-head span{
+    padding-top: 2rem;
     text-align: center;
     display: block;
     width: 100%;

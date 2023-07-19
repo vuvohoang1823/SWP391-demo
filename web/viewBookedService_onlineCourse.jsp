@@ -72,7 +72,7 @@
                             <form action="TrackingOnlineCourseDetailServlet" method="POST">
                                 <input type="hidden" name="courseID" value="${acou.courseID}" />
                                 <button type="submit">
-                                    <a>Track Your Course</a>
+                                    Track Your Course
                                 </button>
                             </form>
                         </div>

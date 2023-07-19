@@ -55,16 +55,14 @@
                     </svg>
                 </div>
             </div>
-            <p class="search-result">Currently showing
-                <!--<span class="search-counter">2</span>-->
-                available item(s)</p>
+            <c:set var="customerId" value="<%=customerID%>" />
+            <p class="search-result">Currently showing ${workshop.getAllCourseWORKSHOPCompleteByCustomerID(customerId).size()} available item(s)</p>
 
 
 
 
 
             <div class="show-result">
-                <c:set var="customerId" value="<%=customerID%>" />
                 <c:forEach var="wo" items="${workshop.getAllCourseWORKSHOPCompleteByCustomerID(customerId)}">
                     <div class="search-card">
                         <div class="card">
@@ -85,7 +83,7 @@
                                 </div>
                                 <div class="btn-complete">
                                     <!--<button><a href="Certificate.jsp">View certificate</a></button>-->
-                                    <form action="Customer_ViewCertificateWorkshopServlet" method="post">
+                                    <form action="Customer_ViewCertificateWorkshopServlet" method="post" target="_blank">
                                         <input type="hidden" name="customer_id" value="${wo.customerID}">
                                         <input type="hidden" name="course_id" value="${wo.courseID}">
                                         <input type="hidden" name="complete_date" value="${wo.complete_date}">

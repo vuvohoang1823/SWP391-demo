@@ -5,134 +5,87 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #DDE6F1;
 }
-/*HEADER*/
-.header{
-    padding: 1.6rem 0;
-    background-color: #617a554d
-}
-.logo-section{
-    display: flex;
-    align-items: center;
-}
-.logo-section img{
-    width: 10.2rem;
-    height: 6.4rem;
-    margin-left: 4.1rem;
-}
-.logo-section p{
-    margin-bottom: 0;
-    margin-left: 1rem;
-    font-size: 2rem;
-    font-weight: 800;
-}
-.memu-section{
-}
-.menu-section .menu-content{
-    padding-left: 0;
-    margin-bottom: 0;
-    margin-top: 2.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.menu-content > li{
-    list-style-type: none;
-    font-size: 2rem;
-    font-weight: 700;
-    padding-bottom: 2rem;
-}
-.menu-content li a{
-    color: #000000;
-    text-decoration: none;
-}
-.menu-content li a img{
-    width: 2.1rem;
-    height: 1.8rem
-}
-.menu-content > li:nth-child(2) a{
-    color: #617A55
-}
-.menu-content > li:not(:nth-child(1)){
-    padding-left: 6rem
-}
-.triangle{
-    display:none;
-    position: absolute;
-    z-index: 2;
-    top: 6rem;
-    margin-left: 8.2rem;
-    width:0;
-    height: 0;
-    border-left: 1rem solid transparent;
-    border-right: 1rem solid transparent;
-    border-bottom: 1rem solid white;
-}
-.menu-content .subnav{
-    display: none;
-    z-index: 1;
-    position: absolute;
-    top: 6.9rem;
-    background-color: #fff;
-    padding: 1rem 1rem;
-    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.25);
-    border-radius: 1rem
-}
-.menu-content li:hover .subnav, .menu-content li:hover .triangle{
-    display: block
-}
-.subnav > li{
-    list-style-type: none;
-    padding: 1.5rem 1.6rem;
-    width: 100%
-}
-.subnav > li:hover{
-    background-color: #E9E6E6;
-}
-.auth-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.auth-section .login{
-    border-style: none;
-    background-color: transparent;
-    font-weight: 700;
-    font-size: 2.5rem;
-    color:#617A55;
-    outline: none;
-}
-.login a{
-    color:#617A55;
-}
-.auth-section .login:hover{
-    opacity: 0.8;
-}
-.auth-section .signup{
-    border-radius: 5rem;
-    padding: 1.6rem 4.7rem;
-    margin-left: 2rem;
-    font-weight: 700;
-    color: white;
-    font-size: 2.5rem;
-    border-color: #617A55;
-    background-color: #617A55;
-    border-style: none;
-    outline: #617A55;
-}
-.auth-section .signup:focus{
-    border-color: #617A55;
-    background-color: #617A55;
-}
-.auth-section .signup:hover{
-    opacity: 0.8;
-}
-.signup a{
-    color: white;
-}
 /*END OF HEADING*/
+.section-head {
+    min-height: 87vh;
+    display: flex;
+    justify-content: center;
+    background-color: #b8c6c2;
+}
+.section-head .desc-container {
+    width: 50vw;
+    padding: 4rem 2rem 4rem 5rem;
+}
+.section-head .desc-container h2 {
+    color: #4d6144;
+    font-weight: bold;
+    font-size: 3rem;
+}
+.section-head .desc-container h1 {
+    color: black;
+    font-weight: bolder;
+    font-size: 6rem;
+}
+.section-head .desc-container p {
+    line-height: 2.5rem;
+    margin-top: 3%;
+    font-size: 2rem;
+}
+.section-head .desc-container .button-container {
+    padding-top: 3rem;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+.section-head .desc-container .button-container button {
+    border: 0px;
+    border-radius: 50px;
+    background-color: #617a55;
+    color: white;
+    padding: 1rem 1rem;
+    width: 50%;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.section-head .img-container {
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+}
+.section-head .img-container .image1 {
+    height: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 4rem;
+}
+.section-head .img-container .image1 img {
+    border-radius: 20px;
+    height: 100%;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -o-object-position: center;
+    object-position: center;
+}
+.section-head .img-container .image2 {
+    height: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+}
+.section-head .img-container .image2 img {
+    border-radius: 20px;
+    height: 100%;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -o-object-position: center;
+    object-position: center;
+}
 .body-intro{
     background: rgba(97, 122, 85, 0.3);
-    height: calc(57.6rem + 12rem)
+    height: 87vh;
 }
 .body-intro .img-section{
     display: flex;
@@ -140,14 +93,14 @@ body {
 
 }
 .img-section .img1{
+    object-fit: cover;
     margin-top: 3rem;
-    width: 57.6rem;
     height: 56rem;
 }
 .img-section .img2{
+    object-fit: cover;
     margin-left: 1.5rem;
     margin-top: 10rem;
-    width: 38.56rem;
     height: 44.8rem;
 }
 .content-section{
@@ -174,7 +127,6 @@ body {
     margin-top: 2rem
 }
 .bullet-point{
-    margin-top: 5rem;
     display: flex;
     flex-direction: column;
 }
@@ -255,6 +207,7 @@ body {
     font-size: 2.5rem;
 }
 .body-why{
+    padding-bottom: 5rem;
     margin-top: 11.3rem;
     background-color: rgba(97, 122, 85, 0.3);
     height: 75.7rem
@@ -344,7 +297,7 @@ body {
     background-color: #fff;
     padding: 1.5rem 2.1rem;
     position: absolute;
-    bottom: 2rem
+    bottom: 0;
 }
 .why-images .commitment .check{
     display: flex;

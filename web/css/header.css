@@ -5,6 +5,7 @@ html {
 
 /*customer*/
 .customer {
+    z-index: 1;
     height: 13vh;
 }
 .customer * {
@@ -15,7 +16,7 @@ html {
 }
 .customer .header{
     padding: 1.6rem 0;
-    background-color: #627b564d;
+    background-color: #b8c6c2;
 
 }
 .customer .logo-section{

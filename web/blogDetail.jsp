@@ -41,7 +41,7 @@
                             <span>${detail.author}</span>
                             <span>10 minutes reading</span>
                         </div>
-                        <h1 class="blog-title">
+                        <h1>
                             ${detail.title}
                         </h1>
                     </div>
@@ -62,7 +62,7 @@
                         <div>
                             <!-- hard code -->
                             <br />
-                            <b>1. Understanding of the post Blog Detail</b>
+                            <b>1. Understanding of the post:</b>
                             <!--------------->
                             ${detail.content1}
                             <!-- hard code -->
