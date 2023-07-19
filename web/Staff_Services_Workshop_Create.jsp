@@ -59,12 +59,12 @@
                             <a href="Staff_Services_Workshop.jsp">
                                 <div style="
                                      position: absolute;
-                                     top: 35%;
+                                     top: 21%;
                                      left: 5rem;
-                                     font-size: 1.5rem;
-                                     color: #617a55;
                                      ">
-                                    &lt; Back
+                                    <svg width="19" height="36" viewBox="0 0 19 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.9142 1.74339C16.9054 0.7346 15.2696 0.7346 14.2608 1.74339L1.63504 14.3818C-0.380997 16.3997 -0.380219 19.6697 1.63659 21.6867L14.2701 34.3201C15.2789 35.329 16.9147 35.329 17.9235 34.3201C18.9324 33.3113 18.9324 31.6756 17.9235 30.6667L7.11067 19.8538C6.10162 18.8451 6.10162 17.2093 7.11067 16.2005L17.9142 5.39674C18.9231 4.38795 18.9231 2.75244 17.9142 1.74339Z" fill="#0F0F0F"/>
+                                    </svg>
                                 </div>
                             </a>
                         </div>
@@ -77,13 +77,13 @@
                                     <span><b>ID : #1</b></span>
                                 </div>
                             </div>
-                            
-                            
+
+
                             <form action="Staff_CreateNewWorkshopServlet" method="POST" enctype="multipart/form-data">
-                                
+
                                 <div class="form-formDetails">
                                     <div class="form-body">
-                                        
+
                                         <div class="row">
                                             <!--Image-->
                                             <div class="col-lg-5 mb-5">
@@ -93,10 +93,10 @@
                                                     <img class="showImg" src="" height="50px" width="50px" alt="">
                                                 </div>
                                             </div>
-                                                
-                                                
+
+
                                             <div class="col-lg-7 row">
-                                                
+
                                                 <!--Price-->
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
@@ -112,8 +112,8 @@
                                                             />
                                                     </div>
                                                 </div>
-                                                            
-                                                 <!--Course ID:-->           
+
+                                                <!--Course ID:-->
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
                                                         <label for="title" class="form-label">*Item id</label>
@@ -128,8 +128,8 @@
                                                             />
                                                     </div>
                                                 </div>
-                                                 
-                                                 <!--title-->
+
+                                                <!--title-->
                                                 <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Item title</label>
@@ -141,8 +141,8 @@
                                                                   ></textarea>
                                                     </div>
                                                 </div>
-                                                    
-                                                 <!--Content-->   
+
+                                                <!--Content-->
                                                 <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Item description</label>
@@ -154,9 +154,9 @@
                                                                   ></textarea>
                                                     </div>
                                                 </div>
-                                                 
-                                                 <!--sub_content_1-->
-                                                 <div class="col-lg-12">
+
+                                                <!--sub_content_1-->
+                                                <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 1</label>
                                                         <textarea id="briefinfo"
@@ -167,10 +167,10 @@
                                                                   ></textarea>
                                                     </div>
                                                 </div>
-                                                 
-                                                 
-                                                 <!--sub_content_2-->
-                                                 <div class="col-lg-12">
+
+
+                                                <!--sub_content_2-->
+                                                <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 2</label>
                                                         <textarea id="briefinfo"
@@ -181,9 +181,9 @@
                                                                   ></textarea>
                                                     </div>
                                                 </div>
-                                                 
-                                                 <!--sub_content_3-->
-                                                 <div class="col-lg-12">
+
+                                                <!--sub_content_3-->
+                                                <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 3</label>
                                                         <textarea id="briefinfo"
@@ -194,9 +194,9 @@
                                                                   ></textarea>
                                                     </div>
                                                 </div>
-                                                 
-                                                 <!--sub_content_4-->
-                                                 <div class="col-lg-12">
+
+                                                <!--sub_content_4-->
+                                                <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 4</label>
                                                         <textarea id="briefinfo"
@@ -207,13 +207,13 @@
                                                                   ></textarea>
                                                     </div>
                                                 </div>
-                                                 
+
                                             </div>
                                         </div>
-                                        
-                                        
+
+
                                         <div class="row">
-                                            
+
                                             <!--end_enroll_date-->
                                             <div class="col-lg-3">
                                                 <div class="mb-5">
@@ -223,8 +223,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                    
-                                            <!--start_date-->        
+
+                                            <!--start_date-->
                                             <div class="col-lg-3">
                                                 <div class="mb-5">
                                                     <div class="mb-5">
@@ -233,7 +233,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <!--trainerID-->
                                             <div class="col-lg-3 mb-5">
                                                 <label for="title" class="form-label">*Trainer ID</label>
@@ -246,10 +246,10 @@
                                                     value="${detail.title}"
                                                     required
                                                     />
-                                            </div>        
-                                                    
+                                            </div>
+
                                         </div>
-                                            
+
                                     </div>
                                 </div>
                                 <div class="forms-footer">

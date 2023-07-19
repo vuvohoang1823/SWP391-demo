@@ -59,7 +59,6 @@
                             placeholder="Search for Blog by name"
                             value="${requestScope.SearchValue}"
                             autofocus
-                            required
                             />
                         <button type="submit">Go</button>
                     </form>

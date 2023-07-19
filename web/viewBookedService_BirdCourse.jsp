@@ -21,7 +21,7 @@
         <%@include file="header.jsp" %>
         <div class="container-fluid">
             <%@include file="viewBookedService_Head.jsp" %>
-<!--            <div class="filter-search">
+            <div class="filter-search">
                 <div class="filter-side">
                     <p>Service status: </p>
                     <ul class="filter-option">
@@ -39,25 +39,7 @@
                         stroke="#323232" stroke-width="2" />
                     </svg>
                 </div>
-            </div>-->
-            <!--            <p class="search-result">Currently showing <span class="search-counter">2</span> available item(s)</p>
-                        <div class="result-container">
-                            <div class="card-container">
-                                <div class="card-detail">
-                                    <img src="img/bird.jpg" alt="bird.jpg">
-                                    <div class="description">
-                                        <p class="course-title">Mastering the Art of Avian Care and Handling</p>
-                                        <div class="course-desc">
-                                            <p>Training duration: 10 days</p>
-                                            <p>Birds name: Simon</p>
-                                            <p>Type: Mocking Jay</p>
-            
-                                        </div>
-                                    </div>
-                                    <button><a href="">To course</a></button>
-                                </div>
-                            </div>
-                        </div>-->
+            </div>
             <div class="section-body">
                 <c:set var="result" value="${CustomerBooking}"/>
                 <c:if test="${not empty result}">
@@ -140,7 +122,7 @@
                 </c:if>
                 <c:if test="${empty result}">
                     <h2>You have no bird to track</h2>
-                </c:if>   
+                </c:if>
             </div>
         </div>
         <%@include file="footer.jsp" %>

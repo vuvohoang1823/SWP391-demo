@@ -59,12 +59,12 @@
                             <a href="Staff_Services_Workshop.jsp">
                                 <div style="
                                      position: absolute;
-                                     top: 35%;
+                                     top: 21%;
                                      left: 5rem;
-                                     font-size: 1.5rem;
-                                     color: #617a55;
                                      ">
-                                    &lt; Back
+                                    <svg width="19" height="36" viewBox="0 0 19 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.9142 1.74339C16.9054 0.7346 15.2696 0.7346 14.2608 1.74339L1.63504 14.3818C-0.380997 16.3997 -0.380219 19.6697 1.63659 21.6867L14.2701 34.3201C15.2789 35.329 16.9147 35.329 17.9235 34.3201C18.9324 33.3113 18.9324 31.6756 17.9235 30.6667L7.11067 19.8538C6.10162 18.8451 6.10162 17.2093 7.11067 16.2005L17.9142 5.39674C18.9231 4.38795 18.9231 2.75244 17.9142 1.74339Z" fill="#0F0F0F"/>
+                                    </svg>
                                 </div>
                             </a>
                         </div>
@@ -84,8 +84,8 @@
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-lg-5 mb-5">
-<!--                                                <label for="contentIMG" class="form-label">*Item image</label>
-                                                <input type="file" id="contentIMG" name="contentIMG" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>-->
+                                                <!--                                                <label for="contentIMG" class="form-label">*Item image</label>
+                                                                                                <input type="file" id="contentIMG" name="contentIMG" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>-->
                                                 <div class="img-container d-flex justify-content-center">
                                                     <img class="showImg" src="data:images/jpg;base64,${workshop.image}" height="50px" width="50px" alt="">
                                                 </div>
@@ -94,110 +94,110 @@
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
                                                         <label for="title" class="form-label">*Item price</label>
-<!--                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="title"
-                                                            name="price"
-                                                            placeholder="Enter title"
-                                                            value="{workshop.price}"
-                                                            required
-                                                            />-->
-                                                            <input type="text" name="price" value="${workshop.price}" class="form-control" placeholder="Enter title" >
+                                                        <!--                                                        <input
+                                                                                                                    type="text"
+                                                                                                                    class="form-control"
+                                                                                                                    id="title"
+                                                                                                                    name="price"
+                                                                                                                    placeholder="Enter title"
+                                                                                                                    value="{workshop.price}"
+                                                                                                                    required
+                                                                                                                    />-->
+                                                        <input type="text" name="price" value="${workshop.price}" class="form-control" placeholder="Enter title" >
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
                                                         <label for="title" class="form-label">*Item id</label>
-<!--                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="title"
-                                                            name="courseID"
-                                                            placeholder="Enter title"
-                                                            value="{workshop.courseID}"
-                                                            required
-                                                            />-->
-                                                            <input type="text" name="courseID" value="${workshop.courseID}" class="form-control" placeholder="Enter title" >  
+                                                        <!--                                                        <input
+                                                                                                                    type="text"
+                                                                                                                    class="form-control"
+                                                                                                                    id="title"
+                                                                                                                    name="courseID"
+                                                                                                                    placeholder="Enter title"
+                                                                                                                    value="{workshop.courseID}"
+                                                                                                                    required
+                                                                                                                    />-->
+                                                        <input type="text" name="courseID" value="${workshop.courseID}" class="form-control" placeholder="Enter title" >
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Item title</label>
-<!--                                                        <textarea id="briefinfo"
-                                                                  name="title"
-                                                                  class="form-control long-input"
-                                                                  placeholder="Enter brief info"
-                                                                  required
-                                                                  >{workshop.title}</textarea>-->
-                                                                  <input type="text" name="title" class="form-control long-input" value="${workshop.title}" class="form-control" placeholder="Enter title" >
+                                                        <!--                                                        <textarea id="briefinfo"
+                                                                                                                          name="title"
+                                                                                                                          class="form-control long-input"
+                                                                                                                          placeholder="Enter brief info"
+                                                                                                                          required
+                                                                                                                          >{workshop.title}</textarea>-->
+                                                        <input type="text" name="title" class="form-control long-input" value="${workshop.title}" class="form-control" placeholder="Enter title" >
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Item description</label>
-<!--                                                        <textarea id="briefinfo"
-                                                                  name="content"
-                                                                  class="form-control long-input"
-                                                                  placeholder="Enter brief info"
-                                                                  required
-                                                                  >{workshop.content}</textarea>-->
-                                                                  <textarea class="form-control long-input" name="content" placeholder="Enter introduction" required>${workshop.content}</textarea>
+                                                        <!--                                                        <textarea id="briefinfo"
+                                                                                                                          name="content"
+                                                                                                                          class="form-control long-input"
+                                                                                                                          placeholder="Enter brief info"
+                                                                                                                          required
+                                                                                                                          >{workshop.content}</textarea>-->
+                                                        <textarea class="form-control long-input" name="content" placeholder="Enter introduction" required>${workshop.content}</textarea>
                                                     </div>
                                                 </div>
-                                                    
-                                                    <div class="col-lg-12">
+
+                                                <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 1</label>
-<!--                                                        <textarea id="briefinfo"
-                                                                  name="content"
-                                                                  class="form-control long-input"
-                                                                  placeholder="Enter brief info"
-                                                                  required
-                                                                  >{workshop.content}</textarea>-->
-                                                                  <textarea class="form-control long-input" name="sub_content_1" placeholder="Enter introduction" required>${workshop.sub_content_1}</textarea>
+                                                        <!--                                                        <textarea id="briefinfo"
+                                                                                                                          name="content"
+                                                                                                                          class="form-control long-input"
+                                                                                                                          placeholder="Enter brief info"
+                                                                                                                          required
+                                                                                                                          >{workshop.content}</textarea>-->
+                                                        <textarea class="form-control long-input" name="sub_content_1" placeholder="Enter introduction" required>${workshop.sub_content_1}</textarea>
                                                     </div>
                                                 </div>
-                                                    
-                                                    <div class="col-lg-12">
+
+                                                <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 2</label>
-<!--                                                        <textarea id="briefinfo"
-                                                                  name="content"
-                                                                  class="form-control long-input"
-                                                                  placeholder="Enter brief info"
-                                                                  required
-                                                                  >{workshop.content}</textarea>-->
-                                                                  <textarea class="form-control long-input" name="sub_content_2" placeholder="Enter introduction" required>${workshop.sub_content_2}</textarea>
+                                                        <!--                                                        <textarea id="briefinfo"
+                                                                                                                          name="content"
+                                                                                                                          class="form-control long-input"
+                                                                                                                          placeholder="Enter brief info"
+                                                                                                                          required
+                                                                                                                          >{workshop.content}</textarea>-->
+                                                        <textarea class="form-control long-input" name="sub_content_2" placeholder="Enter introduction" required>${workshop.sub_content_2}</textarea>
                                                     </div>
                                                 </div>
-                                                    
-                                                    <div class="col-lg-12">
+
+                                                <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 3</label>
-<!--                                                        <textarea id="briefinfo"
-                                                                  name="content"
-                                                                  class="form-control long-input"
-                                                                  placeholder="Enter brief info"
-                                                                  required
-                                                                  >{workshop.content}</textarea>-->
-                                                                  <textarea class="form-control long-input" name="sub_content_3" placeholder="Enter introduction" required>${workshop.sub_content_3}</textarea>
+                                                        <!--                                                        <textarea id="briefinfo"
+                                                                                                                          name="content"
+                                                                                                                          class="form-control long-input"
+                                                                                                                          placeholder="Enter brief info"
+                                                                                                                          required
+                                                                                                                          >{workshop.content}</textarea>-->
+                                                        <textarea class="form-control long-input" name="sub_content_3" placeholder="Enter introduction" required>${workshop.sub_content_3}</textarea>
                                                     </div>
                                                 </div>
-                                                    
-                                                    <div class="col-lg-12">
+
+                                                <div class="col-lg-12">
                                                     <div class="mb-5">
                                                         <label for="briefinfo" class="form-label">*Sub content 4</label>
-<!--                                                        <textarea id="briefinfo"
-                                                                  name="content"
-                                                                  class="form-control long-input"
-                                                                  placeholder="Enter brief info"
-                                                                  required
-                                                                  >{workshop.content}</textarea>-->
-                                                                  <textarea class="form-control long-input" name="sub_content_4" placeholder="Enter introduction" required>${workshop.sub_content_4}</textarea>
+                                                        <!--                                                        <textarea id="briefinfo"
+                                                                                                                          name="content"
+                                                                                                                          class="form-control long-input"
+                                                                                                                          placeholder="Enter brief info"
+                                                                                                                          required
+                                                                                                                          >{workshop.content}</textarea>-->
+                                                        <textarea class="form-control long-input" name="sub_content_4" placeholder="Enter introduction" required>${workshop.sub_content_4}</textarea>
                                                     </div>
                                                 </div>
-                                                    
+
                                             </div>
                                         </div>
                                         <div class="row">
@@ -229,7 +229,7 @@
                                                                                         </div>-->
                                         </div>
                                         <div class="row mb-5">
-                                            
+
                                             <div class="col-lg-3 mb-5">
                                                 <label for="title" class="form-label">*Trainer ID</label>
                                                 <input
@@ -251,9 +251,9 @@
                                     <div>
                                         <button type="submit" name="action" value="update" class="btn update">Edit</button>
                                     </div>
-<!--                                    <div>
-                                        <button type="submit" name="action" value="update" class="btn close">Cancel</button>
-                                    </div>-->
+                                    <!--                                    <div>
+                                                                            <button type="submit" name="action" value="update" class="btn close">Cancel</button>
+                                                                        </div>-->
                                 </div>
                             </form>
                         </div>

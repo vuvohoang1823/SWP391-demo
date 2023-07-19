@@ -52,12 +52,12 @@
                             <a href="Staff_Services_BirdCourse.jsp">
                                 <div style="
                                      position: absolute;
-                                     top: 35%;
+                                     top: 21%;
                                      left: 5rem;
-                                     font-size: 1.5rem;
-                                     color: #617a55;
                                      ">
-                                    &lt; Back
+                                    <svg width="19" height="36" viewBox="0 0 19 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.9142 1.74339C16.9054 0.7346 15.2696 0.7346 14.2608 1.74339L1.63504 14.3818C-0.380997 16.3997 -0.380219 19.6697 1.63659 21.6867L14.2701 34.3201C15.2789 35.329 16.9147 35.329 17.9235 34.3201C18.9324 33.3113 18.9324 31.6756 17.9235 30.6667L7.11067 19.8538C6.10162 18.8451 6.10162 17.2093 7.11067 16.2005L17.9142 5.39674C18.9231 4.38795 18.9231 2.75244 17.9142 1.74339Z" fill="#0F0F0F"/>
+                                    </svg>
                                 </div>
                             </a>
                             <div class="container-fluid">
@@ -129,7 +129,7 @@
                                                         required/>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">       
+                                            <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Content</label>
                                                     <textarea id="introduction" name="content" class="form-control" value="" required>${course.content}</textarea>

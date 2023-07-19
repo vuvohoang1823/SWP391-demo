@@ -29,7 +29,7 @@
                              top: 5rem;
                              left: 5rem;
                              font-size: 2.5rem;
-                             color: white;
+                             color: black;
                              ">
                             &lt; Back
                         </div>

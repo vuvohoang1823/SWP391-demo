@@ -38,6 +38,7 @@
 
             <div class="filter-search">
                 <div class="filter-side">
+                    <p>Service status: </p>
                     <ul class="filter-option">
                         <li><a href="Customer_Workshop_In-progress.jsp">In-progress</a></li>
                         <li><a href="Customer_Workshop_Complete.jsp">Completed</a></li>

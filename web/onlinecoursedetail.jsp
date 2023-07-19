@@ -32,7 +32,7 @@
                          top: 6rem;
                          left: 10rem;
                          font-size: 2.5rem;
-                         color: white;
+                         color: black;
                          ">
                         &lt; Back
                     </div>
