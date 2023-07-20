@@ -159,7 +159,6 @@
                                                         class="form-control long-input"
                                                         id="customernotes"
                                                         placeholder="Notes"
-                                                        name="message"
                                                         style="height: 100px"
                                                         disabled
                                                         >${question.titleMess}</textarea>
@@ -186,6 +185,9 @@
                                                         name="message_answer"
                                                         ></textarea>
                                                 </div>
+                                                <input type="hidden" name="name" value="${question.fullname}"/>
+                                                <input type="hidden" name="title" value="${question.titleQ}"/>
+                                                <textarea name="message" hidden>${question.titleMess}</textarea>
                                                 <input type="hidden" name="email_email" value="${question.email}"/>
                                                 <input type="hidden" name="formid" value="${question.id}"/>
                                             </div>
