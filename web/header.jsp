@@ -416,6 +416,7 @@
                                 <%= isPageActive(currentPage, "Staff_Services_OnlineCourse.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_Services_OnlineCourse_Create.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_Services_OnlineCourse_Update.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_OnlineCourse_ViewDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_Services_BirdCourse.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_createCourse.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_updateCourse.jsp")%>
