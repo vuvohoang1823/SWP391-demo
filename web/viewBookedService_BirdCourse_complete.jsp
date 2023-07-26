@@ -11,6 +11,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/viewBookedService_BirdCourse.css">
+        <link rel="stylesheet" href="css/customer_trackingBirdCourse.css" type="text/css">
+
     </head>
     <body>
         <%@include file="header.jsp" %>
@@ -20,8 +22,8 @@
                 <div class="filter-side">
                     <p>Service status: </p>
                     <ul class="filter-option">
-                        <li><a href="viewBookedService_BirdCourse.jsp">In-progress</a></li>
-                        <li class="active"><a href="viewBookedService_BirdCourse_complete.jsp">Completed</a></li>
+                        <li><a href="Customer_Tracking">In-progress</a></li>
+                        <li class="active"><a href="Customer_Birdcourse_History">Completed</a></li>
                     </ul>
                 </div>
                 <div class="search-side">
@@ -35,23 +37,89 @@
                     </svg>
                 </div>
             </div>
-            <p class="search-result">Currently showing <span class="search-counter">2</span> available item(s)</p>
-            <div class="result-container">
-                <div class="card-container">
-                    <div class="card-detail">
-                        <img src="img/bird.jpg" alt="bird.jpg">
-                        <div class="description">
-                            <p class="course-title">Mastering the Art of Avian Care and Handling</p>
-                            <div class="course-desc">
-                                <p>Training duration: 10 days</p>
-                                <p>Birds name: Simon</p>
-                                <p>Type: Mocking Jay</p>
-
+            <div class="section-body">
+                <c:set var="result" value="${HISTORY}"/>
+                <c:if test="${not empty result}">
+                    <c:forEach items="${HISTORY}" var="booking">
+                        <div class="section-body-content">
+                            <div class="col-lg-7">
+                                <img src="data:images/jpg;base64,${booking.courseImg}" style="border-radius: 100%; width: 50rem;height: 50rem" />
+                                <div class="left-content">
+                                    <div class="text">
+                                        <p>
+                                            Bird's Name
+                                        </p>
+                                        <p>
+                                            <b>
+                                                ${booking.nameBird}
+                                            </b>
+                                        </p>
+                                    </div>
+                                    <div class="text">
+                                        <p>
+                                            Bird Type
+                                        </p>
+                                        <p>
+                                            <b>
+                                                ${booking.typeBird}
+                                            </b>
+                                        </p>
+                                    </div>
+                                    <div class="text">
+                                        <p>
+                                            Training Status
+                                        </p>
+                                        <p>
+                                            <b style="color: #617A55">
+                                                ${booking.status}
+                                            </b>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="text">
+                                    <p>
+                                        Course Name
+                                    </p>
+                                    <p>
+                                        <b>
+                                            ${booking.courseName}
+                                        </b>
+                                    </p>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        Training duration
+                                    </p>
+                                    <p>
+                                        <b>
+                                            Start date: ${booking.start_date}
+                                        </b>
+                                        <br>
+                                        <b>
+                                            End date: ${booking.end_date}
+                                        </b>
+                                    </p>
+                                </div>
+                                <div class="trainer-content">
+                                    <img src="data:images/jpg;base64,${booking.trainerImg}" style="border-radius: 100%; width: 16rem;height: 16rem"/>
+                                    <div class="text">
+                                        <p>
+                                            Trainer
+                                        </p>
+                                        <b>
+                                            ${booking.trainerName}
+                                        </b>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <button><a href="">View certificate</a></button>
-                    </div>
-                </div>
+                    </c:forEach>
+                </c:if>
+                <c:if test="${empty result}">
+                    <h2>You have no bird to track</h2>
+                </c:if>
             </div>
         </div>
         <%@include file="footer.jsp" %>

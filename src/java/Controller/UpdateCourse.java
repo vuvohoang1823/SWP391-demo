@@ -41,10 +41,19 @@ public class UpdateCourse extends HttpServlet {
                 int price = Integer.parseInt(request.getParameter("price"));
                 int duration = Integer.parseInt(request.getParameter("duration"));
 
-                Part image = request.getPart("thumbnail");
-                String thumbnailFileName = image.getSubmittedFileName();
-                InputStream thumbnailinputStream = image.getInputStream();
-                String thumbnailBase64 = convertToBase64(thumbnailinputStream);
+//                Part image = request.getPart("thumbnail");
+//                String thumbnailFileName = image.getSubmittedFileName();
+//                InputStream thumbnailinputStream = image.getInputStream();
+//                String thumbnailBase64 = convertToBase64(thumbnailinputStream);
+                String thumbnailPartData = request.getParameter("thumbnailIMGolddata");
+                Part thumbnailPart = request.getPart("thumbnail");
+                String thumbnailBase64 = null;
+                if (thumbnailPart != null && thumbnailPart.getSize() > 0) {
+                    byte[] thumbnailBytes = convertPartToByteArray(thumbnailPart);
+                    thumbnailBase64 = Base64.getEncoder().encodeToString(thumbnailBytes);
+                } else {
+                    thumbnailBase64 = thumbnailPartData;
+                }
 
                 courseDAO.UpdateBirdCourse(course_id, content, title, price, duration);
                 courseDAO.UpdateBirdCourseImg(course_id, thumbnailBase64);
