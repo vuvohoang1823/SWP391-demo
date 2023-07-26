@@ -151,19 +151,25 @@
     font-weight: bolder;
 }
 .section-body .section-body-content{
+    height: fit-content;
+    padding-bottom: 3rem;
     background-color: white;
     display: flex;
     flex-direction: row;
-    border-radius: 30px;
+    margin-bottom: 5rem;
+    border-radius: 0px 0px 30px 30px;
 }
 .section-body .section-body-content .col-lg-7{
     display: flex;
     flex-direction: row;
-    border-right: solid black 2px;
+    border-right: solid #e2e8e7 4px;
 }
 .section-body .section-body-content .col-lg-7 img{
+    border-radius: 100%;
+    object-fit: cover;
     margin: 5rem;
-    width: 40%;
+    width: 35rem;
+    height: 35rem;
 }
 .section-body .section-body-content .col-lg-7 .left-content{
     display: flex;
@@ -173,8 +179,8 @@
 .section-body .section-body-content .col-lg-7 .left-content p:nth-child(1){
     text-align: center;
     font-size: 2rem;
-    padding-bottom: 3rem;
-    padding-top: 6rem;
+    padding-bottom: 1rem;
+    padding-top: 5rem;
 }
 .section-body .section-body-content .col-lg-7 .left-content p:nth-child(2){
     text-align: center;
@@ -188,7 +194,7 @@
     text-align: center;
     font-size: 2rem;
     padding-bottom: 1rem;
-    padding-top: 6rem;
+    padding-top: 5rem;
 }
 .section-body .section-body-content .col-lg-5 .text p:nth-child(2){
     text-align: center;
@@ -208,7 +214,7 @@
     font-size: 3rem;
     font-weight: bolder;
     text-decoration: none;
-    
+
 }*/
 .section-body .section-body-content .col-lg-5 .button2 {
     height: 5.8rem;
@@ -242,7 +248,7 @@
 }
 .section-body .section-body-content .col-lg-5 .modal .modalbody input{
     margin-left: 2rem;
-    transform: scale(2); 
+    transform: scale(2);
 }
 .section-body .section-body-content .col-lg-5 .modal .modalbody label{
     font-size: 2rem;

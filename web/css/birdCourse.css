@@ -171,13 +171,15 @@ html {
     font-size: 20px;
 }
 .body-container .section-course .card-body .extra-price .button-container button {
+    text-align: center;
+    font-weight: 400;
+    line-height: normal;
+    padding: 5px 18px;
+    font-size: 2.5rem;
     border: 0px;
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: #f69c14;
     color: white;
-    padding: 5px;
-    width: 40%;
-    height: 4rem;
 }
 .body-container .section-course .card-body .extra-price p {
     display: flex;
@@ -191,11 +193,19 @@ html {
     text-align: center;
     margin-top: 15%;
     font-size: 25px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2em; /* Adjust the line height as needed */
+    height: 2.4em; /* Adjust the height as needed */
 }
 .body-container .section-course .card-body .card-text {
+    padding-top: 1rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    font-size: 1.5rem;
 }
 .body-container .section-course .review {
     display: flex;

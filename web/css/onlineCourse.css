@@ -159,13 +159,15 @@
     font-weight: bold;
 }
 .body-container .onlineCourse-container .section-course .card-body .extra-price .button-container button {
-    font-size: 2rem;
+    text-align: center;
+    font-weight: 400;
+    line-height: normal;
+    padding: 5px 18px;
+    font-size: 2.5rem;
     border: 0px;
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: #f69c14;
     color: white;
-    padding: 5px;
-    width: 50%;
 }
 .body-container .onlineCourse-container .section-course .card-body .extra-price p {
     display: flex;
@@ -251,7 +253,6 @@
     background-color: #f69c14;
     color: white;
     padding: 5px;
-    width: 50%;
 }
 .body-container .section-course .card-body .extra-price p {
     display: flex;

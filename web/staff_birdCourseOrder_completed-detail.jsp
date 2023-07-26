@@ -260,37 +260,35 @@
                                             ">
                                         <b>Checkout</b>
                                     </button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" style="width: 40rem;">
-                                            <div class="modal-content">
-                                                <div class="modal-header" style="background: #617255">
-                                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body" style="font-size: 2rem;">
-                                                    Complete this purchase?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="footer-item btn btn-secondary" name="action" value="deny"
-                                                            style="width: 10rem;font-size: 1.5rem; height: 3rem; color: white;">
-                                                        Cancel
-                                                    </button>
-                                                    <button type="submit" class="footer-item btn btn-primary" name="action" value="approve"
-                                                            style="width: 10rem;font-size: 1.5rem;height: 3rem; color: white;">
-                                                        Checkout
-                                                    </button>
-                                                </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" style="width: 40rem;">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title fs-1">Checkout</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body" style="font-size: 2rem;">
+                                                Complete this purchase?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="footer-item btn btn-danger" name="action" value="deny"
+                                                        style="width: 12rem;font-size: 1.5rem; height: 3rem; color: white;">
+                                                    Deny checkout
+                                                </button>
+                                                <button type="submit" class="footer-item btn btn-primary" name="action" value="approve"
+                                                        style="width: 10rem;font-size: 1.5rem;height: 3rem; color: white;">
+                                                    Checkout
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </form>
                         </div>
-
                     </div>
                 </div>
-                </form>
             </div>
         </div>
         <script>

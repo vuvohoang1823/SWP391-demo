@@ -82,7 +82,7 @@
                                     <td>Bird type</td>
                                     <td>Bird name</td>
                                     <td>Submitted date</td>
-                                    <td>Status</td>
+                                    <td style="padding: 0 0 0 2%;">Status</td>
                                     <td></td>
                                 </tr>
                             </thead>
@@ -96,7 +96,9 @@
                                         <td><b>${order.nameBird}</b></td>
                                         <td><b>${order.typeBird}</b></td>
                                         <td><b>${order.create_date}</b></td>
-                                        <td><b>${order.status}</b></td>
+                                        <td>
+                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(order.status)}"/>">${order.status}</div>
+                                        </td>
                                         <td>
                                             <form action="ProcessingOrderInfo" method="GET">
                                                 <input type="hidden" name="bird_id" value="${order.birdID}">

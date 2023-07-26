@@ -100,10 +100,11 @@
                                         <div class="card-body">
                                             <div class="extra-price">
                                                 <div class="button-container">
-                                                    <button class="btn btn-primary">
-                                                        <a href="MainController?action=view_online_course_detail&courseID=${onlinetraining.courseID}" style="text-decoration: none;color: white">Enroll</a>
-
-                                                    </button>
+                                                    <a href="MainController?action=view_online_course_detail&courseID=${onlinetraining.courseID}" style="text-decoration: none;color: white">
+                                                        <button class="btn btn-primary">
+                                                            Enroll
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <p>£${onlinetraining.price}</p>
                                             </div>

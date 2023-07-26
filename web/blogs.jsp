@@ -25,6 +25,7 @@
         <body>
         <%@include file="header.jsp" %>
         <section class="blogs-header">
+            <c:set var="BlogListSearch" value="${blog.getLisofBlog('available')}"/>
             <div id="carouselExampleCaptions" class="carousel slide" style="z-index: 0">
                 <div class="carousel-indicators">
                     <button
@@ -32,21 +33,14 @@
                         data-bs-target="#carouselExampleCaptions"
                         data-bs-slide-to="0"
                         class="active"
-                        aria-current="true"
-                        aria-label="Slide 1"
                         ></button>
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide-to="1"
-                        aria-label="Slide 2"
-                        ></button>
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide-to="2"
-                        aria-label="Slide 3"
-                        ></button>
+                    <c:forEach var="card" items="${BlogListSearch}" varStatus="counter" end="2">
+                        <button
+                            type="button"
+                            data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide-to="${counter.count}"
+                            ></button>
+                    </c:forEach>
                 </div>
                 <div class="search-bar">
                     <!--                    <form onsubmit="event.preventDefault();" role="search" action="SearchBlog" method="post">-->
@@ -65,70 +59,49 @@
                 </div>
                 <!-- slides -->
                 <div class="carousel-inner">
+                    <c:set var="BlogListSearch1st" value="${blog.getLisofBlog('available')[0]}"/>
                     <div class="carousel-item active">
                         <img
-                            src="./img/blogHeader1.png"
+                            src="data:images/jpg;base64,${BlogListSearch1st.thumbnail}"
                             class="d-block w-100"
                             alt="..."
                             draggable="false"
                             />
                         <div class="carousel-caption d-none d-md-block">
                             <div>
-                                <span>19/05/2023</span>
-                                <span>Mike Wazaoski</span>
+                                <span>${BlogListSearch1st.date}</span>
+                                <span>${BlogListSearch1st.author}</span>
                             </div>
-                            <h5>
-                                The Art of Imitation: How Mockingbirds Master the Art of Mimicry
-                            </h5>
+                            <h5>${BlogListSearch1st.title}</h5>
                             <div class="button-container">
-                                <button>Read more</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img
-                            src="./img/blogHeader1.png"
-                            class="d-block w-100"
-                            alt="..."
-                            draggable="false"
-                            />
-                        <div class="carousel-caption d-none d-md-block">
-                            <div>
-                                <span>19/05/2023</span>
-                                <span>Mike Wazaoski</span>
-                            </div>
-                            <h5>
-                                The Art of Imitation: How Mockingbirds Master the Art of Mimicry
-                            </h5>
-                            <div class="button-container">
-                                <a href="#">
+                                <a href="MainController?action=view_blog_detail&blog_id=${BlogListSearch1st.blogid}">
                                     <button>Read more</button>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img
-                            src="./img/blogHeader1.png"
-                            class="d-block w-100"
-                            alt="..."
-                            draggable="false"
-                            />
-                        <div class="carousel-caption d-none d-md-block">
-                            <div>
-                                <span>19/05/2023</span>
-                                <span>Mike Wazaoski</span>
-                            </div>
-                            <h5>
-                                The Art of Imitation: How Mockingbirds Master the Art of Mimicry
-                            </h5>
-                            <div class="button-container">
-                                <a href="#">
-                                    <button>Read more</button>
-                                </a>
+                    <c:forEach var="card" items="${BlogListSearch}" begin="1" end="3">
+                        <div class="carousel-item">
+                            <img
+                                src="data:images/jpg;base64,${card.thumbnail}"
+                                class="d-block w-100"
+                                alt="..."
+                                draggable="false"
+                                />
+                            <div class="carousel-caption d-none d-md-block">
+                                <div>
+                                    <span>${card.date}</span>
+                                    <span>${card.author}</span>
+                                </div>
+                                <h5>${card.title}</h5>
+                                <div class="button-container">
+                                    <a href="MainController?action=view_blog_detail&blog_id=${card.blogid}">
+                                        <button>Read more</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </c:forEach>
                 </div>
                 <button
                     class="carousel-control-prev"

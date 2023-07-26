@@ -69,7 +69,7 @@
                                     Bird course
                                 </span>
                                 <span style="font-size: 4rem;font-weight: bolder">
-                                    ${DASHBOARD6.birdCourse}$
+                                    $${DASHBOARD6.birdCourse}
                                 </span>
                             </div>
                             <div class="box">
@@ -77,7 +77,7 @@
                                     Online course
                                 </span>
                                 <span style="font-size: 4rem;font-weight: bolder">
-                                    ${DASHBOARD6.onlineCourse}$
+                                    $${DASHBOARD6.onlineCourse}
                                 </span>
                             </div>
                             <div class="box">
@@ -85,7 +85,7 @@
                                     Private Consultation
                                 </span>
                                 <span style="font-size: 4rem;font-weight: bolder">
-                                    ${DASHBOARD6.consultation}$
+                                    $${DASHBOARD6.consultation}
                                 </span>
                             </div>
                             <div class="box">
@@ -93,7 +93,7 @@
                                     Workshop
                                 </span>
                                 <span style="font-size: 4rem;font-weight: bolder">
-                                    ${DASHBOARD6.workshop}$
+                                    $${DASHBOARD6.workshop}
                                 </span>
                             </div>
                             <div class="box">
@@ -101,18 +101,18 @@
                                     Total
                                 </span>
                                 <span style="font-size: 4rem;font-weight: bolder">
-                                    ${DASHBOARD6.total}$
+                                    $${DASHBOARD6.total}
                                 </span>
                                 <span>
                             </div>
                         </div>
-                        <div style="height: 480px;overflow-y: hidden;margin-left: 3rem;">
+                        <div style="height: 480px;overflow-y: hidden;margin-left: 3rem; border-radius: 10px">
                             <div id="chartContainer" style="height: 492px; width: 98%;background: #617255; border-radius: 20px;"></div>
                         </div>
                         <div class="title-head">
                             Service overall
                         </div>
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion accordion-flush" id="accordionFlushExample" style="width: 95%; margin: auto; border-radius: 10px; overflow: hidden">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -160,7 +160,7 @@
                                                     </span>
                                                     <div class="stat_number">
                                                         <span>
-                                                            5 
+                                                            5
                                                         </span>
                                                         <span class="unit" style="display: flex;align-items: center;padding-left: 1rem;">
                                                             courses
@@ -283,7 +283,7 @@
                                                     </span>
                                                     <div class="stat_number">
                                                         <span>
-                                                            9 
+                                                            9
                                                         </span>
                                                         <span class="unit" style="display: flex;align-items: center;padding-left: 1rem;">
                                                             courses
@@ -296,7 +296,7 @@
                                                     </span>
                                                     <div class="stat_number">
                                                         <span>
-                                                            50 
+                                                            50
                                                         </span>
                                                         <span class="unit" style="display: flex;align-items: center;padding-left: 1rem;">
                                                             customers
@@ -408,7 +408,7 @@
                                                     </span>
                                                     <div class="stat_number"style="margin-left: 3.5rem;">
                                                         <span>
-                                                            8 
+                                                            8
                                                         </span>
                                                         <span class="unit" style="display: flex;align-items: center;padding-left: 1rem;">
                                                             workshops
@@ -421,7 +421,7 @@
                                                     </span>
                                                     <div class="stat_number">
                                                         <span>
-                                                            123 
+                                                            123
                                                         </span>
                                                         <span class="unit" style="display: flex;align-items: center;padding-left: 1rem;">
                                                             customers

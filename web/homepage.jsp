@@ -235,14 +235,13 @@
                 </div>
                 <div class="desc-container">
                     <div>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Exercitationem fugiat enim voluptatum molestias laboriosam
-                        necessitatibus omnis totam, similique itaque ullam rerum dolores a
-                        quisquam ipsa repudiandae? Aspernatur ducimus facilis sed.
+                        So what are you waiting for? Contact us now!
                     </div>
                 </div>
                 <div class="button-container">
-                    <button>Let's Talk</button>
+                    <a href="#contact-us">
+                        <button>Let's Talk</button>
+                    </a>
                 </div>
             </section>
             <%@ include file="Home_ContactUs.jsp" %>

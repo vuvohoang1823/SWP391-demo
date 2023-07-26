@@ -41,9 +41,20 @@
                 <c:set var="result" value="${HISTORY}"/>
                 <c:if test="${not empty result}">
                     <c:forEach items="${HISTORY}" var="booking">
+                        <div class="text-center" style="background: rgba(183, 198, 194, 0.40); border-radius: 30px 30px 0px 0px">
+                            <div style="
+                                 padding: 1.5rem 0;
+                                 color: #617A55;
+                                 font-size: 40px;
+                                 font-weight: 700;
+                                 line-height: normal;
+                                 ">
+                                Bird Detail Tracking Progress
+                            </div>
+                        </div>
                         <div class="section-body-content">
                             <div class="col-lg-7">
-                                <img src="data:images/jpg;base64,${booking.courseImg}" style="border-radius: 100%; width: 50rem;height: 50rem" />
+                                <img src="data:images/jpg;base64,${booking.courseImg}"/>
                                 <div class="left-content">
                                     <div class="text">
                                         <p>
@@ -70,7 +81,7 @@
                                             Training Status
                                         </p>
                                         <p>
-                                            <b style="color: #617A55">
+                                            <b style="color: #617A55; text-transform: capitalize">
                                                 ${booking.status}
                                             </b>
                                         </p>
@@ -94,16 +105,16 @@
                                     </p>
                                     <p>
                                         <b>
-                                            Start date: ${booking.start_date}
+                                            Start date: ${not empty booking.start_date ? booking.start_date : "N/A"}
                                         </b>
                                         <br>
                                         <b>
-                                            End date: ${booking.end_date}
+                                            End date: ${not empty booking.end_date ? booking.end_date : "N/A"}
                                         </b>
                                     </p>
                                 </div>
                                 <div class="trainer-content">
-                                    <img src="data:images/jpg;base64,${booking.trainerImg}" style="border-radius: 100%; width: 16rem;height: 16rem"/>
+                                    <img src="data:images/jpg;base64,${booking.trainerImg}"/>
                                     <div class="text">
                                         <p>
                                             Trainer

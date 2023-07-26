@@ -96,3 +96,21 @@
     color: black;
     padding: 1rem 2rem;
 }
+
+.form-body .table-form .onlineStatus {
+    text-transform: capitalize;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: white;
+    border-radius: 20px;
+    width: 75px;
+    height: 34px;
+}
+
+.form-body .table-form .checkin {
+    background: #F69C14;
+}
+.form-body .table-form .approved {
+    background: #8EAC50;
+}
