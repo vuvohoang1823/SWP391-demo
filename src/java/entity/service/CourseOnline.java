@@ -25,10 +25,44 @@ public class CourseOnline implements
     private Date date ; 
     private float amount ; 
     private String payment_id ; 
+    private String module_name_1;
+    private String module_name_2;
+    private String module_name_3;
+    private String module_name_4;
+    private String module_name_5;
+    private String module_description_1;
+    private String module_description_2;
+    private String module_description_3;
+    private String module_description_4;
+    private String module_description_5;    
+    
+//    Do not use anymore
     private String module_id;
     private String module_name;
     private String module_description;
 
+    public CourseOnline(String courseID, String staffID, String content, String category, String title, int price, String image, String module_name_1, String module_name_2, String module_name_3, String module_name_4, String module_name_5, String module_description_1, String module_description_2, String module_description_3, String module_description_4, String module_description_5) {
+        this.courseID = courseID;
+        this.staffID = staffID;
+        this.content = content;
+        this.category = category;
+        this.title = title;
+        this.price = price;
+        this.image = image;
+        this.module_name_1 = module_name_1;
+        this.module_name_2 = module_name_2;
+        this.module_name_3 = module_name_3;
+        this.module_name_4 = module_name_4;
+        this.module_name_5 = module_name_5;
+        this.module_description_1 = module_description_1;
+        this.module_description_2 = module_description_2;
+        this.module_description_3 = module_description_3;
+        this.module_description_4 = module_description_4;
+        this.module_description_5 = module_description_5;
+    }
+
+    
+    
     public CourseOnline(String courseID, String content, String category, String title, int price, String module_id, String module_name, String module_description) {
         this.courseID = courseID;
         this.content = content;
@@ -180,6 +214,86 @@ public class CourseOnline implements
 
     public void setModule_description(String module_description) {
         this.module_description = module_description;
+    }
+
+    public String getModule_name_1() {
+        return module_name_1;
+    }
+
+    public void setModule_name_1(String module_name_1) {
+        this.module_name_1 = module_name_1;
+    }
+
+    public String getModule_name_2() {
+        return module_name_2;
+    }
+
+    public void setModule_name_2(String module_name_2) {
+        this.module_name_2 = module_name_2;
+    }
+
+    public String getModule_name_3() {
+        return module_name_3;
+    }
+
+    public void setModule_name_3(String module_name_3) {
+        this.module_name_3 = module_name_3;
+    }
+
+    public String getModule_name_4() {
+        return module_name_4;
+    }
+
+    public void setModule_name_4(String module_name_4) {
+        this.module_name_4 = module_name_4;
+    }
+
+    public String getModule_name_5() {
+        return module_name_5;
+    }
+
+    public void setModule_name_5(String module_name_5) {
+        this.module_name_5 = module_name_5;
+    }
+
+    public String getModule_description_1() {
+        return module_description_1;
+    }
+
+    public void setModule_description_1(String module_description_1) {
+        this.module_description_1 = module_description_1;
+    }
+
+    public String getModule_description_2() {
+        return module_description_2;
+    }
+
+    public void setModule_description_2(String module_description_2) {
+        this.module_description_2 = module_description_2;
+    }
+
+    public String getModule_description_3() {
+        return module_description_3;
+    }
+
+    public void setModule_description_3(String module_description_3) {
+        this.module_description_3 = module_description_3;
+    }
+
+    public String getModule_description_4() {
+        return module_description_4;
+    }
+
+    public void setModule_description_4(String module_description_4) {
+        this.module_description_4 = module_description_4;
+    }
+
+    public String getModule_description_5() {
+        return module_description_5;
+    }
+
+    public void setModule_description_5(String module_description_5) {
+        this.module_description_5 = module_description_5;
     }
     
     

@@ -6,29 +6,20 @@
 package Controller;
 
 import DAO.CourseOnlineDAO;
-import DAO.courseDAO;
-import entity.Course;
-import entity.service.CourseOnline;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author LAPTOP
  */
-@WebServlet(name = "TrackingOnlineCourseDetailServlet", urlPatterns = {"/TrackingOnlineCourseDetailServlet"})
-public class TrackingOnlineCourseDetailServlet extends HttpServlet {
+@WebServlet(name = "Staff_OnlineCourse_DeleteServlet", urlPatterns = {"/Staff_OnlineCourse_DeleteServlet"})
+public class Staff_OnlineCourse_DeleteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,29 +31,27 @@ public class TrackingOnlineCourseDetailServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         String courseID = request.getParameter("courseID");
         
         try (PrintWriter out = response.getWriter()) {
-            courseDAO course = new courseDAO();
-            CourseOnlineDAO courseOnline = new CourseOnlineDAO();
+            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet Staff_OnlineCourse_DeleteServlet</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet Staff_OnlineCourse_DeleteServlet at " + courseID + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
 
-            Course online_course_detail = null;
-            CourseOnline courseDetail = null;
-
-            online_course_detail = course.getCourseByID(courseID);
-            courseDetail = courseOnline.getDetailOnlineCourse(courseID);
-
-            request.setAttribute("online_module", courseDetail);
-
-            HttpSession session = request.getSession(true);
-            session.setAttribute("online_course_detail", online_course_detail);
-
-            RequestDispatcher rd = request.getRequestDispatcher("Customer_onlinecourselist_tracking.jsp");
-            rd.forward(request, response);
-        } catch (Exception ex) {
-            System.out.println(ex);
+              CourseOnlineDAO onlineDAO = new CourseOnlineDAO();
+              onlineDAO.DeleteCourseOnline(courseID);
+              
+              response.sendRedirect("Staff_Services_OnlineCourse.jsp");
         }
     }
 
@@ -78,13 +67,7 @@ public class TrackingOnlineCourseDetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TrackingOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(TrackingOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -98,13 +81,7 @@ public class TrackingOnlineCourseDetailServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TrackingOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(TrackingOnlineCourseDetailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
