@@ -820,5 +820,94 @@ public class BookingDAO implements Serializable {
         }
         return list;
     }
+    
+    public List<BookingDTO> getCourseHistoryByCustomerID(int customer_id) throws SQLException, IOException, ClassNotFoundException {
+
+        List<BookingDTO> listBooking = new ArrayList<>();
+        BookingDTO booking = null;
+
+        String sql = "SELECT\n"
+                + "    c.course_id,\n"
+                + "    c.title,\n"
+                + "    ci.img,\n"
+                + "    t.trainer_id,\n"
+                + "    t.fullname,\n"
+                + "    t.img AS trainer_img,\n"
+                + "    b.bird_id,\n"
+                + "    b.name,\n"
+                + "    b.type,\n"
+                + "    bk.start_date,\n"
+                + "    bk.end_date,\n"
+                + "    bk.status\n"
+                + "FROM\n"
+                + "    tbl_Booking bk\n"
+                + "    INNER JOIN tbl_customer cust ON bk.customer_id = cust.customer_id\n"
+                + "    INNER JOIN tbl_course c ON bk.course_id = c.course_id\n"
+                + "    INNER JOIN tbl_courseImg ci ON c.course_id = ci.course_id\n"
+                + "    INNER JOIN tbl_trainer t ON bk.trainer_id = t.trainer_id\n"
+                + "    INNER JOIN tbl_bird b ON bk.bird_id = b.bird_id\n"
+                + "WHERE\n"
+                + "    bk.customer_id = ?\n"
+                + "    AND bk.status = 'checkout';";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, customer_id);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String courseImg = null;
+                Blob blob = rs.getBlob("img");
+                if (blob != null) {
+                    InputStream inputStream = blob.getBinaryStream();
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[4096];
+                    int bytesRead = -1;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                    byte[] imageBytes = outputStream.toByteArray();
+                    courseImg = Base64.getEncoder().encodeToString(imageBytes);
+                    inputStream.close();
+                    outputStream.close();
+                } else {
+                    courseImg = "default";
+                }
+
+                String trainerImg = null;
+                Blob blob1 = rs.getBlob("trainer_img");
+                if (blob1 != null) {
+                    InputStream inputStream = blob1.getBinaryStream();
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[4096];
+                    int bytesRead = -1;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                    byte[] imageBytes = outputStream.toByteArray();
+                    trainerImg = Base64.getEncoder().encodeToString(imageBytes);
+                    inputStream.close();
+                    outputStream.close();
+                } else {
+                    trainerImg = "default";
+                }
+
+                booking = new BookingDTO(rs.getString(1), rs.getString(2), courseImg, rs.getString(4), rs.getString(5), trainerImg, rs.getString(7), rs.getString(8), rs.getString(9), rs.getDate(10), rs.getDate(11), rs.getString(12));
+                listBooking.add(booking);
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return listBooking;
+    }
 
 }

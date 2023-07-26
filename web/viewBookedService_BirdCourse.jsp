@@ -25,8 +25,8 @@
                 <div class="filter-side">
                     <p>Service status: </p>
                     <ul class="filter-option">
-                        <li class="active"><a href="viewBookedService_BirdCourse.jsp">In-progress</a></li>
-                        <li><a href="viewBookedService_BirdCourse_complete.jsp">Completed</a></li>
+                        <li class="active"><a href="Customer_Tracking">In-progress</a></li>
+                        <li><a href="Customer_Birdcourse_History">Completed</a></li>
                     </ul>
                 </div>
                 <div class="search-side">
