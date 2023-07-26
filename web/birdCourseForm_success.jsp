@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Bird Course</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="css/reset.css" type="text/css">
         <link rel="stylesheet" href="css/birdcourse_Successfull.css" type="text/css">
@@ -46,7 +46,7 @@
                     </h5>
                     <h5>
                         <p>
-                            Bird Name: 
+                            Bird Name:
                         </p>
                         &ensp;
                         <b>
@@ -55,7 +55,7 @@
                     </h5>
                     <h5>
                         <p>
-                            Bird Type: 
+                            Bird Type:
                         </p>
                         &ensp;
                         <b>
@@ -64,7 +64,7 @@
                     </h5>
                     <h5>
                         <p>
-                            Course Name: 
+                            Course Name:
                         </p>
                         &ensp;
                         <b>
@@ -73,7 +73,7 @@
                     </h5>
                     <h5>
                         <p>
-                            Preferred date: 
+                            Preferred date:
                         </p>
                         &ensp;
                         <b>
@@ -82,7 +82,7 @@
                     </h5>
                     <h5>
                         <p>
-                            Price: 
+                            Price:
                         </p>
                         &ensp;
                         <b>

@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Workshops</title>
         <!-- bootstrap@5.3.0 -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -159,6 +159,7 @@
                                                     ${workshop.content}
                                                 </div>
                                                 <div class="card-text">
+                                                    <b>Trainer:</b> ${workshop.trainerID} <br />
                                                     <b>End enroll date:</b> ${workshop.end_enroll_date} <br />
                                                     <b>Time:</b> 2:00 PM - 4:00 PM <br />
                                                     <b>Location/Venue:</b> Central Community Center <br />

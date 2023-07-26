@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Create Online Course</title>
         <!-- boostrap -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -58,7 +58,7 @@
                     <div class="container-fluid" style="padding: 0 2.5%">
                         <div class="forms-container">
                             <div class="forms-header">
-                                <div class="left-side"><b>Create Item</b></div>
+                                <div class="left-side"><b>Create Online Course</b></div>
                                 <div class="right-side">
                                     <span><b>ID : #1</b></span>
                                 </div>

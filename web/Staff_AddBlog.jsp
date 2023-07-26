@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add a New Blog</title>
+        <title>Add New Blog</title>
     </style>
     <!-- boostrap -->
     <link
@@ -70,7 +70,7 @@
                 <div class="container-fluid" style="padding: 0 2.5%">
                     <div class="forms-container">
                         <div class="forms-header">
-                            <div class="left-side"><b>Add new Blog</b></div>
+                            <div class="left-side"><b>Add New Blog</b></div>
                         </div>
                         <form class="addForm" action="AddBlogServlet" method="POST" enctype="multipart/form-data">
                             <div class="form-formDetails">

@@ -5,7 +5,8 @@
  */
 package Controller;
 
-import DAO.TrainerDAO;
+import DAO.BookingDAO;
+import entity.BookingDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -20,31 +21,23 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author LAPTOP
+ * @author hoang
  */
-@WebServlet(name = "SetWorkshopCompleteServlet", urlPatterns = {"/SetWorkshopCompleteServlet"})
-public class SetWorkshopCompleteServlet extends HttpServlet {
+@WebServlet(name = "GetStaffBirdCourseOrderListDetail", urlPatterns = {"/GetStaffBirdCourseOrderListDetail"})
+public class GetStaffBirdCourseOrderListDetail extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
-        String trainerID = request.getParameter("trainerID");
-        
-        
-        try (PrintWriter out = response.getWriter()) {
-            TrainerDAO dao = new TrainerDAO();
-            dao.setWorkshopComplete(trainerID);
-            
-            RequestDispatcher rd = request.getRequestDispatcher("trainer_demo.jsp");
+
+        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
+
+        try {
+            BookingDAO bookingDAO = new BookingDAO();
+            BookingDTO booking = bookingDAO.getBookingByBirdID(bird_id);
+            request.setAttribute("BookingInfo", booking);
+        } finally {
+            RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseOrder_history-detail.jsp");
             rd.forward(request, response);
         }
     }
@@ -63,10 +56,10 @@ public class SetWorkshopCompleteServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SetWorkshopCompleteServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SetWorkshopCompleteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GetStaffBirdCourseOrderListDetail.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(GetStaffBirdCourseOrderListDetail.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -83,10 +76,10 @@ public class SetWorkshopCompleteServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SetWorkshopCompleteServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SetWorkshopCompleteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GetStaffBirdCourseOrderListDetail.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(GetStaffBirdCourseOrderListDetail.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

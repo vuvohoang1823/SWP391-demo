@@ -26,7 +26,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Services</title>
         <!-- boostrap -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -35,13 +35,13 @@
             crossorigin="anonymous"
             />
         <!-- w3Table -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        <!-- css -->
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/Trainer_PrivateConsultation_FormDetail.css" />
+    </head>
+    <body>
         <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
-            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-            <!-- css -->
-            <link rel="stylesheet" href="css/reset.css" />
-            <link rel="stylesheet" href="css/Trainer_PrivateConsultation_FormDetail.css" />
-        </head>
-        <body>
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                     <!--            header-->
@@ -75,7 +75,7 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Bird Course</a>
+                                            <a class="nav-link" href="Trainer_Tracking">Bird Course</a>
                                         </li>
                                         <li class="nav-item active">
                                             <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">Private Consultant</a>

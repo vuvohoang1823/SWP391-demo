@@ -9,23 +9,23 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="css/reset.css" type="text/css">
         <link rel="stylesheet" href="css/onlinecourseDetail.css" type="text/css">
-        <title>JSP Page</title>
+        <title>Online Course</title>
     </head><body>
         <%@ include file="header.jsp" %>
         <c:if test="${not empty sessionScope.online_course_detail}">
             <c:set var="detail" value="${sessionScope.online_course_detail}"/>
-        <section class="section-head">
-            <p>
-                COURSE INFORMATION
-            </p>
-            <p>
-                ${detail.title}
-            </p>
+            <section class="section-head">
+                <p>
+                    COURSE INFORMATION
+                </p>
+                <p>
+                    ${detail.title}
+                </p>
 
 
-        </section>
+            </section>
 
-        
+
             <section class="section-body" style="background-color: #DDE6F1">
                 <div class="col-xl-5">
                     <div class="body-content-left">
@@ -139,34 +139,34 @@
                 </div>
                 <hr>
             </section>
-                        
-                        
+
+
             <section class="section-footer" style="background-color: #DDE6F1">
                 <p style="font-size: 3rem; font-weight: bolder;text-align: center;padding-bottom: 3rem">
                     MODULES FOR THIS COURSE
                 </p>
-                
+
                 <c:forEach var="module" items="${online_module}" varStatus="count">
-                <div class="module-container">
-                    <div class="content-left">
-                        <p style="font-weight: bolder; font-size: 3rem">
-                            Module ${count.index + 1}
-                        </p>
+                    <div class="module-container">
+                        <div class="content-left">
+                            <p style="font-weight: bolder; font-size: 3rem">
+                                Module ${count.index + 1}
+                            </p>
+                        </div>
+                        <div class="content-right">
+                            <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                                <!--Getting used to the training mode for the first time-->
+                                ${module.module_name}
+                            </p>
+                            <p style="font-size: 2rem">
+                                <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
+                                ${module.module_description}
+                            </p>
+                            <hr>
+                        </div>
                     </div>
-                    <div class="content-right">
-                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                            <!--Getting used to the training mode for the first time-->
-                            ${module.module_name}
-                        </p>
-                        <p style="font-size: 2rem">
-                            <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
-                            ${module.module_description}
-                        </p>
-                        <hr>
-                    </div>
-                </div>
                 </c:forEach>
-                
+
                 <form action="Customer_ViewCertificateOnlineCourseServlet" method="POST" style="display: flex; justify-content: center; ">
                     <input type="hidden" name="courseID" value="${detail.courseID}" />
                     <input type="hidden" name="userID" value="${sessionScope.LOGIN_USER.customer_id}" />
@@ -175,9 +175,9 @@
                     </button>
                 </form>
             </section>
-            
 
-    </c:if>
-    <%@ include file="footer.jsp" %>
-</body>
+
+        </c:if>
+        <%@ include file="footer.jsp" %>
+    </body>
 </html>

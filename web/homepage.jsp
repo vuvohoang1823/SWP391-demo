@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/homepage.css" type="text/css">
         <jsp:useBean id="a" class="DAO.FeedbackDAO" scope="request"></jsp:useBean>
         <jsp:useBean id="i" class="DAO.courseDAO" scope="request"></jsp:useBean>
-            <title>JSP Page</title>
+            <title>Home</title>
         </head>
         <body style="margin:0">
 
@@ -247,6 +247,31 @@
             </section>
             <%@ include file="Home_ContactUs.jsp" %>
         </div>
+        <!-- Function to handle smooth scrolling to an element -->
+        <script>
+            function scrollToElement(elementId) {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    const offsetTop = element.getBoundingClientRect().top;
+                    const headerOffset = 0; // Adjust this value to account for any fixed header/navbar
+                    window.scrollBy({
+                        top: offsetTop - headerOffset,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            // Check if the URL contains a hash (e.g., home.jsp#id)
+            if (window.location.hash) {
+                // Get the target element ID (remove the # character)
+                const targetElementId = window.location.hash.substring(1);
+
+                // Wait for the entire page to load before scrolling to the target element
+                window.onload = function () {
+                    scrollToElement(targetElementId);
+                };
+            }
+        </script>
         <!--    drag scroll-->
         <script>
             document.addEventListener('DOMContentLoaded', function () {

@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/reset.css" type="text/css">
         <link rel="stylesheet" href="css/privateConsultation.css" type="text/css">
         <jsp:useBean id="t" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
-            <title>Document</title>
+            <title>Private Consultant</title>
         </head>
 
         <body>

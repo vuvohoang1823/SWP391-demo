@@ -10,7 +10,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <!--        bs5-->
         <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">-->
         <!--        font awesome-->
@@ -98,7 +97,7 @@
                                     <%= isPageActive(currentPage, "blogs.jsp")%>
                                     <%= isPageActive(currentPage, "blogDetail.jsp")%>
                                     ">
-                                    <a href="blogs.jsp">Blog</a>
+                                    <a href="blogs.jsp">Blogs</a>
                                 </li>
                                 <li class="">
                                     <a href="homepage.jsp#contact-us">Contact us</a>
@@ -211,6 +210,7 @@
                             <li class="nav-item py-2 py-sm-4
                                 <%= isPageActive(currentPage, "trainer_trackingBirdCourse.jsp")%>
                                 <%= isPageActive(currentPage, "trainer_birdCourse_completed.jsp")%>
+                                <%= isPageActive(currentPage, "Trainer_BirdCourse_CompletedDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Trainer_PrivateConsultation_List.jsp")%>
                                 <%= isPageActive(currentPage, "Trainer_PrivateConsultation_FormDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Trainer_PrivateConsultation_Completed.jsp")%>
@@ -233,7 +233,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li><hr style="border: 1px solid black" /></li>
+                            <li><hr style="border: 1px solid black; margin: 1rem 0" /></li>
                             <li class="nav-item py-2 py-sm-4">
                                 <a
                                     href="LogoutController"
