@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Online Course</title>
+        <jsp:useBean id="i" class="DAO.courseDAO" scope="request"></jsp:useBean>
+        <title>JSP Page</title>
         <!-- boostrap -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -65,14 +66,15 @@
                             Currently showing 2 course(s)
                         </div>
                         <div class="blogs-container" style="flex-wrap: wrap">
+                            <c:forEach items="${i.allCourseOnlineTraining}" var="onlinetraining">
                             <!-- start of card -->
                             <div class="blog-container">
-                                <img src="img/bluebirdgirl.png" draggable="false"/>
+                                <img src="data:images/jpg;base64,${onlinetraining.image}" draggable="false"/>
                                 <div class="desc-container">
                                     <div class="extra-price">
-                                        <p>£120.00</p>
+                                        <p>£${onlinetraining.price}</p>
                                     </div>
-                                    <h5 class="blog-title">Mastering Effective Communication: Unlocking the Power of Connection</h5>
+                                    <h5 class="blog-title">${onlinetraining.title}</h5>
                                     <div class="card-text row">
                                         <div class="col-lg-6 d-flex align-items-center" style="justify-content: space-evenly;">
                                             <span style="color: #617a55">
@@ -97,7 +99,7 @@
                                                 <path d="M14.0751 9.23077V0H20V9.23077H14.0751ZM7.03755 9.23077V0H12.9624V9.23077H7.03755ZM0 9.23077V0H5.9249V9.23077H0ZM0 20V10.7692H5.9249V20H0ZM7.03755 20V10.7692H12.9624V20H7.03755ZM14.0751 20V10.7692H20V20H14.0751Z" fill="#617A55"/>
                                                 </svg>
                                             </span>
-                                            <span>6 modules</span>
+                                            <span>5 modules</span>
                                         </div>
                                     </div>
                                     <hr
@@ -121,16 +123,16 @@
                                     </div>
                                 </div>
                                 <div class="update">
-                                    <form action="Staff_Services_OnlineCourse_Update.jsp" method="post" style="display: inline;">
-                                        <input type="hidden" name="blogId" value="${card.blogid}" />
+                                    <form action="Staff_OnlineCourse_ViewDetailServlet" method="post" style="display: inline;">
+                                        <input type="hidden" name="courseID" value="${onlinetraining.courseID}" />
                                         <button class="update-button " type="submit" name="action" value="update">Update</button>
                                     </form>
                                 </div>
                                 <div class="delete">
-                                    <form class="deleteForm" action="" method="post" style="display: inline;">
-                                        <input type="hidden" name="blogId" value="${card.blogid}" />
-                                        <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${card.blogid}">Delete</button>
-                                        <div class="modal fade" id="confirmDelete-${card.blogid}" tabindex="-1" aria-hidden="true">
+                                    <form class="deleteForm" action="Staff_OnlineCourse_DeleteServlet" method="post" style="display: inline;">
+                                        <input type="hidden" name="courseID" value="${onlinetraining.courseID}" />
+                                        <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${onlinetraining.courseID}">Delete</button>
+                                        <div class="modal fade" id="confirmDelete-${onlinetraining.courseID}" tabindex="-1" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -151,6 +153,7 @@
                                 </div>
                             </div>
                             <!-- end of card -->
+                            </c:forEach>
                         </div>
                     </section>
                 </div>
