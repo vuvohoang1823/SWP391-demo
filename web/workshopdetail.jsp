@@ -8,6 +8,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="/vnpay_jsp/assets/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
+        <link href="/vnpay_jsp/assets/bootstrap.min.css" rel="stylesheet"/>
+        <!-- Custom styles for this template -->
+        <link href="/vnpay_jsp/assets/jumbotron-narrow.css" rel="stylesheet">      
+        <script src="/vnpay_jsp/assets/jquery-1.11.3.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="css/reset.css" type="text/css">
@@ -141,20 +149,30 @@
             </p>
 
 
+            <form action="PaymentOfWorkshopServlet" method="POST" id="frmCreateOrder">
 
+                <input type="hidden" name="courseID" value="${detail.courseID}"/>
+                <input type="hidden" name="price" value="${detail.price}" />
+                <input type="hidden" name="userID" value="${sessionScope.LOGIN_USER.customer_id}" />
+                <div>
+                    <input  value="${detail.price}000" class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="hidden"  />
+                </div>
+                <!--- phuong thuc thanh toan---->
+                <input type="hidden"  id="bankCode" name="bankCode" value="">
+                <!--- phuong thuc thanh toan---->
+                <!-- language--->
+                <div>
+                    <input type="hidden" id="language"  name="language" value="vn">
+                </div>
+                <!-- language--->
+                    <button class="vnpay" type="submit">
+                        <p>
+                            Continue with
+                        </p>
+                        <img src="img/vnpay.png">
 
-            <!--                <input type="hidden" name="courseID" value=/>
-                            <input type="hidden" name="price" value= />
-                            <input type="hidden" name="userID" value= />-->
-
-            <button  class="vnpay" >
-                <a href="MainController?action=payment_workshop&courseID=${detail.courseID}&price=${detail.price}&userID=${sessionScope.LOGIN_USER.customer_id}">
-                    <p>
-                        Continue with
-                    </p>
-                    <img src="img/vnpay.png">
-                </a>
-            </button>
+                    </button>
+            </form>
 
         </div>
         <div class="col-xl-5">
@@ -215,5 +233,32 @@
         </div>
     </section>
     <%@include file="footer.jsp" %>
+    <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
+    <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
+    <script type="text/javascript">
+        $("#frmCreateOrder").submit(function () {
+            var postData = $("#frmCreateOrder").serialize();
+            var submitUrl = $("#frmCreateOrder").attr("action");
+            $.ajax({
+                type: "POST",
+                url: submitUrl,
+                data: postData,
+                dataType: 'JSON',
+                success: function (x) {
+                    if (x.code === '00') {
+                        if (window.vnpay) {
+                            vnpay.open({width: 768, height: 600, url: x.data});
+                        } else {
+                            location.href = x.data;
+                        }
+                        return false;
+                    } else {
+                        alert(x.Message);
+                    }
+                }
+            });
+            return false;
+        });
+    </script>       
 </body>
 </html>
