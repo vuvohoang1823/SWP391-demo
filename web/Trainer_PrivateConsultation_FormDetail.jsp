@@ -252,10 +252,10 @@
                                                     <div class="forms-footer m-auto" id="completeButton">
                                                         <!-- Button trigger modal -->
                                                         <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmComplete">
-                                                            Complete
+                                                            Proceed to payment
                                                         </button>
                                                         <button type="button"  class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#confirmCancel">
-                                                            Cancel
+                                                            Cancel this appointment
                                                         </button>
                                                     </div>
 
@@ -318,14 +318,15 @@
                                                             <div class="name">Payment Details</div>
                                                         </div>
                                                         <div class="row payment-form mb-5 d-flex align-items-center" style="position: relative">
-                                                            <div class="d-flex col-lg-2 justify-content-center align-items-center">Calculate payment:</div>
+                                                            <div class="d-flex col-lg-3 justify-content-center align-items-center">Calculate payment by hour:</div>
                                                             <div class="input-group w-auto">
                                                                 <input
                                                                     id="trainername"
-                                                                    type="text"
+                                                                    type="number"
                                                                     name="number"
                                                                     class="form-control"
                                                                     placeholder="Enter number of hours"
+                                                                    min="0"
                                                                     required
                                                                     />
                                                                 <!---------------->
@@ -428,7 +429,7 @@
                         result = parseInt(number) * 150;
                     }
 
-                    document.getElementById("result").textContent = "Result: " + result;
+                    document.getElementById("result").textContent = "Result: $" + result;
                     document.getElementById("hiddenPrice").value = result;
                 }
             }

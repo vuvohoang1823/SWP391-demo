@@ -56,7 +56,7 @@ public class FormAnswerbyStaff extends HttpServlet {
             String question = request.getParameter("message");
             String messages = request.getParameter("message_answer");
             String id = request.getParameter("formid");
-            String logoUrl = "https://i.ibb.co/kym8gjD/349252733-767865025124137-1990273265293346631-n.png";
+            String logoUrl = "https://i.ibb.co/x2zY7tp/349202569-756064332968259-1701146171430647693-n.png";
             String companyName = "Bird Training Center";
 
             Logger logger = Logger.getLogger(getClass().getName());
@@ -130,7 +130,7 @@ public class FormAnswerbyStaff extends HttpServlet {
                     htmlContent += "      font-size: 20px;\n";
                     htmlContent += "    }\n";
                     htmlContent += "    .header {\n";
-                    htmlContent += "      background-color: #f9f9f9;\n";
+                    htmlContent += "      background-color: grey;\n";
                     htmlContent += "      padding: 20px;\n";
                     htmlContent += "      text-align: center;\n";
                     htmlContent += "    }\n";
@@ -148,30 +148,11 @@ public class FormAnswerbyStaff extends HttpServlet {
 
                     htmlContent += "<body>\n";
 
-//                    htmlContent += "<h1>Email Details</h1>\n";
-//                    htmlContent += "<table border='1'>\n";
-//                    htmlContent += "<tr>\n";
-//                    htmlContent += "<th>Field</th>\n";
-//                    htmlContent += "<th>Value</th>\n";
-//                    htmlContent += "</tr>\n";
-//                    htmlContent += "<tr>\n";
-//                    htmlContent += "<td>Email</td>\n";
-//                    htmlContent += "<td>" + email + "</td>\n";
-//                    htmlContent += "</tr>\n";
-//                    htmlContent += "<tr>\n";
-//                    htmlContent += "<td>Message</td>\n";
-//                    htmlContent += "<td><textarea rows='5' cols='50' disabled style='background: white; color: black; font-weight: 700'>" + messages + "</textarea></td>\n";
-//                    htmlContent += "</tr>\n";
-//                    htmlContent += "<tr>\n";
-//                    htmlContent += "<td>Date Submitted</td>\n";
-//                    htmlContent += "<td>" + formattedTime + "</td>\n";
-//                    htmlContent += "</tr>\n";
-//                    htmlContent += "</table>";
                     htmlContent += "  <div class=\"card\">\n";
                     htmlContent += "    <!-- Header section -->\n";
                     htmlContent += "    <div class=\"header\">\n";
                     htmlContent += "      <img src=\"" + logoUrl + "\" alt=\"Your Logo\">\n";
-                    htmlContent += "      <h1>" + companyName + "</h1>\n";
+                    htmlContent += "      <h1 style=\"color: white\">" + companyName + "</h1>\n";
                     htmlContent += "    </div>\n";
                     htmlContent += "    <!-- Content section -->\n";
                     htmlContent += "    <div class=\"content\">\n";

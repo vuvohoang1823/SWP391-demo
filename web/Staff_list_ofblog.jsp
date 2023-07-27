@@ -160,13 +160,13 @@
                 </div>
             </div>
         </div>
-        <script>
-            window.addEventListener('DOMContentLoaded', function () {
-                var headerWidth = document.getElementById('headerPage').offsetWidth;
-                var container = document.getElementById('containerPage');
-                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
-            });
-        </script>
+        <!--        <script>
+                    window.addEventListener('DOMContentLoaded', function () {
+                        var headerWidth = document.getElementById('headerPage').style.width;
+                        var container = document.getElementById('containerPage');
+                        container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+                    });
+                </script>-->
         <!--        trim title-->
         <script>
             // Get all question message elements

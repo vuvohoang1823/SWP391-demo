@@ -503,42 +503,41 @@
                                 </div> -->
                             </div>
                         </div>
-                                                        <div class="title-head" style="display: flex">
+                        <div class="title-head" style="display: flex">
                             Top 3 trainers of last month
                         </div>
                         <div class="top-trainer">
                             <c:forEach var="trainer" items="${dashboard.getTop3Trainer()}">
-                            <div class="card-item">
-                                <img src="data:images/jpg;base64,${trainer.trainer_img}"/>
-                                <div class="text">
-                                    <div class="title">
-                                        Trainer Name
-                                    </div>
-                                    <div class="content">
-                                        ${trainer.fullname}
-                                    </div>
-                                    <div class="title">
-                                        Total income
-                                    </div>
-                                    <div class="content">
-                                        $ ${trainer.total_earnings}
+                                <div class="card-item">
+                                    <img src="data:images/jpg;base64,${trainer.trainer_img}"/>
+                                    <div class="text">
+                                        <div class="title">
+                                            Trainer Name
+                                        </div>
+                                        <div class="content">
+                                            ${trainer.fullname}
+                                        </div>
+                                        <div class="title">
+                                            Total income
+                                        </div>
+                                        <div class="content">
+                                            $ ${trainer.total_earnings}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                                    </c:forEach>
-                            
+                            </c:forEach>
                         </div>
                     </section>
                 </div>
             </div>
         </div>
-        <script>
-            window.addEventListener('DOMContentLoaded', function () {
-                var headerWidth = document.getElementById('headerPage').offsetWidth;
-                var container = document.getElementById('containerPage');
-                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
-            });
-        </script>
+        <!--        <script>
+                    window.addEventListener('DOMContentLoaded', function () {
+                        var headerWidth = document.getElementById('headerPage').style.width;
+                        var container = document.getElementById('containerPage');
+                        container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+                    });
+                </script>-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
@@ -563,7 +562,9 @@
                         }]
                 });
                 chart.render();
-            }
+                document.getElementById('loading-screen').style.display = 'none';
+                document.body.classList.remove('loading');
+            };
         </script>
         <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     </body>

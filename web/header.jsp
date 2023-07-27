@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="css/header.css" type="text/css">
     </head>
     <body>
+        <%@include  file="LoadingScreen.jsp" %>
         <c:set var="user" value="${sessionScope.LOGIN_USER}"></c:set>
         <c:set var="role" value="${sessionScope.role}" />
         <!--change color on active page-->

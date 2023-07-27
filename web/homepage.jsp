@@ -127,9 +127,7 @@
                             EFFECTIVE BIRD TRAINING, REAL BEHAVIOR SOLUTION
                         </div>
                         <p class="desc-container">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                            Reprehenderit possimus architecto velit quos? Ratione perferendis
-                            laudantium dolor cumque repudiandae obcaecati?
+                            At our Effective Bird Training Center, we envision a world where birds and their human companions enjoy a fulfilling and loving bond. We are dedicated to making this vision a reality, one bird at a time. Come join our feathered family and experience the joy of training and understanding your avian companion like never before!
                         </p>
                         <div class="checkmark-container">
                             <div>
@@ -246,31 +244,6 @@
             </section>
             <%@ include file="Home_ContactUs.jsp" %>
         </div>
-        <!-- Function to handle smooth scrolling to an element -->
-        <script>
-            function scrollToElement(elementId) {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    const offsetTop = element.getBoundingClientRect().top;
-                    const headerOffset = 0; // Adjust this value to account for any fixed header/navbar
-                    window.scrollBy({
-                        top: offsetTop - headerOffset,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-
-            // Check if the URL contains a hash (e.g., home.jsp#id)
-            if (window.location.hash) {
-                // Get the target element ID (remove the # character)
-                const targetElementId = window.location.hash.substring(1);
-
-                // Wait for the entire page to load before scrolling to the target element
-                window.onload = function () {
-                    scrollToElement(targetElementId);
-                };
-            }
-        </script>
         <!--    drag scroll-->
         <script>
             document.addEventListener('DOMContentLoaded', function () {
