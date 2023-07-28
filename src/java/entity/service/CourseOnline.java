@@ -93,10 +93,11 @@ public class CourseOnline implements
         this.payment_id = payment_id;
     }
 
-    public CourseOnline(String title, String image, String courseID) {
+    public CourseOnline(String title, String image, String courseID, String content) {
         this.title = title;
         this.image = image;
         this.courseID = courseID;
+        this.content = content;
     }
     
 

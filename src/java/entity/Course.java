@@ -29,6 +29,10 @@ public class Course {
     private int history_id;
     private String trainer_fullname;
     private int duration;
+    private String a;
+    private String b;
+    private String c;
+    private String d;
 
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, Date complete_date, String trainer_fullname, String customerID) {
         this.courseID = courseID;
@@ -107,6 +111,20 @@ public class Course {
         this.status = status;
     }
 
+    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String trainer_fullname, String a, String b, String c, String d) {
+        this.courseID = courseID;
+        this.trainerID = trainerID;
+        this.staffID = staffID;
+        this.content = content;
+        this.category = category;
+        this.title = title;
+        this.price = price;
+        this.image = image;
+        this.start_date = start_date;
+        this.end_enroll_date = end_enroll_date;
+        this.trainer_fullname = trainer_fullname;
+    }
+    
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date) {
         this.courseID = courseID;
         this.trainerID = trainerID;
@@ -281,6 +299,38 @@ public class Course {
 
     public void setTrainer_fullname(String trainer_fullname) {
         this.trainer_fullname = trainer_fullname;
+    }
+
+    public String getA() {
+        return a;
+    }
+
+    public void setA(String a) {
+        this.a = a;
+    }
+
+    public String getB() {
+        return b;
+    }
+
+    public void setB(String b) {
+        this.b = b;
+    }
+
+    public String getC() {
+        return c;
+    }
+
+    public void setC(String c) {
+        this.c = c;
+    }
+
+    public String getD() {
+        return d;
+    }
+
+    public void setD(String d) {
+        this.d = d;
     }
 
 }
