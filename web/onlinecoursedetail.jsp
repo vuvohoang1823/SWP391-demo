@@ -16,7 +16,7 @@
         <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
         <link href="/vnpay_jsp/assets/bootstrap.min.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="/vnpay_jsp/assets/jumbotron-narrow.css" rel="stylesheet">      
+        <link href="/vnpay_jsp/assets/jumbotron-narrow.css" rel="stylesheet">
         <script src="/vnpay_jsp/assets/jquery-1.11.3.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -192,102 +192,102 @@
                 <p style="font-size: 3rem; font-weight: bolder;text-align: center;padding-bottom: 3rem">
                     MODULES FOR THIS COURSE
                 </p>
-                
+
                 <c:set var="module" value="${requestScope.online_module}"/>
-                    <div class="module-container">
-                        <div class="content-left">
-                            <p style="font-weight: bolder; font-size: 3rem">
-                                Module 1
-                            </p>
-                        </div>
-                        <div class="content-right">
-                            <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                                <!--Getting used to the training mode for the first time-->
-                                ${module.module_name_1}
-                            </p>
-                            <p style="font-size: 2rem">
-                                <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
-                                ${module.module_description_1}
-                            </p>
-                            <hr>
-                        </div>
+                <div class="module-container">
+                    <div class="content-left">
+                        <p style="font-weight: bolder; font-size: 3rem">
+                            Module 1
+                        </p>
                     </div>
-                            
-                    <div class="module-container">
-                        <div class="content-left">
-                            <p style="font-weight: bolder; font-size: 3rem">
-                                Module 2
-                            </p>
-                        </div>
-                        <div class="content-right">
-                            <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                                <!--Getting used to the training mode for the first time-->
-                                ${module.module_name_2}
-                            </p>
-                            <p style="font-size: 2rem">
-                                <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
-                                ${module.module_description_2}
-                            </p>
-                            <hr>
-                        </div>
+                    <div class="content-right">
+                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                            <!--Getting used to the training mode for the first time-->
+                            ${module.module_name_1}
+                        </p>
+                        <p style="font-size: 2rem">
+                            <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
+                            ${module.module_description_1}
+                        </p>
+                        <hr>
                     </div>
-                    
-                    <div class="module-container">
-                        <div class="content-left">
-                            <p style="font-weight: bolder; font-size: 3rem">
-                                Module 3
-                            </p>
-                        </div>
-                        <div class="content-right">
-                            <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                                <!--Getting used to the training mode for the first time-->
-                                ${module.module_name_3}
-                            </p>
-                            <p style="font-size: 2rem">
-                                <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
-                                ${module.module_description_3}
-                            </p>
-                            <hr>
-                        </div>
+                </div>
+
+                <div class="module-container">
+                    <div class="content-left">
+                        <p style="font-weight: bolder; font-size: 3rem">
+                            Module 2
+                        </p>
                     </div>
-                            
-                    <div class="module-container">
-                        <div class="content-left">
-                            <p style="font-weight: bolder; font-size: 3rem">
-                                Module 4
-                            </p>
-                        </div>
-                        <div class="content-right">
-                            <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                                <!--Getting used to the training mode for the first time-->
-                                ${module.module_name_4}
-                            </p>
-                            <p style="font-size: 2rem">
-                                <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
-                                ${module.module_description_4}
-                            </p>
-                            <hr>
-                        </div>
+                    <div class="content-right">
+                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                            <!--Getting used to the training mode for the first time-->
+                            ${module.module_name_2}
+                        </p>
+                        <p style="font-size: 2rem">
+                            <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
+                            ${module.module_description_2}
+                        </p>
+                        <hr>
                     </div>
-                          
-                    <div class="module-container">
-                        <div class="content-left">
-                            <p style="font-weight: bolder; font-size: 3rem">
-                                Module 5
-                            </p>
-                        </div>
-                        <div class="content-right">
-                            <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
-                                <!--Getting used to the training mode for the first time-->
-                                ${module.module_name_5}
-                            </p>
-                            <p style="font-size: 2rem">
-                                <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
-                                ${module.module_description_5}
-                            </p>
-                            <hr>
-                        </div>
+                </div>
+
+                <div class="module-container">
+                    <div class="content-left">
+                        <p style="font-weight: bolder; font-size: 3rem">
+                            Module 3
+                        </p>
                     </div>
+                    <div class="content-right">
+                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                            <!--Getting used to the training mode for the first time-->
+                            ${module.module_name_3}
+                        </p>
+                        <p style="font-size: 2rem">
+                            <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
+                            ${module.module_description_3}
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="module-container">
+                    <div class="content-left">
+                        <p style="font-weight: bolder; font-size: 3rem">
+                            Module 4
+                        </p>
+                    </div>
+                    <div class="content-right">
+                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                            <!--Getting used to the training mode for the first time-->
+                            ${module.module_name_4}
+                        </p>
+                        <p style="font-size: 2rem">
+                            <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
+                            ${module.module_description_4}
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="module-container">
+                    <div class="content-left">
+                        <p style="font-weight: bolder; font-size: 3rem">
+                            Module 5
+                        </p>
+                    </div>
+                    <div class="content-right">
+                        <p style="font-weight: bolder; font-size: 3rem;color: #617a55">
+                            <!--Getting used to the training mode for the first time-->
+                            ${module.module_name_5}
+                        </p>
+                        <p style="font-size: 2rem">
+                            <!--In this foundational module, we guide you through the exciting transition into the world of bird training. Whether you're a new bird owner or embarking on training for the first time, this module provides essential insights and techniques to help you and your feathered companion embrace the training journey.-->
+                            ${module.module_description_5}
+                        </p>
+                        <hr>
+                    </div>
+                </div>
 
                 <!--                <div class="module-container">
                                     <div class="content-left">
@@ -470,6 +470,6 @@
             });
             return false;
         });
-    </script>       
+    </script>
 </body>
 </html>
