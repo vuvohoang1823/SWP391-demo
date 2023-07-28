@@ -144,7 +144,7 @@
                                                             />
                                                         </svg>
                                                     </span>
-                                                    <span>6 modules</span>
+                                                    <span>5 modules</span>
                                                 </div>
                                             </div>
                                             <hr

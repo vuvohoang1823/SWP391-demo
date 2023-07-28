@@ -159,7 +159,7 @@
                                                     ${workshop.content}
                                                 </div>
                                                 <div class="card-text">
-                                                    <b>Trainer:</b> ${workshop.trainerID} <br />
+                                                    <b>Trainer:</b> ${workshop.trainer_fullname} <br />
                                                     <b>End enroll date:</b> ${workshop.end_enroll_date} <br />
                                                     <b>Time:</b> 2:00 PM - 4:00 PM <br />
                                                     <b>Location/Venue:</b> Central Community Center <br />

@@ -135,7 +135,10 @@
                                     <div class="card-body">
                                         <div class="extra-price">
                                             <div class="button-container">
+                                                <a href="MainController?action=view_online_course_detail&courseID=${onlinetraining.courseID}">
+                                                
                                                 <button class="btn btn-primary">Enroll</button>
+                                                </a>
                                             </div>
                                             <p>£${onlinetraining.price}</p>
                                         </div>
@@ -175,7 +178,7 @@
                                                         />
                                                     </svg>
                                                 </span>
-                                                <span>6 modules</span>
+                                                <span>5 modules</span>
                                             </div>
                                         </div>
                                         <hr
