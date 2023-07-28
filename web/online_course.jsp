@@ -6,8 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <jsp:useBean id="i" class="DAO.courseDAO" scope="request"></jsp:useBean>
-
-            <title>Document</title>
+            <title>Online Course</title>
             <!-- bootstrap@5.3.0 -->
             <link
                 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -101,10 +100,11 @@
                                         <div class="card-body">
                                             <div class="extra-price">
                                                 <div class="button-container">
-                                                    <button class="btn btn-primary">
-                                                        <a href="MainController?action=view_online_course_detail&courseID=${onlinetraining.courseID}" style="text-decoration: none;color: white">Enroll</a>
-
-                                                    </button>
+                                                    <a href="MainController?action=view_online_course_detail&courseID=${onlinetraining.courseID}" style="text-decoration: none;color: white">
+                                                        <button class="btn btn-primary">
+                                                            Enroll
+                                                        </button>
+                                                    </a>
                                                 </div>
                                                 <p>£${onlinetraining.price}</p>
                                             </div>

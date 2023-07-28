@@ -1,4 +1,7 @@
-/*# sourceMappingURL=formList.css.map */
+
+hr {
+    margin: 0;
+}
 .heading {
     background-color: white;
     font-weight: bold;

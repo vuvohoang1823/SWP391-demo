@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : Staff_View_Workshop_Detail
     Created on : Jul 6, 2023, 4:32:50 PM
     Author     : LAPTOP
@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Update Workshop</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -97,24 +97,24 @@
         <c:set var="workshop" value="${sessionScope.staff_workshop_detail}"/>
         <form action="Staff_UpdateWorkshopDetailServlet" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                    <input type="file" id="workshop_image" name="workshop_image" class="form-control" accept="image/*" multiple required>
+                <input type="file" id="workshop_image" name="workshop_image" class="form-control" accept="image/*" multiple required>
             </div>
 
             <div class="form-group">
                 <label for="title">Course ID: </label>
-                <input type="text" name="courseID" value="${workshop.courseID}" class="form-control" placeholder="Enter title" >   
+                <input type="text" name="courseID" value="${workshop.courseID}" class="form-control" placeholder="Enter title" >
             </div>
             <div class="form-group">
                 <label>Trainer ID: </label>
-                <input type="text" name="trainerID" value="${workshop.trainerID}" class="form-control" placeholder="Enter title" >   
+                <input type="text" name="trainerID" value="${workshop.trainerID}" class="form-control" placeholder="Enter title" >
             </div>
             <div class="form-group">
                 <label>Title: </label>
-                <input type="text" name="title" value="${workshop.title}" class="form-control" placeholder="Enter title" >   
+                <input type="text" name="title" value="${workshop.title}" class="form-control" placeholder="Enter title" >
             </div>
             <div class="form-group">
                 <label>Price: </label>
-                <input type="text" name="price" value="${workshop.price}" class="form-control" placeholder="Enter title" >   
+                <input type="text" name="price" value="${workshop.price}" class="form-control" placeholder="Enter title" >
             </div>
             <div class="form-group">
                 <label>End Enroll Date:</label>
@@ -144,7 +144,7 @@
                 <label>Sub content 4:</label>
                 <textarea class="form-control" name="sub_content_4" placeholder="Enter introduction" required>${workshop.sub_content_4}</textarea>
             </div>
-            
+
             <input type="hidden" name="staffID" value="${workshop.staffID}" />
             <input type="hidden" name="category" value="${workshop.category}" />
             <button type="submit" name="action" value="update_workshop_detail" class="btn btn-primary">Update Information</button>
@@ -152,7 +152,7 @@
         </form>
 
 
-            <script
+        <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"

@@ -10,6 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Bird Course</title>
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -19,8 +20,6 @@
         <link rel="stylesheet" href="css/reset.css" type="text/css">
         <link rel="stylesheet" href="css/birdCourse.css" type="text/css">
         <jsp:useBean id="i" class="DAO.courseDAO" scope="request"></jsp:useBean>
-
-            <title>JSP Page</title>
         </head>
         <body>
         <%@include file="header.jsp" %>

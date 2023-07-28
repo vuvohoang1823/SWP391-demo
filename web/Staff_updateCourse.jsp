@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Create account</title>
+        <title>Update Course</title>
         <!-- bootstrap -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -124,11 +124,19 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="" class="form-label">Avatar</label>
-                                                    <input type="file" name="thumbnail" class="form-control"/><img src="data:images/jpg;base64,${course.image}" height="200px" width="300px" alt=""/>
-                                                    <input type="hidden" name="img" value="${course.image}"/>
+                                                <!--                                                <div class="mb-3">
+                                                                                                    <label for="" class="form-label">Avatar</label>
+                                                                                                    <input type="file" name="thumbnail" class="form-control"/><img src="data:images/jpg;base64,${course.image}" height="200px" width="300px" alt=""/>
+                                                                                                    <input type="hidden" name="img" value="${course.image}"/>
+                                                                                                </div>-->
+                                                <div class="col-lg-5 mb-5">
+                                                    <label for="thumbnail" class="form-label">Thumbnail:</label>
+                                                    <input type="file" id="thumbnail" name="thumbnail" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" />
                                                 </div>
+                                                <div class="img-container d-flex justify-content-center">
+                                                    <img class="showImg" src="data:images/jpg;base64,${course.image}" alt="" name="thumbnailimg">
+                                                </div>
+                                                <input type="hidden" name="thumbnailIMGolddata" value="${course.image}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -162,6 +170,83 @@
                     var categoryValue = selectedCategory.nextElementSibling.querySelector('.category-name').innerText;
                     categoryInput.value = categoryValue;
                 }
+            }
+        </script>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var headerWidth = document.getElementById('headerPage').offsetWidth;
+                var container = document.getElementById('containerPage');
+                container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+            });
+        </script>
+        <!--show toast on forms-->
+        <script>
+            // Get all form elements using querySelectorAll
+            var forms = document.querySelectorAll("form");
+            // Attach an event listener to each form's submit event
+            forms.forEach(function (form) {
+                form.addEventListener("submit", function (event) {
+                    // Prevent the default form submission behavior
+//                    event.preventDefault();
+                    // Show success toast
+                    Toastify({
+                        text: "Submit success",
+                        position: "center",
+                        close: true,
+                        gravity: "top",
+                        duration: 3000,
+                        style: {
+                            fontSize: "2rem",
+                            background: "linear-gradient(to right, #00b09b, #96c93d)"
+                        }
+                    }).showToast();
+                });
+            });
+        </script>
+        <!--update image-->
+        <script>
+            function updateThumbnail(input) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var showImg = input.parentNode.parentNode.querySelector('.img-container').querySelector('.showImg');
+                    showImg.src = e.target.result;
+                };
+
+                if (input.files && input.files[0]) {
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            var imgInputs = document.getElementsByClassName("imgInput");
+            for (var i = 0; i < imgInputs.length; i++) {
+                var imgInput = imgInputs[i];
+                imgInput.onchange = function () {
+                    updateThumbnail(this);
+                };
+            }
+        </script>
+        <!--adjust height and trim space-->
+        <script>
+            function adjustTextareaHeight(textarea) {
+                textarea.style.height = "auto";
+                textarea.style.height = textarea.scrollHeight + "px";
+            }
+
+            function trimTrailingSpaces(textarea) {
+                textarea.value = textarea.value.trim();
+                adjustTextareaHeight(textarea);
+            }
+
+            var textareas = document.getElementsByClassName("long-input");
+            for (var i = 0; i < textareas.length; i++) {
+                textareas[i].addEventListener("input", function () {
+                    adjustTextareaHeight(this);
+                });
+                textareas[i].addEventListener("blur", function () {
+                    trimTrailingSpaces(this);
+                });
+                adjustTextareaHeight(textareas[i]);
             }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

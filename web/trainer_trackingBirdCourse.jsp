@@ -9,7 +9,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Tracking ${BookingDTO.nameBird}</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <!-- w3Table -->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -66,11 +65,20 @@
                     <div class="section-body">
                         <c:set var="result" value="${BookingDTO}"/>
                         <c:if test="${not empty result}">
-
-
+                            <div class="text-center" style="background: rgba(183, 198, 194, 0.40); border-radius: 30px 30px 0px 0px">
+                                <div style="
+                                     padding: 1.5rem 0;
+                                     color: #617A55;
+                                     font-size: 40px;
+                                     font-weight: 700;
+                                     line-height: normal;
+                                     ">
+                                    Bird Detail Tracking Progress
+                                </div>
+                            </div>
                             <div class="section-body-content">
                                 <div class="col-lg-7">
-                                    <img src="data:images/jpg;base64,${BookingDTO.courseImg}" style="border-radius: 100%; width: 40rem;height: 40rem" />
+                                    <img src="data:images/jpg;base64,${BookingDTO.courseImg}"/>
                                     <div class="left-content">
                                         <div class="text">
                                             <p>
@@ -97,7 +105,7 @@
                                                 Training Status
                                             </p>
                                             <p>
-                                                <b style="color: #617A55">
+                                                <b style="color: #617A55; text-transform: capitalize">
                                                     ${BookingDTO.status}
                                                 </b>
                                             </p>
@@ -121,11 +129,11 @@
                                         </p>
                                         <p>
                                             <b>
-                                                Start date: ${BookingDTO.start_date}
+                                                Start date: ${not empty BookingDTO.start_date ? BookingDTO.start_date : "N/A"}
                                             </b>
                                             <br>
                                             <b>
-                                                End date: ${BookingDTO.end_date}
+                                                End date: ${not empty BookingDTO.end_date ? BookingDTO.end_date : "N/A"}
                                             </b>
                                         </p>
                                     </div>
@@ -149,27 +157,27 @@
 
                                                         <input type="hidden" name="bird_id" value="${BookingDTO.birdID}">
                                                         <div>
-                                                            <input type="radio" name="status" value="checkin" id="status">
-                                                            <label for="status">
+                                                            <input type="radio" name="status" value="checkin" id="checkin" ${BookingDTO.status eq "checkin" ? "checked" : ""}>
+                                                            <label for="checkin">
                                                                 <span style="color: #FA5943">Check-In</span>
                                                             </label>
                                                         </div>
                                                         <div>
-                                                            <input type="radio" name="status" value="in-training" id="status">
-                                                            <label for="status">
+                                                            <input type="radio" name="status" value="in-training" id="in-training" ${BookingDTO.status eq "in-training" ? "checked" : ""}>
+                                                            <label for="in-training">
                                                                 <span style="color: #F69C14">In-Training</span>
                                                             </label>
                                                         </div>
                                                         <div>
-                                                            <input type="radio" name="status" value="completed" id="status">
-                                                            <label for="status">
+                                                            <input type="radio" name="status" value="completed" id="completed" ${BookingDTO.status eq "completed" ? "checked" : ""}>
+                                                            <label for="completed">
                                                                 <span style="color: #0A7E65">Completed</span>
                                                             </label>
                                                         </div>
 
                                                     </div>
                                                     <div class="modalfooter">
-                                                        <button name="button" value="cancel" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="button" data-bs-dismiss="modal">Cancel</button>
                                                         <button name="button" value="submit" type="submit">Submit</button>
                                                     </div>
                                                 </form>

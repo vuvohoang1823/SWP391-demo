@@ -124,12 +124,15 @@ section .heading h2 {
     overflow: hidden;
 }
 .blogs-header .carousel-inner .carousel-item img {
+    object-fit: cover;
+    min-height: 87vh;
+    height: 87vh;
     filter: brightness(60%);
 }
 .blogs-header .carousel-inner .carousel-item .carousel-caption {
     left: inherit;
-    right: 0;
-    bottom: 10rem;
+    right: 5rem;
+    bottom: 5rem;
     width: 45vw;
     text-align: left;
 }

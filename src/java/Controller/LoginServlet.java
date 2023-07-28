@@ -82,7 +82,7 @@ public class LoginServlet extends HttpServlet {
                     TrainerSP trainer = trainerdao.getTrainerInfo(user.getUser_id());
                     session.setAttribute("LOGIN_USER", trainer);
 //                    url = "trainer_trackingBirdCourse.jsp";
-                     url = "Trainer_Tracking";
+                    url = "Trainer_Tracking";
 
                 } else if (user.getRole().equals("staff")) {
                     UserDAO staffdao = new UserDAO();
@@ -90,7 +90,6 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("LOGIN_USER", staff);
                     //add thg staff de log out
                     url = "Dashboard";
-                    //   url="trainer_demo.jsp";
                     //  url = "staff_birdCourseForm.jsp";
 
                 } else if (user.getRole().equals("admin")) {
@@ -100,7 +99,7 @@ public class LoginServlet extends HttpServlet {
 
                 //store cookie dung de remember password
                 Cookie cookie = new Cookie(username, password);
-                cookie.setMaxAge(60*5);
+                cookie.setMaxAge(60 * 5);
                 response.addCookie(cookie);
             } else {
                 request.setAttribute("loginAccStatus", "fail");

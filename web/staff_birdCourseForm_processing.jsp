@@ -10,7 +10,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="css/reset.css" type="text/css">
@@ -83,7 +82,7 @@
                                     <td>Bird type</td>
                                     <td>Bird name</td>
                                     <td>Submitted date</td>
-                                    <td>Status</td>
+                                    <td style="padding: 0 0 0 2%;">Status</td>
                                     <td></td>
                                 </tr>
                             </thead>
@@ -97,7 +96,9 @@
                                         <td><b>${order.nameBird}</b></td>
                                         <td><b>${order.typeBird}</b></td>
                                         <td><b>${order.create_date}</b></td>
-                                        <td><b>${order.status}</b></td>
+                                        <td>
+                                            <div class="onlineStatus <c:out value="${fn:toLowerCase(order.status)}"/>">${order.status}</div>
+                                        </td>
                                         <td>
                                             <form action="ProcessingOrderInfo" method="GET">
                                                 <input type="hidden" name="bird_id" value="${order.birdID}">

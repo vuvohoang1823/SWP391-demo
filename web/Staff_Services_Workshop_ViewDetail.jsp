@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Update Workshop</title>
         <!-- boostrap -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -56,14 +56,14 @@
                         </div>
                     </section>
                     <div class="container-fluid" style="padding: 0 2.5%">
+                        <c:set var="workshop" value="${sessionScope.staff_workshop_detail}"/>
                         <div class="forms-container">
                             <div class="forms-header">
-                                <div class="left-side"><b>Update Item</b></div>
+                                <div class="left-side"><b>Update Workshop</b></div>
                                 <div class="right-side">
-                                    <span><b>ID : #1</b></span>
+                                    <span><b>ID : ${workshop.courseID}</b></span>
                                 </div>
                             </div>
-                            <c:set var="workshop" value="${sessionScope.staff_workshop_detail}"/>
                             <form action="Staff_Services_Workshop_Update.jsp" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" value="${workshop.courseID}" name="courseID"/>
                                 <div class="form-formDetails">

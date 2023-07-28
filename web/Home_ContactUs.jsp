@@ -9,7 +9,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <link rel="stylesheet" href="../css/reset.css" />
         <link rel="stylesheet" href="css/ContactUs.css" />
     </head>
@@ -97,9 +96,7 @@
                                     required
                                     />
                                 <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#confirmNewsletter">Notify me</button>
-
                             </div>
-
                         </div>
                     </div>
                     <div class="modal fade" id="confirmNewsletter" tabindex="-1" aria-hidden="true">
@@ -166,9 +163,9 @@
                             </div>
                             <div class="row" style="height: 15rem">
                                 <textarea
-
                                     name="titleMess"
                                     placeholder="Question message..."
+                                    required
                                     ></textarea>
                             </div>
                             <input type="hidden" name="DateSubmitt" id="currentDate">
@@ -207,7 +204,7 @@
                     }).showToast();
                     setTimeout(function () {
                         form.submit();
-                    }, 2000);
+                    }, 1000);
                 });
             });
         </script>

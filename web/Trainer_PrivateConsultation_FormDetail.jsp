@@ -26,7 +26,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Services</title>
         <!-- boostrap -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -35,13 +35,13 @@
             crossorigin="anonymous"
             />
         <!-- w3Table -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        <!-- css -->
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/Trainer_PrivateConsultation_FormDetail.css" />
+    </head>
+    <body>
         <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
-            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-            <!-- css -->
-            <link rel="stylesheet" href="css/reset.css" />
-            <link rel="stylesheet" href="css/Trainer_PrivateConsultation_FormDetail.css" />
-        </head>
-        <body>
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                     <!--            header-->
@@ -75,7 +75,7 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Bird Course</a>
+                                            <a class="nav-link" href="Trainer_Tracking">Bird Course</a>
                                         </li>
                                         <li class="nav-item active">
                                             <a class="nav-link" href="Trainer_PrivateConsultation_List.jsp">Private Consultant</a>
@@ -252,10 +252,10 @@
                                                     <div class="forms-footer m-auto" id="completeButton">
                                                         <!-- Button trigger modal -->
                                                         <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmComplete">
-                                                            Complete
+                                                            Proceed to payment
                                                         </button>
                                                         <button type="button"  class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#confirmCancel">
-                                                            Cancel
+                                                            Cancel this appointment
                                                         </button>
                                                     </div>
 
@@ -318,14 +318,15 @@
                                                             <div class="name">Payment Details</div>
                                                         </div>
                                                         <div class="row payment-form mb-5 d-flex align-items-center" style="position: relative">
-                                                            <div class="d-flex col-lg-2 justify-content-center align-items-center">Calculate payment:</div>
+                                                            <div class="d-flex col-lg-3 justify-content-center align-items-center">Calculate payment by hour:</div>
                                                             <div class="input-group w-auto">
                                                                 <input
                                                                     id="trainername"
-                                                                    type="text"
+                                                                    type="number"
                                                                     name="number"
                                                                     class="form-control"
                                                                     placeholder="Enter number of hours"
+                                                                    min="0"
                                                                     required
                                                                     />
                                                                 <!---------------->
@@ -428,7 +429,7 @@
                         result = parseInt(number) * 150;
                     }
 
-                    document.getElementById("result").textContent = "Result: " + result;
+                    document.getElementById("result").textContent = "Result: $" + result;
                     document.getElementById("hiddenPrice").value = result;
                 }
             }

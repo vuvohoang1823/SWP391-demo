@@ -22,7 +22,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <link rel="stylesheet" href="css/reset.css">
         <jsp:useBean id="f" class="DAO.FormApppointmentDAO" scope="request"></jsp:useBean>
         <jsp:useBean id="t" class="DAO.TrainerDAO" scope="request"></jsp:useBean>

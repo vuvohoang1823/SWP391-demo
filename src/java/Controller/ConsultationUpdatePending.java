@@ -52,11 +52,10 @@ public class ConsultationUpdatePending extends HttpServlet {
         if (action.equals("approve")) {
 
             String email = request.getParameter("email_email");
-            String fullname= request.getParameter("fullname");
+            String fullname = request.getParameter("fullname");
             String date = request.getParameter("date");
             String duration = request.getParameter("duration");
-           
-        
+
             RequestDispatcher dispatcher = null;
             int otpvalue = 0;
             HttpSession mySession = request.getSession();
@@ -90,12 +89,11 @@ public class ConsultationUpdatePending extends HttpServlet {
                     MimeMessage message = new MimeMessage(session);
                     message.setFrom(new InternetAddress(email));// change accordingly
                     message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-//                message.setSubject("OTP from Bird Training Center");
+                    message.setSubject("Update about your Private Consultation request");
 //                message.setText(messages);
-                    String subject = "Congratulations ,your pending private consultation are accepted";
                     String htmlContent = "";
-                    htmlContent += "<h1>Your Private Consultation Approved - Bird Training System</h1>\n";
-                    htmlContent += "<p>Dear ," + fullname + "</p>\n\n" ;
+                    htmlContent += "<h1>Your Private Consultation has been approved - Bird Training Center</h1>\n";
+                    htmlContent += "<p>Dear ," + fullname + "</p>\n\n";
                     htmlContent += "<p>We are pleased to inform you that your request for a private consultation regarding the bird training system has been approved. We value your interest and commitment to enhancing your bird's training skills, and we are dedicated to providing you with the best guidance and support.</p>\n\n";
                     htmlContent += "<h2>Consultation Details:</h2>\n";
                     htmlContent += "<table border='1'>\n";
@@ -105,13 +103,13 @@ public class ConsultationUpdatePending extends HttpServlet {
                     htmlContent += "</tr>\n";
                     htmlContent += "<tr>\n";
                     htmlContent += "<td>Date</td>\n";
-                    htmlContent += "<td> "+ date +"</td>\n";
+                    htmlContent += "<td> " + date + "</td>\n";
                     htmlContent += "</tr>\n";
                     htmlContent += "<tr>\n";
                     htmlContent += "</tr>\n";
                     htmlContent += "<tr>\n";
                     htmlContent += "<td>Duration </td>\n";
-                    htmlContent += "<td>" + duration +"</td>\n";
+                    htmlContent += "<td>" + duration + "</td>\n";
                     htmlContent += "</tr>\n";
                     htmlContent += "</table>\n\n";
                     htmlContent += "<p>Our expert bird trainers are looking forward to discussing your specific training needs and providing personalized solutions to help you achieve your desired goals. During the consultation, you can expect to receive valuable insights, training techniques, and answers to any questions you may have.</p>\n\n";

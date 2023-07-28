@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Document</title>
+                    <title>${BLOG_DETAIL.title}</title>
                     <link
                         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
                         rel="stylesheet"
@@ -62,7 +62,7 @@
                                                     <div class="content">
                                                         <div>
                                                             <!-- hard code -->
-                                                            <h5>Introduction:</h5>
+                                                            <h5 class="fw-bold">Introduction:</h5>
                                                             <!--------------->
                                                             ${detail.introduction}
                                                         </div>
@@ -87,7 +87,7 @@
                                                         <div>
                                                             <!-- hard code -->
                                                             <br />
-                                                            <h5>Conclusion</h5>
+                                                            <h5 class="fw-bold">Conclusion</h5>
                                                             <!--------------->
                                                             ${detail.inconclusion}
                                                         </div>

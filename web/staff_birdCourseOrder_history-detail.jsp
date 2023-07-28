@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Order List</title>
         <!-- bootstrap -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -76,9 +76,6 @@
                                         <li class="nav-item ">
                                             <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Private Consultant</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Contact Us</a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -89,9 +86,7 @@
                             <div class="forms-header">
                                 <div class="left-side"><b>Form Detail</b></div>
                                 <div class="right-side">
-                                    <span>Submitted: <b>${BookingInfo.create_date}</b></span>
-                                    <span><b>ID : #??</b></span>
-                                    <span>Status: In-training</span>
+                                    <!--                                    <span><b>ID : #??</b></span>-->
                                 </div>
                             </div>
                             <form action="SetTrainerToBooking" method="post">
@@ -108,7 +103,7 @@
                                                     type="text"
                                                     class="form-control"
                                                     id=""
-                                                    placeholder="Address"
+                                                    placeholder="Fullname"
                                                     value="${BookingInfo.customerName}"
                                                     disabled
                                                     />
@@ -122,7 +117,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         id=""
-                                                        placeholder="Full name"
+                                                        placeholder="Bird name"
                                                         value="${BookingInfo.nameBird}"
                                                         disabled
                                                         />
@@ -135,7 +130,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         id=""
-                                                        placeholder="Phone number"
+                                                        placeholder="Type "
                                                         value="${BookingInfo.typeBird}"
                                                         disabled
                                                         />
@@ -193,34 +188,64 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="trainername" class="form-label">Trainer requested</label>
-                                                    <div class="input-group">
-                                                        <input
-                                                            id="trainername"
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder="None"
-                                                            disabled
-                                                            />
-                                                        <!--only this gets submitted-->
-                                                        <input
-                                                            id="hiddenTrainerName"
-                                                            type="hidden"
-                                                            />
-                                                    </div>
+                                                    <label for="" class="form-label">Trainer assigned</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id=""
+                                                        placeholder="Bird Course Name"
+                                                        value="${BookingInfo.trainerName}"
+                                                        disabled
+                                                        />
                                                 </div>
                                             </div>
-
                                         </div>
-
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Start date</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id=""
+                                                        placeholder="N/A"
+                                                        value="${BookingInfo.start_date}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">End date</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id=""
+                                                        placeholder="N/A"
+                                                        value="${BookingInfo.end_date}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Checkout date</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id=""
+                                                        placeholder="N/A"
+                                                        value="${BookingInfo.checkout_date}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
                         </div>
-
                     </div>
                 </div>
-
                 </form>
             </div>
         </div>

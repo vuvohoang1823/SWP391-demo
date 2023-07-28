@@ -10,7 +10,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="css/reset.css" type="text/css">
@@ -66,7 +65,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing <c:out value="${a.history.size()}" /> order form(s)
+                            Currently showing <c:out value="${a.completedBooking.size()}" /> order form(s)
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -85,24 +84,24 @@
                             </thead>
                             <tbody>
                                 <c:forEach items="${a.completedBooking}" var="order" varStatus="counter">
-                                    <tr>
                                 <form action="CompleteOrderInfo" metdod="GET">
-                                    <input type="hidden" name="bird_id" value="${order.birdID}"/>
-                                    <td><b>${counter.count}</b></td>
-                                    <td><b>${order.courseName}</b></td>
-                                    <td><b>${order.customerName}</b></td>
-                                    <td><b>${order.typeBird}</b></td>
-                                    <td><b>${order.nameBird}</b></td>
-                                    <td><b>${order.end_date}</b></td>
-                                    <td>
-                                        <a>
-                                            <button class="viewDetail">
-                                                <b>View Detail</b>
-                                            </button>
-                                        </a>
-                                    </td>
+                                    <tr>
+                                        <td><b>${counter.count}</b></td>
+                                        <td><b>${order.courseName}</b></td>
+                                        <td><b>${order.customerName}</b></td>
+                                        <td><b>${order.typeBird}</b></td>
+                                        <td><b>${order.nameBird}</b></td>
+                                        <td><b>${order.end_date}</b></td>
+                                        <td>
+                                            <a>
+                                                <button class="viewDetail">
+                                                    <input type="hidden" name="bird_id" value="${order.birdID}"/>
+                                                    <b>View Detail</b>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
                                 </form>
-                                </tr>
                             </c:forEach>
                             </tbody>
                         </table>

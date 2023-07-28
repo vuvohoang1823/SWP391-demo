@@ -9,7 +9,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="css/reset.css">
@@ -25,8 +24,8 @@
                 <div class="filter-side">
                     <p>Service status: </p>
                     <ul class="filter-option">
-                        <li class="active"><a href="viewBookedService_BirdCourse.jsp">In-progress</a></li>
-                        <li><a href="viewBookedService_BirdCourse_complete.jsp">Completed</a></li>
+                        <li class="active"><a href="Customer_Tracking">In-progress</a></li>
+                        <li><a href="Customer_Birdcourse_History">Completed</a></li>
                     </ul>
                 </div>
                 <div class="search-side">
@@ -43,10 +42,21 @@
             <div class="section-body">
                 <c:set var="result" value="${CustomerBooking}"/>
                 <c:if test="${not empty result}">
+                    <div class="text-center" style="background: rgba(183, 198, 194, 0.40); border-radius: 30px 30px 0px 0px">
+                        <div style="
+                             padding: 1.5rem 0;
+                             color: #617A55;
+                             font-size: 40px;
+                             font-weight: 700;
+                             line-height: normal;
+                             ">
+                            Bird Detail Tracking Progress
+                        </div>
+                    </div>
                     <c:forEach items="${CustomerBooking}" var="booking">
                         <div class="section-body-content">
                             <div class="col-lg-7">
-                                <img src="data:images/jpg;base64,${booking.courseImg}" style="border-radius: 100%; width: 50rem;height: 50rem" />
+                                <img src="data:images/jpg;base64,${booking.courseImg}" />
                                 <div class="left-content">
                                     <div class="text">
                                         <p>
@@ -93,27 +103,26 @@
                                 </div>
                                 <div class="text">
                                     <p>
-                                        Training duration
+                                        Training time
                                     </p>
                                     <p>
-                                        <b>
-                                            Start date: ${booking.start_date}
+                                        <b class="mb-3 d-block">
+                                            Start date: ${not empty booking.start_date ? booking.start_date : "N/A"}
                                         </b>
-                                        <br>
-                                        <b>
-                                            End date: ${booking.end_date}
+                                        <b class="d-block">
+                                            End date: ${not empty booking.end_date ? booking.end_date : "N/A"}
                                         </b>
                                     </p>
                                 </div>
                                 <div class="trainer-content">
-                                    <img src="data:images/jpg;base64,${booking.trainerImg}" style="border-radius: 100%; width: 16rem;height: 16rem"/>
+                                    <img src="data:images/jpg;base64,${booking.trainerImg}"/>
                                     <div class="text">
-                                        <p>
+                                        <div>
+                                            ${booking.trainerName}
+                                        </div>
+                                        <p style="text-align: left; font-weight: 600">
                                             Trainer
                                         </p>
-                                        <b>
-                                            ${booking.trainerName}
-                                        </b>
                                     </div>
                                 </div>
                             </div>

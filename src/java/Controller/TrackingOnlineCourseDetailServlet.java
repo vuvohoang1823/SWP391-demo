@@ -49,11 +49,12 @@ public class TrackingOnlineCourseDetailServlet extends HttpServlet {
             CourseOnlineDAO courseOnline = new CourseOnlineDAO();
 
             Course online_course_detail = null;
+            CourseOnline courseDetail = null;
 
             online_course_detail = course.getCourseByID(courseID);
-            List<CourseOnline> list = courseOnline.getDetailOnlineCourse(courseID);
+            courseDetail = courseOnline.getDetailOnlineCourse(courseID);
 
-            request.setAttribute("online_module", list);
+            request.setAttribute("online_module", courseDetail);
 
             HttpSession session = request.getSession(true);
             session.setAttribute("online_course_detail", online_course_detail);

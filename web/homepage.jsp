@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/homepage.css" type="text/css">
         <jsp:useBean id="a" class="DAO.FeedbackDAO" scope="request"></jsp:useBean>
         <jsp:useBean id="i" class="DAO.courseDAO" scope="request"></jsp:useBean>
-            <title>JSP Page</title>
+            <title>Home</title>
         </head>
         <body style="margin:0">
 
@@ -127,9 +127,7 @@
                             EFFECTIVE BIRD TRAINING, REAL BEHAVIOR SOLUTION
                         </div>
                         <p class="desc-container">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                            Reprehenderit possimus architecto velit quos? Ratione perferendis
-                            laudantium dolor cumque repudiandae obcaecati?
+                            At our Effective Bird Training Center, we envision a world where birds and their human companions enjoy a fulfilling and loving bond. We are dedicated to making this vision a reality, one bird at a time. Come join our feathered family and experience the joy of training and understanding your avian companion like never before!
                         </p>
                         <div class="checkmark-container">
                             <div>
@@ -235,14 +233,13 @@
                 </div>
                 <div class="desc-container">
                     <div>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Exercitationem fugiat enim voluptatum molestias laboriosam
-                        necessitatibus omnis totam, similique itaque ullam rerum dolores a
-                        quisquam ipsa repudiandae? Aspernatur ducimus facilis sed.
+                        So what are you waiting for? Contact us now!
                     </div>
                 </div>
                 <div class="button-container">
-                    <button>Let's Talk</button>
+                    <a href="#contact-us">
+                        <button>Let's Talk</button>
+                    </a>
                 </div>
             </section>
             <%@ include file="Home_ContactUs.jsp" %>
