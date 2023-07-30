@@ -46,7 +46,7 @@ public class Staff_CreateNewWorkshopServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         String courseID = request.getParameter("courseID");
-        String trainerID = request.getParameter("trainerID");
+        String trainerID = request.getParameter("selected-trainer");
         String title = request.getParameter("title");
         Integer price = null;
 

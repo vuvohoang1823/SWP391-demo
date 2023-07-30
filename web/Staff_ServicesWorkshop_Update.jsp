@@ -64,8 +64,8 @@
                                 </div>
                             </div>
 
-
-                            <form action="Staff_CreateNewWorkshopServlet" method="POST" enctype="multipart/form-data">
+                            <c:set var="workshop" value="${sessionScope.staff_workshop_detail}"/>
+                            <form action="Staff_UpdateWorkshopDetailServlet" method="POST" enctype="multipart/form-data">
 
                                 <div class="form-formDetails">
                                     <div class="form-body">
@@ -76,7 +76,7 @@
                                                 <label for="contentIMG" class="form-label">*Workshop image</label>
                                                 <input type="file" id="contentIMG" name="workshop_image" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>
                                                 <div class="img-container d-flex justify-content-center">
-                                                    <img class="showImg" src="" height="50px" width="50px" alt="">
+                                                    <img class="showImg" src="data:images/jpg;base64,${workshop.image}" height="50px" width="50px" alt="">
                                                 </div>
                                             </div>
 
@@ -93,7 +93,7 @@
                                                             id="title"
                                                             name="price"
                                                             placeholder="Enter price"
-                                                            value=""
+                                                            value="${workshop.price}"
                                                             required
                                                             />
                                                     </div>
@@ -109,7 +109,7 @@
                                                             id="title"
                                                             name="courseID"
                                                             placeholder="Enter id"
-                                                            value=""
+                                                            value="${workshop.courseID}"
                                                             required
                                                             />
                                                     </div>
@@ -124,7 +124,7 @@
                                                                   class="form-control long-input"
                                                                   placeholder="Enter title"
                                                                   required
-                                                                  ></textarea>
+                                                                  >${workshop.title}</textarea>
                                                     </div>
                                                 </div>
 
@@ -137,7 +137,7 @@
                                                                   class="form-control long-input"
                                                                   placeholder="Enter description"
                                                                   required
-                                                                  ></textarea>
+                                                                  >${workshop.content}</textarea>
                                                     </div>
                                                 </div>
 
@@ -150,7 +150,7 @@
                                                                   class="form-control long-input"
                                                                   placeholder="Enter sub content 1"
                                                                   required
-                                                                  ></textarea>
+                                                                  >${workshop.sub_content_1}</textarea>
                                                     </div>
                                                 </div>
 
@@ -164,7 +164,7 @@
                                                                   class="form-control long-input"
                                                                   placeholder="Enter sub content 2"
                                                                   required
-                                                                  ></textarea>
+                                                                  >${workshop.sub_content_2}</textarea>
                                                     </div>
                                                 </div>
 
@@ -177,7 +177,7 @@
                                                                   class="form-control long-input"
                                                                   placeholder="Enter sub content 3"
                                                                   required
-                                                                  ></textarea>
+                                                                  >${workshop.sub_content_3}</textarea>
                                                     </div>
                                                 </div>
 
@@ -190,7 +190,7 @@
                                                                   class="form-control long-input"
                                                                   placeholder="Enter sub content 4"
                                                                   required
-                                                                  ></textarea>
+                                                                  >${workshop.sub_content_4}</textarea>
                                                     </div>
                                                 </div>
 
@@ -205,7 +205,7 @@
                                                 <div class="mb-5">
                                                     <div class="mb-5">
                                                         <label for="date" class="form-label">*Close registration date</label>
-                                                        <input type="date" id="date" name="end_enroll_date"  value="" class="form-control" required>
+                                                        <input type="date" id="date" name="end_enroll_date"  value="${workshop.end_enroll_date}" class="form-control" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -215,7 +215,7 @@
                                                 <div class="mb-5">
                                                     <div class="mb-5">
                                                         <label for="date" class="form-label">*Starting date</label>
-                                                        <input type="date" id="date" name="start_date"  value="" class="form-control" required>
+                                                        <input type="date" id="date" name="start_date"  value="${workshop.start_date}" class="form-control" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -241,7 +241,7 @@
                                                         id="trainername"
                                                         type="text"
                                                         class="form-control"
-                                                        placeholder="None"
+                                                        placeholder="${workshop.trainer_fullname}"
                                                         disabled
                                                         />
                                                     <!---------------->

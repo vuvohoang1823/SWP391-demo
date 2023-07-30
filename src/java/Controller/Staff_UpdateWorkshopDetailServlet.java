@@ -46,7 +46,7 @@ public class Staff_UpdateWorkshopDetailServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         String courseID = request.getParameter("courseID");
-        String trainerID = request.getParameter("trainerID");
+        String trainerID = request.getParameter("selected-trainer");
         String title = request.getParameter("title");
         Integer price = null;
 
@@ -128,9 +128,7 @@ public class Staff_UpdateWorkshopDetailServlet extends HttpServlet {
             
             
             boolean a = workshopDAO.updateWorkshopImage(workshop_imageBase64, courseID);
-            out.println("<h1>Servlet NewServlet1 at " + a + "</h1>");
-            boolean b = workshopDAO.updateWorkshopInformation(workshop);
-            out.println("<h1>Servlet NewServlet1 at " + b + "</h1>");
+            boolean b = workshopDAO.updateWorkshopInformation(trainerID, content, title, price, dateSql1, dateSql2, courseID);
             boolean c = workshopDAO.updateWorkshopSubContent(workshop);
 
             

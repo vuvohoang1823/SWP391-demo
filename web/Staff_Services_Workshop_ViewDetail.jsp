@@ -64,7 +64,7 @@
                                     <span><b>ID : ${workshop.courseID}</b></span>
                                 </div>
                             </div>
-                            <form action="Staff_Services_Workshop_Update.jsp" method="POST" enctype="multipart/form-data">
+                            <form action="Staff_ServicesWorkshop_Update.jsp" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" value="${workshop.courseID}" name="courseID"/>
                                 <div class="form-formDetails">
                                     <div class="form-body">
@@ -214,17 +214,18 @@
                                                                                             </div>
                                                                                         </div>-->
                                         </div>
-                                        <div class="row mb-5">
+                                                    
 
+                                        <div class="row mb-5">
                                             <div class="col-lg-3 mb-5">
-                                                <label for="title" class="form-label">*Trainer ID</label>
+                                                <label for="title" class="form-label">*Trainer: </label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
                                                     id="title"
                                                     name="trainerID"
                                                     placeholder="Enter title"
-                                                    value="${workshop.trainerID}"
+                                                    value="${workshop.trainer_fullname}"
                                                     required
                                                     />
                                             </div>

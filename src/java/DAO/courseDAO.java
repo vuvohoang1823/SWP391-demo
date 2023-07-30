@@ -541,7 +541,7 @@ public class courseDAO implements Serializable {
     }
 
     /*GET COURSE [ COURSE ONLINE] ID*/
-     public List<CourseOnline> getAllCourseONLINECourseByCustomerID(int UserID) throws ClassNotFoundException, SQLException, IOException {
+    public List<CourseOnline> getAllCourseONLINECourseByCustomerID(int UserID) throws ClassNotFoundException, SQLException, IOException {
         List<CourseOnline> list = new ArrayList<>();
         String sql = "select   tbl_course.title, tbl_courseImg.img  , tbl_course.course_id, tbl_course.content\n"
                 + "                		from tbl_course \n"
@@ -799,11 +799,12 @@ public class courseDAO implements Serializable {
 
     public Workshop getWorkShopDetail(String courseID) {
         String sql = "SELECT  tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img, tbl_course.start_date, tbl_course.end_enroll_date,\n"
-                + "		tbl_workshop_detail.sub_content_1, tbl_workshop_detail.sub_content_2, tbl_workshop_detail.sub_content_3, tbl_workshop_detail.sub_content_4	\n"
-                + "FROM tbl_course \n"
-                + "JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
-                + "JOIN tbl_workshop_detail ON tbl_course.course_id = tbl_workshop_detail.course_id\n"
-                + "AND tbl_course.course_id = ?";
+                + "                		tbl_workshop_detail.sub_content_1, tbl_workshop_detail.sub_content_2, tbl_workshop_detail.sub_content_3, tbl_workshop_detail.sub_content_4, tbl_trainer.fullname\n"
+                + "                FROM tbl_course \n"
+                + "                JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
+                + "                JOIN tbl_workshop_detail ON tbl_course.course_id = tbl_workshop_detail.course_id\n"
+                + "				JOIN tbl_trainer ON tbl_trainer.trainer_id = tbl_course.trainer_id\n"
+                + "                AND tbl_course.course_id = ?";
 
         try {
             con = db.getConnection();
@@ -844,7 +845,8 @@ public class courseDAO implements Serializable {
                         rs.getString(11),
                         rs.getString(12),
                         rs.getString(13),
-                        rs.getString(14)
+                        rs.getString(14),
+                        rs.getString(15)
                 );
             }
 

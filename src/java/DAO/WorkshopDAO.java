@@ -26,9 +26,9 @@ public class WorkshopDAO implements Serializable {
     ResultSet rs = null;
     DBUtils db = new DBUtils();
 
-    public boolean updateWorkshopInformation(Workshop workshop) throws ClassNotFoundException {
+    public boolean updateWorkshopInformation(String trainer_id, String content, String title, int price, Date start_date, Date end_enroll_date, String course_id ) throws ClassNotFoundException {
         String sql = "UPDATE tbl_course\n"
-                + "SET trainer_id = ?, staff_id = ?, content = ?, category = ?, title = ?, price = ?, start_date = ?, end_enroll_date = ?\n"
+                + "SET trainer_id = ?, staff_id = 18, content = ?, category = 'workshop', title = ?, price = ?, start_date = ?, end_enroll_date = ?\n"
                 + "WHERE course_id = ?;";
 
         try {
@@ -36,15 +36,13 @@ public class WorkshopDAO implements Serializable {
 
             if (con != null) {
                 ps = con.prepareStatement(sql);
-                ps.setString(1, workshop.getTrainerID());
-                ps.setString(2, workshop.getStaffID());
-                ps.setString(3, workshop.getContent());
-                ps.setString(4, workshop.getCategory());
-                ps.setString(5, workshop.getTitle());
-                ps.setInt(6, workshop.getPrice());
-                ps.setDate(7, workshop.getStart_date());
-                ps.setDate(8, workshop.getEnd_enroll_date());
-                ps.setString(9, workshop.getCourseID());
+                ps.setString(1, trainer_id);
+                ps.setString(2, content);
+                ps.setString(3, title);
+                ps.setInt(4, price);
+                ps.setDate(5, start_date);
+                ps.setDate(6, end_enroll_date);
+                ps.setString(7, course_id);
 
                 int effectRows = ps.executeUpdate();
 

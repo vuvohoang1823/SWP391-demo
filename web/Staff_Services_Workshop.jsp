@@ -37,7 +37,7 @@
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <div class="update">
                                 <a href="Staff_Services_Workshop_Create.jsp">
-                                    <button class="create-button">Create new item</button>
+                                    <button class="create-button">Create workshop</button>
                                 </a>
                             </div>
                             <form class="form-inline my-2 my-lg-0">
