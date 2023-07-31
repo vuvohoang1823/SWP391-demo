@@ -81,7 +81,7 @@ public class Bird_AddANewBirdByCustomerServlet extends HttpServlet {
 
         // insert bird
         dao.InsertNewBird(bird_id, birdName, customerID, birdImageBase64, dateSql, birdType);
-        request.getRequestDispatcher("BirdProfileCustomer.jsp").forward(request, response);
+        request.getRequestDispatcher("Customer_BirdList.jsp").forward(request, response);
     }
 
     private String convertToBase64(InputStream inputStream) throws IOException {

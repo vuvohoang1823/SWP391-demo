@@ -88,7 +88,7 @@ public class Bird_UpdateBirdByCustomerServlet extends HttpServlet {
 
             boolean updated = dao.UpdateBird(updatedBird);
             if (updated) {
-                request.getRequestDispatcher("BirdProfileCustomer.jsp").forward(request, response);
+                request.getRequestDispatcher("Customer_BirdList.jsp").forward(request, response);
 //                response.sendRedirect("Staff_list_ofblog.jsp");
             } else {
                 response.sendRedirect("error.jsp");

@@ -93,7 +93,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <form action="Customer_ModifyBird.jsp">
+                <form>
                     <c:set var="customerId" value="<%=customerID%>" />
                     <c:forEach var="info" items="${b.getLisofBirdByCustomerDTO(customerId)}" varStatus="counter">
                         <tr>
@@ -107,7 +107,10 @@
                             <td>
                                 <input type="hidden" name="" value="">
 
-                                <button style="font-size: 2rem;
+                                <a href="BirdUpdatePageServlet?customerID=${customerId}&id=${info.bird_id}">
+                                <button 
+                                    type="button"
+                                    style="font-size: 2rem;
                                         border-radius: 5px;
                                         background-color: white;
                                         font-weight: bolder;
@@ -117,6 +120,7 @@
                                         justify-content: center">
                                     Modify
                                 </button>
+                                </a>
                             </td>
                         </tr>
                     </c:forEach>

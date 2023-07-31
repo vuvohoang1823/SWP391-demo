@@ -45,7 +45,7 @@ public class BirdUpdatePageServlet extends HttpServlet {
       dto = dao.getBirdByCustomerIDint(id, customerId);
       HttpSession session = request.getSession(true);
       session.setAttribute("Customer_Bird", dto);
-      request.getRequestDispatcher("BirdProfileCustomer_UPDATEBIRD.jsp").forward(request, response);
+      request.getRequestDispatcher("Customer_ModifyBird.jsp").forward(request, response);
       
     }
 

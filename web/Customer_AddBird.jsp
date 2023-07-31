@@ -65,111 +65,114 @@
                         </div>
                         <b style="padding-left: 2rem;">back</b></div>
                 </div>
-                <form action="SetTrainerToBooking" method="post">
-                    <input type="hidden" name="bird_id" value="">
-                    <div class="form-customerDetails">
-                        <div class="form-body">
-                            <div class="row" style="margin-top: 2rem">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Bird Name</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id=""
-                                            placeholder="Bird Name"
-                                            value=""
-                                            disabled
-                                            name="birdName"
-                                            />
+                <form method="post" action="Bird_AddANewBirdByCustomerServlet" enctype="multipart/form-data">
+                    <div>
+                        <div class="form-customerDetails">
+                            <div class="form-body">
+                                <div class="row" style="margin-top: 2rem">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Bird Name</label>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id=""
+                                                placeholder="Bird Name"
+                                                value=""
+                                                required
+                                                name="birdName"
+                                                />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input type="hidden" name="customerID"  value="${customerId}">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Bird Birthday</label>
+                                            <input
+                                                type="date"
+                                                class="form-control"
+                                                id=""
+                                                placeholder="Bird Birthday"
+                                                value=""
+                                                required
+                                                name="birdBirthday"
+
+                                                />
+                                        </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <input type="hidden" name="customerID"  value="${customerId}">
+                                <!--                            <div class="row" style="margin-top: 2rem">
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="" class="form-label">Bird Type</label>
+                                                                        <input
+                                                                            type="text"
+                                                                            class="form-control"
+                                                                            id=""
+                                                                            placeholder="Bird Age"
+                                                                            value=""
+                                                                            disabled
+                                                                            />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="" class="form-label">Bird Type</label>
+                                                                        <input
+                                                                            type="text"
+                                                                            class="form-control"
+                                                                            id=""
+                                                                            placeholder="Phone number"
+                                                                            value=""
+                                                                            disabled
+                                                                            />
+                                                                    </div>
+                                                                </div>
+                                                            </div>-->
+                            </div>
+                        </div>
+                        <div class="form-formDetails">
+                            <div class="form-body">
+                                <div class="row" style="margin-top: -2rem">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <select name="birdType" style="width: 67.8rem;height: 4rem">
+                                                <c:forEach var="type_list" items="${b.lisofType_of_Bird}">
+                                                    <option value="${type_list.type_id}">${type_list.type_name}</option>
+                                                </c:forEach>             
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="row" style="margin-top: 2rem">
                                     <div class="mb-3">
-                                        <label for="" class="form-label">Bird Birthday</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id=""
-                                            placeholder="Bird Birthday"
-                                            value=""
-                                            name="birdBirthday"
-                                            disabled
-                                            />
+                                        <label for="" class="form-label">
+                                            Bird Image
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <form action="">
+                                            <img src="" alt="" width="300" height="300" id="image">
+                                            <input type="file" name="birdImage" id="imageFile" accept="image/gif, image/jpeg, image/png" onchange="chooseFile(this)" required>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                            <!--                            <div class="row" style="margin-top: 2rem">
-                                                            <div class="col-lg-6">
-                                                                <div class="mb-3">
-                                                                    <label for="" class="form-label">Bird Type</label>
-                                                                    <input
-                                                                        type="text"
-                                                                        class="form-control"
-                                                                        id=""
-                                                                        placeholder="Bird Age"
-                                                                        value=""
-                                                                        disabled
-                                                                        />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="mb-3">
-                                                                    <label for="" class="form-label">Bird Type</label>
-                                                                    <input
-                                                                        type="text"
-                                                                        class="form-control"
-                                                                        id=""
-                                                                        placeholder="Phone number"
-                                                                        value=""
-                                                                        disabled
-                                                                        />
-                                                                </div>
-                                                            </div>
-                                                        </div>-->
+                            <div class="forms-footer">
+
+                                <div> <button type="submit" class="btn approve" style="margin-top: 4rem; background: #617255">ADD</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="form-formDetails">
-                        <div class="form-body">
-                            <div class="row" style="margin-top: -2rem">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <select name="options" style="width: 67.8rem;height: 4rem">
-                                            <option value="option1">Option 1</option>
-                                            <option value="option2">Option 2</option>
-                                            <option value="option3">Option 3</option>
-                                            <option value="option4">Option 4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: 2rem">
-                                <div class="mb-3">
-                                    <label for="" class="form-label">
-                                        Bird Image
-                                    </label>
-                                </div>
-                                <div class="mb-3">
-                                    <form action="">
-                                        <img src="" alt="" width="300" height="300" id="image">
-                                        <input type="file" name="" id="imageFile" accept="image/gif, image/jpeg, image/png" onchange="chooseFile(this)">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="forms-footer">
-
-                            <div> <button type="submit" name="action" value="approve" class="btn approve" style="margin-top: 4rem; background: #617255">ADD</button>
-                            </div>
-                        </div>
                 </form>
             </div>
+
         </div>
     </div>
-</div>
 </div>
 <script>
     window.addEventListener('DOMContentLoaded', function () {

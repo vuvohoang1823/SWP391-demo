@@ -36,7 +36,7 @@ public class BirdDeleteByCustomerIDServlet extends HttpServlet {
         String id = request.getParameter("id");
         CustomerBirdDAO dao = new CustomerBirdDAO();
         dao.DeleteBird(id);
-        request.getRequestDispatcher("BirdProfileCustomer.jsp").forward(request, response);
+        request.getRequestDispatcher("Customer_BirdList.jsp").forward(request, response);
 
     }
 
