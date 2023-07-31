@@ -141,7 +141,7 @@
                                             <select name="birdType" style="width: 67.8rem;height: 4rem">
                                                 <c:forEach var="type_list" items="${b.lisofType_of_Bird}">
                                                     <option value="${type_list.type_id}">${type_list.type_name}</option>
-                                                </c:forEach>             
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </div>
@@ -155,7 +155,7 @@
                                     <div class="mb-3">
                                         <form action="">
                                             <img src="" alt="" width="300" height="300" id="image">
-                                            <input type="file" name="birdImage" id="imageFile" accept="image/gif, image/jpeg, image/png" onchange="chooseFile(this)" required>
+                                            <input type="file" name="birdImage" id="imageFile" accept="image/gif, image/jpeg, image/png" required>
                                         </form>
                                     </div>
                                 </div>

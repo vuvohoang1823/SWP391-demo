@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : BirdProfileCustomer
     Created on : Jul 31, 2023, 2:41:45 AM
     Author     : ASUS
@@ -27,35 +27,35 @@
         </head>
         <body>
             <h1>   Hello ${sessionScope.LOGIN_USER.fullName} </h1>
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         <!-- Link to add a new bird-->
         <a href="BirdProfileCustomer_ADDBIRD.jsp"><button style="border:2px solid blue ; width:150px ; height:40px ;cursor: pointer">Add a new Bird</button></a> <br/>
         <!-- Link to add a new bird-->
-        
+
         <!-- Link to add a new type  === ROLE Staff  ---->
         <!--Note * : temporialty-->
-        <a href="BirdProfileCustomer_ADDTYPE_OF_BIRD.jsp"><button style="border:2px solid blue ; width:150px ; height:40px ;cursor: pointer">Add a new Type of Bird</button></a> <br/>
+        <!--<a href="BirdProfileCustomer_ADDTYPE_OF_BIRD.jsp"><button style="border:2px solid blue ; width:150px ; height:40px ;cursor: pointer">Add a new Type of Bird</button></a> <br/>-->
         <!-- Link to add a new type  === ROLE Staff  --->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        Your Bird Profile: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Your Bird Profile:
         <c:set var="customerId" value="<%=customerID%>" />
         <c:forEach items="${b.getLisofBirdByCustomerDTO(customerId)}" var="info" >
             Bird ID : ${info.bird_id} <br/>
@@ -66,7 +66,7 @@
             Type_ID : ${info.type_id}  <br/>
             Type_Name  : ${info.type_name}  <br/>
             <a href="BirdUpdatePageServlet?customerID=${info.customer_id}&id=${info.bird_id}"><button>Update</button></a><br/>
-             <a href="BirdDeleteByCustomerIDServlet?id=${info.bird_id}"><button>Delete</button></a>
+            <a href="BirdDeleteByCustomerIDServlet?id=${info.bird_id}"><button>Delete</button></a>
             <br/>
             <br/>
         </c:forEach>

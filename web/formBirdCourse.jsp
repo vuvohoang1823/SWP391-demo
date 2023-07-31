@@ -10,7 +10,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+            crossorigin="anonymous"
+            />
         <link rel="stylesheet" href="css/reset.css" type="text/css">
         <link rel="stylesheet" href="css/birdcourseDetail.css" type="text/css">
         <title>${detail.title}</title>
@@ -151,374 +156,298 @@
 
         <p id="form-submission" style="font-size: 3rem;font-weight: bolder;padding:5rem 5rem;background-color: white;color: #617a55">
             FORM SUBMISSION
-        <hr style="margin: 0">
-    </p>
+        </p>
 
-    <section class="form-container" style="background-color: white">
-        <div class="col-xl-6">
-            <p style="font-size: 4rem;font-weight: bolder;margin-top: 4rem;margin-bottom: 4rem">
-                Bird Details
-            </p>
-            <div class="forms-container">
-                <!--            <form action="FormCourseServlet" method="post">
-                                <div class="form-input">
-                                    <p>*Bird’s name:</p><input type="text" name="bird_name" required>
-                                </div>
-                                <div class="form-input">
-                                    <p>*Bird type :</p><input type="text" name="bird_type" required>
-                                </div>
-                                <div class="form-input">
-                                    <p>*Preferred date (the date you want to start the course):</p>
-                                    <input type="date"
-                                           value="2023-01-1"
-                                           name="preferred_date"
-                                           min="2023ui-01-01" max="2023-12-31" required>
-                                </div>
-                                <div>
-                                    <p><input type="hidden" name="amount" value="${detail.price}"></p>
-                                    <p><input type="hidden" name="course_id" value="${detail.courseID}"></p>
-                                </div>
-
-                                                <div class="form-input">
-                                                    <p style="margin-bottom: 3rem">
-                                                        *Bird image attachment
-                                                    </p>
-                                                    <div class="file-upload">
-                                                        <label for="myfile" class="upload-label">
-                                                            <img id="choose-image" src="img/add-image.png" alt="Logo" class="logo">
-                                                            <img id="preview-image" src="" class="preview-image" style="position: absolute; width: 50%;max-height:100%;opacity: 0%">
-                                                        </label>
-                                                        <input type="file" id="myfile" name="myfile" class="file-input">
-                                                    </div>
-                                                </div>
-                                <p style="margin-bottom: 3rem;font-size: 2rem;font-weight: bolder">
-                                    Payment method:
-                                </p>
-                                <div class="radio-content">
-                                    <input type="radio" style="width: 2rem;margin-bottom: 3rem;margin-right: 2rem">
-                                    <p style="font-size: 2rem;margin-bottom: 3rem">
-                                        Payment at <b>Bird Training Center</b>
-                                    </p>
-                                </div>
-                                <button>
-                                    Submit form
-                                </button>
-                            </form>-->
-                <form action="" method="POST" enctype="multipart/form-data">
-                    <div class="form-formDetails">
-                        <div class="form-body">
-                            <!--Image-->
-                            <div class="row mb-5">
-                                <div class="col-lg-5 mb-5">
-                                    <label for="thumbnail" class="form-label">Image:</label>
-                                    <input type="file" id="thumbnail" name="image" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" multiple required/>
-                                </div>
-                                <div class="img-container d-flex justify-content-center">
-                                    <img class="showImg" src="data:images/jpg;base64,${online.image}" alt="">
-                                </div>
+        <section class="form-container" style="background-color: white">
+            <div class="col-xl-6" style="position: relative">
+                <div id="formaddbirdfilter" class="filter">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#addbirdmodal" style="background: transparent; border: 0">
+                        <div style="font-size: 2rem; color: white;">
+                            Choose bird
+                            <div class="d-flex justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                </svg>
                             </div>
-
-                            <!--Title-->
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="mb-5">
-                                        <label for="author" class="form-label">Title:</label>
-                                        <input type="text" id="author" name="title"  value="${online.title}" class="form-control" placeholder="Enter author" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Price && CourseID-->
-                            <div class="row">
-                                <!--CourseID-->
-                                <div class="col-lg-6">
-                                    <div class="mb-5">
-                                        <label for="title" class="form-label">Course's id:</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id="title"
-                                            name="courseID"
-                                            placeholder="Enter title"
-                                            value="${online.courseID}"
-                                            required
-                                            />
-                                    </div>
-                                </div>
-
-                                <!--Price-->
-                                <div class="col-lg-6">
-                                    <div class="mb-5">
-                                        <label for="title" class="form-label">Course's price:</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id="title"
-                                            name="price"
-                                            placeholder="Enter title"
-                                            value="${online.price}"
-                                            required
-                                            />
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                            <!--Content-->
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="briefinfo" class="form-label">Course description:</label>
-                                    <textarea id="briefinfo"
-                                              name="content"
-                                              class="form-control long-input"
-                                              placeholder="Enter brief info"
-                                              required
-                                              >${online.content}</textarea>
-                                </div>
-                            </div>
-
-                            <!--Module 1-->
-
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="content1" class="form-label">Module title 1:</label>
-                                    <textarea id="content1"
-                                              name="module_name_1"
-                                              class="form-control long-input"
-                                              placeholder="Enter content 1"
-                                              required>${online.module_name_1}</textarea>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="des1" class="form-label">Module description 1:</label>
-                                    <textarea id="des1"
-                                              name="module_description_1"
-                                              class="form-control long-input"
-                                              placeholder="Enter content 2"
-                                              required>${online.module_description_1}</textarea>
-                                </div>
-                            </div>
-
-
-                            <!--Module 2-->
-
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="content2" class="form-label">Module title 2:</label>
-                                    <textarea id="content2"
-                                              name="module_name_2"
-                                              class="form-control long-input"
-                                              placeholder="Enter content 2"
-                                              required>${online.module_name_2}</textarea>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="des2" class="form-label">Module description 2:</label>
-                                    <textarea id="des2"
-                                              name="module_description_2"
-                                              class="form-control long-input"
-                                              placeholder="Enter content 2"
-                                              required>${online.module_description_2}</textarea>
-                                </div>
-                            </div>
-
-
-                            <!--Module 3-->
-
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="content3" class="form-label">Module title 3:</label>
-                                    <textarea id="content3"
-                                              name="module_name_3"
-                                              class="form-control long-input"
-                                              placeholder="Enter content 3"
-                                              required>${online.module_name_3}</textarea>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="des3" class="form-label">Module description 3:</label>
-                                    <textarea id="des3"
-                                              name="module_description_3"
-                                              class="form-control long-input"
-                                              placeholder="Enter content 3"
-                                              required>${online.module_description_3}</textarea>
-                                </div>
-                            </div>
-
-
-                            <!--Module 4-->
-
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="content4" class="form-label">Module title 4:</label>
-                                    <textarea id="content4"
-                                              name="module_name_4"
-                                              class="form-control long-input"
-                                              placeholder="Enter content 4"
-                                              required>${online.module_name_4}</textarea>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="des4" class="form-label">Module description 4:</label>
-                                    <textarea id="des4"
-                                              name="module_description_4"
-                                              class="form-control long-input"
-                                              placeholder="Enter content 4"
-                                              required>${online.module_description_4}</textarea>
-                                </div>
-                            </div>
-
-
-                            <!--Module 5-->
-
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="content5" class="form-label">Module title 5:</label>
-                                    <textarea id="content5"
-                                              name="module_name_5"
-                                              class="form-control long-input"
-                                              placeholder="Enter content 5"
-                                              required>${online.module_name_5}</textarea>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="mb-5">
-                                    <label for="des5" class="form-label">Module description 5:</label>
-                                    <textarea id="des5"
-                                              name="module_description_5"
-                                              class="form-control long-input"
-                                              placeholder="Enter content 5"
-                                              required>${online.module_description_5}</textarea>
-                                </div>
-                            </div>
-
-
                         </div>
-                    </div>
-                    <div class="forms-footer">
-                        <div>
-                            <button type="submit" name="action" value="update" class="btn update">Create</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="col-xl-5">
-            <p style="font-size: 4rem;font-weight: bolder;margin-bottom: 4rem">
-                Payment Details
-            </p>
-            <div class="payment-detail">
-                <div class="detail-content">
-                    <div class="col-xl">
-                        <img  src="data:images/jpg;base64,${detail.image}">
-                    </div>
-                    <div class="col-xl detail">
-                        <p>
-                            ${detail.title}
-                        </p>
-                        <p>
-                            £${detail.price}
-                        </p>
-                    </div>
-                    <hr>
+                    </button>
                 </div>
-                <!--                <div class="price-content">
-                                    <div class="col-xl-8">
-                                        <p>
-                                            Subtotal
-                                        </p>
-                                        <p>
-                                            Value-added tax
+                <!-- Modal -->
+                <div class="modal fade" id="addbirdmodal" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content" style="width: fit-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-2">Your birds:</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="bird-list">
+                                    <!--important: none needed for customers that didnt choose trainer (must change before submit form)-->
+                                    <div class="bird-item">
+                                        <input class="bird-input" type="radio" name="selected-bird" value="none" id="bird-none" checked>
+                                        <label for="bird-none">
+                                            None
+                                        </label>
+                                    </div>
+                                    <!--start of bird -->
+                                    <%--<c:forEach items="" var="birdinfo">--%>
+                                    <div class="bird-item">
+                                        <img src="img/Ellipse 2.png" alt="Trainer Avatar" class="bird-image">
+                                        <input class="bird-input" type="radio" name="selected-bird" value="abc" id="bird-1" >
+                                        <label for="bird-1">
+                                            <span class="bird-name">Name: abc</span>
+                                            <span> - </span>
+                                            <span class="bird-type">Type: abc</span>
+                                            <span> - </span>
+                                            <span class="bird-birthday">Birthday: 2023-01-01</span>
+                                        </label>
+                                        <input class="birdID" value="" hidden>
+                                    </div>
+                                    <%--</c:forEach>--%>
+                                    <!--end of bird-->
+                                    <div>
+                                        Don't have a bird yet? Add one <a href="Customer_AddBird.jsp">here</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span id="choosebirdinvalid" style="display: none; color: red">Please choose a valid bird.</span>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick="saveBird()">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="
+                     font-size: 4rem;
+                     font-weight: bolder;
+                     display: flex;
+                     align-items: center;
+                     width: 50%;">
+                    Bird Details
+                    <button id="changebirdbutton" type="button" data-bs-toggle="modal" data-bs-target="#addbirdmodal" style="background: transparent; border: 0; display: none; margin-left: 2rem">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
+                            <path d="M12.496 8a4.491 4.491 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11c.027.2.04.403.04.61Z"/>
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-1 0a7 7 0 1 0-13.202 3.249l1.988-1.657a4.5 4.5 0 0 1 7.537-4.623L7.497 6.5l1 2.5 1.333 3.11c-.56.251-1.18.39-1.833.39a4.49 4.49 0 0 1-1.592-.29L4.747 14.2A7 7 0 0 0 15 8Zm-8.295.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27.596-.894Z"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <div class="forms-container">
+                    <!--            <form action="FormCourseServlet" method="post">
+                                    <div class="form-input">
+                                        <p>*Bird’s name:</p><input type="text" name="bird_name" required>
+                                    </div>
+                                    <div class="form-input">
+                                        <p>*Bird type :</p><input type="text" name="bird_type" required>
+                                    </div>
+                                    <div class="form-input">
+                                        <p>*Preferred date (the date you want to start the course):</p>
+                                        <input type="date"
+                                               value="2023-01-1"
+                                               name="preferred_date"
+                                               min="2023ui-01-01" max="2023-12-31" required>
+                                    </div>
+                                    <div>
+                                        <p><input type="hidden" name="amount" value="${detail.price}"></p>
+                                        <p><input type="hidden" name="course_id" value="${detail.courseID}"></p>
+                                    </div>
+
+                                                    <div class="form-input">
+                                                        <p style="margin-bottom: 3rem">
+                                                            *Bird image attachment
+                                                        </p>
+                                                        <div class="file-upload">
+                                                            <label for="myfile" class="upload-label">
+                                                                <img id="choose-image" src="img/add-image.png" alt="Logo" class="logo">
+                                                                <img id="preview-image" src="" class="preview-image" style="position: absolute; width: 50%;max-height:100%;opacity: 0%">
+                                                            </label>
+                                                            <input type="file" id="myfile" name="myfile" class="file-input">
+                                                        </div>
+                                                    </div>
+                                    <p style="margin-bottom: 3rem;font-size: 2rem;font-weight: bolder">
+                                        Payment method:
+                                    </p>
+                                    <div class="radio-content">
+                                        <input type="radio" style="width: 2rem;margin-bottom: 3rem;margin-right: 2rem">
+                                        <p style="font-size: 2rem;margin-bottom: 3rem">
+                                            Payment at <b>Bird Training Center</b>
                                         </p>
                                     </div>
-                                    <div class="col-xl-4">
-                                        <p>
-                                            £${detail.price}
-                                        </p>
-                                        <p>
-                                            £12.00
-                                        </p>
+                                    <button>
+                                        Submit form
+                                    </button>
+                                </form>-->
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-formDetails">
+                            <div class="form-body">
+                                <!--Image-->
+                                <div class="row mb-5">
+                                    <div class="img-container d-flex justify-content-center">
+                                        <img id="birdimg" class="showImg" src="assets/images/avata.png" alt="">
                                     </div>
-                                </div>-->
-                <hr style="margin-bottom: 5rem">
-                <!--                <div class="total">
-                                    <div class="col-xl-8">
-                                        <p>
-                                            <b>
-                                                Total
-                                            </b>
-                                        </p>
+                                </div>
+
+                                <!--Title-->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="mb-5">
+                                            <label for="birdname" class="form-label">Bird Name:</label>
+                                            <input type="text" id="birdname" value="" placeholder="Name" class="form-control" disabled>
+                                        </div>
                                     </div>
-                                    <div class="col-xl-4">
-                                        <p>
-                                            <b>
-                                                £132.00
-                                            </b>
-                                        </p>
+                                </div>
+
+                                <!--Price && CourseID-->
+                                <div class="row">
+                                    <!--CourseID-->
+                                    <div class="col-lg-6">
+                                        <div class="mb-5">
+                                            <label for="birdtype" class="form-label">Bird's Type:</label>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="birdtype"
+                                                placeholder="Type"
+                                                value=""
+                                                disabled
+                                                />
+                                        </div>
                                     </div>
-                                </div>-->
+
+                                    <!--Price-->
+                                    <div class="col-lg-6">
+                                        <div class="mb-5">
+                                            <label for="birdbirthday" class="form-label">Bird's Birthday:</label>
+                                            <input
+                                                type="date"
+                                                class="form-control"
+                                                id="birdbirthday"
+                                                value=""
+                                                disabled
+                                                />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--these get sent-->
+                        <input
+                            id="birdID"
+                            type="text"
+                            value=""
+                            hidden
+                            />
+                        <!--these get sent-->
+
+                        <div class="forms-footer">
+                            <div>
+                                <button type="submit" value="" class="btn">Submit form</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
-    <%@ include file="footer.jsp" %>
-    <script>
-        const fileInput = document.getElementById('myfile');
-        const previewImage = document.getElementById('preview-image');
 
-        fileInput.addEventListener('change', function (event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
+            <div class="col-xl-5">
+                <p style="font-size: 4rem;font-weight: bolder;margin-bottom: 4rem">
+                    Payment Details
+                </p>
+                <div class="payment-detail">
+                    <div class="detail-content">
+                        <div class="col-xl">
+                            <img src="data:images/jpg;base64,${detail.image}">
+                        </div>
+                        <div class="col-xl detail">
+                            <p>
+                                ${detail.title}
+                            </p>
+                            <p>
+                                £${detail.price}
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+                    <!--                <div class="price-content">
+                                        <div class="col-xl-8">
+                                            <p>
+                                                Subtotal
+                                            </p>
+                                            <p>
+                                                Value-added tax
+                                            </p>
+                                        </div>
+                                        <div class="col-xl-4">
+                                            <p>
+                                                £${detail.price}
+                                            </p>
+                                            <p>
+                                                £12.00
+                                            </p>
+                                        </div>
+                                    </div>-->
+                    <hr style="margin-bottom: 5rem">
+                    <!--                <div class="total">
+                                        <div class="col-xl-8">
+                                            <p>
+                                                <b>
+                                                    Total
+                                                </b>
+                                            </p>
+                                        </div>
+                                        <div class="col-xl-4">
+                                            <p>
+                                                <b>
+                                                    £132.00
+                                                </b>
+                                            </p>
+                                        </div>
+                                    </div>-->
+                </div>
+            </div>
+        </section>
+        <%@ include file="footer.jsp" %>
+        <!--        save trainer-->
+        <script>
+            const myModal = new bootstrap.Modal(document.getElementById("addbirdmodal"));
+            function saveBird() {
+                const filter = document.getElementById("formaddbirdfilter");
+                const inputBirdImg = document.getElementById("birdimg");
+                const inputBirdName = document.getElementById("birdname");
+                const inputBirdType = document.getElementById("birdtype");
+                const inputBirdBirthday = document.getElementById("birdbirthday");
+                const errormsg = document.getElementById("choosebirdinvalid");
+                const changebirdbutton = document.getElementById("changebirdbutton");
+                const submitBird = document.getElementById("birdID");
+                const selectedBird = document.querySelector('input[name="selected-bird"]:checked');
 
-            reader.onload = function (e) {
-                previewImage.src = e.target.result;
-                previewImage.style.opacity = 100;
-                document.getElementById('choose-image').style.opacity = 0;
-            };
+                if (selectedBird && selectedBird.value === "none") {
+                    errormsg.style.display = "block";
+                } else {
+                    myModal.hide();
+                    errormsg.style.display = "none";
+                    filter.style.display = "none";
+                    changebirdbutton.style.display = "inline";
 
-            if (file) {
-                reader.readAsDataURL(file);
+
+                    const birdItem = selectedBird.closest('.bird-item');
+
+                    const birdImage = birdItem.querySelector('.bird-image').src;
+                    const birdName = birdItem.querySelector('.bird-name').textContent.replace('Name: ', '');
+                    const birdType = birdItem.querySelector('.bird-type').textContent.replace('Type: ', '');
+                    const birdBirthday = birdItem.querySelector('.bird-birthday').textContent.replace('Birthday: ', '');
+                    const birdID = birdItem.querySelector('.birdID').value;
+                    //input into the form
+                    inputBirdImg.src = birdImage;
+                    inputBirdName.value = birdName;
+                    inputBirdType.value = birdType;
+                    inputBirdBirthday.value = birdBirthday;
+                    submitBird.value = birdID;
+                }
             }
-        });
-    </script>
-    <script>
-        // Get all question message elements
-        var blogDescription = document.getElementsByClassName("blog-description");
-
-        // Loop through each question message element
-        for (var i = 0; i < blogDescription.length; i++) {
-            var description = blogDescription[i].textContent.trim();
-
-            // Remove any leading or trailing spaces and invisible characters
-            description = description.replace(/^\s+|\s+$/g, "");
-
-            // Remove non-printable characters using regular expression
-            description = description.replace(/[^ -~]+/g, "");
-
-            const descriptionLength = 500;
-
-            // Check if the description length is greater than 10
-            if (description.length > descriptionLength) {
-                // Truncate the description and append "..."
-                var truncatedMessage = description.substring(0, descriptionLength) + "...";
-                blogDescription[i].textContent = truncatedMessage;
-            }
-        }
-    </script>
-</body>
+        </script>
+    </body>
 </html>

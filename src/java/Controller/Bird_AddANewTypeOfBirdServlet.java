@@ -37,12 +37,12 @@ public class Bird_AddANewTypeOfBirdServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-       String birdType = request.getParameter("birdType");
-       CustomerBirdDAO dao = new CustomerBirdDAO();
-       // tao id 
-       String id =  String.valueOf(dao.GenerateBirdTypeId());
-       dao.InsertNewTypeofBird(id, birdType);
-       request.getRequestDispatcher("BirdProfileCustomer.jsp").forward(request, response);
+        String birdType = request.getParameter("birdType");
+        CustomerBirdDAO dao = new CustomerBirdDAO();
+        // tao id
+        String id = String.valueOf(dao.GenerateBirdTypeId());
+        dao.InsertNewTypeofBird(id, birdType);
+        request.getRequestDispatcher("Staff_Bird.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
