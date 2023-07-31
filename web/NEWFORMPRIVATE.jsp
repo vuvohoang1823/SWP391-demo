@@ -495,7 +495,7 @@
 
             // min 3 days from now
             var minDate = new Date();
-            minDate.setDate(currentDate.getDate() + 3);
+            minDate.setDate(currentDate.getDate() + 1);
             var formattedMinDate = minDate.toISOString().split('T')[0];
             document.getElementById('chooseDate').min = formattedMinDate;
 

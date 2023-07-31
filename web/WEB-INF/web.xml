@@ -40,6 +40,15 @@
             <file-size-threshold>0</file-size-threshold>
         </multipart-config>
     </servlet>
+    <servlet>
+        <servlet-name>Bird_AddANewBirdByCustomerServlet</servlet-name>
+        <servlet-class>Controller.Bird_AddANewBirdByCustomerServlet</servlet-class>
+        <multipart-config>
+            <max-file-size>500000</max-file-size>
+            <max-request-size>500000</max-request-size>
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>

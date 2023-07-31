@@ -46,6 +46,8 @@
                     </div>
                     <div class="button-container">
                         <button>Explore Workshops</button>
+                       
+                       
                     </div>
                 </div>
                 <div class="img-container">

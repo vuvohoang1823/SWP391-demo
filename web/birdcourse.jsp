@@ -39,6 +39,9 @@
                     </div>
                     <div class="button-container">
                         <button>Explore Course</button>
+                        <!--- THis is link to view profile bird --->
+                         <a href = "BirdProfileCustomer.jsp"> <button>View Bird Profile</button></a>  
+                         <!--- THis is link to view profile bird --->
                     </div>
                 </div>
                 <div class="img-container">
