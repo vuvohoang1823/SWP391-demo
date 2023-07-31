@@ -127,6 +127,11 @@
                                                                         <button>Complete workshop</button>
                                                                     </a>
                                                                 </div>
+                                                                <div class="button-container pt-4">
+                                                                    <a href="Trainer_Workshop_CustomerList_In-progress.jsp">
+                                                                        <button>View Detail</button>
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
