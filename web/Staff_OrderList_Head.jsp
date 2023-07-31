@@ -56,6 +56,12 @@
                                 ">
                                 <a class="nav-link" href="Staff_OrderList_Consult_Completed.jsp">Private Consultant</a>
                             </li>
+                            <li class="nav-item
+                                <%= isPageActive(currentPage, "Staff_OrderList_Workshop_Completed.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Consult_History.jsp")%>
+                                ">
+                                <a class="nav-link" href="Staff_OrderList_Workshop_Completed.jsp">Workshop</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -6,6 +6,7 @@
 package DAO;
 
 import DBUtils.DBUtils;
+import entity.WorkshopDDD;
 import entity.service.Workshop;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -13,7 +14,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 /**
  *
@@ -26,7 +29,7 @@ public class WorkshopDAO implements Serializable {
     ResultSet rs = null;
     DBUtils db = new DBUtils();
 
-    public boolean updateWorkshopInformation(String trainer_id, String content, String title, int price, Date start_date, Date end_enroll_date, String course_id ) throws ClassNotFoundException {
+    public boolean updateWorkshopInformation(String trainer_id, String content, String title, int price, Date start_date, Date end_enroll_date, String course_id) throws ClassNotFoundException {
         String sql = "UPDATE tbl_course\n"
                 + "SET trainer_id = ?, staff_id = 18, content = ?, category = 'workshop', title = ?, price = ?, start_date = ?, end_enroll_date = ?\n"
                 + "WHERE course_id = ?;";
@@ -130,7 +133,7 @@ public class WorkshopDAO implements Serializable {
                 ps.setInt(5, price);
                 ps.setDate(6, end_enroll_date);
                 ps.setDate(7, start_date);
-                
+
                 ps.executeUpdate();
 
             }
@@ -154,7 +157,7 @@ public class WorkshopDAO implements Serializable {
                 ps.setString(1, id);
                 ps.setString(2, course_id);
                 ps.setBytes(3, Base64.getDecoder().decode(img));
-                
+
                 ps.executeUpdate();
 
             }
@@ -180,7 +183,7 @@ public class WorkshopDAO implements Serializable {
                 ps.setString(3, sub_content_2);
                 ps.setString(4, sub_content_3);
                 ps.setString(5, sub_content_4);
-                
+
                 ps.executeUpdate();
 
             }
@@ -196,14 +199,14 @@ public class WorkshopDAO implements Serializable {
         String sql = "UPDATE tbl_course\n"
                 + "	SET status = 'unavailable'\n"
                 + "	WHERE course_id = ?";
-        
+
         try {
             con = DBUtils.getConnection();
 
             if (con != null) {
                 ps = con.prepareStatement(sql);
                 ps.setString(1, courseID);
-                
+
                 ps.executeUpdate();
             }
         } catch (SQLException ex) {
@@ -212,6 +215,75 @@ public class WorkshopDAO implements Serializable {
             ex.printStackTrace();
         }
     }
-    
-    
+
+    public List<WorkshopDDD> SEARCHOrderListCompltedbyTitle(String txtsearch) {
+        List<WorkshopDDD> list = new ArrayList<>();
+
+        String sql = " SELECT c.title, cus.fullname, a.dateCheck, a.amount\n"
+                + "				FROM tbl_attendance a \n"
+                + "				JOIN tbl_workshopTraining t ON t.workshop_id = a.workshop_id\n"
+                + "				JOIN tbl_course c ON c.course_id = t.course_id\n"
+                + "				JOIN tbl_customer cus ON cus.customer_id = a.customer_id\n"
+                + "				AND c.title LIKE ?";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, "%" + txtsearch + "%");
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                WorkshopDDD order = new WorkshopDDD(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getDate(3),
+                        rs.getInt(4)
+                );
+                list.add(order);
+
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return list;
+
+    }
+
+    public List<WorkshopDDD> OrderListComplted() {
+        List<WorkshopDDD> list = new ArrayList<>();
+
+        String sql = " SELECT c.title, cus.fullname, a.dateCheck, a.amount\n"
+                + "				FROM tbl_attendance a \n"
+                + "				JOIN tbl_workshopTraining t ON t.workshop_id = a.workshop_id\n"
+                + "				JOIN tbl_course c ON c.course_id = t.course_id\n"
+                + "				JOIN tbl_customer cus ON cus.customer_id = a.customer_id";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                WorkshopDDD order = new WorkshopDDD(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getDate(3),
+                        rs.getInt(4)
+                );
+                list.add(order);
+
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return list;
+
+    }
+
 }
