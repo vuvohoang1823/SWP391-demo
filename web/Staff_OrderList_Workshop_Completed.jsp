@@ -90,8 +90,8 @@
                                     <td>ID</td>
                                     <td>Title</td>
                                     <td>Customer</td>
-                                    <td>Date</td>
                                     <td>Price</td>
+                                    <td>Date</td>
 <!--                                    <td>
                                         <div style="display: flex; justify-content: space-around;">
                                             <div style="padding-right: 11rem; height: 100%;">Type</div>
@@ -106,8 +106,8 @@
                                     <td class="id">${counter.count}</td>
                                     <td class="title">${b.title}</td>
                                     <td class="customer">${b.fullname}</td>
-                                    <td class="customer">${b.dateCheck}</td>
                                     <td class="customer">$${b.amount}</td>
+                                    <td class="customer">${b.dateCheck}</td>
                                     <%--
 <!--                                    <td>
                                         <div class="type">
