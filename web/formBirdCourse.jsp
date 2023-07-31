@@ -149,7 +149,7 @@
             <hr>
         </section>
 
-        <p id="form-submission" style="font-size: 3rem;font-weight: bolder;padding:5rem 5rem;background-color: white">
+        <p id="form-submission" style="font-size: 3rem;font-weight: bolder;padding:5rem 5rem;background-color: white;color: #617a55">
             FORM SUBMISSION
         <hr style="margin: 0">
     </p>

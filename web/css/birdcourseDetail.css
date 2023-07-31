@@ -190,12 +190,12 @@ hr{
     flex-direction: row;
 }
 .form-container .col-xl-6 button{
-    width: 60rem;
+    width: 50rem;
     height: 6rem;
     margin-bottom: 3rem;
     border-width: 0;
     background-color: #f69c14;
-    font-size: 4rem;
+    font-size: 3rem;
     color: white;
     font-weight: bolder;
 }
@@ -206,8 +206,7 @@ hr{
 }
 
 .form-container .col-xl-5{
-    margin-top: 4rem;
-    margin-right: 1000rem;
+    margin-top: 1rem;
 }
 .form-container .col-xl-5 .payment-detail{
     background-color: #F5F5F5;
@@ -253,7 +252,4 @@ hr{
 }
 .form-container .col-xl-5 .total p{
     margin-bottom: 3rem;
-}
-.footer-container{
-    margin-top: 0;
 }
