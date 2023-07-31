@@ -116,74 +116,12 @@
                             <div class="row" style="margin-top: -2rem">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="trainername" class="form-label">Bird Type</label>
-                                        <div class="input-group">
-                                            <input
-                                                id="trainername"
-                                                type="text"
-                                                class="form-control"
-                                                placeholder="None"
-                                                disabled
-                                                />
-                                            <!--only this gets submitted-->
-                                            <input
-                                                id="hiddenTrainerName"
-                                                type="hidden"
-                                                />
-                                            <!---------------------------->
-                                            <button
-                                                class="btn btn-primary"
-                                                type="button"
-                                                id="button-addon2"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#chooseTrainer"
-                                                >
-                                                Select Bird Type
-                                            </button>
-                                            <!-- Modal -->
-                                            <div
-                                                class="modal fade"
-                                                id="chooseTrainer"
-                                                tabindex="-1"
-                                                data-bs-backdrop="static"
-                                                data-bs-keyboard="false"
-                                                >
-                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5">Bird Types</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="trainer-list">
-                                                                <!--important: none needed for customers that didnt choose trainer (must change before submit form)-->
-                                                                <div class="trainer-item">
-                                                                    <input class="trainer-input" type="radio" name="selected-trainer" value="none" id="trainer-none" checked>
-                                                                    <label for="trainer-none">
-                                                                        None
-                                                                    </label>
-                                                                </div>
-                                                                <!--start of trainer -->
-                                                                <c:forEach items="" var="trainerinfo">
-                                                                    <div class="trainer-item">
-                                                                        <img src="data:images/jpg;base64," alt="Trainer Avatar" class="trainer-avatar">
-                                                                        <input class="trainer-input" type="radio" name="selected-trainer" value=" id="trainer1">
-                                                                               <label for="trainer1">
-                                                                            <span class="trainer-name">Name: </span>
-                                                                        </label>
-                                                                    </div>
-                                                                </c:forEach>
-                                                                <!--end of trainer-->
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary" id="saveTrainer" data-bs-dismiss="modal">Save changes</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <select name="options" style="width: 67.8rem;height: 4rem">
+                                            <option value="option1">Option 1</option>
+                                            <option value="option2">Option 2</option>
+                                            <option value="option3">Option 3</option>
+                                            <option value="option4">Option 4</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <!--                                <div class="col-lg-6">
