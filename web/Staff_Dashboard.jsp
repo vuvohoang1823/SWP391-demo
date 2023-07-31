@@ -393,7 +393,7 @@
                                 <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                     <span class="heading">
                                         <b>
-                                            Top 3 workshops of last month
+                                            Top workshops of last month
                                         </b>
                                     </span>
 

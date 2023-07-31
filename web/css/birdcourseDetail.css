@@ -190,12 +190,12 @@ hr{
     flex-direction: row;
 }
 .form-container .col-xl-6 button{
-    width: 60rem;
+    width: 50rem;
     height: 6rem;
     margin-bottom: 3rem;
     border-width: 0;
     background-color: #f69c14;
-    font-size: 4rem;
+    font-size: 3rem;
     color: white;
     font-weight: bolder;
 }
@@ -206,8 +206,7 @@ hr{
 }
 
 .form-container .col-xl-5{
-    margin-top: 4rem;
-    margin-right: 1000rem;
+    margin-top: 1rem;
 }
 .form-container .col-xl-5 .payment-detail{
     background-color: #F5F5F5;
@@ -254,6 +253,62 @@ hr{
 .form-container .col-xl-5 .total p{
     margin-bottom: 3rem;
 }
-.footer-container{
-    margin-top: 0;
+
+
+.forms-container .form-formDetails .form-name {
+    background: rgba(217, 217, 217, 0.20);
+}
+.forms-container .form-formDetails .form-name .name {
+    padding: 2rem 2rem;
+    font-size: 3.1rem;
+    font-weight: bold;
+}
+.forms-container .form-formDetails .form-body {
+    padding: 2rem 4rem;
+    font-size: 1.5rem;
+}
+.forms-container .form-formDetails .form-body button {
+    font-size: 2rem;
+}
+.forms-container .form-formDetails .form-body input,
+.forms-container .form-formDetails .form-body textarea {
+    font-size: 2rem;
+}
+.forms-container .form-formDetails .form-body input {
+    font-weight: 600;
+}
+.forms-container .form-formDetails .form-body .input-group .button-container {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    border-radius: 0px 5px 5px 0px !important;
+    background: #617A55;
+}
+.forms-container .form-formDetails .form-body .input-group .modal .modal-header .modal-title{
+    font-size: 3rem !important;
+}
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body{
+    font-size: 2rem;
+}
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-input {
+    margin-right: 1rem;
+}
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-name {
+    font-weight: bold;
+}
+
+.forms-container .form-formDetails .form-body .input-group .modal .modal-body .trainer-item .trainer-skill {
+    color: gray;
 }

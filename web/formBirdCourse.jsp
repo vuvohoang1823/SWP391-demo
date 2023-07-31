@@ -149,7 +149,7 @@
             <hr>
         </section>
 
-        <p id="form-submission" style="font-size: 3rem;font-weight: bolder;padding:5rem 5rem;background-color: white">
+        <p id="form-submission" style="font-size: 3rem;font-weight: bolder;padding:5rem 5rem;background-color: white;color: #617a55">
             FORM SUBMISSION
         <hr style="margin: 0">
     </p>
@@ -159,51 +159,264 @@
             <p style="font-size: 4rem;font-weight: bolder;margin-top: 4rem;margin-bottom: 4rem">
                 Bird Details
             </p>
-            <form action="FormCourseServlet" method="post">
-                <div class="form-input">
-                    <p>*Bird’s name:</p><input type="text" name="bird_name" required>
-                </div>
-                <div class="form-input">
-                    <p>*Bird type :</p><input type="text" name="bird_type" required>
-                </div>
-                <div class="form-input">
-                    <p>*Preferred date (the date you want to start the course):</p>
-                    <input type="date"
-                           value="2023-01-1"
-                           name="preferred_date"
-                           min="2023ui-01-01" max="2023-12-31" required>
-                </div>
-                <div>
-                    <p><input type="hidden" name="amount" value="${detail.price}"></p>
-                    <p><input type="hidden" name="course_id" value="${detail.courseID}"></p>
+            <div class="forms-container">
+                <!--            <form action="FormCourseServlet" method="post">
+                                <div class="form-input">
+                                    <p>*Bird’s name:</p><input type="text" name="bird_name" required>
+                                </div>
+                                <div class="form-input">
+                                    <p>*Bird type :</p><input type="text" name="bird_type" required>
+                                </div>
+                                <div class="form-input">
+                                    <p>*Preferred date (the date you want to start the course):</p>
+                                    <input type="date"
+                                           value="2023-01-1"
+                                           name="preferred_date"
+                                           min="2023ui-01-01" max="2023-12-31" required>
+                                </div>
+                                <div>
+                                    <p><input type="hidden" name="amount" value="${detail.price}"></p>
+                                    <p><input type="hidden" name="course_id" value="${detail.courseID}"></p>
+                                </div>
 
-                </div>
-
-                <!--                <div class="form-input">
-                                    <p style="margin-bottom: 3rem">
-                                        *Bird image attachment
+                                                <div class="form-input">
+                                                    <p style="margin-bottom: 3rem">
+                                                        *Bird image attachment
+                                                    </p>
+                                                    <div class="file-upload">
+                                                        <label for="myfile" class="upload-label">
+                                                            <img id="choose-image" src="img/add-image.png" alt="Logo" class="logo">
+                                                            <img id="preview-image" src="" class="preview-image" style="position: absolute; width: 50%;max-height:100%;opacity: 0%">
+                                                        </label>
+                                                        <input type="file" id="myfile" name="myfile" class="file-input">
+                                                    </div>
+                                                </div>
+                                <p style="margin-bottom: 3rem;font-size: 2rem;font-weight: bolder">
+                                    Payment method:
+                                </p>
+                                <div class="radio-content">
+                                    <input type="radio" style="width: 2rem;margin-bottom: 3rem;margin-right: 2rem">
+                                    <p style="font-size: 2rem;margin-bottom: 3rem">
+                                        Payment at <b>Bird Training Center</b>
                                     </p>
-                                    <div class="file-upload">
-                                        <label for="myfile" class="upload-label">
-                                            <img id="choose-image" src="img/add-image.png" alt="Logo" class="logo">
-                                            <img id="preview-image" src="" class="preview-image" style="position: absolute; width: 50%;max-height:100%;opacity: 0%">
-                                        </label>
-                                        <input type="file" id="myfile" name="myfile" class="file-input">
+                                </div>
+                                <button>
+                                    Submit form
+                                </button>
+                            </form>-->
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="form-formDetails">
+                        <div class="form-body">
+                            <!--Image-->
+                            <div class="row mb-5">
+                                <div class="col-lg-5 mb-5">
+                                    <label for="thumbnail" class="form-label">Image:</label>
+                                    <input type="file" id="thumbnail" name="image" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" multiple required/>
+                                </div>
+                                <div class="img-container d-flex justify-content-center">
+                                    <img class="showImg" src="data:images/jpg;base64,${online.image}" alt="">
+                                </div>
+                            </div>
+
+                            <!--Title-->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="mb-5">
+                                        <label for="author" class="form-label">Title:</label>
+                                        <input type="text" id="author" name="title"  value="${online.title}" class="form-control" placeholder="Enter author" required>
                                     </div>
-                                </div>-->
-                <p style="margin-bottom: 3rem;font-size: 2rem;font-weight: bolder">
-                    Payment method:
-                </p>
-                <div class="radio-content">
-                    <!--<input type="radio" style="width: 2rem;margin-bottom: 3rem;margin-right: 2rem">-->
-                    <p style="font-size: 2rem;margin-bottom: 3rem">
-                        Payment at <b>Bird Training Center</b>
-                    </p>
-                </div>
-                <button>
-                    Submit form
-                </button>
-            </form>
+                                </div>
+                            </div>
+
+                            <!--Price && CourseID-->
+                            <div class="row">
+                                <!--CourseID-->
+                                <div class="col-lg-6">
+                                    <div class="mb-5">
+                                        <label for="title" class="form-label">Course's id:</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="title"
+                                            name="courseID"
+                                            placeholder="Enter title"
+                                            value="${online.courseID}"
+                                            required
+                                            />
+                                    </div>
+                                </div>
+
+                                <!--Price-->
+                                <div class="col-lg-6">
+                                    <div class="mb-5">
+                                        <label for="title" class="form-label">Course's price:</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="title"
+                                            name="price"
+                                            placeholder="Enter title"
+                                            value="${online.price}"
+                                            required
+                                            />
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <!--Content-->
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="briefinfo" class="form-label">Course description:</label>
+                                    <textarea id="briefinfo"
+                                              name="content"
+                                              class="form-control long-input"
+                                              placeholder="Enter brief info"
+                                              required
+                                              >${online.content}</textarea>
+                                </div>
+                            </div>
+
+                            <!--Module 1-->
+
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="content1" class="form-label">Module title 1:</label>
+                                    <textarea id="content1"
+                                              name="module_name_1"
+                                              class="form-control long-input"
+                                              placeholder="Enter content 1"
+                                              required>${online.module_name_1}</textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="des1" class="form-label">Module description 1:</label>
+                                    <textarea id="des1"
+                                              name="module_description_1"
+                                              class="form-control long-input"
+                                              placeholder="Enter content 2"
+                                              required>${online.module_description_1}</textarea>
+                                </div>
+                            </div>
+
+
+                            <!--Module 2-->
+
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="content2" class="form-label">Module title 2:</label>
+                                    <textarea id="content2"
+                                              name="module_name_2"
+                                              class="form-control long-input"
+                                              placeholder="Enter content 2"
+                                              required>${online.module_name_2}</textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="des2" class="form-label">Module description 2:</label>
+                                    <textarea id="des2"
+                                              name="module_description_2"
+                                              class="form-control long-input"
+                                              placeholder="Enter content 2"
+                                              required>${online.module_description_2}</textarea>
+                                </div>
+                            </div>
+
+
+                            <!--Module 3-->
+
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="content3" class="form-label">Module title 3:</label>
+                                    <textarea id="content3"
+                                              name="module_name_3"
+                                              class="form-control long-input"
+                                              placeholder="Enter content 3"
+                                              required>${online.module_name_3}</textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="des3" class="form-label">Module description 3:</label>
+                                    <textarea id="des3"
+                                              name="module_description_3"
+                                              class="form-control long-input"
+                                              placeholder="Enter content 3"
+                                              required>${online.module_description_3}</textarea>
+                                </div>
+                            </div>
+
+
+                            <!--Module 4-->
+
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="content4" class="form-label">Module title 4:</label>
+                                    <textarea id="content4"
+                                              name="module_name_4"
+                                              class="form-control long-input"
+                                              placeholder="Enter content 4"
+                                              required>${online.module_name_4}</textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="des4" class="form-label">Module description 4:</label>
+                                    <textarea id="des4"
+                                              name="module_description_4"
+                                              class="form-control long-input"
+                                              placeholder="Enter content 4"
+                                              required>${online.module_description_4}</textarea>
+                                </div>
+                            </div>
+
+
+                            <!--Module 5-->
+
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="content5" class="form-label">Module title 5:</label>
+                                    <textarea id="content5"
+                                              name="module_name_5"
+                                              class="form-control long-input"
+                                              placeholder="Enter content 5"
+                                              required>${online.module_name_5}</textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="mb-5">
+                                    <label for="des5" class="form-label">Module description 5:</label>
+                                    <textarea id="des5"
+                                              name="module_description_5"
+                                              class="form-control long-input"
+                                              placeholder="Enter content 5"
+                                              required>${online.module_description_5}</textarea>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="forms-footer">
+                        <div>
+                            <button type="submit" name="action" value="update" class="btn update">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <div class="col-xl-5">

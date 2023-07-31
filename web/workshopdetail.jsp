@@ -10,12 +10,12 @@
     <head>
         <meta name="description" content="">
         <meta name="author" content="">
-        <link href="/vnpay_jsp/assets/bootstrap.min.css" rel="stylesheet"/>
+        <link href="assets/bootstrap.min.css" rel="stylesheet"/>
         <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
-        <link href="/vnpay_jsp/assets/bootstrap.min.css" rel="stylesheet"/>
+        <link href="assets/bootstrap.min.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="/vnpay_jsp/assets/jumbotron-narrow.css" rel="stylesheet">      
-        <script src="/vnpay_jsp/assets/jquery-1.11.3.min.js"></script>
+        <link href="assets/jumbotron-narrow.css" rel="stylesheet">
+        <script src="assets/jquery-1.11.3.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="css/reset.css" type="text/css">
@@ -165,13 +165,13 @@
                     <input type="hidden" id="language"  name="language" value="vn">
                 </div>
                 <!-- language--->
-                    <button class="vnpay" type="submit">
-                        <p>
-                            Continue with
-                        </p>
-                        <img src="img/vnpay.png">
+                <button class="vnpay" type="submit">
+                    <p>
+                        Continue with
+                    </p>
+                    <img src="img/vnpay.png">
 
-                    </button>
+                </button>
             </form>
 
         </div>
@@ -259,6 +259,6 @@
             });
             return false;
         });
-    </script>       
+    </script>
 </body>
 </html>

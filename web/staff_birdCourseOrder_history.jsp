@@ -10,6 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="css/reset.css" type="text/css">
@@ -62,10 +63,20 @@
                                         </button>
                                     </div>
                                 </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Select Course
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Decoy Bird Training</a></li>
+                                        <li><a class="dropdown-item" href="#">Parrot Language Communication sdf</a></li>
+                                        <li><a class="dropdown-item" href="#">Talking- Vocalization Pet Birds</a></li>
+                                    </ul>
+                                </div>
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing <c:out value="${a.history.size()}" /> order(s)
+                            Currently showing <c:out value="${a.history.size()}" /> data
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -81,6 +92,7 @@
                                     <td>Checkout date</td>
                                     <td></td>
                                     <td></td>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -94,7 +106,7 @@
                                         <td><b>${order.create_date}</b></td>
                                         <td><b></b></td>
                                         <td>
-                                            <form action="GetStaffBirdCourseOrderListDetail" metdod="GET">
+                                            <form action="ProcessingOrderInfo" metdod="GET">
                                                 <input type="hidden" name="bird_id" value="${order.birdID}">
                                                 <a >
                                                     <button class="viewDetail">

@@ -4,6 +4,8 @@
     Author     : thang
 --%>
 
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,7 +39,7 @@
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <div class="update">
                                 <a href="Staff_Services_Workshop_Create.jsp">
-                                    <button class="create-button">Create new item</button>
+                                    <button class="create-button">Create workshop</button>
                                 </a>
                             </div>
                             <form class="form-inline my-2 my-lg-0">
@@ -87,6 +89,10 @@
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center" style="margin-top: 2rem">
                                             <div class="price">£${workshop.price}</div>
+                                            <div class="close-date">
+                                                <div>Close</div>
+                                                <div class="date">${workshop.end_enroll_date}</div>
+                                            </div>
                                             <div class="close-date">
                                                 <div>Close registration</div>
                                                 <div class="date">${workshop.end_enroll_date}</div>
