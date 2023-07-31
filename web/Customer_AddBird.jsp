@@ -47,7 +47,7 @@
                                 </div>
                             </a>
                         </div>
-                        <b style="padding-left: 2rem;">back</b></div>    
+                        <b style="padding-left: 2rem;">back</b></div>
                 </div>
                 <form action="SetTrainerToBooking" method="post">
                     <input type="hidden" name="bird_id" value="">
@@ -69,46 +69,46 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="" class="form-label">Bird Gender</label>
+                                        <label for="" class="form-label">Bird Birthday</label>
                                         <input
                                             type="text"
                                             class="form-control"
                                             id=""
-                                            placeholder="Bird Gender"
+                                            placeholder="Bird Birthday"
                                             value=""
                                             disabled
                                             />
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" style="margin-top: 2rem">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Bird Age</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id=""
-                                            placeholder="Bird Age"
-                                            value=""
-                                            disabled
-                                            />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Bird Type</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id=""
-                                            placeholder="Phone number"
-                                            value=""
-                                            disabled
-                                            />
-                                    </div>
-                                </div>
-                            </div>
+                            <!--                            <div class="row" style="margin-top: 2rem">
+                                                            <div class="col-lg-6">
+                                                                <div class="mb-3">
+                                                                    <label for="" class="form-label">Bird Type</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control"
+                                                                        id=""
+                                                                        placeholder="Bird Age"
+                                                                        value=""
+                                                                        disabled
+                                                                        />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="mb-3">
+                                                                    <label for="" class="form-label">Bird Type</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control"
+                                                                        id=""
+                                                                        placeholder="Phone number"
+                                                                        value=""
+                                                                        disabled
+                                                                        />
+                                                                </div>
+                                                            </div>
+                                                        </div>-->
                         </div>
                     </div>
                     <div class="form-formDetails">
@@ -168,7 +168,7 @@
                                                                     <div class="trainer-item">
                                                                         <img src="data:images/jpg;base64," alt="Trainer Avatar" class="trainer-avatar">
                                                                         <input class="trainer-input" type="radio" name="selected-trainer" value=" id="trainer1">
-                                                                        <label for="trainer1">
+                                                                               <label for="trainer1">
                                                                             <span class="trainer-name">Name: </span>
                                                                         </label>
                                                                     </div>
@@ -260,7 +260,7 @@
         });
     });
 </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </body>
 </html>
