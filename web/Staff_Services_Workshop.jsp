@@ -88,10 +88,16 @@
                                             <b>Target Audience:</b> Bird owners of all experience levels
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center" style="margin-top: 2rem">
-                                            <div class="price">£${workshop.price}</div>
+                                            
+                                            <div class="">
+                                                <form action="Staff_Services_Workshop_In-progress.jsp" method="post" style="display: inline;">
+                                                    <input type="hidden" name="courseID" value="${workshop.courseID}" />
+                                                    <button class="update-button " type="submit" name="action" value="update">View participants</button>
+                                                </form>
+                                            </div>
                                             <div class="close-date">
-                                                <div>Close</div>
-                                                <div class="date">${workshop.end_enroll_date}</div>
+                                                <div>Price</div>
+                                                <div class="date">£${workshop.price}</div>
                                             </div>
                                             <div class="close-date">
                                                 <div>Close registration</div>
