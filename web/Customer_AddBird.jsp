@@ -4,6 +4,20 @@
     Author     : thang
 --%>
 
+
+<%@page import="entity.CustomerDTO"%>
+<%@page import="DAO.CustomerDAO"%>
+<%@page import="entity.UserDTO"%>
+<%
+    // Retrieve the UserDTO object from the session
+    CustomerDTO user = (CustomerDTO) session.getAttribute("LOGIN_USER");
+
+    // Create an instance of the CustomerDAO
+    CustomerDAO customerDAO = new CustomerDAO();
+
+    // Get the customer ID using the user ID
+    int customerID = customerDAO.getCustomerID(user.getUser_id());
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -22,9 +36,11 @@
         <!-- css -->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Customer_AddBird.css" />
-    </head>
-    <body>
+        <jsp:useBean id="b" class="DAO.CustomerBirdDAO" ></jsp:useBean>
+        </head>
+        <body>
         <%@ include file="header.jsp" %>
+        <c:set var="customerId" value="<%=customerID%>" />
         <section class="form-head">
             <div class="profileHeading">
                 <p>Add New Bird</p>
@@ -64,8 +80,12 @@
                                             placeholder="Bird Name"
                                             value=""
                                             disabled
+                                            name="birdName"
                                             />
                                     </div>
+                                </div>
+                                <div>
+                                    <input type="hidden" name="customerID"  value="${customerId}">
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
@@ -76,6 +96,7 @@
                                             id=""
                                             placeholder="Bird Birthday"
                                             value=""
+                                            name="birdBirthday"
                                             disabled
                                             />
                                     </div>

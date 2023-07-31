@@ -57,7 +57,7 @@
         
         Your Bird Profile: 
         <c:set var="customerId" value="<%=customerID%>" />
-        <c:forEach items="${b.getLisofBirdByCustomerDTO(customerId)}" var="info">
+        <c:forEach items="${b.getLisofBirdByCustomerDTO(customerId)}" var="info" >
             Bird ID : ${info.bird_id} <br/>
             Bird Name : ${info.name}  <br/>
             Customer_ID : ${info.customer_id}  <br/>

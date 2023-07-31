@@ -3,6 +3,19 @@
     Created on : Jul 4, 2023, 6:06:17 PM
     Author     : hoang
 --%>
+<%@page import="entity.CustomerDTO"%>
+<%@page import="DAO.CustomerDAO"%>
+<%@page import="entity.UserDTO"%>
+<%
+    // Retrieve the UserDTO object from the session
+    CustomerDTO user = (CustomerDTO) session.getAttribute("LOGIN_USER");
+
+    // Create an instance of the CustomerDAO
+    CustomerDAO customerDAO = new CustomerDAO();
+
+    // Get the customer ID using the user ID
+    int customerID = customerDAO.getCustomerID(user.getUser_id());
+%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,8 +34,9 @@
         <!--css-->
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/Customer_BirdList.css" />
-    </head>
-    <body>
+        <jsp:useBean id="b" class="DAO.CustomerBirdDAO"></jsp:useBean>
+        </head>
+        <body>
         <%@ include file="header.jsp" %>
 
         <div class="profileHeading">
@@ -80,36 +94,32 @@
                 </thead>
                 <tbody>
                 <form action="Customer_ModifyBird.jsp">
-                    <tr>
-                        <td class="fw-bold">1</td>
-                        <td class="image-table">
-                            <img src="assets/images/avata.png" alt="" width="256" height="256" />
-                        </td>
-                        <td>Bird Name</td>
-                        <td>Bird Type</td>
-                        <td>Bird Birthday</td>
-                        <!--                <td style="padding-right: 4rem">
-                                            <div style="background-color: #0A7E65; display: flex;text-4align: center;justify-content: center;border-radius: 10px;">
-                                                <a style="padding: 1rem;font-size: 2rem;font-weight: bold">
-                                                    Status
-                                                </a>
-                                            </div>
-                                        </td>-->
-                        <td>
-                            <input type="hidden" name="" value="">
+                    <c:set var="customerId" value="<%=customerID%>" />
+                    <c:forEach var="info" items="${b.getLisofBirdByCustomerDTO(customerId)}" varStatus="counter">
+                        <tr>
+                            <td class="fw-bold">${counter.count}</td>
+                            <td class="image-table">
+                                <img alt="" width="256" height="256"  src="data:images/jpg;base64,${info.bird_img}"/>
+                            </td>
+                            <td>${info.name}</td>
+                            <td>${info.type_name}</td>
+                            <td>${info.birdDate}</td>
+                            <td>
+                                <input type="hidden" name="" value="">
 
-                            <button style="font-size: 2rem;
-                                    border-radius: 5px;
-                                    background-color: white;
-                                    font-weight: bolder;
-                                    color: black;
-                                    padding: 2rem 3rem;
-                                    display: flex;
-                                    justify-content: center">
-                                Modify
-                            </button>
-                        </td>
-                    </tr>
+                                <button style="font-size: 2rem;
+                                        border-radius: 5px;
+                                        background-color: white;
+                                        font-weight: bolder;
+                                        color: black;
+                                        padding: 2rem 3rem;
+                                        display: flex;
+                                        justify-content: center">
+                                    Modify
+                                </button>
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </form>
                 </tbody>
             </table>

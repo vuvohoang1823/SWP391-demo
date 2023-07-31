@@ -1,3 +1,20 @@
+
+<%@page import="entity.CustomerDTO"%>
+<%@page import="DAO.CustomerDAO"%>
+<%@page import="entity.UserDTO"%>
+<%
+    // Retrieve the UserDTO object from the session
+    CustomerDTO user = (CustomerDTO) session.getAttribute("LOGIN_USER");
+
+    // Create an instance of the CustomerDAO
+    CustomerDAO customerDAO = new CustomerDAO();
+
+    // Get the customer ID using the user ID
+    int customerID = customerDAO.getCustomerID(user.getUser_id());
+%>
+
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
