@@ -351,5 +351,48 @@ public class WorkshopDAO implements Serializable {
             ex.printStackTrace();
         }
     }
+    
+    
+    public List<WorkshopDDD> CustomerListCompleteWorkshop(Date complete_date) {
+        List<WorkshopDDD> list = new ArrayList<>();
+
+        String sql = " SELECT cus.fullname, u.gmail, cus.contact, a.attendance, c.course_id, a.customer_id, a.status, a.workshop_id\n"
+                + "FROM tbl_attendance a \n"
+                + "JOIN tbl_workshopTraining t ON t.workshop_id = a.workshop_id\n"
+                + "JOIN tbl_course c ON c.course_id = t.course_id\n"
+                + "JOIN tbl_customer cus ON a.customer_id = cus.customer_id\n"
+                + "JOIN tbl_user u ON u.user_id = cus.user_id\n"
+                + "WHERE a.complete_date = ?";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setDate(1, complete_date);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                WorkshopDDD order = new WorkshopDDD(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)
+                );
+
+                list.add(order);
+
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return list;
+
+    }
 
 }

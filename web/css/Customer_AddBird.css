@@ -218,3 +218,10 @@
 .forms-container .forms-footer div .decline{
     border-radius: 10px;
 }
+select{
+    font-size: 2rem;
+    font-weight: bold;
+}
+select option{
+    font-size: 2rem;
+}
