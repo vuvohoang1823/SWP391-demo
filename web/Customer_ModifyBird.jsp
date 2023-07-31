@@ -47,7 +47,7 @@
                                 </div>
                             </a>
                         </div>
-                        <b style="padding-left: 2rem">back</b></div>    
+                        <b style="padding-left: 2rem">back</b></div>
                 </div>
                 <form action="SetTrainerToBooking" method="post">
                     <input type="hidden" name="bird_id" value="">
@@ -69,46 +69,46 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="" class="form-label">Bird Gender</label>
+                                        <label for="" class="form-label">Bird Birthday</label>
                                         <input
                                             type="text"
                                             class="form-control"
                                             id=""
-                                            placeholder="Bird Gender"
+                                            placeholder="Bird Birthday"
                                             value=""
                                             disabled
                                             />
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" style="margin-top: 2rem">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Bird Age</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id=""
-                                            placeholder="Bird Age"
-                                            value=""
-                                            disabled
-                                            />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Bird Type</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id=""
-                                            placeholder="Phone number"
-                                            value=""
-                                            disabled
-                                            />
-                                    </div>
-                                </div>
-                            </div>
+                            <!--                            <div class="row" style="margin-top: 2rem">
+                                                            <div class="col-lg-6">
+                                                                <div class="mb-3">
+                                                                    <label for="" class="form-label">Bird Age</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control"
+                                                                        id=""
+                                                                        placeholder="Bird Age"
+                                                                        value=""
+                                                                        disabled
+                                                                        />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="mb-3">
+                                                                    <label for="" class="form-label">Bird Type</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control"
+                                                                        id=""
+                                                                        placeholder="Phone number"
+                                                                        value=""
+                                                                        disabled
+                                                                        />
+                                                                </div>
+                                                            </div>
+                                                        </div>-->
                         </div>
                     </div>
                     <div class="form-formDetails">
@@ -168,7 +168,7 @@
                                                                     <div class="trainer-item">
                                                                         <img src="data:images/jpg;base64," alt="Trainer Avatar" class="trainer-avatar">
                                                                         <input class="trainer-input" type="radio" name="selected-trainer" value=" id="trainer1">
-                                                                        <label for="trainer1">
+                                                                               <label for="trainer1">
                                                                             <span class="trainer-name">Name: </span>
                                                                         </label>
                                                                     </div>
@@ -186,78 +186,78 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="trainername" class="form-label">Status</label>
-                                        <div class="input-group">
-                                            <input
-                                                id="trainername"
-                                                type="text"
-                                                class="form-control"
-                                                placeholder="None"
-                                                disabled
-                                                />
-                                            <!--only this gets submitted-->
-                                            <input
-                                                id="hiddenTrainerName"
-                                                type="hidden"
-                                                />
-                                            <!---------------------------->
-                                            <button
-                                                class="btn btn-primary"
-                                                type="button"
-                                                id="button-addon2"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#chooseTrainer"
-                                                >
-                                                Update Status
-                                            </button>
-                                            <!-- Modal -->
-                                            <div
-                                                class="modal fade"
-                                                id="chooseTrainer"
-                                                tabindex="-1"
-                                                data-bs-backdrop="static"
-                                                data-bs-keyboard="false"
-                                                >
-                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5">Status</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="trainer-list">
-                                                                <!--important: none needed for customers that didnt choose trainer (must change before submit form)-->
-                                                                <div class="trainer-item">
-                                                                    <input class="trainer-input" type="radio" name="selected-trainer" value="none" id="trainer-none" checked>
-                                                                    <label for="trainer-none">
-                                                                        None
-                                                                    </label>
-                                                                </div>
-                                                                <!--start of trainer -->
-                                                                <c:forEach items="" var="trainerinfo">
-                                                                    <div class="trainer-item">
-                                                                        <img src="data:images/jpg;base64," alt="Trainer Avatar" class="trainer-avatar">
-                                                                        <input class="trainer-input" type="radio" name="selected-trainer" value=" id="trainer1">
-                                                                        <label for="trainer1">
-                                                                            <span class="trainer-name">Name: </span>
-                                                                        </label>
-                                                                    </div>
-                                                                </c:forEach>
-                                                                <!--end of trainer-->
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary" id="saveTrainer" data-bs-dismiss="modal">Save changes</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <!--                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="trainername" class="form-label">Status</label>
+                                                                        <div class="input-group">
+                                                                            <input
+                                                                                id="trainername"
+                                                                                type="text"
+                                                                                class="form-control"
+                                                                                placeholder="None"
+                                                                                disabled
+                                                                                />
+                                                                            only this gets submitted
+                                                                            <input
+                                                                                id="hiddenTrainerName"
+                                                                                type="hidden"
+                                                                                />
+                                                                            ------------------------
+                                                                            <button
+                                                                                class="btn btn-primary"
+                                                                                type="button"
+                                                                                id="button-addon2"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#chooseTrainer"
+                                                                                >
+                                                                                Update Status
+                                                                            </button>
+                                                                             Modal
+                                                                            <div
+                                                                                class="modal fade"
+                                                                                id="chooseTrainer"
+                                                                                tabindex="-1"
+                                                                                data-bs-backdrop="static"
+                                                                                data-bs-keyboard="false"
+                                                                                >
+                                                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <h1 class="modal-title fs-5">Status</h1>
+                                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <div class="trainer-list">
+                                                                                                important: none needed for customers that didnt choose trainer (must change before submit form)
+                                                                                                <div class="trainer-item">
+                                                                                                    <input class="trainer-input" type="radio" name="selected-trainer" value="none" id="trainer-none" checked>
+                                                                                                    <label for="trainer-none">
+                                                                                                        None
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                                start of trainer
+                                <c:forEach items="" var="trainerinfo">
+                                    <div class="trainer-item">
+                                        <img src="data:images/jpg;base64," alt="Trainer Avatar" class="trainer-avatar">
+                                        <input class="trainer-input" type="radio" name="selected-trainer" value=" id="trainer1">
+                                               <label for="trainer1">
+                                            <span class="trainer-name">Name: </span>
+                                        </label>
                                     </div>
-                                </div>
+                                </c:forEach>
+                                end of trainer
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="saveTrainer" data-bs-dismiss="modal">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
                             </div>
                             <div class="row" style="margin-top: 2rem">
                                 <div class="mb-3">

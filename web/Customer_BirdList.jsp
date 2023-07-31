@@ -72,46 +72,45 @@
                         <td>Bird Image</td>
                         <td>Bird Name</td>
                         <td>Bird Type</td>
-                        <td>Bird Age</td>
-                        <td>Bird Gender</td>
-                        <td>Status</td>
+                        <td>Bird Birthday</td>
+                        <!--<td>Bird Gender</td>-->
+                        <!--<td>Status</td>-->
                         <td></td>
                     </tr>
                 </thead>
                 <tbody>
+                <form action="Customer_ModifyBird.jsp">
                     <tr>
+                        <td class="fw-bold">1</td>
+                        <td class="image-table">
+                            <img src="assets/images/avata.png" alt="" width="256" height="256" />
+                        </td>
+                        <td>Bird Name</td>
+                        <td>Bird Type</td>
+                        <td>Bird Birthday</td>
+                        <!--                <td style="padding-right: 4rem">
+                                            <div style="background-color: #0A7E65; display: flex;text-4align: center;justify-content: center;border-radius: 10px;">
+                                                <a style="padding: 1rem;font-size: 2rem;font-weight: bold">
+                                                    Status
+                                                </a>
+                                            </div>
+                                        </td>-->
+                        <td>
+                            <input type="hidden" name="" value="">
 
-                <input type="hidden" name="" value="">
-                <td><b>1</b></td>
-                <td class="image-table">
-                    <img src="assets/images/avata.png" alt="" width="256" height="256" />
-                </td>
-                <td>Bird Name</td>
-                <td>Bird Type</td>
-                <td>Bird Age</td>
-                <td>Gender</td>
-                <td style="padding-right: 4rem">
-                    <div style="background-color: #0A7E65; display: flex;text-align: center;justify-content: center;border-radius: 10px;">
-                        <a style="padding: 1rem;font-size: 2rem;font-weight: bold">
-                            Status
-                        </a>
-                    </div>
-                </td>
-                <td>
-                    <a href="Customer_ModifyBird.jsp" style="text-decoration: none">
-                        <button style="font-size: 2rem;
-                                border-radius: 5px;
-                                background-color: white;
-                                font-weight: bolder;
-                                color: black;
-                                padding: 2rem 3rem;
-                                display: flex;
-                                justify-content: center">
-                            Modify
-                        </button>
-                    </a>
-                </td>
-                </tr>
+                            <button style="font-size: 2rem;
+                                    border-radius: 5px;
+                                    background-color: white;
+                                    font-weight: bolder;
+                                    color: black;
+                                    padding: 2rem 3rem;
+                                    display: flex;
+                                    justify-content: center">
+                                Modify
+                            </button>
+                        </td>
+                    </tr>
+                </form>
                 </tbody>
             </table>
         </section>

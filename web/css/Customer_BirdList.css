@@ -93,7 +93,9 @@
     justify-content: center;
 }
 .form-body .table-form .image-table img{
-    padding: 1rem;
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
 }
 .form-body .table-form thead tr{
     height: 58px;
