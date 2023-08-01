@@ -28,12 +28,13 @@ public class WorkshopDDD implements Serializable{
     private String workshop_id;
     private String attendance_id;
     private String trainer_fullname;
+    private String certificate_status;
     
 
     public WorkshopDDD() {
     }
 
-    public WorkshopDDD(String customer_id, String customer_fullname, String customer_gmail, String customer_contact, String attendance_id, String attendance, String title, Date complete_date, int amount, Date dateCheck, String status, String trainer_fullname) {
+    public WorkshopDDD(String customer_id, String customer_fullname, String customer_gmail, String customer_contact, String attendance_id, String attendance, String title, Date complete_date, int amount, Date dateCheck, String status, String trainer_fullname, String certificate_status) {
         this.title = title;
         this.dateCheck = dateCheck;
         this.complete_date = complete_date;
@@ -46,6 +47,7 @@ public class WorkshopDDD implements Serializable{
         this.status = status;
         this.attendance_id = attendance_id;
         this.trainer_fullname = trainer_fullname;
+        this.certificate_status = certificate_status;
     }
 
     
@@ -63,7 +65,7 @@ public class WorkshopDDD implements Serializable{
 
 
     
-    public WorkshopDDD(String title, String fullname, Date dateCheck, int amount, String status, String customer_id, String course_id, String attendance_id) {
+    public WorkshopDDD(String title, String fullname, Date dateCheck, int amount, String status, String customer_id, String course_id, String attendance_id, String certificate_status) {
         this.title = title;
         this.fullname = fullname;
         this.dateCheck = dateCheck;
@@ -72,6 +74,7 @@ public class WorkshopDDD implements Serializable{
         this.customer_id = customer_id;
         this.course_id = course_id;
         this.attendance_id = attendance_id;
+        this.certificate_status = certificate_status;
     }
 
     public String getTitle() {
@@ -192,6 +195,14 @@ public class WorkshopDDD implements Serializable{
 
     public void setTrainer_fullname(String trainer_fullname) {
         this.trainer_fullname = trainer_fullname;
+    }
+
+    public String getCertificate_status() {
+        return certificate_status;
+    }
+
+    public void setCertificate_status(String certificate_status) {
+        this.certificate_status = certificate_status;
     }
     
     

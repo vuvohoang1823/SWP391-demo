@@ -86,7 +86,7 @@
                         <c:set var="detail" value="${sessionScope.detail_order_workshop}"/>
                         <div class="container-fluid" style="padding: 0 2.5%">
                             <div class="forms-container">
-                                
+
                                 <div class="forms-header">
                                     <div class="left-side"><b>Order Detail</b></div>
                                     <div class="right-side">
@@ -94,8 +94,8 @@
                                         <span><b>ID : #${detail.attendance_id}</b></span>
                                     </div>
                                 </div>
-                                    
-                                    
+
+
                                 <form method="post" action="ConsultationUpdatePending">
 
                                     <div class="form-customerDetails">
@@ -148,22 +148,54 @@
                                                         />
                                                 </div>
                                             </div>
-                                               <%--         
-                                            <div class="row">
-                                                <div class="mb-3">
-                                                    <label for="address" class="form-label">Address</label>
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="address"
-                                                        placeholder="Address"
-                                                        value="${detail.address}"
-                                                        disabled
-                                                        />
+                                                        <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="mb-5">
+                                                        <label for="requestTitle" class="form-label"
+                                                               >Attendance status</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="requestTitle"
+                                                            placeholder="${detail.attendance}"
+                                                            value="${detail.attendance}"
+                                                            disabled
+                                                            />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="mb-5">
+                                                        <label for="requestTitle" class="form-label"
+                                                               >Certificate status</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="requestTitle"
+                                                            placeholder="${detail.certificate_status}"
+                                                            value="${detail.certificate_status}"
+                                                            disabled
+                                                            />
+                                                    </div>
                                                 </div>
                                             </div>
-                                                   --%>     
-                                                        
+                                            <%--         
+                                         <div class="row">
+                                             <div class="mb-3">
+                                                 <label for="address" class="form-label">Address</label>
+                                                 <input
+                                                     type="text"
+                                                     class="form-control"
+                                                     id="address"
+                                                     placeholder="Address"
+                                                     value="${detail.address}"
+                                                     disabled
+                                                     />
+                                             </div>
+                                         </div>
+                                            --%>     
+
                                         </div>
                                     </div>
                                     <div class="form-formDetails">
@@ -171,41 +203,6 @@
                                             <div class="name">Workshop Information</div>
                                         </div>
                                         <div class="form-body">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="mb-5">
-                                                        <label for="dateRequested" class="form-label"
-                                                               >Date & Time</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="dateRequested"
-                                                            placeholder="Form title"
-                                                            value="2:00 PM - 4:00 PM"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                                <div class="col-lg-6">
-                                                    <div class="mb-5">
-                                                        <label for="priceHour" class="form-label"
-                                                               >Pricing</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="priceHour"
-                                                            placeholder="Form title"
-                                                            value="$${detail.amount}"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
@@ -222,25 +219,6 @@
                                                             />
                                                     </div>
                                                 </div>
-                                                            
-                                                <div class="col-lg-6">
-                                                    <div class="mb-5">
-                                                        <label for="requestTitle" class="form-label"
-                                                               >Location/Venue</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="requestTitle"
-                                                            placeholder=""
-                                                            value="Central Community Center"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
                                                         <label for="requestTitle" class="form-label"
@@ -256,7 +234,66 @@
                                                             />
                                                     </div>
                                                 </div>
-                                                            
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="mb-5">
+                                                        <label for="requestTitle" class="form-label"
+                                                               >Location/Venue</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="requestTitle"
+                                                            placeholder=""
+                                                            value="Central Community Center"
+                                                            disabled
+                                                            />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="mb-5">
+                                                        <label for="dateRequested" class="form-label"
+                                                               >Date & Time</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="dateRequested"
+                                                            placeholder="Form title"
+                                                            value="2:00 PM - 4:00 PM"
+                                                            disabled
+                                                            />
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-lg-4">
+                                                    <div class="mb-5">
+                                                        <label for="priceHour" class="form-label"
+                                                               >Pricing</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="priceHour"
+                                                            placeholder="Form title"
+                                                            value="$${detail.amount}"
+                                                            disabled
+                                                            />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+
+
+                                                
+
+                                            </div>
+                                            <div class="row">
+                                                
+
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
                                                         <label for="requestTitle" class="form-label"
@@ -272,27 +309,7 @@
                                                             />
                                                     </div>
                                                 </div>
-                                                
-                                            </div>
-                                                            
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="mb-5">
-                                                        <label for="requestTitle" class="form-label"
-                                                               >Attendance status</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="requestTitle"
-                                                            placeholder="${detail.attendance}"
-                                                            value="${detail.attendance}"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                                            
-                                                <div class="col-lg-6">
+                                                            <div class="col-lg-6">
                                                     <div class="mb-5">
                                                         <label for="requestTitle" class="form-label"
                                                                >Workshop status</label
@@ -307,24 +324,34 @@
                                                             />
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
-                                            
+
+                                            <div class="row">
+
+                                                
+
+                                            </div>
+
                                         </div>
 
                                     </div>
-                                                    <%--
-                                    <input type="hidden" name="consultationId" value="${detail.consultation_id}" />
-                                    <input type="hidden" name="email_email" value="${detail.gmail}" />
-                                    <input type="hidden" name="fullname" value="${detail.customer_fullname}" />
-                                    <input type="hidden" name="date" value="${detail.date}" />
-                                    <input type="hidden" name="duration" value="${detail.duration}" />
-                                                   --%>
+                                    <%--
+                    <input type="hidden" name="consultationId" value="${detail.consultation_id}" />
+                    <input type="hidden" name="email_email" value="${detail.gmail}" />
+                    <input type="hidden" name="fullname" value="${detail.customer_fullname}" />
+                    <input type="hidden" name="date" value="${detail.date}" />
+                    <input type="hidden" name="duration" value="${detail.duration}" />
+                                    --%>
                                     <div class="forms-footer">
+                                        <c:set var="certificateStatus" value="${detail.certificate_status}" />
                                         <div>
-                                            <button type="submit" name="action" value="approve" class="btn approve">Award Certificate</button>
-                                        </div>
-                                        
+                                            
+                                            <c:if test="${certificateStatus ne 'Awarded'}">
+                                            <button type="submit" name="action" value="approve" class="btn approve" style="height: 100px">Award Certificate</button>
+                                            </c:if>
+                                            </div>
+
                                     </div>
                                 </form>
                             </div>
