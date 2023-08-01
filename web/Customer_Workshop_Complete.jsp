@@ -87,7 +87,12 @@
                                         <input type="hidden" name="customer_id" value="${wo.customerID}">
                                         <input type="hidden" name="course_id" value="${wo.courseID}">
                                         <input type="hidden" name="complete_date" value="${wo.complete_date}">
+                                        
+                                        <c:set var="certificateStatus" value="${wo.certificate_status}" />
+                                        <c:if test="${certificateStatus eq 'Awarded'}">
                                         <button type="submit">View certificate</button>
+                                        </c:if>
+                                        
                                     </form>
 
                                     <div class="complete-date">
