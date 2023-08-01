@@ -569,7 +569,7 @@ public void setWorkshopComplete(String trainer_id, Date complete_date) throws Cl
         ResultSet rs = null;
 
         String sql = "UPDATE a\n"
-                + "SET a.status = 'Complete', \n"
+                + "SET a.status = 'End', \n"
                 + " a.complete_date = ? "
                 + "FROM tbl_attendance AS a\n"
                 + "JOIN tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n"

@@ -112,7 +112,7 @@
                                     <td class="customer">${b.status}</td>
                                     <td>
                                         <div class="type">
-                                            <a href="MainController?action=view_form_completete"><button class="viewDetail">View Detail</button></a>
+                                            <a href="Staff_Workshop_ViewOrder_DetailServlet?attendance_id=${b.attendance_id}"><button class="viewDetail">View Detail</button></a>
                                         </div>
                                     </td>
                                     <%--
