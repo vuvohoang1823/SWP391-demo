@@ -243,6 +243,7 @@
                                                         class="form-control"
                                                         placeholder="None"
                                                         disabled
+                                                        style="margin-top: 2rem"
                                                         />
                                                     <!---------------->
                                                     <button
@@ -251,7 +252,7 @@
                                                         id="button-addon2"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#chooseTrainer"
-                                                        style="font-size: 1.5rem; border: 0; background-color: #617a55; border-radius: 0 4px 4px 0"
+                                                        style="font-size: 2rem; border: 0; background-color: #617a55; border-radius: 0 4px 4px 0; margin-top: 2rem"
                                                         >
                                                         Select Trainer
                                                     </button>
