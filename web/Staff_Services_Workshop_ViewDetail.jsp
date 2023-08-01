@@ -71,7 +71,7 @@
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-lg-5 mb-5">
-                                                <!--                                                <label for="contentIMG" class="form-label">*Item image</label>
+                                                <!--                                                <label for="contentIMG" class="form-label">*Workshop image</label>
                                                                                                 <input type="file" id="contentIMG" name="contentIMG" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>-->
                                                 <div class="img-container d-flex justify-content-center">
                                                     <img class="showImg" src="data:images/jpg;base64,${workshop.image}" height="50px" width="50px" alt="">
@@ -80,7 +80,7 @@
                                             <div class="col-lg-7 row">
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
-                                                        <label for="title" class="form-label">*Item price</label>
+                                                        <label for="title" class="form-label">*Price</label>
                                                         <!--                                                        <input
                                                                                                                     type="text"
                                                                                                                     class="form-control"
@@ -95,7 +95,7 @@
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
-                                                        <label for="title" class="form-label">*Item id</label>
+                                                        <label for="title" class="form-label">*ID</label>
                                                         <!--                                                        <input
                                                                                                                     type="text"
                                                                                                                     class="form-control"
@@ -110,7 +110,7 @@
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="mb-5">
-                                                        <label for="briefinfo" class="form-label">*Item title</label>
+                                                        <label for="briefinfo" class="form-label">*Title</label>
                                                         <!--                                                        <textarea id="briefinfo"
                                                                                                                           name="title"
                                                                                                                           class="form-control long-input"
@@ -122,7 +122,7 @@
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="mb-5">
-                                                        <label for="briefinfo" class="form-label">*Item description</label>
+                                                        <label for="briefinfo" class="form-label">*Description</label>
                                                         <!--                                                        <textarea id="briefinfo"
                                                                                                                           name="content"
                                                                                                                           class="form-control long-input"
@@ -304,7 +304,7 @@
                                 <input type="hidden" name="category" value="${workshop.category}" />
                                 <div class="forms-footer">
                                     <div>
-                                        <button type="submit" name="action" value="update" class="btn update">Edit</button>
+                                        <button type="submit" name="action" value="update" class="btn update">Update</button>
                                     </div>
                                     <!--                                    <div>
                                                                             <button type="submit" name="action" value="update" class="btn close">Cancel</button>

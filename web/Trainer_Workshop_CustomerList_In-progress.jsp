@@ -108,7 +108,7 @@
                         <div class="d-flex justify-content-center" style="font-size: 3rem; padding: 3rem 0;">
                             List of customers participate in&nbsp;<b>${workshopDetail.title}</b>
                         </div>
-                        <form    action="Trainer_Workshop_CheckAttendanceServlet" method="POST">
+                        <form action="Trainer_Workshop_CheckAttendanceServlet" method="POST">
                             <table
                                 class="w3-table-all w3-hoverable w3-card-4 table-form"
                                 style="width: 97.5%; margin: 0 auto"
@@ -134,17 +134,17 @@
                                         <td class="title">${b.customer_fullname}</td>
                                         <td class="customer">${b.customer_contact}</td>
                                         <td class="customer">${b.customer_gmail}</td>
-                                        <td class="customer" style="display: flex">
-                                            <div>
-                                                <input id="presentbutton-${counter.count}" type="radio" name="check_attendance_${b.customer_id}" value="Present" ${b.attendance eq "Present" ? "checked" : ""} >
-                                                <label for="presentbutton-${counter.count}">
-                                                    <span style="color: #F69C14">Present</span>
+                                        <td class="customer align-items-center" style="display: flex;">
+                                            <div style="margin-right: 2rem">
+                                                <input id="presentbutton-${counter.count}" type="radio" name="check_attendance_${b.customer_id}" value="Present" ${b.attendance eq "Present" ? "checked" : ""} />
+                                                <label class="fs-4" for="presentbutton-${counter.count}">
+                                                    <span>Present</span>
                                                 </label>
                                             </div>
                                             <div>
-                                                <input id="absentbutton-${counter.count}" type="radio" name="check_attendance_${b.customer_id}" value="Absent"  ${b.attendance eq "Absent" ? "checked" : ""}>
-                                                <label for="absentbutton-${counter.count}">
-                                                    <span style="color: #F69C14">Absent</span>
+                                                <input id="absentbutton-${counter.count}" type="radio" name="check_attendance_${b.customer_id}" value="Absent"  ${b.attendance eq "Absent" ? "checked" : ""} />
+                                                <label class="fs-4" for="absentbutton-${counter.count}">
+                                                    <span>Absent</span>
                                                 </label>
                                             </div>
                                         </td>
@@ -161,7 +161,9 @@
                                     <input type="hidden" name="workshop_id" value="${b.workshop_id}" />
                                 </c:forEach>
                             </table>
-                            <button name="button" value="submit" type="submit">Save attendance</button>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-primary mt-5 fs-1 p-3" name="button" value="submit" type="submit">Save attendance</button>
+                            </div>
                         </form>
 
                     </section>
