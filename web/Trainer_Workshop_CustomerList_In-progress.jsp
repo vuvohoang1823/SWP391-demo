@@ -82,12 +82,12 @@
                         <c:set var="searchMessage" value="${requestScope.searchMessage}"/>
                         <c:set var="seachValue" value="${requestScope.ListCompleted}"/>
 
-                        <c:set var="ListCompleted" value="${f.OrderListComplted()}"/>
-                        <c:set var="listForm" value="${f.CustomerListInProgressWorkshop()}"/>
+                        
+                        <c:set var="listForm" value="${customer_list}"/>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
                             List of customers participate in workshop
                         </div>
-                        <form action="Trainer_Workshop_CheckAttendanceServlet" method="POST">
+                        <form    action="Trainer_Workshop_CheckAttendanceServlet" method="POST">
                             <table
                                 class="w3-table-all w3-hoverable w3-card-4 table-form"
                                 style="width: 97.5%; margin: 0 auto"
@@ -108,7 +108,6 @@
                                     </tr>
                                 </thead>
                                 <c:forEach items="${listForm}" var="b" varStatus="counter" >
-
                                     <tr>
                                         <td class="id">${counter.count}</td>
                                         <td class="title">${b.customer_fullname}</td>

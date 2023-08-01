@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import DAO.AttendanceDAO;
 import DAO.WorkshopDAO;
 import entity.WorkshopDDD;
 import java.io.IOException;
@@ -23,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author LAPTOP
  */
-@WebServlet(name = "Trainer_Workshop_CheckAttendanceServlet", urlPatterns = {"/Trainer_Workshop_CheckAttendanceServlet"})
-public class Trainer_Workshop_CheckAttendanceServlet extends HttpServlet {
+@WebServlet(name = "Trainer_Workshop_CustomerListServlet", urlPatterns = {"/Trainer_Workshop_CustomerListServlet"})
+public class Trainer_Workshop_CustomerListServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,25 +37,19 @@ public class Trainer_Workshop_CheckAttendanceServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
         String course_id = request.getParameter("course_id");
-        
+
         WorkshopDAO dao = new WorkshopDAO();
-        for (WorkshopDDD booking : dao.CustomerListInProgressWorkshop()) {
-            String customerId = request.getParameter("customer_id_" + booking.getCustomer_id());
-            String attendance = request.getParameter("check_attendance_" + booking.getCustomer_id());
-            String workshop_id = request.getParameter("workshop_id");
+        List<WorkshopDDD> list = dao.ListOfCustomerInProgressWorkshop(course_id);
 
-            // Process the data as needed (e.g., update the database, perform calculations, etc.)
-            dao.CheckAttendanceWorkshop(customerId, attendance, workshop_id);
-        }
-
-//        List<WorkshopDDD> list = dao.ListOfCustomerInProgressWorkshop(course_id);
-//
-//        HttpSession session = request.getSession(true);
-//        session.setAttribute("customer_list", list);
         
-        RequestDispatcher rd = request.getRequestDispatcher("Trainer_Workshop_FormList.jsp");
-        rd.forward(request, response);
+        
+        HttpSession session = request.getSession(true);
+        session.setAttribute("customer_list", list);
+        
+        RequestDispatcher rd = request.getRequestDispatcher("Trainer_Workshop_CustomerList_In-progress.jsp");
+            rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

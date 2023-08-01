@@ -128,7 +128,7 @@
                                                                     </a>
                                                                 </div>
                                                                 <div class="button-container pt-4">
-                                                                    <a href="Trainer_Workshop_CustomerList_In-progress.jsp">
+                                                                    <a href="Trainer_Workshop_CustomerListServlet?course_id=${in_progress.courseID}">
                                                                         <button>View Detail</button>
                                                                     </a>
                                                                 </div>
