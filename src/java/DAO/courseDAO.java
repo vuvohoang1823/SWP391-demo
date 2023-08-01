@@ -1062,7 +1062,7 @@ public class courseDAO implements Serializable {
 
     public List<Course> getAllCourseWORKSHOPCompleteByCustomerID(int UserID) throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
-        String sql = "select c.course_id, c.trainer_id, c.staff_id, c.content, c.category, c.title, c.price, i.img, c.start_date, c.end_enroll_date, a.status, a.complete_date, tr.fullname, a.customer_id \n"
+        String sql = "select c.course_id, c.trainer_id, c.staff_id, c.content, c.category, c.title, c.price, i.img, c.start_date, c.end_enroll_date, a.status, a.complete_date, tr.fullname, a.customer_id, a.certificate  \n"
                 + "                from tbl_attendance as a\n"
                 + "                   join  tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n"
                 + "                   join  tbl_course as c ON c.course_id = t.course_id\n"
@@ -1107,7 +1107,8 @@ public class courseDAO implements Serializable {
                         rs.getString(11),
                         rs.getDate(12),
                         rs.getString(13),
-                        rs.getString(14)
+                        rs.getString(14),
+                        rs.getString(15)
                 );
                 list.add(course);
             }

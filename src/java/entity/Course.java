@@ -33,8 +33,9 @@ public class Course {
     private String b;
     private String c;
     private String d;
+    private String certificate_status;
 
-    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, Date complete_date, String trainer_fullname, String customerID) {
+    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, Date complete_date, String trainer_fullname, String customerID, String certificate_status) {
         this.courseID = courseID;
         this.trainerID = trainerID;
         this.staffID = staffID;
@@ -49,6 +50,7 @@ public class Course {
         this.complete_date = complete_date;
         this.trainer_fullname = trainer_fullname;
         this.customerID = customerID;
+        this.certificate_status = certificate_status;
     }
 
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, Date complete_date, int history_id) {
@@ -333,4 +335,13 @@ public class Course {
         this.d = d;
     }
 
+    public String getCertificate_status() {
+        return certificate_status;
+    }
+
+    public void setCertificate_status(String certificate_status) {
+        this.certificate_status = certificate_status;
+    }
+
+    
 }

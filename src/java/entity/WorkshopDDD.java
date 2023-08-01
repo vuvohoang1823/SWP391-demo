@@ -16,6 +16,7 @@ public class WorkshopDDD implements Serializable{
     private String title;
     private String fullname;
     private Date dateCheck;
+    private Date complete_date;
     private int amount;
     private String customer_fullname;
     private String customer_gmail;
@@ -25,11 +26,32 @@ public class WorkshopDDD implements Serializable{
     private String customer_id;
     private String status;
     private String workshop_id;
+    private String attendance_id;
+    private String trainer_fullname;
+    private String certificate_status;
     
 
     public WorkshopDDD() {
     }
 
+    public WorkshopDDD(String customer_id, String customer_fullname, String customer_gmail, String customer_contact, String attendance_id, String attendance, String title, Date complete_date, int amount, Date dateCheck, String status, String trainer_fullname, String certificate_status) {
+        this.title = title;
+        this.dateCheck = dateCheck;
+        this.complete_date = complete_date;
+        this.amount = amount;
+        this.customer_fullname = customer_fullname;
+        this.customer_gmail = customer_gmail;
+        this.customer_contact = customer_contact;
+        this.attendance = attendance;
+        this.customer_id = customer_id;
+        this.status = status;
+        this.attendance_id = attendance_id;
+        this.trainer_fullname = trainer_fullname;
+        this.certificate_status = certificate_status;
+    }
+
+    
+    
     public WorkshopDDD(String customer_fullname, String customer_gmail, String customer_contact, String attendance, String course_id, String customer_id, String status, String workshop_id) {
         this.customer_fullname = customer_fullname;
         this.customer_gmail = customer_gmail;
@@ -43,13 +65,16 @@ public class WorkshopDDD implements Serializable{
 
 
     
-    public WorkshopDDD(String title, String fullname, Date dateCheck, int amount, String status, String customer_id) {
+    public WorkshopDDD(String title, String fullname, Date dateCheck, int amount, String status, String customer_id, String course_id, String attendance_id, String certificate_status) {
         this.title = title;
         this.fullname = fullname;
         this.dateCheck = dateCheck;
         this.amount = amount;
         this.status = status;
         this.customer_id = customer_id;
+        this.course_id = course_id;
+        this.attendance_id = attendance_id;
+        this.certificate_status = certificate_status;
     }
 
     public String getTitle() {
@@ -146,6 +171,38 @@ public class WorkshopDDD implements Serializable{
 
     public void setWorkshop_id(String workshop_id) {
         this.workshop_id = workshop_id;
+    }
+
+    public String getAttendance_id() {
+        return attendance_id;
+    }
+
+    public void setAttendance_id(String attendance_id) {
+        this.attendance_id = attendance_id;
+    }
+
+    public Date getComplete_date() {
+        return complete_date;
+    }
+
+    public void setComplete_date(Date complete_date) {
+        this.complete_date = complete_date;
+    }
+
+    public String getTrainer_fullname() {
+        return trainer_fullname;
+    }
+
+    public void setTrainer_fullname(String trainer_fullname) {
+        this.trainer_fullname = trainer_fullname;
+    }
+
+    public String getCertificate_status() {
+        return certificate_status;
+    }
+
+    public void setCertificate_status(String certificate_status) {
+        this.certificate_status = certificate_status;
     }
     
     
