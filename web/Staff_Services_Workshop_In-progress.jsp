@@ -83,7 +83,7 @@
                         <c:set var="seachValue" value="${requestScope.ListCompleted}"/>
 
                         <c:set var="ListCompleted" value="${f.OrderListComplted()}"/>
-                        <c:set var="listForm" value="${f.CustomerListInProgressWorkshop()}"/>
+                        <c:set var="listForm" value="${customer_list}"/>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
                             List of customers participate in workshop
                         </div>

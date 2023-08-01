@@ -90,7 +90,7 @@
                                         <div class="d-flex justify-content-between align-items-center" style="margin-top: 2rem">
                                             
                                             <div class="">
-                                                <form action="Staff_Services_Workshop_In-progress.jsp" method="post" style="display: inline;">
+                                                <form action="Staff_Workshop_CustomerListServlet?course_id=${workshop.courseID}" method="post" style="display: inline;">
                                                     <input type="hidden" name="courseID" value="${workshop.courseID}" />
                                                     <button class="update-button " type="submit" name="action" value="update">View participants</button>
                                                 </form>
