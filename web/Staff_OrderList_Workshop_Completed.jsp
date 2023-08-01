@@ -91,7 +91,8 @@
                                     <td>Title</td>
                                     <td>Customer</td>
                                     <td>Price</td>
-                                    <td>Date</td>
+                                    <td>Checkout date</td>
+                                    <td>Status</td>
 <!--                                    <td>
                                         <div style="display: flex; justify-content: space-around;">
                                             <div style="padding-right: 11rem; height: 100%;">Type</div>
@@ -108,6 +109,12 @@
                                     <td class="customer">${b.fullname}</td>
                                     <td class="customer">$${b.amount}</td>
                                     <td class="customer">${b.dateCheck}</td>
+                                    <td class="customer">${b.status}</td>
+                                    <td>
+                                        <div class="type">
+                                            <a href="MainController?action=view_form_completete"><button class="viewDetail">View Detail</button></a>
+                                        </div>
+                                    </td>
                                     <%--
 <!--                                    <td>
                                         <div class="type">

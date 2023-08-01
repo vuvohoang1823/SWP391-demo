@@ -43,11 +43,13 @@ public class WorkshopDDD implements Serializable{
 
 
     
-    public WorkshopDDD(String title, String fullname, Date dateCheck, int amount) {
+    public WorkshopDDD(String title, String fullname, Date dateCheck, int amount, String status, String customer_id) {
         this.title = title;
         this.fullname = fullname;
         this.dateCheck = dateCheck;
         this.amount = amount;
+        this.status = status;
+        this.customer_id = customer_id;
     }
 
     public String getTitle() {
