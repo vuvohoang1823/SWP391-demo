@@ -97,263 +97,268 @@
 
 
 
-                                    <div class="form-customerDetails">
-                                        <div class="form-name">
-                                            <div class="name">Customer Information</div>
-                                        </div>
-                                        <div class="form-body">
-                                            <div class="row">
-                                                <div class="col-lg-7">
-                                                    <div class="mb-5">
-                                                        <label for="fullname" class="form-label">Full name</label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="fullname"
-                                                            placeholder="Full name"
-                                                            value="${detail.customer_fullname}"
-
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-5">
-                                                    <div class="mb-5">
-                                                        <label for="phonenumber" class="form-label"
-                                                               >Phone number</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="phonenumber"
-                                                            placeholder="Phone number"
-                                                            value="${detail.customer_contact}"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
+                                <div class="form-customerDetails">
+                                    <div class="form-name">
+                                        <div class="name">Customer Information</div>
+                                    </div>
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-lg-7">
                                                 <div class="mb-5">
-                                                    <label for="email" class="form-label">Email</label>
+                                                    <label for="fullname" class="form-label">Full name</label>
                                                     <input
                                                         type="text"
                                                         class="form-control"
-                                                        id="email"
+                                                        id="fullname"
+                                                        placeholder="Full name"
+                                                        value="${detail.customer_fullname}"
 
-                                                        placeholder="Email"
-                                                        value="${detail.customer_gmail}"
                                                         disabled
                                                         />
                                                 </div>
                                             </div>
-                                                        <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="mb-5">
-                                                        <label for="requestTitle" class="form-label"
-                                                               >Attendance status</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="requestTitle"
-                                                            placeholder="${detail.attendance}"
-                                                            value="${detail.attendance}"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="mb-5">
-                                                        <label for="requestTitle" class="form-label"
-                                                               >Certificate status</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="requestTitle"
-                                                            placeholder="${detail.certificate_status}"
-                                                            value="${detail.certificate_status}"
-                                                            disabled
-                                                            />
-                                                    </div>
+                                            <div class="col-lg-5">
+                                                <div class="mb-5">
+                                                    <label for="phonenumber" class="form-label"
+                                                           >Phone number</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="phonenumber"
+                                                        placeholder="Phone number"
+                                                        value="${detail.customer_contact}"
+                                                        disabled
+                                                        />
                                                 </div>
                                             </div>
-                                            <%--         
-                                         <div class="row">
-                                             <div class="mb-3">
-                                                 <label for="address" class="form-label">Address</label>
-                                                 <input
-                                                     type="text"
-                                                     class="form-control"
-                                                     id="address"
-                                                     placeholder="Address"
-                                                     value="${detail.address}"
-                                                     disabled
-                                                     />
-                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-5">
+                                                <label for="email" class="form-label">Email</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="email"
+
+                                                    placeholder="Email"
+                                                    value="${detail.customer_gmail}"
+                                                    disabled
+                                                    />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="mb-5">
+                                                    <label for="requestTitle" class="form-label"
+                                                           >Attendance status</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="requestTitle"
+                                                        placeholder="${detail.attendance}"
+                                                        value="${detail.attendance}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="mb-5">
+                                                    <label for="requestTitle" class="form-label"
+                                                           >Certificate status</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="requestTitle"
+                                                        placeholder="${detail.certificate_status}"
+                                                        value="${detail.certificate_status}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%--         
+                                     <div class="row">
+                                         <div class="mb-3">
+                                             <label for="address" class="form-label">Address</label>
+                                             <input
+                                                 type="text"
+                                                 class="form-control"
+                                                 id="address"
+                                                 placeholder="Address"
+                                                 value="${detail.address}"
+                                                 disabled
+                                                 />
                                          </div>
-                                            --%>     
-
-                                        </div>
-                                    </div>
-                                    <div class="form-formDetails">
-                                        <div class="form-name">
-                                            <div class="name">Workshop Information</div>
-                                        </div>
-                                        <div class="form-body">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="mb-5">
-                                                        <label for="requestTitle" class="form-label"
-                                                               >Workshop name</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="requestTitle"
-                                                            placeholder="${detail.title}"
-                                                            value="${detail.title}"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="mb-5">
-                                                        <label for="requestTitle" class="form-label"
-                                                               >Complete Date</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="requestTitle"
-                                                            placeholder="${detail.complete_date}"
-                                                            value="${detail.complete_date}"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <div class="mb-5">
-                                                        <label for="requestTitle" class="form-label"
-                                                               >Location/Venue</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="requestTitle"
-                                                            placeholder=""
-                                                            value="Central Community Center"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="mb-5">
-                                                        <label for="dateRequested" class="form-label"
-                                                               >Date & Time</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="dateRequested"
-                                                            placeholder="Form title"
-                                                            value="2:00 PM - 4:00 PM"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col-lg-4">
-                                                    <div class="mb-5">
-                                                        <label for="priceHour" class="form-label"
-                                                               >Pricing</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="priceHour"
-                                                            placeholder="Form title"
-                                                            value="$${detail.amount}"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="row">
-
-
-                                                
-
-                                            </div>
-                                            <div class="row">
-                                                
-
-                                                <div class="col-lg-6">
-                                                    <div class="mb-5">
-                                                        <label for="requestTitle" class="form-label"
-                                                               >Trainer</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="requestTitle"
-                                                            placeholder=""
-                                                            value="${detail.trainer_fullname}"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-                                                            <div class="col-lg-6">
-                                                    <div class="mb-5">
-                                                        <label for="requestTitle" class="form-label"
-                                                               >Workshop status</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="requestTitle"
-                                                            placeholder=""
-                                                            value="${detail.status}"
-                                                            disabled
-                                                            />
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="row">
-
-                                                
-
-                                            </div>
-
-                                        </div>
+                                     </div>
+                                        --%>     
 
                                     </div>
-                                    <%--
-                    <input type="hidden" name="consultationId" value="${detail.consultation_id}" />
-                    <input type="hidden" name="email_email" value="${detail.gmail}" />
-                    <input type="hidden" name="fullname" value="${detail.customer_fullname}" />
-                    <input type="hidden" name="date" value="${detail.date}" />
-                    <input type="hidden" name="duration" value="${detail.duration}" />
-                                    --%>
-                                    <div class="forms-footer">
-                                        <c:set var="certificateStatus" value="${detail.certificate_status}" />
+                                </div>
+                                <div class="form-formDetails">
+                                    <div class="form-name">
+                                        <div class="name">Workshop Information</div>
+                                    </div>
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="mb-5">
+                                                    <label for="requestTitle" class="form-label"
+                                                           >Workshop name</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="requestTitle"
+                                                        placeholder="${detail.title}"
+                                                        value="${detail.title}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="mb-5">
+                                                    <label for="requestTitle" class="form-label"
+                                                           >Complete Date</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="requestTitle"
+                                                        placeholder="${detail.complete_date}"
+                                                        value="${detail.complete_date}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="mb-5">
+                                                    <label for="requestTitle" class="form-label"
+                                                           >Location/Venue</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="requestTitle"
+                                                        placeholder=""
+                                                        value="Central Community Center"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="mb-5">
+                                                    <label for="dateRequested" class="form-label"
+                                                           >Date & Time</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="dateRequested"
+                                                        placeholder="Form title"
+                                                        value="2:00 PM - 4:00 PM"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-lg-4">
+                                                <div class="mb-5">
+                                                    <label for="priceHour" class="form-label"
+                                                           >Pricing</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="priceHour"
+                                                        placeholder="Form title"
+                                                        value="$${detail.amount}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+
+
+
+
+                                        </div>
+                                        <div class="row">
+
+
+                                            <div class="col-lg-6">
+                                                <div class="mb-5">
+                                                    <label for="requestTitle" class="form-label"
+                                                           >Trainer</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="requestTitle"
+                                                        placeholder=""
+                                                        value="${detail.trainer_fullname}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="mb-5">
+                                                    <label for="requestTitle" class="form-label"
+                                                           >Workshop status</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="requestTitle"
+                                                        placeholder=""
+                                                        value="${detail.status}"
+                                                        disabled
+                                                        />
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <%--
+                <input type="hidden" name="consultationId" value="${detail.consultation_id}" />
+                <input type="hidden" name="email_email" value="${detail.gmail}" />
+                <input type="hidden" name="fullname" value="${detail.customer_fullname}" />
+                <input type="hidden" name="date" value="${detail.date}" />
+                <input type="hidden" name="duration" value="${detail.duration}" />
+                                --%>
+                                <div class="forms-footer">
+                                    <c:set var="certificateStatus" value="${detail.certificate_status}" />
+                                    <form action="Staff_Workshop_Award_CertificateServlet" method="POST">
                                         <div>
+                                            <input type="hidden" name="attendance_id" value="${detail.attendance_id}" />
+                                            <input type="hidden" name="gmail" value="${detail.customer_gmail}" />
+                                            <input type="hidden" name="customer_fullname" value="${detail.customer_fullname}" />
+                                            <input type="hidden" name="workshop_title" value="${detail.title}" />
                                             
                                             <c:if test="${certificateStatus ne 'Awarded'}">
-                                                <a href="Staff_Workshop_Award_CertificateServlet?attendance_id=${detail.attendance_id}&gmail=${detail.customer_gmail}" >
-                                            <button type="submit" name="action" value="approve" class="btn approve" style="height: 100px">Award Certificate</button>
-                                            </a>
-                                                </c:if>
-                                            </div>
+                                                    <button type="submit" name="action" value="approve" class="btn approve" style="height: 100px">Award Certificate</button>
+                                            </c:if>
+                                        </div>
+                                    </form>
 
-                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </c:if>
