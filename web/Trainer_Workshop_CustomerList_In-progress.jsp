@@ -26,10 +26,10 @@
         <jsp:useBean id="tr" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
         </head>
         <body>
-            <c:set var="result" value="${Booking}"/>
-            <div class="container-fluid">
-                <div class="row flex-nowrap">
-                    <!--            header-->
+        <c:set var="result" value="${Booking}"/>
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <!--            header-->
                 <%@ include file="header.jsp" %>
                 <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <%@ include file="Trainer_Services_Head.jsp" %>
@@ -82,7 +82,7 @@
                         <c:set var="searchMessage" value="${requestScope.searchMessage}"/>
                         <c:set var="seachValue" value="${requestScope.ListCompleted}"/>
 
-                        
+
                         <c:set var="listForm" value="${customer_list}"/>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
                             List of customers participate in workshop
@@ -114,16 +114,15 @@
                                         <td class="customer">${b.customer_contact}</td>
                                         <td class="customer">${b.customer_gmail}</td>
                                         <td class="customer" style="display: flex">
-
                                             <div>
-                                                <input type="radio" name="check_attendance_${b.customer_id}" value="Present" ${b.attendance eq "Present" ? "checked" : ""} >
-                                                <label>
+                                                <input id="presentbutton" type="radio" name="check_attendance_${b.customer_id}" value="Present" ${b.attendance eq "Present" ? "checked" : ""} >
+                                                <label for="presentbutton">
                                                     <span style="color: #F69C14">Present</span>
                                                 </label>
                                             </div>
                                             <div>
-                                                <input type="radio" name="check_attendance_${b.customer_id}" value="Absent"  ${b.attendance eq "Absent" ? "checked" : ""}>
-                                                <label>
+                                                <input id="absentbutton" type="radio" name="check_attendance_${b.customer_id}" value="Absent"  ${b.attendance eq "Absent" ? "checked" : ""}>
+                                                <label for="absentbutton">
                                                     <span style="color: #F69C14">Absent</span>
                                                 </label>
                                             </div>
@@ -141,7 +140,7 @@
                                     <input type="hidden" name="workshop_id" value="${b.workshop_id}" />
                                 </c:forEach>
                             </table>
-                            
+
                             <button name="button" value="submit" type="submit">Submit</button>
                         </form>
 

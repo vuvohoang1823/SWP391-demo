@@ -46,8 +46,8 @@
                     </div>
                     <div class="button-container">
                         <button>Explore Workshops</button>
-                       
-                       
+
+
                     </div>
                 </div>
                 <div class="img-container">
@@ -162,7 +162,7 @@
                                                 </div>
                                                 <div class="card-text">
                                                     <b>Trainer:</b> ${workshop.trainer_fullname} <br />
-                                                    <b>End enroll date:</b> ${workshop.end_enroll_date} <br />
+                                                    <b>Start date:</b> ${workshop.start_date} <br />
                                                     <b>Time:</b> 2:00 PM - 4:00 PM <br />
                                                     <b>Location/Venue:</b> Central Community Center <br />
                                                     <b>Target Audience:</b> Bird owners of all experience

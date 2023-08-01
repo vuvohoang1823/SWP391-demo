@@ -234,7 +234,7 @@
                                                                                                 />
                                                                                         </div>-->
 
-                                            <div class="col-lg-3 mb-5">
+                                            <div class="col-lg-4 mb-5">
                                                 <div class="input-group">
                                                     <!--not submited-->
                                                     <input

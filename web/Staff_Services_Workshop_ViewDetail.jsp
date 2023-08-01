@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="css/Staff_Services_Workshop_Update.css" />
     </head>
     <body>
+        <jsp:useBean id="i" class="DAO.TrainerDAO" scope="request"></jsp:useBean>
         <jsp:useBean id="t" class="DAO.TrainerDAO" ></jsp:useBean>
             <div class="container-fluid">
                 <div class="row flex-nowrap">
@@ -213,21 +214,88 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>-->
-                                        </div>
-                                                    
 
-                                        <div class="row mb-5">
-                                            <div class="col-lg-3 mb-5">
-                                                <label for="title" class="form-label">*Trainer: </label>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="title"
-                                                    name="trainerID"
-                                                    placeholder="Enter title"
-                                                    value="${workshop.trainer_fullname}"
-                                                    required
-                                                    />
+                                            <!--                                                                                    <div class="row mb-5">
+                                                                                                                                    <div class="col-lg-3 mb-5">
+                                                                                                                                        <label for="title" class="form-label">*Trainer: </label>
+                                                                                                                                        <input
+                                                                                                                                            type="text"
+                                                                                                                                            class="form-control"
+                                                                                                                                            id="title"
+                                                                                                                                            name="trainerID"
+                                                                                                                                            placeholder="Enter title"
+                                                                                                                                            value="${workshop.trainer_fullname}"
+                                                                                                                                            required
+                                                                                                                                            />
+                                                                                                                                    </div>
+                                                                                                                                </div>-->
+                                            <div class="col-lg-4 mb-5">
+                                                <div class="input-group">
+                                                    <!--not submited-->
+                                                    <input
+                                                        id="trainername"
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder="None"
+                                                        value=""
+                                                        disabled
+                                                        style="margin-top: 2rem"
+                                                        />
+                                                    <!---------------->
+                                                    <button
+                                                        class="btn btn-primary"
+                                                        type="button"
+                                                        id="button-addon2"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#chooseTrainer"
+                                                        style="font-size: 2rem; border: 0; background-color: #617a55; border-radius: 0 4px 4px 0; margin-top: 2rem"
+                                                        >
+                                                        Select Trainer
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div
+                                                        class="modal fade"
+                                                        id="chooseTrainer"
+                                                        tabindex="-1"
+                                                        data-bs-backdrop="static"
+                                                        data-bs-keyboard="false"
+                                                        >
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5">Trainers</h1>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="trainer-list">
+                                                                        <c:forEach items="${i.trainerUnavailableWithfullSkill}" var="s">
+                                                                            <div class="trainer-item" >
+                                                                                <img src="data:images/jpg;base64,${s.img}" alt="Trainer Avatar" class="trainer-avatar">
+                                                                                <input class="trainer-input" type="radio" name="selected-trainer" value="${s.trainerID}" id="trainer-${s.trainerID}" ${workshop.trainer_fullname eq s.fullName ? 'checked' : ''}>
+                                                                                <label for="trainer-${s.trainerID}">
+                                                                                    <span class="trainer-name">Name: ${s.fullName}</span><br/>
+                                                                                    <span> - </span>
+                                                                                    <span class="trainer-skill">Skill: ${s.skill_name}</span><br/>.
+                                                                                    <span> - </span>
+                                                                                    <span class="trainer-skill">Contact: ${s.contact}</span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </c:forEach>
+                                                                        <!--end of trainer-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 0.56rem;">Close</button>
+                                                                    <button type="button" class="btn btn-primary" id="saveTrainer" data-bs-dismiss="modal" style="font-size: 2rem;
+                                                                            border: 0;
+                                                                            border-radius: 0.56rem;
+                                                                            background-color: #617a55;
+                                                                            color: white;">Save changes</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

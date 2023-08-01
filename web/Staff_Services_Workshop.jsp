@@ -88,11 +88,11 @@
                                             <b>Target Audience:</b> Bird owners of all experience levels
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center" style="margin-top: 2rem">
-                                            
+
                                             <div class="">
                                                 <form action="Staff_Workshop_CustomerListServlet?course_id=${workshop.courseID}" method="post" style="display: inline;">
                                                     <input type="hidden" name="courseID" value="${workshop.courseID}" />
-                                                    <button class="update-button " type="submit" name="action" value="update">View participants</button>
+                                                    <button class="update-button" type="submit" name="action" value="update" style="position: absolute; bottom: 2rem">View participants</button>
                                                 </form>
                                             </div>
                                             <div class="close-date">

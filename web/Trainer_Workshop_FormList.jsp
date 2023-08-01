@@ -129,7 +129,7 @@
                                                                 </div>
                                                                 <div class="button-container pt-4">
                                                                     <a href="Trainer_Workshop_CustomerListServlet?course_id=${in_progress.courseID}">
-                                                                        <button>View Detail</button>
+                                                                        <button style="background: #F69C44">View Detail</button>
                                                                     </a>
                                                                 </div>
                                                             </div>

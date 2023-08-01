@@ -32,7 +32,30 @@
                 <!--            header-->
                 <%@ include file="header.jsp" %>
                 <div id="containerPage" class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
-                    <%@ include file="Staff_Services_Head.jsp" %>
+                    <section class="form-head">
+                        <div class="heading d-flex align-items-center">
+                            <svg width="40" height="40" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 10H13" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M1 5.22222C1 3.23185 1 2.23666 1.6224 1.61833C2.24479 1 3.24653 1 5.25 1H13.75C15.7534 1 16.7552 1 17.3776 1.61833C18 2.23666 18 3.23185 18 5.22222V13.6667C18 16.6522 18 18.145 17.0664 19.0725C16.1328 20 14.6302 20 11.625 20H7.375C4.36979 20 2.8672 20 1.9336 19.0725C1 18.145 1 16.6522 1 13.6667V5.22222Z" stroke="#33363F" stroke-width="2"/>
+                            <path d="M13 17V20M6 17V20" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M6 6H13" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span style="padding-left: 2rem">Services</span>
+                        </div>
+                        <div class="navbar navbar-expand-lg navbar-light" style="height: 60px">
+                            <a href="Staff_Services_Workshop.jsp">
+                                <div style="
+                                     position: absolute;
+                                     top: 21%;
+                                     left: 5rem;
+                                     ">
+                                    <svg width="19" height="36" viewBox="0 0 19 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.9142 1.74339C16.9054 0.7346 15.2696 0.7346 14.2608 1.74339L1.63504 14.3818C-0.380997 16.3997 -0.380219 19.6697 1.63659 21.6867L14.2701 34.3201C15.2789 35.329 16.9147 35.329 17.9235 34.3201C18.9324 33.3113 18.9324 31.6756 17.9235 30.6667L7.11067 19.8538C6.10162 18.8451 6.10162 17.2093 7.11067 16.2005L17.9142 5.39674C18.9231 4.38795 18.9231 2.75244 17.9142 1.74339Z" fill="#0F0F0F"/>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
                     <section class="form-body">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <div class="navbar-brand">Service status:</div>
@@ -46,9 +69,9 @@
                                         <li class="nav-item active">
                                             <a class="nav-link" href="Staff_Workshop_ViewCustomer_CompletedServlet?">In-progress</a>
                                         </li>
-<!--                                        <li class="nav-item">
-                                            <a class="nav-link" href="Staff_Services_Workshop_Completed.jsp">Completed</a>
-                                        </li>-->
+                                        <!--                                        <li class="nav-item">
+                                                                                    <a class="nav-link" href="Staff_Services_Workshop_Completed.jsp">Completed</a>
+                                                                                </li>-->
                                     </ul>
                                 </div>
                                 <%--
@@ -84,8 +107,9 @@
 
                         <c:set var="ListCompleted" value="${f.OrderListComplted()}"/>
                         <c:set var="listForm" value="${customer_list}"/>
+                        <c:set var="workshopDetail" value="${workshop_detail}"/>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            List of customers participate in workshop
+                            List of customers participate in&nbsp;<b>${workshopDetail.title}</b>
                         </div>
                         <form action="Trainer_Workshop_CheckAttendanceServlet" method="POST">
                             <table
@@ -118,7 +142,7 @@
                                             <td class="customer">${b.attendance}</td>
                                             <td class="customer">${b.status}</td>
 
-                                            
+
                                             <%--
         <!--                                    <td>
                                                 <div class="type">

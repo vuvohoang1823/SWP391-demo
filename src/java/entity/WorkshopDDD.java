@@ -12,7 +12,8 @@ import java.sql.Date;
  *
  * @author LAPTOP
  */
-public class WorkshopDDD implements Serializable{
+public class WorkshopDDD implements Serializable {
+
     private String title;
     private String fullname;
     private Date dateCheck;
@@ -29,7 +30,6 @@ public class WorkshopDDD implements Serializable{
     private String attendance_id;
     private String trainer_fullname;
     private String certificate_status;
-    
 
     public WorkshopDDD() {
     }
@@ -50,9 +50,7 @@ public class WorkshopDDD implements Serializable{
         this.certificate_status = certificate_status;
     }
 
-    
-    
-    public WorkshopDDD(String customer_fullname, String customer_gmail, String customer_contact, String attendance, String course_id, String customer_id, String status, String workshop_id) {
+    public WorkshopDDD(String customer_fullname, String customer_gmail, String customer_contact, String attendance, String course_id, String customer_id, String status, String workshop_id, String title) {
         this.customer_fullname = customer_fullname;
         this.customer_gmail = customer_gmail;
         this.customer_contact = customer_contact;
@@ -61,10 +59,9 @@ public class WorkshopDDD implements Serializable{
         this.customer_id = customer_id;
         this.status = status;
         this.workshop_id = workshop_id;
+        this.title = title;
     }
 
-
-    
     public WorkshopDDD(String title, String fullname, Date dateCheck, int amount, String status, String customer_id, String course_id, String attendance_id, String certificate_status) {
         this.title = title;
         this.fullname = fullname;
@@ -204,7 +201,5 @@ public class WorkshopDDD implements Serializable{
     public void setCertificate_status(String certificate_status) {
         this.certificate_status = certificate_status;
     }
-    
-    
-    
+
 }
