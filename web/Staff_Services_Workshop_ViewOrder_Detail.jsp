@@ -57,7 +57,7 @@
                             <span style="padding-left: 2rem">Form List</span>
                         </div>
                         <div class="navbar navbar-expand-lg navbar-light">
-                            <a href="Staff_ConsultationForm_Pending.jsp">
+                            <a href="Staff_OrderList_Workshop_Completed.jsp">
                                 <div style="
                                      position: absolute;
                                      top: 21%;
@@ -72,10 +72,10 @@
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
+                                            <!--<a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>-->
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
+                                            <!--<a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>-->
                                         </li>
                                     </ul>
                                 </div>
