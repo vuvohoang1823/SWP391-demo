@@ -96,7 +96,6 @@
                                 </div>
 
 
-                                <form method="post" action="ConsultationUpdatePending">
 
                                     <div class="form-customerDetails">
                                         <div class="form-name">
@@ -348,12 +347,13 @@
                                         <div>
                                             
                                             <c:if test="${certificateStatus ne 'Awarded'}">
+                                                <a href="Staff_Workshop_Award_CertificateServlet?attendance_id=${detail.attendance_id}">
                                             <button type="submit" name="action" value="approve" class="btn approve" style="height: 100px">Award Certificate</button>
-                                            </c:if>
+                                            </a>
+                                                </c:if>
                                             </div>
 
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </c:if>

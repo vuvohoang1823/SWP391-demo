@@ -458,13 +458,13 @@ public class WorkshopDAO implements Serializable {
                 + "												JOIN tbl_user u ON u.user_id = cus.user_id\n"
                 + "												JOIN tbl_trainer tr ON tr.trainer_id = c.trainer_id\n"
                 + "												WHERE a.attendance_id = ?";
-        
+
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, attendance_id);
             rs = ps.executeQuery();
-            
+
             if (rs.next()) {
                 detail_order = new WorkshopDDD(
                         rs.getString(1),
@@ -482,13 +482,34 @@ public class WorkshopDAO implements Serializable {
                         rs.getString(13)
                 );
             }
-            
+
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return detail_order;
+    }
+
+    public void AwardedCertificate(String attendance_id) {
+        String sql = "UPDATE tbl_attendance\n"
+                + "SET certificate = 'Awarded'\n"
+                + "WHERE attendance_id = ?";
+
+        try {
+            con = DBUtils.getConnection();
+
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, attendance_id);
+
+                ps.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
     }
 
 }
