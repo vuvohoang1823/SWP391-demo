@@ -58,47 +58,44 @@
                     </section>
                     <section class="form-body">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <div class="navbar-brand">Service status:</div>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
 
                             <form class="form-inline my-2 my-lg-0" action="Staff_OrderList_Workshop_Search" method="post" >
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="visibility: hidden">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="Staff_Workshop_ViewCustomer_CompletedServlet?">In-progress</a>
+                                            <a class="nav-link" href="Trainer_Workshop_CustomerList_In-progress.jsp">In-progress</a>
                                         </li>
-                                        <!--                                        <li class="nav-item">
-                                                                                    <a class="nav-link" href="Staff_Services_Workshop_Completed.jsp">Completed</a>
-                                                                                </li>-->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="Staff_OrderList_Consult_History.jsp">History</a>
+                                        </li>
                                     </ul>
                                 </div>
-                                <%--
-        <!--                                <div class="search-container">
-                                            <div style="white-space: nowrap; padding-right: 2rem">Search by workshop</div>
-                                            <div class="input-group">
-                                                <input
-                                                    id="trainername"
-                                                    type="search"
-                                                    name="txtSearch"
-                                                    value="${requestScope.SeachValue}"
-                                                    class="form-control mr-sm-2"
-                                                    />
-                                                <button
-                                                    class="btn btn-light"
-                                                    type="submit"
-                                                    name="action"
-                                                    value="completed"
-                                                    id="button-addon2"
-                                                    >
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </div>-->
-                                --%>
+                                <div class="search-container">
+                                    <div style="white-space: nowrap; padding-right: 2rem">Search by name</div>
+                                    <div class="input-group">
+                                        <input
+                                            id="trainername"
+                                            type="search"
+                                            name="txtSearch"
+                                            value="${requestScope.SeachValue}"
+                                            class="form-control mr-sm-2"
+                                            />
+                                        <button
+                                            class="btn btn-light"
+                                            type="submit"
+                                            name="action"
+                                            value="completed"
+                                            id="button-addon2"
+                                            >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
                             </form>
 
                         </nav>
@@ -108,7 +105,7 @@
                         <c:set var="ListCompleted" value="${f.OrderListComplted()}"/>
                         <c:set var="listForm" value="${customer_list}"/>
                         <c:set var="workshopDetail" value="${workshop_detail}"/>
-                        <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
+                        <div class="d-flex justify-content-center" style="font-size: 3rem; padding: 3rem 0;">
                             List of customers participate in&nbsp;<b>${workshopDetail.title}</b>
                         </div>
                         <form action="Trainer_Workshop_CheckAttendanceServlet" method="POST">
@@ -139,7 +136,7 @@
                                             <td class="title">${b.customer_fullname}</td>
                                             <td class="customer">${b.customer_contact}</td>
                                             <td class="customer">${b.customer_gmail}</td>
-                                            <td class="customer">${b.attendance}</td>
+                                            <td class="customer">${not empty b.attendance ? b.attendance : "Not yet"}</td>
                                             <td class="customer">${b.status}</td>
 
 

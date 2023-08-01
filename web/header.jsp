@@ -220,6 +220,7 @@
                                 <%= isPageActive(currentPage, "Trainer_PrivateConsultation_CompletedDetail.jsp")%>
                                 <%= isPageActive(currentPage, "Trainer_Workshop_FormList.jsp")%>
                                 <%= isPageActive(currentPage, "Trainer_Workshop_Completed.jsp")%>
+                                <%= isPageActive(currentPage, "Trainer_Workshop_CustomerList_In-progress.jsp")%>
                                 ">
                                 <a
                                     href="Trainer_PrivateConsultation_List.jsp"
@@ -390,6 +391,7 @@
                                 <%= isPageActive(currentPage, "staff_birdCourseOrder_completed-detail.jsp")%>
                                 <%= isPageActive(currentPage, "staff_birdCourseOrder_history.jsp")%>
                                 <%= isPageActive(currentPage, "staff_birdCourseOrder_history-detail.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_OrderList_Workshop_Completed.jsp")%>
                                 ">
                                 <a
                                     href="staff_birdCourseOrder_completed.jsp"

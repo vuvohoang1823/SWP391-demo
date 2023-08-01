@@ -43,9 +43,9 @@
                                         <li class="nav-item active">
                                             <a class="nav-link" href="Staff_OrderList_workshop_Completed.jsp">Completed</a>
                                         </li>
-<!--                                        <li class="nav-item">
-                                            <a class="nav-link" href="Staff_OrderList_Consult_History.jsp">History</a>
-                                        </li>-->
+                                        <!--                                        <li class="nav-item">
+                                                                                    <a class="nav-link" href="Staff_OrderList_Consult_History.jsp">History</a>
+                                                                                </li>-->
                                     </ul>
                                 </div>
                                 <div class="search-container">
@@ -94,12 +94,12 @@
                                     <td>Checkout date</td>
                                     <td>Status</td>
                                     <td>Certificate</td>
-<!--                                    <td>
-                                        <div style="display: flex; justify-content: space-around;">
-                                            <div style="padding-right: 11rem; height: 100%;">Type</div>
-                                            <div style="height: 100%;"></div>
-                                        </div>
-                                    </td>-->
+                                    <!--                                    <td>
+                                                                            <div style="display: flex; justify-content: space-around;">
+                                                                                <div style="padding-right: 11rem; height: 100%;">Type</div>
+                                                                                <div style="height: 100%;"></div>
+                                                                            </div>
+                                                                        </td>-->
                                 </tr>
                             </thead>
                             <c:forEach items="${listForm}" var="b" varStatus="counter" >
@@ -110,7 +110,7 @@
                                     <td class="customer">${b.fullname}</td>
                                     <td class="customer">$${b.amount}</td>
                                     <td class="customer">${b.dateCheck}</td>
-                                    <td class="customer">${b.status}</td>
+                                    <td class="customer workshopstatus">${b.status}</td>
                                     <td class="customer">${b.certificate_status}</td>
                                     <td>
                                         <div class="type">
@@ -137,6 +137,21 @@
                 var headerWidth = document.getElementById('headerPage').offsetWidth;
                 var container = document.getElementById('containerPage');
                 container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
+            });
+        </script>
+        <script>
+            const workshopStatusElements = document.querySelectorAll('.workshopstatus');
+
+            workshopStatusElements.forEach(element => {
+                const statusText = element.textContent.trim().toLowerCase();
+                if (statusText === 'in progress') {
+                    element.style.color = 'red';
+                } else if (statusText === 'end') {
+                    element.style.color = 'green';
+                } else {
+                    // If the text doesn't match "green" or "red", you can set a default color here
+                    element.style.color = 'black';
+                }
             });
         </script>
         <script

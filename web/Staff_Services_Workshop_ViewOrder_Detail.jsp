@@ -68,14 +68,14 @@
                                     </svg>
                                 </div>
                             </a>
-                            <div class="container-fluid">
+                            <div class="container-fluid" style="visibility: hidden">
                                 <div class="" id="navbarSupportedContent">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <!--<a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>-->
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Bird Course</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <!--<a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>-->
+                                            <a class="nav-link" href="Staff_ConsultationForm_Pending.jsp">Private Consultant</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -179,7 +179,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <%--         
+                                        <%--
                                      <div class="row">
                                          <div class="mb-3">
                                              <label for="address" class="form-label">Address</label>
@@ -193,7 +193,7 @@
                                                  />
                                          </div>
                                      </div>
-                                        --%>     
+                                        --%>
 
                                     </div>
                                 </div>
@@ -316,7 +316,7 @@
                                                     <input
                                                         type="text"
                                                         class="form-control"
-                                                        id="requestTitle"
+                                                        id="workshopstatus"
                                                         placeholder=""
                                                         value="${detail.status}"
                                                         disabled
@@ -350,9 +350,9 @@
                                             <input type="hidden" name="gmail" value="${detail.customer_gmail}" />
                                             <input type="hidden" name="customer_fullname" value="${detail.customer_fullname}" />
                                             <input type="hidden" name="workshop_title" value="${detail.title}" />
-                                            
-                                            <c:if test="${certificateStatus ne 'Awarded'}">
-                                                    <button type="submit" name="action" value="approve" class="btn approve" style="height: 100px">Award Certificate</button>
+
+                                            <c:if test="${certificateStatus ne 'Awarded' && detail.status eq 'End'}">
+                                                <button type="submit" name="action" value="approve" class="btn approve" style="height: 100px">Award Certificate</button>
                                             </c:if>
                                         </div>
                                     </form>

@@ -65,7 +65,7 @@
             <div class="show-result">
                 <c:forEach var="wo" items="${workshop.getAllCourseWORKSHOPCompleteByCustomerID(customerId)}">
                     <div class="search-card">
-                        <div class="card">
+                        <div class="card" style="position: relative">
                             <img src="data:images/jpg;base64,${wo.image}" alt="" class="card-img">
                             <div class="card-content">
                                 <div class="header">
@@ -83,22 +83,35 @@
                                 </div>
                                 <div class="btn-complete">
                                     <!--<button><a href="Certificate.jsp">View certificate</a></button>-->
-                                    <form action="Customer_ViewCertificateWorkshopServlet" method="post" target="_blank">
+                                    <form class="w-100" action="Customer_ViewCertificateWorkshopServlet" method="post" target="_blank">
                                         <input type="hidden" name="customer_id" value="${wo.customerID}">
                                         <input type="hidden" name="course_id" value="${wo.courseID}">
                                         <input type="hidden" name="complete_date" value="${wo.complete_date}">
-                                        
-                                        <c:set var="certificateStatus" value="${wo.certificate_status}" />
-                                        <c:if test="${certificateStatus eq 'Awarded'}">
-                                        <button type="submit">View certificate</button>
-                                        </c:if>
-                                        
-                                    </form>
 
-                                    <div class="complete-date">
-                                        <p>Complete on</p>
-                                        <span class="date">${wo.complete_date}</span>
-                                    </div>
+                                        <c:set var="certificateStatus" value="${wo.certificate_status}" />
+
+                                        <div class="attendancestatus fw-bold" style="
+                                             position: absolute;
+                                             bottom: 7rem;
+                                             right: 70rem;
+                                             font-size: 5rem;
+                                             ">
+                                            Present
+                                        </div>
+                                        <div class="complete-date" style="
+                                             position: absolute;
+                                             bottom: 4rem;
+                                             right: 50rem
+                                             ">
+                                            <p>Completed on</p>
+                                            <span class="date">${wo.complete_date}</span>
+                                        </div>
+                                        <div style="position: absolute; bottom: 3.2rem; right: 5rem">
+                                            <c:if test="${certificateStatus eq 'Awarded'}">
+                                                <button type="submit">View certificate</button>
+                                            </c:if>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -107,5 +120,20 @@
             </div>
         </div>
         <%@include file="footer.jsp"%>
+        <script>
+            const attendancestatus = document.querySelectorAll(".attendancestatus");
+
+            attendancestatus.forEach(element => {
+                const statusText = element.textContent.trim().toLowerCase();
+                if (statusText === 'absent') {
+                    element.style.color = 'red';
+                } else if (statusText === 'present') {
+                    element.style.color = 'green';
+                } else {
+                    // If the text doesn't match "green" or "red", you can set a default color here
+                    element.style.color = 'black';
+                }
+            });
+        </script>
     </body>
 </html>
