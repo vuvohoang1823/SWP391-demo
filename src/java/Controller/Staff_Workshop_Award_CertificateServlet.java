@@ -249,7 +249,7 @@ public class Staff_Workshop_Award_CertificateServlet extends HttpServlet {
                         + "          <p>\n"
                         + "            Dear, " + customer_fullname+ "\n"
                         + "            <br />\n"
-                        + "            Congratulations! You’ve successfully completed "+ title + " . On behalf of\n"
+                        + "            Congratulations! You have successfully completed "+ title + " . On behalf of\n"
                         + "            workshop we are pleased to issue your official "+ title + " Certificate.\n"
                         + "          </p>\n"
                         + "          <p>\n"
