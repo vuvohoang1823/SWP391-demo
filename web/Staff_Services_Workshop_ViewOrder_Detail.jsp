@@ -347,7 +347,7 @@
                                         <div>
                                             
                                             <c:if test="${certificateStatus ne 'Awarded'}">
-                                                <a href="Staff_Workshop_Award_CertificateServlet?attendance_id=${detail.attendance_id}">
+                                                <a href="Staff_Workshop_Award_CertificateServlet?attendance_id=${detail.attendance_id}&gmail=${detail.customer_gmail}" >
                                             <button type="submit" name="action" value="approve" class="btn approve" style="height: 100px">Award Certificate</button>
                                             </a>
                                                 </c:if>
