@@ -35,8 +35,9 @@ public class Course {
     private String d;
     private String certificate_status;
     private String tracking_status;
+    private String attendance_status;
 
-    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, Date complete_date, String trainer_fullname, String customerID, String certificate_status) {
+    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, Date complete_date, String trainer_fullname, String customerID, String certificate_status, String attendance_status) {
         this.courseID = courseID;
         this.trainerID = trainerID;
         this.staffID = staffID;
@@ -52,6 +53,7 @@ public class Course {
         this.trainer_fullname = trainer_fullname;
         this.customerID = customerID;
         this.certificate_status = certificate_status;
+        this.attendance_status = attendance_status;
     }
 
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, Date complete_date, int history_id) {
@@ -352,6 +354,14 @@ public class Course {
 
     public void setTracking_status(String tracking_status) {
         this.tracking_status = tracking_status;
+    }
+
+    public String getAttendance_status() {
+        return attendance_status;
+    }
+
+    public void setAttendance_status(String attendance_status) {
+        this.attendance_status = attendance_status;
     }
 
     

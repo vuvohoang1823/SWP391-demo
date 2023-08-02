@@ -96,7 +96,7 @@
                                              right: 70rem;
                                              font-size: 5rem;
                                              ">
-                                            Present
+                                            ${wo.attendance_status}
                                         </div>
                                         <div class="complete-date" style="
                                              position: absolute;

@@ -261,10 +261,11 @@ public class WorkshopDAO implements Serializable {
         List<WorkshopDDD> list = new ArrayList<>();
 
         String sql = " SELECT c.title, cus.fullname, a.dateCheck, a.amount, a.status, a.customer_id, c.course_id, a.attendance_id, a.certificate \n"
-                + "                				FROM tbl_attendance a \n"
-                + "                				JOIN tbl_workshopTraining t ON t.workshop_id = a.workshop_id\n"
-                + "                				JOIN tbl_course c ON c.course_id = t.course_id\n"
-                + "                				JOIN tbl_customer cus ON cus.customer_id = a.customer_id";
+                + "                FROM tbl_attendance a \n"
+                + "                JOIN tbl_workshopTraining t ON t.workshop_id = a.workshop_id\n"
+                + "                JOIN tbl_course c ON c.course_id = t.course_id\n"
+                + "                JOIN tbl_customer cus ON cus.customer_id = a.customer_id\n"
+                + "				ORDER BY a.attendance_id DESC";
 
         try {
             con = db.getConnection();

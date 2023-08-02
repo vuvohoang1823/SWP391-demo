@@ -188,11 +188,11 @@ public class courseDAO implements Serializable {
     /*GET ALL WORKSHOP*/
     public List<Course> getAllCourseWorkshop() throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
-        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img, tbl_course.start_date, tbl_course.end_enroll_date, tbl_trainer.fullname, tbl_course.tracking_status\n" +
-"                                from tbl_course \n" +
-"                				JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n" +
-"                               JOIN tbl_trainer ON tbl_course.trainer_id = tbl_trainer.trainer_id               \n" +
-"                								where tbl_course.category = 'workshop' and tbl_course.status='available'";
+        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img, tbl_course.start_date, tbl_course.end_enroll_date, tbl_trainer.fullname, tbl_course.tracking_status\n"
+                + "                                from tbl_course \n"
+                + "                				JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
+                + "                               JOIN tbl_trainer ON tbl_course.trainer_id = tbl_trainer.trainer_id               \n"
+                + "                								where tbl_course.category = 'workshop' and tbl_course.status='available'";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
@@ -1066,14 +1066,15 @@ public class courseDAO implements Serializable {
 
     public List<Course> getAllCourseWORKSHOPCompleteByCustomerID(int UserID) throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
-        String sql = "select c.course_id, c.trainer_id, c.staff_id, c.content, c.category, c.title, c.price, i.img, c.start_date, c.end_enroll_date, a.status, a.complete_date, tr.fullname, a.customer_id, a.certificate  \n"
-                + "                from tbl_attendance as a\n"
-                + "                   join  tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n"
-                + "                   join  tbl_course as c ON c.course_id = t.course_id\n"
-                + "                   join  tbl_courseImg as i ON c.course_id = i.course_id\n"
-                + "				   join  tbl_trainer as tr ON tr.trainer_id = c.trainer_id\n"
-                + "                   where a.customer_id = ?\n"
-                + "                 and a.status = 'Complete'";
+        String sql = "select c.course_id, c.trainer_id, c.staff_id, c.content, c.category, c.title, c.price, i.img, c.start_date, c.end_enroll_date, a.status, a.complete_date, tr.fullname, a.customer_id, a.certificate, a.attendance\n"
+                + "                                from tbl_attendance as a\n"
+                + "                                   join  tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n"
+                + "                                  join  tbl_course as c ON c.course_id = t.course_id\n"
+                + "                                   join  tbl_courseImg as i ON c.course_id = i.course_id\n"
+                + "                				   join  tbl_trainer as tr ON tr.trainer_id = c.trainer_id\n"
+                + "                                   where a.customer_id = ?\n"
+                + "                                 and a.status = 'End'\n"
+                + "								 ORDER BY a.attendance_id DESC";
 
         try {
             con = db.getConnection();
@@ -1112,7 +1113,8 @@ public class courseDAO implements Serializable {
                         rs.getDate(12),
                         rs.getString(13),
                         rs.getString(14),
-                        rs.getString(15)
+                        rs.getString(15),
+                        rs.getString(16)
                 );
                 list.add(course);
             }
@@ -1129,13 +1131,14 @@ public class courseDAO implements Serializable {
 
     public List<Course> getAllCourseWORKSHOPInprogressByCustomerID(int UserID) throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
-        String sql = "select c.course_id, c.trainer_id, c.staff_id, c.content, c.category, c.title, c.price, i.img, c.start_date, c.end_enroll_date, a.status, a.complete_date "
-                + "from tbl_attendance as a\n"
-                + "   join  tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n"
-                + "   join  tbl_course as c ON c.course_id = t.course_id\n"
-                + "   join  tbl_courseImg as i ON c.course_id = i.course_id\n"
-                + "   where a.customer_id = ?"
-                + " and a.status = 'In progress'";
+        String sql = "select c.course_id, c.trainer_id, c.staff_id, c.content, c.category, c.title, c.price, i.img, c.start_date, c.end_enroll_date, a.status, a.complete_date\n"
+                + "                from tbl_attendance as a\n"
+                + "                   join  tbl_workshopTraining AS t ON a.workshop_id = t.workshop_id\n"
+                + "                   join  tbl_course as c ON c.course_id = t.course_id\n"
+                + "                   join  tbl_courseImg as i ON c.course_id = i.course_id\n"
+                + "                   where a.customer_id = ?\n"
+                + "                 and a.status = 'In progress'\n"
+                + "				 ORDER BY a.attendance_id DESC";
 
         try {
             con = db.getConnection();
