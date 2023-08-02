@@ -19,9 +19,10 @@
         <link rel="stylesheet" href="css/reset.css" type="text/css">
         <link rel="stylesheet" href="css/birdcourseDetail.css" type="text/css">
         <title>${detail.title}</title>
-    </head><body>
+    </head>
+    <body>
         <%@ include file="header.jsp" %>
-
+        <c:set var="listBird" value="${requestScope.LISTBIRD}"/>
         <section class="section-head" style="position: relative">
             <p>
                 COURSE INFORMATION
@@ -92,7 +93,7 @@
                                 </svg>
                             </div>
                             <p>
-                                6 modules
+                                ${detail.type}
                             </p>
                         </div>
                     </div>
@@ -137,7 +138,7 @@
                     </div>
                     <div class="text-detail blog-description"  >
                         <!--Our course will apply extensive knowledge and long experience of crested birds, including how to recognize and care for crested birds, how to train birds to sing and imitators of other sounds, as well as as techniques and strategies for training crested birds to sing and call out to the flock-->
-                        ${detail.content }
+                        ${detail.content}
                     </div>
                 </div>
                 <div class="third-content">
@@ -192,19 +193,20 @@
                                     </div>
                                     <!--start of bird -->
                                     <%--<c:forEach items="" var="birdinfo">--%>
-                                    <div class="bird-item">
-                                        <img src="img/Ellipse 2.png" alt="Trainer Avatar" class="bird-image">
-                                        <input class="bird-input" type="radio" name="selected-bird" value="abc" id="bird-1" >
-                                        <label for="bird-1">
-                                            <span class="bird-name">Name: abc</span>
-                                            <span> - </span>
-                                            <span class="bird-type">Type: abc</span>
-                                            <span> - </span>
-                                            <span class="bird-birthday">Birthday: 2023-01-01</span>
-                                        </label>
-                                        <input class="birdID" value="" hidden>
-                                    </div>
-                                    <%--</c:forEach>--%>
+                                    <c:if test="${not empty listBird}">
+                                        <c:forEach var="bird" items="${listBird}" varStatus="counter">
+                                            <div class="bird-item">
+                                                <img src="data:images/jpg;base64,${bird.image}" alt="Trainer Avatar" class="bird-image">
+                                                <input class="bird-input" type="radio" name="selected-bird" value="${bird.bird_id}" id="bird-1" >
+                                                <label for="bird-1">
+                                                    <span class="bird-name">Name: ${bird.name}</span>
+                                                    <span> - </span>
+                                                    <span class="bird-type">Type: ${bird.type}</span>
+                                                </label>
+                                                <input class="birdID" value="${bird.bird_id}" hidden>
+                                            </div>
+                                        </c:forEach>
+                                    </c:if>
                                     <!--end of bird-->
                                     <div>
                                         Don't have a bird yet? Add one <a href="Customer_AddBird.jsp">here</a>
@@ -236,51 +238,7 @@
                     </button>
                 </div>
                 <div class="forms-container">
-                    <!--            <form action="FormCourseServlet" method="post">
-                                    <div class="form-input">
-                                        <p>*Bird’s name:</p><input type="text" name="bird_name" required>
-                                    </div>
-                                    <div class="form-input">
-                                        <p>*Bird type :</p><input type="text" name="bird_type" required>
-                                    </div>
-                                    <div class="form-input">
-                                        <p>*Preferred date (the date you want to start the course):</p>
-                                        <input type="date"
-                                               value="2023-01-1"
-                                               name="preferred_date"
-                                               min="2023ui-01-01" max="2023-12-31" required>
-                                    </div>
-                                    <div>
-                                        <p><input type="hidden" name="amount" value="${detail.price}"></p>
-                                        <p><input type="hidden" name="course_id" value="${detail.courseID}"></p>
-                                    </div>
-
-                                                    <div class="form-input">
-                                                        <p style="margin-bottom: 3rem">
-                                                            *Bird image attachment
-                                                        </p>
-                                                        <div class="file-upload">
-                                                            <label for="myfile" class="upload-label">
-                                                                <img id="choose-image" src="img/add-image.png" alt="Logo" class="logo">
-                                                                <img id="preview-image" src="" class="preview-image" style="position: absolute; width: 50%;max-height:100%;opacity: 0%">
-                                                            </label>
-                                                            <input type="file" id="myfile" name="myfile" class="file-input">
-                                                        </div>
-                                                    </div>
-                                    <p style="margin-bottom: 3rem;font-size: 2rem;font-weight: bolder">
-                                        Payment method:
-                                    </p>
-                                    <div class="radio-content">
-                                        <input type="radio" style="width: 2rem;margin-bottom: 3rem;margin-right: 2rem">
-                                        <p style="font-size: 2rem;margin-bottom: 3rem">
-                                            Payment at <b>Bird Training Center</b>
-                                        </p>
-                                    </div>
-                                    <button>
-                                        Submit form
-                                    </button>
-                                </form>-->
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="FormCourseServlet" method="POST">
                         <div class="form-formDetails">
                             <div class="form-body">
                                 <!--Image-->
@@ -303,7 +261,7 @@
                                 <!--Price && CourseID-->
                                 <div class="row">
                                     <!--CourseID-->
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="mb-5">
                                             <label for="birdtype" class="form-label">Bird's Type:</label>
                                             <input
@@ -316,19 +274,18 @@
                                                 />
                                         </div>
                                     </div>
-
-                                    <!--Price-->
-                                    <div class="col-lg-6">
-                                        <div class="mb-5">
-                                            <label for="birdbirthday" class="form-label">Bird's Birthday:</label>
-                                            <input
-                                                type="date"
-                                                class="form-control"
-                                                id="birdbirthday"
-                                                value=""
-                                                disabled
-                                                />
-                                        </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="mb-5">
+                                        <label for="preferredday" class="form-label">Preferred Date:</label>
+                                        <input
+                                            name="preferred_date"
+                                            type="date"
+                                            class="form-control"
+                                            id="preferredday"
+                                            value=""
+                                            required
+                                            />
                                     </div>
                                 </div>
                             </div>
@@ -336,9 +293,23 @@
 
                         <!--these get sent-->
                         <input
+                            name="birdID"
                             id="birdID"
                             type="text"
-                            value=""
+                            value="${bird.bird_id}"
+                            hidden
+                            />
+
+                        <input
+                            name="course_id"
+                            type="text"
+                            value="${detail.courseID}"
+                            hidden
+                            />
+                        <input
+                            name="amount"
+                            type="text"
+                            value="${detail.price}"
                             hidden
                             />
                         <!--these get sent-->
@@ -418,7 +389,7 @@
                 const inputBirdImg = document.getElementById("birdimg");
                 const inputBirdName = document.getElementById("birdname");
                 const inputBirdType = document.getElementById("birdtype");
-                const inputBirdBirthday = document.getElementById("birdbirthday");
+//                const inputBirdBirthday = document.getElementById("birdbirthday");
                 const errormsg = document.getElementById("choosebirdinvalid");
                 const changebirdbutton = document.getElementById("changebirdbutton");
                 const submitBird = document.getElementById("birdID");
@@ -438,13 +409,13 @@
                     const birdImage = birdItem.querySelector('.bird-image').src;
                     const birdName = birdItem.querySelector('.bird-name').textContent.replace('Name: ', '');
                     const birdType = birdItem.querySelector('.bird-type').textContent.replace('Type: ', '');
-                    const birdBirthday = birdItem.querySelector('.bird-birthday').textContent.replace('Birthday: ', '');
+//                    const birdBirthday = birdItem.querySelector('.bird-birthday').textContent.replace('Birthday: ', '');
                     const birdID = birdItem.querySelector('.birdID').value;
                     //input into the form
                     inputBirdImg.src = birdImage;
                     inputBirdName.value = birdName;
                     inputBirdType.value = birdType;
-                    inputBirdBirthday.value = birdBirthday;
+//                    inputBirdBirthday.value = birdBirthday;
                     submitBird.value = birdID;
                 }
             }

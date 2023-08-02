@@ -37,6 +37,7 @@ public class Course {
     private String tracking_status;
     private String attendance_status;
     private String customer_enrolled;
+    private String type;
 
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, Date complete_date, String trainer_fullname, String customerID, String certificate_status, String attendance_status) {
         this.courseID = courseID;
@@ -133,7 +134,7 @@ public class Course {
         this.tracking_status = tracking_status;
         this.customer_enrolled = customer_enrolled;
     }
-    
+
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date) {
         this.courseID = courseID;
         this.trainerID = trainerID;
@@ -177,6 +178,17 @@ public class Course {
         this.title = title;
         this.price = price;
         this.duration = duration;
+    }
+
+    public Course(String courseID, String type, String content, String category, String title, int price, int duration, String image) {
+        this.courseID = courseID;
+        this.type = type;
+        this.content = content;
+        this.category = category;
+        this.title = title;
+        this.price = price;
+        this.duration = duration;
+        this.image = image;
     }
 
     public int getDuration() {
@@ -374,5 +386,14 @@ public class Course {
         this.customer_enrolled = customer_enrolled;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
     
+    
+
 }

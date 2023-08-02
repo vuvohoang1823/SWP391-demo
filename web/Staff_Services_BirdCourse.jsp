@@ -226,8 +226,8 @@
                                     <div class="delete">
                                         <form class="deleteForm" action="UpdateCourse" value="delete" method="post" style="display: inline;">
                                             <input type="hidden" name="course_id" value="${course.courseID}" />
-                                            <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${card.blogid}">Delete</button>
-                                            <div class="modal fade" id="confirmDelete-${card.blogid}" tabindex="-1" aria-hidden="true">
+                                            <button class="delete-button" type="button" data-bs-toggle="modal" data-bs-target="#confirmDelete-${course.courseID}">Delete</button>
+                                            <div class="modal fade" id="confirmDelete-${course.courseID}" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header">

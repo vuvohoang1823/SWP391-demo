@@ -90,20 +90,20 @@ public class BookingDAO implements Serializable {
         return list;
     }
 
-    public void addNewBooking(int customer_id, int bird_id, int course_id, int amount, Date preffered_date) throws SQLException {
+    public void addNewBooking(int customer_id, int bird_id, int course_id, int amount, Date preffered_date, int booking_id) throws SQLException {
         LocalDate create_date = LocalDate.now();
-        String sql = "Insert into tbl_Booking(trainer_id, course_id, customer_id, bird_id, start_date, end_date, status, amount, payment_id, create_date, preferred_date, checkout_date)\n"
-                + "values(NULL, ?, ?, ?, NULL, NULL, NULL, ?, NULL, ?, ?, NULL) ";
-
+        String sql = "Insert into tbl_Booking(trainer_id, course_id, customer_id, start_date, end_date, status, amount, payment_id, create_date, preferred_date, checkout_date, Booking_id, bird_id)\n"
+                + "values(NULL, ?, ?, NULL, NULL, 'pending', ?, NULL, ?, ?, NULL, ?, ?) ";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, course_id);
             ps.setInt(2, customer_id);
-            ps.setInt(3, bird_id);
-            ps.setInt(4, amount);
-            ps.setDate(5, Date.valueOf(create_date));
-            ps.setDate(6, preffered_date);
+            ps.setInt(3, amount);
+            ps.setDate(4, Date.valueOf(create_date));
+            ps.setDate(5, preffered_date);
+            ps.setInt(6, booking_id);
+            ps.setInt(7, bird_id);
             ps.executeUpdate();
 
         } catch (SQLException ex) {
@@ -123,72 +123,27 @@ public class BookingDAO implements Serializable {
         }
     }
 
-    public List getPendingOrder() throws SQLException {
-        List<BookingDTO> list = new ArrayList<>();
-        String sql = "SELECT\n"
-                + "    c.fullname,\n"
-                + "    b.bird_id,\n"
-                + "    b.type,\n"
-                + "    co.title, \n"
-                + "    bk.create_date\n"
-                + "FROM\n"
-                + "    tbl_Booking bk\n"
-                + "    INNER JOIN tbl_customer c ON bk.customer_id = c.customer_id\n"
-                + "    INNER JOIN tbl_bird b ON bk.bird_id = b.bird_id\n"
-                + "    INNER JOIN tbl_course co ON bk.course_id = co.course_id\n"
-                + "WHERE\n"
-                + "    bk.status IS NULL\n"
-                + "ORDER BY bk.create_date ASC;";
-
-        try {
-            con = db.getConnection();
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                BookingDTO booking = new BookingDTO(rs.getString(1), rs.getString(4), rs.getString(3), rs.getString(2), rs.getDate(5));
-                list.add(booking);
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (ps != null) {
-                ps.close();
-            }
-            if (con != null) {
-                con.close();
-            }
-        }
-        return list;
-    }
-
     public List getCompletedBooking() throws SQLException {
         List<BookingDTO> list = new ArrayList<>();
-        String sql = "SELECT\n"
+        String sql = "SELECT \n"
                 + "    c.fullname AS customer_fullname,\n"
-                + "    cr.title,\n"
-                + "    cr.price,\n"
-                + "    t.fullname AS trainer_fullname,\n"
-                + "    b.name AS bird_name,\n"
-                + "    b.type AS bird_type,\n"
-                + "    bk.start_date,\n"
-                + "    bk.end_date,\n"
-                + "    bk.checkout_date,\n"
-                + "    b.bird_id\n"
-                + "FROM\n"
-                + "    tbl_Booking bk\n"
-                + "    INNER JOIN tbl_customer c ON bk.customer_id = c.customer_id\n"
-                + "    INNER JOIN tbl_trainer t ON bk.trainer_id = t.trainer_id\n"
-                + "    INNER JOIN tbl_course cr ON bk.course_id = cr.course_id\n"
-                + "    INNER JOIN tbl_bird b ON bk.bird_id = b.bird_id\n"
-                + "WHERE\n"
-                + "    bk.status = 'completed'\n"
-                + "ORDER BY \n"
-                + "	bk.checkout_date DESC;";
+                + "    co.title AS course_title,\n"
+                + "    co.price AS course_price,\n"
+                + "    tr.fullname AS trainer_fullname,\n"
+                + "    bd.name AS bird_name,\n"
+                + "    bt.type_name AS bird_type,\n"
+                + "    b.start_date AS booking_start_date,\n"
+                + "    b.end_date AS booking_end_date,\n"
+                + "    b.checkout_date AS booking_checkout_date,\n"
+                + "    b.Booking_id\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "INNER JOIN tbl_trainer AS tr ON b.trainer_id = tr.trainer_id\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "WHERE b.status = 'checkout'\n"
+                + "ORDER BY b.end_date DESC";
 
         try {
             con = db.getConnection();
@@ -218,28 +173,26 @@ public class BookingDAO implements Serializable {
 
     public List getProcessingBooking() throws SQLException {
         List<BookingDTO> list = new ArrayList<>();
-        String sql = "SELECT\n"
+        String sql = "SELECT \n"
                 + "    c.fullname AS customer_fullname,\n"
-                + "    cr.title AS course_title,\n"
-                + "    cr.price,\n"
-                + "    t.fullname AS trainer_fullname,\n"
-                + "    b.bird_id,\n"
-                + "    b.name AS bird_name,\n"
-                + "    b.type AS bird_type,\n"
-                + "	bo.status,\n"
-                + "    bo.start_date,\n"
-                + "    bo.end_date,\n"
-                + "    bo.create_date\n"
-                + "FROM\n"
-                + "    tbl_customer c\n"
-                + "    INNER JOIN tbl_Booking bo ON c.customer_id = bo.customer_id\n"
-                + "    INNER JOIN tbl_course cr ON bo.course_id = cr.course_id\n"
-                + "    INNER JOIN tbl_trainer t ON bo.trainer_id = t.trainer_id\n"
-                + "    INNER JOIN tbl_bird b ON bo.bird_id = b.bird_id\n"
-                + "WHERE\n"
-                + "    bo.status IN ('checkin', 'approved', 'in-training')\n"
-                + "ORDER BY \n"
-                + "    bo.create_date ASC";
+                + "    co.title AS course_title,\n"
+                + "    co.price AS course_price,\n"
+                + "    tr.fullname AS trainer_fullname,\n"
+                + "    b.Booking_id,\n"
+                + "	bd.name,\n"
+                + "    bt.type_name AS bird_type,\n"
+                + "    b.status AS booking_status,\n"
+                + "    b.start_date AS booking_start_date,\n"
+                + "    b.end_date AS booking_end_date,\n"
+                + "    b.create_date AS booking_create_date\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "INNER JOIN tbl_trainer AS tr ON b.trainer_id = tr.trainer_id\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "WHERE b.status IN ('checkin', 'approved', 'in-training')\n"
+                + "ORDER BY b.create_date DESC";
 
         try {
             con = db.getConnection();
@@ -269,28 +222,26 @@ public class BookingDAO implements Serializable {
 
     public List getHistory() throws SQLException {
         List<BookingDTO> list = new ArrayList<>();
-        String sql = "SELECT\n"
+        String sql = "SELECT \n"
                 + "    c.fullname AS customer_fullname,\n"
-                + "    cr.title AS course_title,\n"
-                + "    cr.price,\n"
-                + "    t.fullname AS trainer_fullname,\n"
-                + "    b.bird_id,\n"
-                + "    b.name AS bird_name,\n"
-                + "    b.type AS bird_type,\n"
-                + "	bo.status,\n"
-                + "    bo.start_date,\n"
-                + "    bo.end_date,\n"
-                + "    bo.checkout_date\n"
-                + "FROM\n"
-                + "    tbl_customer c\n"
-                + "    INNER JOIN tbl_Booking bo ON c.customer_id = bo.customer_id\n"
-                + "    INNER JOIN tbl_course cr ON bo.course_id = cr.course_id\n"
-                + "    INNER JOIN tbl_trainer t ON bo.trainer_id = t.trainer_id\n"
-                + "    INNER JOIN tbl_bird b ON bo.bird_id = b.bird_id\n"
-                + "WHERE\n"
-                + "    bo.status = 'checkout'\n"
-                + "ORDER BY \n"
-                + "    bo.checkout_date DESC";
+                + "    co.title AS course_title,\n"
+                + "    co.price AS course_price,\n"
+                + "    tr.fullname AS trainer_fullname,\n"
+                + "    b.Booking_id,\n"
+                + "    bd.name,\n"
+                + "    bt.type_name AS bird_type,\n"
+                + "    b.status AS booking_status,\n"
+                + "    b.start_date AS booking_start_date,\n"
+                + "    b.end_date AS booking_end_date,\n"
+                + "    b.create_date AS booking_create_date\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "INNER JOIN tbl_trainer AS tr ON b.trainer_id = tr.trainer_id\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "WHERE b.status = 'completed'\n"
+                + "ORDER BY b.create_date DESC";
 
         try {
             con = db.getConnection();
@@ -318,7 +269,7 @@ public class BookingDAO implements Serializable {
         return list;
     }
 
-    public int getDurationOfBookingByBirdID(int bird_id) throws SQLException {
+    public int getDurationOfBookingByBirdID(int booking_id) throws SQLException {
         int duration = 0;
         String sql = "SELECT\n"
                 + "    co.duration\n"
@@ -326,12 +277,12 @@ public class BookingDAO implements Serializable {
                 + "    tbl_Booking bk\n"
                 + "    INNER JOIN tbl_course co ON bk.course_id = co.course_id\n"
                 + "WHERE\n"
-                + "    bk.bird_id = ?;";
+                + "    bk.Booking_id = ?;";
 
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, bird_id);
+            ps.setInt(1, booking_id);
             rs = ps.executeQuery();
             if (rs.next()) {
                 duration = rs.getInt(1);
@@ -354,18 +305,18 @@ public class BookingDAO implements Serializable {
         return duration;
     }
 
-    public void startBoooking(int bird_id) throws SQLException {
+    public void startBoooking(int booking_id) throws SQLException {
         LocalDate startDate = LocalDate.now();
-        int duration = getDurationOfBookingByBirdID(bird_id);
+        int duration = getDurationOfBookingByBirdID(booking_id);
         LocalDate endDate = startDate.plusDays(duration);
 
         String sql = "Update tbl_Booking Set start_date = ?, end_date = ?, status = 'checkin'\n"
-                + "Where bird_id = ? ";
+                + "Where Booking_id = ? ";
 
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(3, bird_id);
+            ps.setInt(3, booking_id);
             ps.setDate(1, (Date.valueOf(startDate)));
             ps.setDate(2, (Date.valueOf(endDate)));
             ps.executeUpdate();
@@ -387,19 +338,19 @@ public class BookingDAO implements Serializable {
         }
     }
 
-    public void setTrainerToBooking(int trainer_id, int bird_id) throws SQLException {
+    public void setTrainerToBooking(int trainer_id, int booking_id) throws SQLException {
         LocalDate startDate = LocalDate.now();
-        int duration = getDurationOfBookingByBirdID(bird_id);
+        int duration = getDurationOfBookingByBirdID(booking_id);
         LocalDate endDate = startDate.plusDays(duration);
 
         String sql = "Update tbl_Booking Set trainer_id = ?, status = 'approved'\n"
-                + "Where bird_id = ? ";
+                + "Where Booking_id = ? ";
 
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setInt(1, trainer_id);
-            ps.setInt(2, bird_id);
+            ps.setInt(2, booking_id);
             ps.executeUpdate();
 
         } catch (SQLException ex) {
@@ -419,14 +370,14 @@ public class BookingDAO implements Serializable {
         }
     }
 
-    public void denyBooking(int bird_id) throws SQLException {
+    public void denyBooking(int booking_id) throws SQLException {
         String sql = "Update tbl_Booking Set status = 'denied'\n"
-                + "Where bird_id = ? ";
+                + "Where Booking_id = ? ";
 
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, bird_id);
+            ps.setInt(1, booking_id);
             ps.executeUpdate();
 
         } catch (SQLException ex) {
@@ -446,15 +397,15 @@ public class BookingDAO implements Serializable {
         }
     }
 
-    public void updateStatus(int bird_id, String status) throws SQLException {
+    public void updateStatus(int booking_id, String status) throws SQLException {
         String sql = "Update tbl_Booking Set status = ?\n"
-                + "Where bird_id = ? ";
+                + "Where Booking_id = ? ";
 
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, status);
-            ps.setInt(2, bird_id);
+            ps.setInt(2, booking_id);
             ps.executeUpdate();
 
         } catch (SQLException ex) {
@@ -474,17 +425,17 @@ public class BookingDAO implements Serializable {
         }
     }
 
-    public void checkOutBooking(int bird_id) throws SQLException {
+    public void checkOutBooking(int booking_id) throws SQLException {
         LocalDate checkout_date = LocalDate.now();
 
-        String sql = "Update tbl_Booking Set status = 'checkout', checkout_date = ?\n"
-                + "Where bird_id = ? ";
+        String sql = "Update tbl_Booking Set status = 'completed', checkout_date = ?\n"
+                + "Where Booking_id = ? ";
 
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
             ps.setDate(1, Date.valueOf(checkout_date));
-            ps.setInt(2, bird_id);
+            ps.setInt(2, booking_id);
             ps.executeUpdate();
 
         } catch (SQLException ex) {
@@ -507,23 +458,22 @@ public class BookingDAO implements Serializable {
     public BookingDTO getCourseByTrainerID(int trainer_id) throws SQLException, IOException, ClassNotFoundException {
         BookingDTO booking = null;
 
-        String sql = "SELECT\n"
-                + "    c.course_id,\n"
-                + "    c.title,\n"
-                + "    ci.img,\n"
-                + "    b.bird_id,\n"
-                + "    b.name,\n"
-                + "    b.type,\n"
-                + "    bk.start_date,\n"
-                + "    bk.end_date,\n"
-                + "    bk.status\n"
-                + "FROM\n"
-                + "    tbl_Booking bk\n"
-                + "    INNER JOIN tbl_course c ON bk.course_id = c.course_id\n"
-                + "    INNER JOIN tbl_courseImg ci ON c.course_id = ci.course_id\n"
-                + "    INNER JOIN tbl_bird b ON bk.bird_id = b.bird_id\n"
-                + "WHERE\n"
-                + "    bk.trainer_id = ? AND bk.status IN ('approved', 'checkin', 'in-training');";
+        String sql = "SELECT \n"
+                + "    c.customer_id,\n"
+                + "    co.title AS course_title,\n"
+                + "    bd.bird_img AS img,\n"
+                + "    b.Booking_id,\n"
+                + "    bd.name AS bird_name,\n"
+                + "    bt.type_name AS bird_type,\n"
+                + "    b.start_date AS booking_start_date,\n"
+                + "    b.end_date AS booking_end_date,\n"
+                + "    b.status AS booking_status\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "WHERE b.trainer_id = ? AND b.status IN ('approved','in-training','checkin')";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
@@ -564,80 +514,39 @@ public class BookingDAO implements Serializable {
         return booking;
     }
 
-    public BookingDTO getBookingByBirdID(int bird_id) throws SQLException, ClassNotFoundException {
+    public BookingDTO getBookingByBirdID(int booking_id) throws SQLException, ClassNotFoundException {
         BookingDTO booking = null;
 
-        String sql = "SELECT\n"
+        String sql = "SELECT \n"
+                + "    b.Booking_id,\n"
                 + "    c.fullname AS customer_fullname,\n"
-                + "    cr.title AS course_title,\n"
-                + "    cr.price,\n"
-                + "    t.fullname AS trainer_fullname,\n"
-                + "	b.bird_id,\n"
-                + "    b.name AS bird_name,\n"
-                + "    b.type AS bird_type,\n"
-                + "	bo.status,\n"
-                + "    bo.start_date,\n"
-                + "    bo.end_date,\n"
-                + "    bo.create_date, \n"
-                + "    bo.preferred_date, \n"
-                + "    bo.checkout_date\n"
-                + "FROM\n"
-                + "    tbl_customer c\n"
-                + "    INNER JOIN tbl_Booking bo ON c.customer_id = bo.customer_id\n"
-                + "    INNER JOIN tbl_course cr ON bo.course_id = cr.course_id\n"
-                + "    INNER JOIN tbl_trainer t ON bo.trainer_id = t.trainer_id\n"
-                + "    INNER JOIN tbl_bird b ON bo.bird_id = b.bird_id\n"
-                + "WHERE\n"
-                + "    b.bird_id = ?";
+                + "    co.title AS course_title,\n"
+                + "    co.price AS course_price,\n"
+                + "    tr.fullname AS trainer_fullname,\n"
+                + "    bd.bird_id,\n"
+                + "    bd.name AS bird_name,\n"
+                + "    bt.type_name AS bird_type,\n"
+                + "    b.status AS booking_status,\n"
+                + "    b.start_date AS booking_start_date,\n"
+                + "    b.end_date AS booking_end_date,\n"
+                + "    b.create_date AS booking_create_date,\n"
+                + "    b.preferred_date AS booking_preferred_date,\n"
+                + "    b.checkout_date AS booking_checkout_date\n,"
+                + "    c.customer_id\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "INNER JOIN tbl_trainer AS tr ON b.trainer_id = tr.trainer_id\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "WHERE b.Booking_id = ?";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, bird_id);
+            ps.setInt(1, booking_id);
             rs = ps.executeQuery();
-            String birdID = String.valueOf(bird_id);
             if (rs.next()) {
-                booking = new BookingDTO(rs.getString(4), rs.getString(2), rs.getInt(3), rs.getString(1), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(9), rs.getDate(10), rs.getString(8), rs.getDate(11), rs.getDate(12), rs.getDate(13));
-            }
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (ps != null) {
-                ps.close();
-            }
-            if (con != null) {
-                con.close();
-            }
-        }
-        return booking;
-    }
-
-    public BookingDTO getCourseByBirdID(int bird_id) throws SQLException, ClassNotFoundException {
-        BookingDTO booking = null;
-
-        String sql = "SELECT\n"
-                + "    c.fullname AS customer_name,\n"
-                + "    b.name AS bird_name,\n"
-                + "    b.type AS bird_type,\n"
-                + "    co.title,\n"
-                + "    co.price, \n"
-                + "    bk.create_date, \n"
-                + "    bk.preferred_date\n"
-                + "FROM\n"
-                + "    tbl_Booking bk\n"
-                + "    INNER JOIN tbl_customer c ON bk.customer_id = c.customer_id\n"
-                + "    INNER JOIN tbl_bird b ON bk.bird_id = b.bird_id\n"
-                + "    INNER JOIN tbl_course co ON bk.course_id = co.course_id\n"
-                + "WHERE\n"
-                + "    bk.bird_id = ?;";
-        try {
-            con = db.getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, bird_id);
-            rs = ps.executeQuery();
-            String birdID = String.valueOf(bird_id);
-            if (rs.next()) {
-                booking = new BookingDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getDate(6), rs.getDate(7), birdID);
+                booking = new BookingDTO(rs.getString(1), rs.getString(5), rs.getString(3), rs.getInt(4), rs.getString(2), rs.getString(6), rs.getString(7), rs.getString(8), rs.getDate(10), rs.getDate(11), rs.getString(9), rs.getDate(12), rs.getDate(13), rs.getDate(14), rs.getString(15));
             }
         } finally {
             if (rs != null) {
@@ -658,29 +567,26 @@ public class BookingDAO implements Serializable {
         List<BookingDTO> listBooking = new ArrayList<>();
         BookingDTO booking = null;
 
-        String sql = "SELECT\n"
-                + "    c.course_id,\n"
-                + "    c.title,\n"
-                + "    ci.img,\n"
-                + "    t.trainer_id,\n"
-                + "    t.fullname,\n"
-                + "    t.img AS trainer_img,\n"
-                + "    b.bird_id,\n"
-                + "    b.name,\n"
-                + "    b.type,\n"
-                + "    bk.start_date,\n"
-                + "    bk.end_date,\n"
-                + "    bk.status\n"
-                + "FROM\n"
-                + "    tbl_Booking bk\n"
-                + "    INNER JOIN tbl_customer cust ON bk.customer_id = cust.customer_id\n"
-                + "    INNER JOIN tbl_course c ON bk.course_id = c.course_id\n"
-                + "    INNER JOIN tbl_courseImg ci ON c.course_id = ci.course_id\n"
-                + "    INNER JOIN tbl_trainer t ON bk.trainer_id = t.trainer_id\n"
-                + "    INNER JOIN tbl_bird b ON bk.bird_id = b.bird_id\n"
-                + "WHERE\n"
-                + "    bk.customer_id = ?\n"
-                + "    AND bk.status IN ('approved', 'checkin', 'in-training', 'completed');";
+        String sql = "SELECT \n"
+                + "    co.course_id,\n"
+                + "    co.title AS course_title,\n"
+                + "    bd.bird_img AS img,\n"
+                + "    tr.trainer_id,\n"
+                + "    tr.fullname AS trainer_fullname,\n"
+                + "    tr.img AS trainer_img,\n"
+                + "    b.Booking_id,\n"
+                + "    bd.name AS bird_name,\n"
+                + "    bt.type_name AS bird_type,\n"
+                + "    b.start_date AS booking_start_date,\n"
+                + "    b.end_date AS booking_end_date,\n"
+                + "    b.status AS booking_status\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "INNER JOIN tbl_trainer AS tr ON b.trainer_id = tr.trainer_id\n"
+                + "WHERE b.status IN ('approved', 'checkin', 'in-training', 'checkout') \n"
+                + "AND b.customer_id = ?";
 
         try {
             con = db.getConnection();
@@ -786,13 +692,26 @@ public class BookingDAO implements Serializable {
 
     public List getHistoryByTrainerID(int trainer_id) throws SQLException {
         List<BookingDTO> list = new ArrayList<>();
-        String sql = "SELECT c.fullname AS customer_fullname, cr.title AS course_title, cr.price, t.fullname AS trainer_fullname, b.bird_id, b.name AS bird_name, b.type AS bird_type, bo.status, bo.start_date, bo.end_date, bo.checkout_date\n"
-                + "FROM tbl_customer c \n"
-                + "INNER JOIN tbl_Booking bo ON c.customer_id = bo.customer_id\n"
-                + "INNER JOIN tbl_course cr ON bo.course_id = cr.course_id\n"
-                + "INNER JOIN tbl_trainer t ON bo.trainer_id = t.trainer_id\n"
-                + "INNER JOIN tbl_bird b ON bo.bird_id = b.bird_id\n"
-                + "WHERE bo.status = 'checkout' AND bo.trainer_id = ? ORDER BY bo.checkout_date DESC";
+        String sql = "SELECT \n"
+                + "    c.fullname AS customer_fullname,\n"
+                + "    co.title AS course_title,\n"
+                + "    co.price AS course_price,\n"
+                + "    tr.fullname AS trainer_fullname,\n"
+                + "    b.Booking_id,\n"
+                + "    bd.name AS bird_name,\n"
+                + "    bt.type_name AS bird_type,\n"
+                + "    b.status AS booking_status,\n"
+                + "    b.start_date AS booking_start_date,\n"
+                + "    b.end_date AS booking_end_date,\n"
+                + "    b.checkout_date AS booking_checkout_date\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "INNER JOIN tbl_trainer AS tr ON b.trainer_id = tr.trainer_id\n"
+                + "WHERE b.trainer_id = ? AND b.status = 'checkout'\n"
+                + "ORDER BY b.checkout_date DESC";
 
         try {
             con = db.getConnection();
@@ -820,35 +739,32 @@ public class BookingDAO implements Serializable {
         }
         return list;
     }
-    
+
     public List<BookingDTO> getCourseHistoryByCustomerID(int customer_id) throws SQLException, IOException, ClassNotFoundException {
 
         List<BookingDTO> listBooking = new ArrayList<>();
         BookingDTO booking = null;
 
-        String sql = "SELECT\n"
-                + "    c.course_id,\n"
-                + "    c.title,\n"
-                + "    ci.img,\n"
-                + "    t.trainer_id,\n"
-                + "    t.fullname,\n"
-                + "    t.img AS trainer_img,\n"
-                + "    b.bird_id,\n"
-                + "    b.name,\n"
-                + "    b.type,\n"
-                + "    bk.start_date,\n"
-                + "    bk.end_date,\n"
-                + "    bk.status\n"
-                + "FROM\n"
-                + "    tbl_Booking bk\n"
-                + "    INNER JOIN tbl_customer cust ON bk.customer_id = cust.customer_id\n"
-                + "    INNER JOIN tbl_course c ON bk.course_id = c.course_id\n"
-                + "    INNER JOIN tbl_courseImg ci ON c.course_id = ci.course_id\n"
-                + "    INNER JOIN tbl_trainer t ON bk.trainer_id = t.trainer_id\n"
-                + "    INNER JOIN tbl_bird b ON bk.bird_id = b.bird_id\n"
-                + "WHERE\n"
-                + "    bk.customer_id = ?\n"
-                + "    AND bk.status = 'checkout';";
+        String sql = "SELECT \n"
+                + "    co.course_id,\n"
+                + "    co.title AS course_title,\n"
+                + "    bd.bird_img AS img,\n"
+                + "    tr.trainer_id,\n"
+                + "    tr.fullname AS trainer_fullname,\n"
+                + "    tr.img AS trainer_img,\n"
+                + "    b.Booking_id,\n"
+                + "    bd.name AS bird_name,\n"
+                + "    bt.type_name AS bird_type,\n"
+                + "    b.start_date AS booking_start_date,\n"
+                + "    b.end_date AS booking_end_date,\n"
+                + "    b.status\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "INNER JOIN tbl_trainer AS tr ON b.trainer_id = tr.trainer_id\n"
+                + "WHERE b.customer_id = ? AND b.status = 'completed'";
 
         try {
             con = db.getConnection();
@@ -908,6 +824,153 @@ public class BookingDAO implements Serializable {
             }
         }
         return listBooking;
+    }
+
+//////////////////////////////////////////    31/07/2023 /////////////////////////////////////////////////
+    public int generateBookingID() {
+        String sql = "SELECT * FROM tbl_Booking WHERE Booking_id = (SELECT MAX(TRY_CAST(Booking_id AS INT))FROM tbl_Booking)";
+        int newID = 0;
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                int MAXconsultationID = rs.getInt("Booking_id");
+                newID = MAXconsultationID + 1;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return newID;
+    }
+
+    public BookingDTO getCourseByBookingID(int booking_id) throws SQLException, ClassNotFoundException {
+        BookingDTO booking = null;
+
+        String sql = "SELECT \n"
+                + "    b.Booking_id,\n"
+                + "    c.fullname AS customer_fullname,\n"
+                + "    bd.name AS bird_name,\n"
+                + "    bt.type_name AS bird_type,\n"
+                + "    co.price AS course_price,\n"
+                + "    co.title AS course_title,\n"
+                + "    b.create_date AS booking_create_date,\n"
+                + "    b.preferred_date AS booking_preferred_date\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "WHERE b.Booking_id = ?";
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, booking_id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                booking = new BookingDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getDate(7), rs.getDate(8));
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return booking;
+    }
+
+    public List getPendingOrder() throws SQLException {
+        List<BookingDTO> list = new ArrayList<>();
+        String sql = "SELECT b.Booking_id, c.fullname, bt.type_name, co.title, b.create_date\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "WHERE b.status = 'pending'\n"
+                + "ORDER BY b.create_date DESC;";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                BookingDTO booking = new BookingDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5));
+                list.add(booking);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+    }
+
+    public List getHistoryBookingByFilter(String title) throws SQLException {
+        List<BookingDTO> list = new ArrayList<>();
+        String sql = "SELECT \n"
+                + "    c.fullname AS customer_fullname,\n"
+                + "    co.title AS course_title,\n"
+                + "    co.price AS course_price,\n"
+                + "    tr.fullname AS trainer_fullname,\n"
+                + "    b.Booking_id,\n"
+                + "    bd.name,\n"
+                + "    bt.type_name AS bird_type,\n"
+                + "    b.status AS booking_status,\n"
+                + "    b.start_date AS booking_start_date,\n"
+                + "    b.end_date AS booking_end_date,\n"
+                + "    b.create_date AS booking_create_date\n"
+                + "FROM tbl_Booking AS b\n"
+                + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
+                + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
+                + "INNER JOIN tbl_trainer AS tr ON co.trainer_id = tr.trainer_id\n"
+                + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
+                + "WHERE b.status = 'checkout' AND co.title = ?\n"
+                + "ORDER BY b.create_date DESC";
+
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, title);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                BookingDTO booking = new BookingDTO(rs.getString(4), rs.getString(2), rs.getInt(3), rs.getString(1), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(9), rs.getDate(10), rs.getString(8), rs.getDate(11));
+                list.add(booking);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
     }
 
 }

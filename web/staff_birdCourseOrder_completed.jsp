@@ -95,7 +95,7 @@
                                         <td>
                                             <a>
                                                 <button class="viewDetail">
-                                                    <input type="hidden" name="bird_id" value="${order.birdID}"/>
+                                                    <input type="hidden" name="booking_id" value="${order.bookingID}"/>
                                                     <b>View Detail</b>
                                                 </button>
                                             </a>

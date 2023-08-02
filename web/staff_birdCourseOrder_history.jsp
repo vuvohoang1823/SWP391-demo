@@ -19,6 +19,7 @@
     <body>
 
         <jsp:useBean id="a" class="DAO.BookingDAO" scope="request"></jsp:useBean>
+        <jsp:useBean id="b" class="DAO.courseDAO" scope="request"></jsp:useBean>
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                     <!--            header-->
@@ -67,11 +68,13 @@
                                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Select Course
                                     </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Decoy Bird Training</a></li>
-                                        <li><a class="dropdown-item" href="#">Parrot Language Communication sdf</a></li>
-                                        <li><a class="dropdown-item" href="#">Talking- Vocalization Pet Birds</a></li>
-                                    </ul>
+                                    <form action="FilterCourseServlet" method="GET">
+                                        <ul class="dropdown-menu">
+                                            <c:forEach items="${b.allCourseBirdCourse}" var="course">
+                                                <li><a class="dropdown-item" href="FilterCourseServlet?category=${course.title}">${course.title}</a></li>
+                                                </c:forEach>
+                                        </ul>
+                                    </form>
                                 </div>
                             </form>
                         </nav>
@@ -95,6 +98,36 @@
 
                                 </tr>
                             </thead>
+
+                            <%--<c:set var="filter" value="${requestScope.FILTER}"/>
+                            <c:if test="${not empty filter}">
+                                <tbody>
+                                    <c:forEach items="${filter}" var="order" varStatus="counter">
+                                        <tr>
+                                            <td><b>${counter.count}</b></td>
+                                            <td><b>${order.courseName}</b></td>
+                                            <td><b>${order.customerName}</b></td>
+                                            <td><b>${order.typeBird}</b></td>
+                                            <td><b>${order.nameBird}</b></td>
+                                            <td><b>${order.create_date}</b></td>
+                                            <td><b></b></td>
+                                            <td>
+                                                <form action="ProcessingOrderInfo" metdod="GET">
+                                                    <input type="hidden" name="booking_id" value="${order.bookingID}">
+                                                    <a >
+                                                        <button class="viewDetail">
+                                                            <b>View Detail</b>
+                                                        </button>
+                                                    </a>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </c:if>
+                            <c:otherwise>
+
+                            </c:otherwise> --%>
                             <tbody>
                                 <c:forEach items="${a.history}" var="order" varStatus="counter">
                                     <tr>
@@ -107,7 +140,7 @@
                                         <td><b></b></td>
                                         <td>
                                             <form action="ProcessingOrderInfo" metdod="GET">
-                                                <input type="hidden" name="bird_id" value="${order.birdID}">
+                                                <input type="hidden" name="booking_id" value="${order.bookingID}">
                                                 <a >
                                                     <button class="viewDetail">
                                                         <b>View Detail</b>

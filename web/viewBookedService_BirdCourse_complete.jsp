@@ -52,96 +52,96 @@
                                 Bird Detail Tracking Progress
                             </div>
                         </div>
-                        <div class="section-body-content">
-                            <div class="col-lg-7">
-                                <img src="data:images/jpg;base64,${booking.courseImg}"/>
-                                <div class="left-content">
-                                    <div class="text">
-                                        <p>
-                                            Bird's Name
-                                        </p>
-                                        <p>
-                                            <b>
-                                                ${booking.nameBird}
-                                            </b>
-                                        </p>
-                                    </div>
-                                    <div class="text">
-                                        <p>
-                                            Bird Type
-                                        </p>
-                                        <p>
-                                            <b>
-                                                ${booking.typeBird}
-                                            </b>
-                                        </p>
-                                    </div>
-                                    <div class="text">
-                                        <p>
-                                            Training Status
-                                        </p>
-                                        <p>
-                                            <b style="color: #617A55; text-transform: capitalize">
-                                                ${booking.status}
-                                            </b>
-                                        </p>
-                                    </div>
-                                    <div class="text">
-                                        <p>
-                                            <button style="
-                                                    height: 7rem;
-                                                    width: 25rem;
-                                                    border-color: transparent;
-                                                    border-radius: 1rem;
-                                                    background: #F69C14;
-                                                    font-weight: bolder;
-                                                    font-size: 2.5rem;
-                                                    color: white;
-                                                    ">
-                                                CONTINUE WITH VNPAY
-                                            </button>
-                                        </p>
-                                    </div>  
-                                </div>
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="text">
-                                    <p>
-                                        Course Name
-                                    </p>
-                                    <p>
-                                        <b>
-                                            ${booking.courseName}
-                                        </b>
-                                    </p>
-                                </div>
-                                <div class="text">
-                                    <p>
-                                        Training duration
-                                    </p>
-                                    <p>
-                                        <b>
-                                            Start date: ${not empty booking.start_date ? booking.start_date : "N/A"}
-                                        </b>
-                                        <br>
-                                        <b>
-                                            End date: ${not empty booking.end_date ? booking.end_date : "N/A"}
-                                        </b>
-                                    </p>
-                                </div>
-                                <div class="trainer-content">
-                                    <img src="data:images/jpg;base64,${booking.trainerImg}"/>
-                                    <div class="text">
-                                        <p>
-                                            Trainer
-                                        </p>
-                                        <b>
-                                            ${booking.trainerName}
-                                        </b>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!--                        <div class="section-body-content">
+                                                    <div class="col-lg-7">
+                                                        <img src="data:images/jpg;base64,${booking.courseImg}"/>
+                                                        <div class="left-content">
+                                                            <div class="text">
+                                                                <p>
+                                                                    Bird's Name
+                                                                </p>
+                                                                <p>
+                                                                    <b>
+                        ${booking.nameBird}
+                    </b>
+                </p>
+            </div>
+            <div class="text">
+                <p>
+                    Bird Type
+                </p>
+                <p>
+                    <b>
+                        ${booking.typeBird}
+                    </b>
+                </p>
+            </div>
+            <div class="text">
+                <p>
+                    Training Status
+                </p>
+                <p>
+                    <b style="color: #617A55; text-transform: capitalize">
+                        ${booking.status}
+                    </b>
+                </p>
+            </div>
+            <div class="text">
+                <p>
+                    <button style="
+                            height: 7rem;
+                            width: 25rem;
+                            border-color: transparent;
+                            border-radius: 1rem;
+                            background: #F69C14;
+                            font-weight: bolder;
+                            font-size: 2.5rem;
+                            color: white;
+                            ">
+                        CONTINUE WITH VNPAY
+                    </button>
+                </p>
+            </div>  
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="text">
+            <p>
+                Course Name
+            </p>
+            <p>
+                <b>
+                        ${booking.courseName}
+                    </b>
+                </p>
+            </div>
+            <div class="text">
+                <p>
+                    Training duration
+                </p>
+                <p>
+                    <b>
+                        Start date: ${not empty booking.start_date ? booking.start_date : "N/A"}
+                    </b>
+                    <br>
+                    <b>
+                        End date: ${not empty booking.end_date ? booking.end_date : "N/A"}
+                    </b>
+                </p>
+            </div>
+            <div class="trainer-content">
+                <img src="data:images/jpg;base64,${booking.trainerImg}"/>
+                <div class="text">
+                    <p>
+                        Trainer
+                    </p>
+                    <b>
+                        ${booking.trainerName}
+                    </b>
+                </div>
+            </div>
+        </div>
+    </div>-->
                                         <div class="section-body-content">
                             <div class="col-lg-7">
                                 <img src="data:images/jpg;base64,${booking.courseImg}"/>

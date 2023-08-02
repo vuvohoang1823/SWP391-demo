@@ -88,6 +88,24 @@
                                             </b>
                                         </p>
                                     </div>
+                                    <c:if test="${booking.status == 'checkout'}">
+                                        <div class="text">
+                                            <p>
+                                                <button style="
+                                                        height: 7rem;
+                                                        width: 25rem;
+                                                        border-color: transparent;
+                                                        border-radius: 1rem;
+                                                        background: #F69C14;
+                                                        font-weight: bolder;
+                                                        font-size: 2.5rem;
+                                                        color: white;
+                                                        ">
+                                                    CONTINUE WITH VNPAY
+                                                </button>
+                                            </p>
+                                        </div>  
+                                    </c:if>
                                 </div>
                             </div>
                             <div class="col-lg-5">

@@ -354,8 +354,20 @@ public class courseDAO implements Serializable {
     /*GET ALL BIRD COURSE*/
     public List<Course> getAllCourseBirdCourse() throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
-        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_course.duration, tbl_courseImg.img from tbl_course JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
-                + "where tbl_course.category = 'bird training' and tbl_course.status='available'";
+
+        String sql = "SELECT \n"
+                + "    c.course_id,\n"
+                + "    bt.type_name,\n"
+                + "    c.content AS course_content,\n"
+                + "    c.category AS course_category,\n"
+                + "    c.title AS course_title,\n"
+                + "    c.price AS course_price,\n"
+                + "    c.duration AS course_duration,\n"
+                + "    ci.img AS img\n"
+                + "FROM tbl_course AS c\n"
+                + "INNER JOIN tbl_bird_type AS bt ON c.type_id = bt.type_id\n"
+                + "INNER JOIN tbl_courseImg AS ci ON c.course_id = ci.course_id\n"
+                + "WHERE c.category = 'bird training' AND c.status = 'available'";
 
         try {
             con = db.getConnection();
@@ -384,9 +396,8 @@ public class courseDAO implements Serializable {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6),
+                        rs.getInt(6),
                         rs.getInt(7),
-                        rs.getInt(8),
                         base64Image);
                 list.add(course);
             }
@@ -1302,9 +1313,19 @@ public class courseDAO implements Serializable {
 
 //edit by duc 10/7/20203 8:42
     public Course getCourseById(String id) throws ClassNotFoundException, SQLException, IOException {
-        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title, tbl_course.price, tbl_course.duration, tbl_courseImg.img from tbl_course\n"
-                + "JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
-                + "where tbl_course.course_id =? ";
+        String sql = "SELECT \n"
+                + "    c.course_id,\n"
+                + "    bt.type_name,\n"
+                + "    c.content,\n"
+                + "    c.category,\n"
+                + "    c.title,\n"
+                + "    c.price,\n"
+                + "    c.duration,\n"
+                + "    ci.img AS img\n"
+                + "FROM tbl_course AS c\n"
+                + "INNER JOIN tbl_bird_type AS bt ON c.type_id = bt.type_id\n"
+                + "INNER JOIN tbl_courseImg AS ci ON c.course_id = ci.course_id\n"
+                + "WHERE c.course_id = ?";
 
         try {
             con = db.getConnection();
@@ -1334,9 +1355,8 @@ public class courseDAO implements Serializable {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6),
+                        rs.getInt(6),
                         rs.getInt(7),
-                        rs.getInt(8),
                         base64Image);
 
             }
@@ -1349,7 +1369,7 @@ public class courseDAO implements Serializable {
         }
         return null;
     }
-
+    
     public void createBirdCourse(int course_id, String content, String category, String title, int price, int duration) {
         String sql = "insert into tbl_course(course_id, trainer_id, staff_id, content, category, title, price, duration, end_enroll_date, start_date, status)"
                 + " values(?,NULL,NULL,?,?,?,?,?,NULL,NULL,'available')";
