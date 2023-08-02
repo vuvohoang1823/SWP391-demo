@@ -82,7 +82,22 @@
                                             ${workshop.content}
                                         </div>
                                         <div class="time-location mb-3">
-                                            <b>Starting date:</b> ${workshop.start_date} <br>
+                                            <b>Starting date:</b> 
+                                            <c:choose>
+                                                <c:when test="${workshop.tracking_status eq 'Started'}">
+                                                    <!-- Content to be rendered/executed when condition1 is true -->
+                                                    ${workshop.tracking_status}
+                                                </c:when>
+                                                <c:when test="${workshop.tracking_status eq 'Ended'}">
+                                                    <!-- Content to be rendered/executed when condition2 is true -->
+                                                    ${workshop.tracking_status}
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <!-- Content to be rendered/executed if none of the above conditions are true -->
+                                                    ${workshop.start_date}
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <br>
                                             <b>Time:</b> 2:00 PM - 4:00 PM <br>
                                             <b>Location/Venue:</b> Central Community Center <br>
                                             <b>Target Audience:</b> Bird owners of all experience levels

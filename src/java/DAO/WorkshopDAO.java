@@ -31,7 +31,7 @@ public class WorkshopDAO implements Serializable {
 
     public boolean updateWorkshopInformation(String trainer_id, String content, String title, int price, Date start_date, Date end_enroll_date, String course_id) throws ClassNotFoundException {
         String sql = "UPDATE tbl_course\n"
-                + "SET trainer_id = ?, staff_id = 18, content = ?, category = 'workshop', title = ?, price = ?, start_date = ?, end_enroll_date = ?\n"
+                + "SET trainer_id = ?, staff_id = 18, content = ?, category = 'workshop', title = ?, price = ?, start_date = ?, end_enroll_date = ?, tracking_status = NULL\n"
                 + "WHERE course_id = ?;";
 
         try {
