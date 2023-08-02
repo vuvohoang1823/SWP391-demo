@@ -111,7 +111,7 @@
                                     <td class="customer">${b.fullname}</td>
                                     <td class="customer">$${b.amount}</td>
                                     <td class="customer">${b.dateCheck}</td>
-                                    <td class="customer attendancestatus">${b.attendance_status}</td>
+                                    <td class="customer attendancestatus">${not empty b.attendance_status ? b.attendance_status : 'Not yet'}</td>
                                     <td class="customer workshopstatus">${b.status}</td>
                                     <td class="customer">${b.certificate_status}</td>
                                     <td>

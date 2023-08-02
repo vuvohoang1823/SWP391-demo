@@ -69,22 +69,22 @@
                         </div>
                         <div class="workshops-container d-flex flex-column align-items-center">
                             <!--start workshop-->
-                            <c:forEach items="${i.allCourseWorkshop}" var="workshop" >
+                            <c:forEach items="${i.allCourseWorkshop}" var="workshop" varStatus="counter">
                                 <div class="workshop-container bg-white row mb-5">
                                     <div class="img-container col-lg-3">
                                         <img src="data:images/jpg;base64,${workshop.image}"/>
                                     </div>
                                     <div class="desc-container col-lg-9">
                                         <div class="title mb-3">
-                                            ${workshop.title} - ${workshop.customer_enrolled} Enrolled
+                                            ${workshop.title}
                                         </div>
-                                        <div class="description mb-3">
+                                        <div class="description mb-3 blog-description">
                                             ${workshop.content}
                                         </div>
                                         <div class="time-location mb-3">
-                                            
+
                                             <b>Trainer: </b> ${workshop.trainer_fullname} <br>
-                                            <b>Starting date:</b> 
+                                            <b>Starting date:</b>
                                             <c:choose>
                                                 <c:when test="${workshop.tracking_status eq 'Started'}">
                                                     <!-- Content to be rendered/executed when condition1 is true -->
@@ -110,6 +110,9 @@
                                                     <input type="hidden" name="courseID" value="${workshop.courseID}" />
                                                     <button class="update-button" type="submit" name="action" value="update">View participants</button>
                                                 </form>
+                                                <button type="button" class="update-button" data-bs-toggle="modal" data-bs-target="#detailinfoworkshop-${counter.count}">
+                                                    View detail
+                                                </button>
                                             </div>
                                             <div class="close-date">
                                                 <div>Price</div>
@@ -120,6 +123,25 @@
                                                 <div class="date">${workshop.end_enroll_date}</div>
                                             </div>
                                         </div>
+
+                                        <!-- view info -->
+                                        <div class="modal fade" id="detailinfoworkshop-${counter.count}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-1" id="staticBackdropLabel">${workshop.title}</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body fs-4">
+                                                        Total enrolled: ${workshop.customer_enrolled} customers
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary fs-4" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- view info -->
                                     </div>
                                     <div class="update">
                                         <form action="Staff_ViewWorkshopDetailServlet" method="post" style="display: inline;">
@@ -132,7 +154,7 @@
                                     <div class="delete">
                                         <form action="Staff_DeleteWorkshopServlet" method="post" style="display: inline;">
                                             <input type="hidden" name="courseID" value="${workshop.courseID}" />
-                                            <button class="delete-button " type="submit" name="action" value="update">Delete</button>
+                                            <button class="delete-button" type="submit" name="action" value="update">Delete</button>
                                         </form>
                                     </div>
                                     <%--
@@ -174,6 +196,31 @@
                 var container = document.getElementById('containerPage');
                 container.style.maxWidth = 'calc(100% - ' + headerWidth + 'px)';
             });
+        </script>
+        <!--        trim description-->
+        <script>
+            // Get all question message elements
+            var blogDescription = document.getElementsByClassName("blog-description");
+
+            // Loop through each question message element
+            for (var i = 0; i < blogDescription.length; i++) {
+                var description = blogDescription[i].textContent.trim();
+
+                // Remove any leading or trailing spaces and invisible characters
+                description = description.replace(/^\s+|\s+$/g, "");
+
+                // Remove non-printable characters using regular expression
+                description = description.replace(/[^ -~]+/g, "");
+
+                const descriptionLength = 200;
+
+                // Check if the description length is greater than 10
+                if (description.length > descriptionLength) {
+                    // Truncate the description and append "..."
+                    var truncatedMessage = description.substring(0, descriptionLength) + "...";
+                    blogDescription[i].textContent = truncatedMessage;
+                }
+            }
         </script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

@@ -392,6 +392,7 @@
                                 <%= isPageActive(currentPage, "staff_birdCourseOrder_history.jsp")%>
                                 <%= isPageActive(currentPage, "staff_birdCourseOrder_history-detail.jsp")%>
                                 <%= isPageActive(currentPage, "Staff_OrderList_Workshop_Completed.jsp")%>
+                                <%= isPageActive(currentPage, "Staff_Services_Workshop_ViewOrder_Detail.jsp")%>
                                 ">
                                 <a
                                     href="staff_birdCourseOrder_completed.jsp"

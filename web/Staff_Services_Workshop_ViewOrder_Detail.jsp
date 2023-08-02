@@ -155,10 +155,10 @@
                                                     >
                                                     <input
                                                         type="text"
-                                                        class="form-control"
+                                                        class="form-control attendancestatus"
                                                         id="requestTitle"
                                                         placeholder="${detail.attendance}"
-                                                        value="${detail.attendance}"
+                                                        value="${not empty detail.attendance ? detail.attendance : 'Not yet'}"
                                                         disabled
                                                         />
                                                 </div>
@@ -173,7 +173,7 @@
                                                         class="form-control"
                                                         id="requestTitle"
                                                         placeholder="${detail.certificate_status}"
-                                                        value="${detail.certificate_status}"
+                                                        value="${not empty detail.certificate_status ? detail.certificate_status : 'N/A'}"
                                                         disabled
                                                         />
                                                 </div>
@@ -228,7 +228,7 @@
                                                         class="form-control"
                                                         id="requestTitle"
                                                         placeholder="${detail.complete_date}"
-                                                        value="${detail.complete_date}"
+                                                        value="${not empty detail.complete_date ? detail.complete_date : 'N/A'}"
                                                         disabled
                                                         />
                                                 </div>
@@ -384,35 +384,35 @@
             }
         </script>
         <!--                check empty trainer-->
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const inputTrainerName = document.getElementById("trainername");
-                const hiddenTrainerName = document.getElementById("hiddenTrainerName");
-                const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
+        <!--        <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const inputTrainerName = document.getElementById("trainername");
+                        const hiddenTrainerName = document.getElementById("hiddenTrainerName");
+                        const modal = new bootstrap.Modal(document.getElementById("chooseTrainer"));
 
-                const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-                if (selectedTrainer.value === "none") {
-                    inputTrainerName.value = "";
-                } else {
-                    const trainerLabel = selectedTrainer.nextElementSibling;
-                    const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
-                    inputTrainerName.value = trainerName.split(": ")[1];
-                }
+                        const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
+                        if (selectedTrainer.value === "none") {
+                            inputTrainerName.value = "";
+                        } else {
+                            const trainerLabel = selectedTrainer.nextElementSibling;
+                            const trainerName = trainerLabel.querySelector(".trainer-name").textContent;
+                            inputTrainerName.value = trainerName.split(": ")[1];
+                        }
 
-                const form = document.querySelector("form");
-                form.addEventListener("submit", function (event) {
-                    const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
-                    if (inputTrainerName.disabled && inputTrainerName.value.trim() === "") {
-                        event.preventDefault();
-                        // Display an error message or take any other necessary action
-                        alert("Please select a trainer.");
-                    }
-                    if (inputTrainerName.value !== "") {
-                        hiddenTrainerName.value = selectedTrainer.value;
-                    }
-                });
-            });
-        </script>
+                        const form = document.querySelector("form");
+                        form.addEventListener("submit", function (event) {
+                            const selectedTrainer = document.querySelector('input[name="selected-trainer"]:checked');
+                            if (inputTrainerName.disabled && inputTrainerName.value.trim() === "") {
+                                event.preventDefault();
+                                // Display an error message or take any other necessary action
+                                alert("Please select a trainer.");
+                            }
+                            if (inputTrainerName.value !== "") {
+                                hiddenTrainerName.value = selectedTrainer.value;
+                            }
+                        });
+                    });
+                </script>-->
         <!--        save trainer-->
         <script>
             function saveTrainer() {
@@ -446,6 +446,22 @@
 
                     document.getElementById("dateRequested").value = ' - from ' + duration + ' to ' + soonDuration;
                 </script>-->
+        <!--        change color-->
+        <script>
+            const attendanceStatusElements = document.querySelectorAll('.attendancestatus');
+
+            attendanceStatusElements.forEach(element => {
+                const statusText = element.value.trim().toLowerCase();
+                if (statusText === 'absent') {
+                    element.style.color = 'red';
+                } else if (statusText === 'present') {
+                    element.style.color = 'green';
+                } else {
+                    // If the text doesn't match "green" or "red", you can set a default color here
+                    element.style.color = 'black';
+                }
+            });
+        </script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
