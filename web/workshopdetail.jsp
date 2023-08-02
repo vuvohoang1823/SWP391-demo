@@ -10,14 +10,20 @@
     <head>
         <meta name="description" content="">
         <meta name="author" content="">
-        <link href="assets/bootstrap.min.css" rel="stylesheet"/>
+        <!-- bootstrap@5.3.0 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+            crossorigin="anonymous"
+            />
+        <!--<link href="assets/bootstrap.min.css" rel="stylesheet"/>-->
         <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
-        <link href="assets/bootstrap.min.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="assets/jumbotron-narrow.css" rel="stylesheet">
+        <!--<link href="assets/jumbotron-narrow.css" rel="stylesheet">-->
         <script src="assets/jquery-1.11.3.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
         <link rel="stylesheet" href="css/reset.css" type="text/css">
         <link rel="stylesheet" href="css/workshopDetail.css" type="text/css">
         <title>${workshop_detail.title}</title>
@@ -76,7 +82,22 @@
 
                                                 </div>
                                                 <div class="card-text">
-                                                    <b>Starting date:</b> ${detail.start_date} <br />
+                                                    <b>Starting date:</b>
+                                                    <c:choose>
+                                                        <c:when test="${detail.tracking_status eq 'Started'}">
+                                                            <!-- Content to be rendered/executed when condition1 is true -->
+                                                            ${detail.tracking_status}
+                                                        </c:when>
+                                                        <c:when test="${detail.tracking_status eq 'Ended'}">
+                                                            <!-- Content to be rendered/executed when condition2 is true -->
+                                                            ${detail.tracking_status}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <!-- Content to be rendered/executed if none of the above conditions are true -->
+                                                            ${detail.start_date}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    <br />
                                                     <b>End enroll date:</b> ${detail.end_enroll_date} <br />
                                                     <b>Time:</b> 2:00 PM - 4:00 PM <br />
                                                     <b>Location/Venue:</b> Central Community Center <br />
@@ -89,6 +110,7 @@
                                                 <c:set var="fullname" value="${sessionScope.LOGIN_USER.fullName}"></c:set>
 
                                                     <div class="extra-price">
+                                                    <c:if test="${empty detail.tracking_status}">
                                                     <c:choose>
                                                         <c:when test="${empty fullname}">
                                                             <div class="button-container" style="width: 25vw">
@@ -109,6 +131,7 @@
                                                             </div>
                                                         </c:otherwise>
                                                     </c:choose>
+                                                    </c:if>
                                                     <div class="d-flex align-items-center" style="justify-content: space-around; flex-grow: 1">
                                                         <div class="price">£${detail.price}</div>
                                                         <div class="close-date">

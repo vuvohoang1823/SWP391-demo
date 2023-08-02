@@ -6,25 +6,20 @@
 package Controller;
 
 import DAO.WorkshopDAO;
-import DAO.courseDAO;
-import entity.WorkshopDDD;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author LAPTOP
  */
-@WebServlet(name = "Staff_Workshop_CustomerListServlet", urlPatterns = {"/Staff_Workshop_CustomerListServlet"})
-public class Staff_Workshop_CustomerListServlet extends HttpServlet {
+@WebServlet(name = "Trainer_Workshop_StartTeachingServlet", urlPatterns = {"/Trainer_Workshop_StartTeachingServlet"})
+public class Trainer_Workshop_StartTeachingServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,24 +33,13 @@ public class Staff_Workshop_CustomerListServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        String course_id = request.getParameter("course_id");
-
+        
+        String course_id = request.getParameter("courseID");
+        
         WorkshopDAO dao = new WorkshopDAO();
-        List<WorkshopDDD> list = dao.ListOfCustomerInProgressWorkshop(course_id);
-
-        courseDAO course = new courseDAO();
-        entity.service.Workshop workshop_detail = null;
-        if (!course_id.isEmpty()) {
-            workshop_detail = course.getWorkShopDetail(course_id);
-        }
-
-        HttpSession session = request.getSession(true);
-        session.setAttribute("customer_list", list);
-        session.setAttribute("workshop_detail", workshop_detail);
-
-        RequestDispatcher rd = request.getRequestDispatcher("Staff_Services_Workshop_In-progress.jsp");
-        rd.forward(request, response);
+        dao.TrackingWorkshop(course_id);
+        
+        response.sendRedirect("Trainer_Workshop_FormList.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

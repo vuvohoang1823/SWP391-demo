@@ -49,6 +49,7 @@ public class Trainer_SetWorkshopCompleteServlet extends HttpServlet {
             
             TrainerDAO dao = new TrainerDAO();
             dao.setWorkshopComplete(trainerID, complet_date);
+            dao.TrackingWorkshopEnded(courseID);
             dao.setDataOnTableWorkshop(trainerID, courseID, complet_date);
             
             RequestDispatcher rd = request.getRequestDispatcher("Trainer_Workshop_FormList.jsp");

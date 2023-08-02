@@ -38,8 +38,7 @@ public class Trainer_Workshop_CheckAttendanceServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String course_id = request.getParameter("course_id");
-        
+
         WorkshopDAO dao = new WorkshopDAO();
         for (WorkshopDDD booking : dao.CustomerListInProgressWorkshop()) {
             String customerId = request.getParameter("customer_id_" + booking.getCustomer_id());
@@ -51,11 +50,13 @@ public class Trainer_Workshop_CheckAttendanceServlet extends HttpServlet {
         }
 
 //        List<WorkshopDDD> list = dao.ListOfCustomerInProgressWorkshop(course_id);
-//
-//        HttpSession session = request.getSession(true);
-//        session.setAttribute("customer_list", list);
-        
-        RequestDispatcher rd = request.getRequestDispatcher("Trainer_Workshop_FormList.jsp");
+        HttpSession session = request.getSession(true);
+        String course_id = (String) session.getAttribute("course_id");
+        List<WorkshopDDD> list = dao.ListOfCustomerInProgressWorkshop(course_id);
+
+        session.setAttribute("customer_list", list);
+
+        RequestDispatcher rd = request.getRequestDispatcher("Trainer_Workshop_CustomerList_In-progress.jsp");
         rd.forward(request, response);
     }
 

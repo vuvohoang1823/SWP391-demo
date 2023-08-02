@@ -122,16 +122,26 @@
                                                                 <b>Location/Venue:</b> Central Community Center <br />
                                                             </div>
                                                             <div class="extra-price">
-                                                                <div class="button-container pt-4">
-                                                                    <a href="Trainer_SetWorkshopCompleteServlet?trainerID=${in_progress.trainerID}&courseID=${in_progress.courseID}">
-                                                                        <button>Complete workshop</button>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="button-container pt-4">
-                                                                    <a href="Trainer_Workshop_CustomerListServlet?course_id=${in_progress.courseID}">
-                                                                        <button>View Detail</button>
-                                                                    </a>
-                                                                </div>
+                                                                <c:if test="${empty in_progress.tracking_status}">
+                                                                    <div class="button-container pt-4">
+                                                                        <a href="Trainer_Workshop_StartTeachingServlet?courseID=${in_progress.courseID}">
+                                                                            <button>Start workshop</button>
+                                                                        </a>
+                                                                    </div>
+                                                                </c:if>
+
+                                                                <c:if test="${not empty in_progress.tracking_status}">
+                                                                    <div class="button-container pt-4">
+                                                                        <a href="Trainer_SetWorkshopCompleteServlet?trainerID=${in_progress.trainerID}&courseID=${in_progress.courseID}">
+                                                                            <button>Complete workshop</button>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="button-container pt-4">
+                                                                        <a href="Trainer_Workshop_CustomerListServlet?course_id=${in_progress.courseID}">
+                                                                            <button style="background: #F69C44">View Detail</button>
+                                                                        </a>
+                                                                    </div>
+                                                                </c:if>
                                                             </div>
                                                         </div>
                                                     </div>

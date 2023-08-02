@@ -31,8 +31,9 @@ public class Workshop implements Serializable {
     private String sub_content_3;
     private String sub_content_4;
     private String trainer_fullname;
+    private String tracking_status;
 
-    public Workshop(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String sub_content_1, String sub_content_2, String sub_content_3, String sub_content_4, String trainer_fullname) {
+    public Workshop(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String sub_content_1, String sub_content_2, String sub_content_3, String sub_content_4, String trainer_fullname, String tracking_status, String a) {
         this.courseID = courseID;
         this.trainerID = trainerID;
         this.staffID = staffID;
@@ -48,6 +49,7 @@ public class Workshop implements Serializable {
         this.sub_content_3 = sub_content_3;
         this.sub_content_4 = sub_content_4;
         this.trainer_fullname = trainer_fullname;
+        this.tracking_status = tracking_status;
     }
 
     public Workshop(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, String customerID, String sub_content_1, String sub_content_2, String sub_content_3, String sub_content_4) {
@@ -213,6 +215,14 @@ public class Workshop implements Serializable {
 
     public void setTrainer_fullname(String trainer_fullname) {
         this.trainer_fullname = trainer_fullname;
+    }
+
+    public String getTracking_status() {
+        return tracking_status;
+    }
+
+    public void setTracking_status(String tracking_status) {
+        this.tracking_status = tracking_status;
     }
 
 }

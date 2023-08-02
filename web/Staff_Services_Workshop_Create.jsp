@@ -73,7 +73,7 @@
                                         <div class="row">
                                             <!--Image-->
                                             <div class="col-lg-5 mb-5">
-                                                <label for="contentIMG" class="form-label">*Workshop image</label>
+                                                <label for="contentIMG" class="form-label">*Thumbnail image</label>
                                                 <input type="file" id="contentIMG" name="workshop_image" class="form-control imgInput" accept="image/*" onchange="updateThumbnail(this)" required>
                                                 <div class="img-container d-flex justify-content-center">
                                                     <img class="showImg" src="" height="50px" width="50px" alt="">
@@ -86,7 +86,7 @@
                                                 <!--Price-->
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
-                                                        <label for="title" class="form-label">*Workshop price</label>
+                                                        <label for="title" class="form-label">*Price</label>
                                                         <input
                                                             type="text"
                                                             class="form-control"
@@ -102,7 +102,7 @@
                                                 <!--Course ID:-->
                                                 <div class="col-lg-6">
                                                     <div class="mb-5">
-                                                        <label for="title" class="form-label">*Workshop id</label>
+                                                        <label for="title" class="form-label">*ID</label>
                                                         <input
                                                             type="text"
                                                             class="form-control"
@@ -118,7 +118,7 @@
                                                 <!--title-->
                                                 <div class="col-lg-12">
                                                     <div class="mb-5">
-                                                        <label for="briefinfo" class="form-label">*Workshop title</label>
+                                                        <label for="briefinfo" class="form-label">*Title</label>
                                                         <textarea id="briefinfo"
                                                                   name="title"
                                                                   class="form-control long-input"
@@ -131,7 +131,7 @@
                                                 <!--Content-->
                                                 <div class="col-lg-12">
                                                     <div class="mb-5">
-                                                        <label for="briefinfo" class="form-label">*Workshop description</label>
+                                                        <label for="briefinfo" class="form-label">*Description</label>
                                                         <textarea id="briefinfo"
                                                                   name="content"
                                                                   class="form-control long-input"
@@ -234,7 +234,7 @@
                                                                                                 />
                                                                                         </div>-->
 
-                                            <div class="col-lg-3 mb-5">
+                                            <div class="col-lg-4 mb-5">
                                                 <div class="input-group">
                                                     <!--not submited-->
                                                     <input

@@ -36,13 +36,19 @@
                 <div class="container-fluid">
                     <div class="" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item <%= isPageActive(currentPage, "Staff_Services_BirdCourse.jsp")%>">
+                            <li class="nav-item
+                                <%= isPageActive(currentPage, "Staff_Services_BirdCourse.jsp")%>
+                                ">
                                 <a class="nav-link" href="Staff_Services_BirdCourse.jsp">Bird Course</a>
                             </li>
-                            <li class="nav-item <%= isPageActive(currentPage, "Staff_Services_Workshop.jsp")%>">
+                            <li class="nav-item
+                                <%= isPageActive(currentPage, "Staff_Services_Workshop.jsp")%>
+                                ">
                                 <a class="nav-link" href="Staff_Services_Workshop.jsp">Workshop</a>
                             </li>
-                            <li class="nav-item <%= isPageActive(currentPage, "Staff_Services_OnlineCourse.jsp")%>">
+                            <li class="nav-item
+                                <%= isPageActive(currentPage, "Staff_Services_OnlineCourse.jsp")%>
+                                ">
                                 <a class="nav-link" href="Staff_Services_OnlineCourse.jsp">Online Course</a>
                             </li>
                         </ul>
