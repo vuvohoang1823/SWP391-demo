@@ -194,6 +194,15 @@ public class BookingDTO {
         this.create_date = create_date;
         this.preferred_date = preferred_date;
     }
+    
+    public BookingDTO(String customerName, String birdName, String birdType, String title, String trainerName, Date end_date){
+        this.customerName = customerName;
+        this.nameBird = birdName;
+        this.typeBird = birdType;
+        this.courseName = title;
+        this.trainerName = trainerName;
+        this.end_date = end_date;
+    }
 
     public Date getCreate_date() {
         return create_date;

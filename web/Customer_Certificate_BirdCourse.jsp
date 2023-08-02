@@ -29,19 +29,19 @@
                 <div class="certif-content">
                     <p class="header">CERTIFICATE OF COURSE COMPLETION</p>
                     <p class="header-clarify">This is to certify that</p>
-                    <p class="user-fullname">[Bird Name]</p>
+                    <p class="user-fullname">${CERTI.nameBird}</p>
                     <div class="content-box">
                         <p>Has completed the course of <span class="course-name" style="font-weight: 800;">
-                                [Course Name]
+                                ${CERTI.courseName}
                             </span>.
                         <p>
-                            a [Bird Type], owned by [Customer's Name], has successfully undergone training in our Bird Course System. The training was completed on [Completed Day]. 
-                            With dedication and guidance from [Trainer Name], the bird has demonstrated exceptional progress and mastery of the course.
+                            a ${CERTI.typeBird}, owned by ${CERTI.customerName}, has successfully undergone training in our Bird Course System. The training was completed on ${CERTI.end_date}. 
+                            With dedication and guidance from ${CERTI.trainerName}, the bird has demonstrated exceptional progress and mastery of the course.
                             We applaud the efforts of both bird and owner in achieving this remarkable accomplishment. Congratulations!
                         </p>
                         <div class="signature">
                             <div class="sign1">
-                                <p>[Trainer Name]</p>
+                                <p>${CERTI.trainerName}</p>
                                 <p>Trainer</p>
                             </div>
                             <div class="sign2">

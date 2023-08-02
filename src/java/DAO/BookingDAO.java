@@ -973,4 +973,43 @@ public class BookingDAO implements Serializable {
         return list;
     }
 
+    public BookingDTO getCertiByBookingID(int booking_id) throws SQLException, ClassNotFoundException {
+        BookingDTO booking = null;
+
+        String sql = "SELECT \n"
+                + "    cu.fullname AS customer_fullname,\n"
+                + "    b.name AS bird_name,\n"
+                + "    bt.type_name AS bird_type_name,\n"
+                + "    co.title AS course_title,\n"
+                + "    tr.fullname AS trainer_fullname,\n"
+                + "    bk.end_date AS booking_end_date\n"
+                + "FROM tbl_Booking AS bk\n"
+                + "INNER JOIN tbl_customer AS cu ON bk.customer_id = cu.customer_id\n"
+                + "INNER JOIN tbl_bird AS b ON bk.bird_id = b.bird_id\n"
+                + "INNER JOIN tbl_bird_type AS bt ON b.type_id = bt.type_id\n"
+                + "INNER JOIN tbl_course AS co ON bk.course_id = co.course_id\n"
+                + "INNER JOIN tbl_trainer AS tr ON bk.trainer_id = tr.trainer_id\n"
+                + "WHERE bk.Booking_id = ?";
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, booking_id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                booking = new BookingDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6));
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return booking;
+    }
+
 }
