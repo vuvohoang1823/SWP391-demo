@@ -116,7 +116,7 @@ public class WorkshopDAO implements Serializable {
         }
         return false;
     }
-
+    
     public void CreateNewWorkshopInformation(String courseID, String trainerID, String content, String title, int price, Date end_enroll_date, Date start_date) {
         String sql = "INSERT INTO tbl_course (course_id, trainer_id, staff_id, content, category, title, price, end_enroll_date, start_date, status)\n"
                 + "	VALUES (?, ?, 18, ?, 'workshop', ?, ?, ?, ?, 'available')";
@@ -133,6 +133,30 @@ public class WorkshopDAO implements Serializable {
                 ps.setInt(5, price);
                 ps.setDate(6, end_enroll_date);
                 ps.setDate(7, start_date);
+
+                ps.executeUpdate();
+
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    public void CreateNewWorkshopTraining(String workshopID, String courseID, String trainerID) {
+        String sql = "INSERT INTO tbl_workshopTraining (workshop_id, course_id, trainer_id)\n"
+                + "	VALUES (?, ?, ?)";
+
+        try {
+            con = DBUtils.getConnection();
+
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, workshopID);
+                ps.setString(2, courseID);
+                ps.setString(3, trainerID);
 
                 ps.executeUpdate();
 

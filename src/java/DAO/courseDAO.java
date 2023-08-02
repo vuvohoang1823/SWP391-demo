@@ -189,16 +189,16 @@ public class courseDAO implements Serializable {
     public List<Course> getAllCourseWorkshop() throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
         String sql = "SELECT c.course_id , c.trainer_id, c.staff_id , c.content , c.category , c.title, c.price, \n"
-                + "i.img, c.start_date, c.end_enroll_date, tr.fullname, c.tracking_status, COUNT(*) AS participant_count\n"
-                + "FROM tbl_attendance a\n"
-                + "JOIN tbl_workshopTraining t ON a.workshop_id = t.workshop_id\n"
-                + "JOIN tbl_course c ON c.course_id = t.course_id\n"
-                + "JOIN tbl_trainer tr ON tr.trainer_id = c.trainer_id\n"
-                + "JOIN tbl_courseImg i ON i.course_id = c.course_id\n"
-                + "WHERE c.status = 'available'\n"
-                + "GROUP BY c.course_id , c.trainer_id, c.staff_id , c.content , c.category , c.title, c.price, \n"
-                + "i.img, c.start_date, c.end_enroll_date, tr.fullname, c.tracking_status\n"
-                + "ORDER BY participant_count DESC";
+                + "                i.img, c.start_date, c.end_enroll_date, tr.fullname, c.tracking_status, COUNT(CASE WHEN a.attendance_id IS NOT NULL THEN 0 ELSE NULL END) AS participant_count\n"
+                + "                FROM tbl_course c\n"
+                + "                JOIN tbl_workshopTraining t ON c.course_id = t.course_id\n"
+                + "                LEFT OUTER JOIN tbl_attendance a ON t.workshop_id = a.workshop_id\n"
+                + "                JOIN tbl_trainer tr ON tr.trainer_id = c.trainer_id\n"
+                + "                JOIN tbl_courseImg i ON i.course_id = c.course_id\n"
+                + "                WHERE c.status = 'available'\n"
+                + "                GROUP BY c.course_id , c.trainer_id, c.staff_id , c.content , c.category , c.title, c.price, \n"
+                + "                i.img, c.start_date, c.end_enroll_date, tr.fullname, c.tracking_status\n"
+                + "                ORDER BY participant_count DESC";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);

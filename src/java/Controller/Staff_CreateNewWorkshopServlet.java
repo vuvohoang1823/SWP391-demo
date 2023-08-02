@@ -126,6 +126,7 @@ public class Staff_CreateNewWorkshopServlet extends HttpServlet {
 //            workshop.setCategory(request.getParameter("category"));
 
             workshopDAO.CreateNewWorkshopInformation(courseID, trainerID, content, title, price, dateSql1, dateSql2);
+            workshopDAO.CreateNewWorkshopTraining(courseID, courseID, trainerID);
             workshopDAO.CreateNewWorkshopImage(courseID, courseID, workshop_imageBase64);
             workshopDAO.CreateNewWorkshopSubContent(courseID, sub_content_1, sub_content_2, sub_content_3, sub_content_4);
 
