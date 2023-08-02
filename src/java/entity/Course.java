@@ -34,6 +34,7 @@ public class Course {
     private String c;
     private String d;
     private String certificate_status;
+    private String tracking_status;
 
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, Date complete_date, String trainer_fullname, String customerID, String certificate_status) {
         this.courseID = courseID;
@@ -113,7 +114,7 @@ public class Course {
         this.status = status;
     }
 
-    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String trainer_fullname, String a, String b, String c, String d) {
+    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String trainer_fullname, String tracking_status, String a, String b, String c, String d) {
         this.courseID = courseID;
         this.trainerID = trainerID;
         this.staffID = staffID;
@@ -125,6 +126,7 @@ public class Course {
         this.start_date = start_date;
         this.end_enroll_date = end_enroll_date;
         this.trainer_fullname = trainer_fullname;
+        this.tracking_status = tracking_status;
     }
     
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date) {
@@ -341,6 +343,14 @@ public class Course {
 
     public void setCertificate_status(String certificate_status) {
         this.certificate_status = certificate_status;
+    }
+
+    public String getTracking_status() {
+        return tracking_status;
+    }
+
+    public void setTracking_status(String tracking_status) {
+        this.tracking_status = tracking_status;
     }
 
     

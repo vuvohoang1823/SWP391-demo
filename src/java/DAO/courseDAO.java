@@ -188,11 +188,11 @@ public class courseDAO implements Serializable {
     /*GET ALL WORKSHOP*/
     public List<Course> getAllCourseWorkshop() throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
-        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img, tbl_course.start_date, tbl_course.end_enroll_date, tbl_trainer.fullname\n"
-                + "                from tbl_course \n"
-                + "				JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
-                + "                JOIN tbl_trainer ON tbl_course.trainer_id = tbl_trainer.trainer_id               \n"
-                + "								where tbl_course.category = 'workshop' and tbl_course.status='available'";
+        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img, tbl_course.start_date, tbl_course.end_enroll_date, tbl_trainer.fullname, tbl_course.tracking_status\n" +
+"                                from tbl_course \n" +
+"                				JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n" +
+"                               JOIN tbl_trainer ON tbl_course.trainer_id = tbl_trainer.trainer_id               \n" +
+"                								where tbl_course.category = 'workshop' and tbl_course.status='available'";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
@@ -226,9 +226,10 @@ public class courseDAO implements Serializable {
                         rs.getDate(9),
                         rs.getDate(10),
                         rs.getString(11),
-                        rs.getString(8),
+                        rs.getString(12),
                         rs.getString(7),
                         rs.getString(6),
+                        rs.getString(5),
                         rs.getString(5)
                 );
                 list.add(course);
@@ -799,7 +800,7 @@ public class courseDAO implements Serializable {
 
     public Workshop getWorkShopDetail(String courseID) {
         String sql = "SELECT  tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img, tbl_course.start_date, tbl_course.end_enroll_date,\n"
-                + "                		tbl_workshop_detail.sub_content_1, tbl_workshop_detail.sub_content_2, tbl_workshop_detail.sub_content_3, tbl_workshop_detail.sub_content_4, tbl_trainer.fullname\n"
+                + "                		tbl_workshop_detail.sub_content_1, tbl_workshop_detail.sub_content_2, tbl_workshop_detail.sub_content_3, tbl_workshop_detail.sub_content_4, tbl_trainer.fullname, tbl_course.tracking_status\n"
                 + "                FROM tbl_course \n"
                 + "                JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
                 + "                JOIN tbl_workshop_detail ON tbl_course.course_id = tbl_workshop_detail.course_id\n"
@@ -846,7 +847,9 @@ public class courseDAO implements Serializable {
                         rs.getString(12),
                         rs.getString(13),
                         rs.getString(14),
-                        rs.getString(15)
+                        rs.getString(15),
+                        rs.getString(16),
+                        rs.getString(2)
                 );
             }
 

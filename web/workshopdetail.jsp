@@ -82,7 +82,22 @@
 
                                                 </div>
                                                 <div class="card-text">
-                                                    <b>Starting date:</b> ${detail.start_date} <br />
+                                                    <b>Starting date:</b>
+                                                    <c:choose>
+                                                        <c:when test="${detail.tracking_status eq 'Started'}">
+                                                            <!-- Content to be rendered/executed when condition1 is true -->
+                                                            ${detail.tracking_status}
+                                                        </c:when>
+                                                        <c:when test="${detail.tracking_status eq 'Ended'}">
+                                                            <!-- Content to be rendered/executed when condition2 is true -->
+                                                            ${detail.tracking_status}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <!-- Content to be rendered/executed if none of the above conditions are true -->
+                                                            ${detail.start_date}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    <br />
                                                     <b>End enroll date:</b> ${detail.end_enroll_date} <br />
                                                     <b>Time:</b> 2:00 PM - 4:00 PM <br />
                                                     <b>Location/Venue:</b> Central Community Center <br />
@@ -95,6 +110,7 @@
                                                 <c:set var="fullname" value="${sessionScope.LOGIN_USER.fullName}"></c:set>
 
                                                     <div class="extra-price">
+                                                    <c:if test="${empty detail.tracking_status}">
                                                     <c:choose>
                                                         <c:when test="${empty fullname}">
                                                             <div class="button-container" style="width: 25vw">
@@ -115,6 +131,7 @@
                                                             </div>
                                                         </c:otherwise>
                                                     </c:choose>
+                                                    </c:if>
                                                     <div class="d-flex align-items-center" style="justify-content: space-around; flex-grow: 1">
                                                         <div class="price">£${detail.price}</div>
                                                         <div class="close-date">
