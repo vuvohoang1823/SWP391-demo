@@ -30,6 +30,7 @@ public class WorkshopDDD implements Serializable {
     private String attendance_id;
     private String trainer_fullname;
     private String certificate_status;
+    private String attendance_status;
 
     public WorkshopDDD() {
     }
@@ -62,7 +63,7 @@ public class WorkshopDDD implements Serializable {
         this.title = title;
     }
 
-    public WorkshopDDD(String title, String fullname, Date dateCheck, int amount, String status, String customer_id, String course_id, String attendance_id, String certificate_status) {
+    public WorkshopDDD(String title, String fullname, Date dateCheck, int amount, String status, String customer_id, String course_id, String attendance_id, String certificate_status, String attendance_status) {
         this.title = title;
         this.fullname = fullname;
         this.dateCheck = dateCheck;
@@ -72,6 +73,7 @@ public class WorkshopDDD implements Serializable {
         this.course_id = course_id;
         this.attendance_id = attendance_id;
         this.certificate_status = certificate_status;
+        this.attendance_status = attendance_status;
     }
 
     public String getTitle() {
@@ -200,6 +202,14 @@ public class WorkshopDDD implements Serializable {
 
     public void setCertificate_status(String certificate_status) {
         this.certificate_status = certificate_status;
+    }
+
+    public String getAttendance_status() {
+        return attendance_status;
+    }
+
+    public void setAttendance_status(String attendance_status) {
+        this.attendance_status = attendance_status;
     }
 
 }

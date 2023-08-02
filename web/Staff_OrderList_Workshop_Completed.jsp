@@ -92,6 +92,7 @@
                                     <td>Customer</td>
                                     <td>Price</td>
                                     <td>Checkout date</td>
+                                    <td>Attendance</td>
                                     <td>Status</td>
                                     <td>Certificate</td>
                                     <!--                                    <td>
@@ -110,6 +111,7 @@
                                     <td class="customer">${b.fullname}</td>
                                     <td class="customer">$${b.amount}</td>
                                     <td class="customer">${b.dateCheck}</td>
+                                    <td class="customer attendancestatus">${b.attendance_status}</td>
                                     <td class="customer workshopstatus">${b.status}</td>
                                     <td class="customer">${b.certificate_status}</td>
                                     <td>
@@ -147,6 +149,21 @@
                 if (statusText === 'in progress') {
                     element.style.color = 'red';
                 } else if (statusText === 'end') {
+                    element.style.color = 'green';
+                } else {
+                    // If the text doesn't match "green" or "red", you can set a default color here
+                    element.style.color = 'black';
+                }
+            });
+        </script>
+        <script>
+            const attendanceStatusElements = document.querySelectorAll('.attendancestatus');
+
+            attendanceStatusElements.forEach(element => {
+                const statusText = element.textContent.trim().toLowerCase();
+                if (statusText === 'absent') {
+                    element.style.color = 'red';
+                } else if (statusText === 'present') {
                     element.style.color = 'green';
                 } else {
                     // If the text doesn't match "green" or "red", you can set a default color here
