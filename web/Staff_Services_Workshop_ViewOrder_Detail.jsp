@@ -351,7 +351,7 @@
                                             <input type="hidden" name="customer_fullname" value="${detail.customer_fullname}" />
                                             <input type="hidden" name="workshop_title" value="${detail.title}" />
 
-                                            <c:if test="${certificateStatus ne 'Awarded' && detail.status eq 'End'}">
+                                            <c:if test="${certificateStatus ne 'Awarded' && detail.status eq 'End' && detail.attendance eq 'Present'}">
                                                 <button type="submit" name="action" value="approve" class="btn approve p-3" style="height: 100px; width: fit-content; font-size: 3rem">Award Certificate</button>
                                             </c:if>
                                         </div>
