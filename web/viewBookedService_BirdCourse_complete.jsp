@@ -95,8 +95,10 @@
                                                     border-radius: 1rem;
                                                     background: #F69C14;
                                                     font-weight: bolder;
+                                                    font-size: 2.5rem;
+                                                    color: white;
                                                     ">
-                                                Continue with VNPAY
+                                                CONTINUE WITH VNPAY
                                             </button>
                                         </p>
                                     </div>  
@@ -174,6 +176,24 @@
                                             </b>
                                         </p>
                                     </div>
+                                            <div class="text">
+                                        <p>
+                                            <button style="
+                                                    height: 7rem;
+                                                    width: 25rem;
+                                                    border-color: transparent;
+                                                    border-radius: 1rem;
+                                                    background: #F69C14;
+                                                    font-weight: bolder;
+                                                    font-size: 2.5rem;
+                                                    color: white;
+                                                    ">
+                                                <a href="Customer_Certificate_BirdCourse.jsp" style="text-decoration: none;color: white;">
+                                                    VIEW CERTIFICATE
+                                                </a>
+                                            </button>
+                                        </p>
+                                    </div>  
                                 </div>
                             </div>
                             <div class="col-lg-5">
