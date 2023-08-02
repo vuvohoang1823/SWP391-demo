@@ -188,11 +188,17 @@ public class courseDAO implements Serializable {
     /*GET ALL WORKSHOP*/
     public List<Course> getAllCourseWorkshop() throws ClassNotFoundException, SQLException, IOException {
         List<Course> list = new ArrayList<>();
-        String sql = "select tbl_course.course_id , tbl_course.trainer_id, tbl_course.staff_id , tbl_course.content ,  tbl_course.category , tbl_course.title,tbl_course.price, tbl_courseImg.img, tbl_course.start_date, tbl_course.end_enroll_date, tbl_trainer.fullname, tbl_course.tracking_status\n"
-                + "                                from tbl_course \n"
-                + "                				JOIN tbl_courseImg ON tbl_course.course_id = tbl_courseImg.course_id\n"
-                + "                               JOIN tbl_trainer ON tbl_course.trainer_id = tbl_trainer.trainer_id               \n"
-                + "                								where tbl_course.category = 'workshop' and tbl_course.status='available'";
+        String sql = "SELECT c.course_id , c.trainer_id, c.staff_id , c.content , c.category , c.title, c.price, \n"
+                + "i.img, c.start_date, c.end_enroll_date, tr.fullname, c.tracking_status, COUNT(*) AS participant_count\n"
+                + "FROM tbl_attendance a\n"
+                + "JOIN tbl_workshopTraining t ON a.workshop_id = t.workshop_id\n"
+                + "JOIN tbl_course c ON c.course_id = t.course_id\n"
+                + "JOIN tbl_trainer tr ON tr.trainer_id = c.trainer_id\n"
+                + "JOIN tbl_courseImg i ON i.course_id = c.course_id\n"
+                + "WHERE c.status = 'available'\n"
+                + "GROUP BY c.course_id , c.trainer_id, c.staff_id , c.content , c.category , c.title, c.price, \n"
+                + "i.img, c.start_date, c.end_enroll_date, tr.fullname, c.tracking_status\n"
+                + "ORDER BY participant_count DESC";
         try {
             con = db.getConnection();
             ps = con.prepareStatement(sql);
@@ -227,7 +233,7 @@ public class courseDAO implements Serializable {
                         rs.getDate(10),
                         rs.getString(11),
                         rs.getString(12),
-                        rs.getString(7),
+                        rs.getString(13),
                         rs.getString(6),
                         rs.getString(5),
                         rs.getString(5)

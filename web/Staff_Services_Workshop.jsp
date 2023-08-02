@@ -76,12 +76,14 @@
                                     </div>
                                     <div class="desc-container col-lg-9">
                                         <div class="title mb-3">
-                                            ${workshop.title}
+                                            ${workshop.title} - ${workshop.customer_enrolled} Enrolled
                                         </div>
                                         <div class="description mb-3">
                                             ${workshop.content}
                                         </div>
                                         <div class="time-location mb-3">
+                                            
+                                            <b>Trainer: </b> ${workshop.trainer_fullname} <br>
                                             <b>Starting date:</b> 
                                             <c:choose>
                                                 <c:when test="${workshop.tracking_status eq 'Started'}">
