@@ -89,22 +89,32 @@
                                         </p>
                                     </div>
                                     <c:if test="${booking.status == 'checkout'}">
-                                        <div class="text">
-                                            <p>
-                                                <button style="
-                                                        height: 7rem;
-                                                        width: 25rem;
-                                                        border-color: transparent;
-                                                        border-radius: 1rem;
-                                                        background: #F69C14;
-                                                        font-weight: bolder;
-                                                        font-size: 2.5rem;
-                                                        color: white;
-                                                        ">
-                                                    CONTINUE WITH VNPAY
-                                                </button>
-                                            </p>
-                                        </div>  
+                                        <form action="CustomerPaymentVNPAY" id="frmCreateOrder-${booking.bookingID}" method="post">
+                                            <div>
+                                                <input  value="${booking.coursePrice}000" class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="hidden"  />
+                                            </div>
+                                            <input type="hidden"  id="bankCode" name="bankCode" value="">
+                                            <div>
+                                                <input type="hidden" id="language"  name="language" value="vn">
+                                            </div>
+                                            <div class="text">
+                                                <p>
+                                                    <button style="
+                                                            height: 7rem;
+                                                            width: 25rem;
+                                                            border-color: transparent;
+                                                            border-radius: 1rem;
+                                                            background: #F69C14;
+                                                            font-weight: bolder;
+                                                            font-size: 2.5rem;
+                                                            color: white;
+                                                            ">
+                                                        CONTINUE WITH VNPAY
+                                                    </button>
+                                                </p>
+                                            </div>
+
+                                        </form>
                                     </c:if>
                                 </div>
                             </div>

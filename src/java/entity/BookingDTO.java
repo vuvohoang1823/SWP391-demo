@@ -129,6 +129,22 @@ public class BookingDTO {
         this.status = status;
     }
 
+    public BookingDTO(String courseID, String courseName, String courseImg, String trainerID, String trainerName, String trainerImg, String bookingID, String nameBird, String typeBird, Date start_date, Date end_date, String status, int price) {
+        this.courseImg = courseImg;
+        this.trainerID = trainerID;
+        this.trainerName = trainerName;
+        this.trainerImg = trainerImg;
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.bookingID = bookingID;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.status = status;
+        this.coursePrice = price;
+    }
+    
     public BookingDTO(String courseID, String courseName, String courseImg, String trainerID, String trainerName, String trainerImg, String bookingID, String nameBird, String typeBird, Date start_date, Date end_date, String status) {
         this.courseImg = courseImg;
         this.trainerID = trainerID;

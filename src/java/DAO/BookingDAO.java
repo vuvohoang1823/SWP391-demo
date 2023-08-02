@@ -579,7 +579,8 @@ public class BookingDAO implements Serializable {
                 + "    bt.type_name AS bird_type,\n"
                 + "    b.start_date AS booking_start_date,\n"
                 + "    b.end_date AS booking_end_date,\n"
-                + "    b.status AS booking_status\n"
+                + "    b.status AS booking_status,\n"
+                + "    b.amount AS booking_amount\n"
                 + "FROM tbl_Booking AS b\n"
                 + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
                 + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
@@ -631,7 +632,7 @@ public class BookingDAO implements Serializable {
                     trainerImg = "default";
                 }
 
-                booking = new BookingDTO(rs.getString(1), rs.getString(2), courseImg, rs.getString(4), rs.getString(5), trainerImg, rs.getString(7), rs.getString(8), rs.getString(9), rs.getDate(10), rs.getDate(11), rs.getString(12));
+                booking = new BookingDTO(rs.getString(1), rs.getString(2), courseImg, rs.getString(4), rs.getString(5), trainerImg, rs.getString(7), rs.getString(8), rs.getString(9), rs.getDate(10), rs.getDate(11), rs.getString(12), rs.getInt(13));
                 listBooking.add(booking);
             }
         } finally {
