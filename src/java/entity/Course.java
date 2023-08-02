@@ -85,7 +85,7 @@ public class Course {
         this.complete_date = complete_date;
     }
 
-    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, String customerID) {
+    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, String customerID, String tracking_status) {
         this.courseID = courseID;
         this.trainerID = trainerID;
         this.staffID = staffID;
@@ -98,6 +98,7 @@ public class Course {
         this.end_enroll_date = end_enroll_date;
         this.status = status;
         this.customerID = customerID;
+        this.tracking_status = tracking_status;
     }
 
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status) {

@@ -602,6 +602,28 @@ public void setWorkshopComplete(String trainer_id, Date complete_date) throws Cl
         }
     }
 
+    public void TrackingWorkshopEnded(String courseID) {
+        String sql = "UPDATE tbl_course\n"
+                + "				   SET tracking_status = 'Ended'\n"
+                + "				   WHERE course_id = ?";
+
+        try {
+            con = DBUtils.getConnection();
+
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, courseID);
+
+                ps.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
 public void setDataOnTableWorkshop(String trainer_id, String course_id, Date complete_date) throws ClassNotFoundException, SQLException {
         Connection con = null;
         PreparedStatement ps = null;

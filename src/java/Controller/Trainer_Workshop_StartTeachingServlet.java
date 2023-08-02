@@ -5,14 +5,9 @@
  */
 package Controller;
 
-import DAO.TrainerDAO;
+import DAO.WorkshopDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author LAPTOP
  */
-@WebServlet(name = "Trainer_SetWorkshopCompleteServlet", urlPatterns = {"/Trainer_SetWorkshopCompleteServlet"})
-public class Trainer_SetWorkshopCompleteServlet extends HttpServlet {
+@WebServlet(name = "Trainer_Workshop_StartTeachingServlet", urlPatterns = {"/Trainer_Workshop_StartTeachingServlet"})
+public class Trainer_Workshop_StartTeachingServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,25 +31,15 @@ public class Trainer_SetWorkshopCompleteServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String trainerID = request.getParameter("trainerID");
-        String courseID = request.getParameter("courseID");
         
+        String course_id = request.getParameter("courseID");
         
-        try (PrintWriter out = response.getWriter()) {
-            
-            LocalDate currentDate =  LocalDate.now();
-            java.sql.Date complet_date = java.sql.Date.valueOf(currentDate);
-            
-            TrainerDAO dao = new TrainerDAO();
-            dao.setWorkshopComplete(trainerID, complet_date);
-            dao.TrackingWorkshopEnded(courseID);
-            dao.setDataOnTableWorkshop(trainerID, courseID, complet_date);
-            
-            RequestDispatcher rd = request.getRequestDispatcher("Trainer_Workshop_FormList.jsp");
-            rd.forward(request, response);
-        }
+        WorkshopDAO dao = new WorkshopDAO();
+        dao.TrackingWorkshop(course_id);
+        
+        response.sendRedirect("Trainer_Workshop_FormList.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -69,13 +54,7 @@ public class Trainer_SetWorkshopCompleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Trainer_SetWorkshopCompleteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Trainer_SetWorkshopCompleteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -89,13 +68,7 @@ public class Trainer_SetWorkshopCompleteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Trainer_SetWorkshopCompleteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Trainer_SetWorkshopCompleteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

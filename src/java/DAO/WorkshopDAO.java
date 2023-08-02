@@ -515,4 +515,24 @@ public class WorkshopDAO implements Serializable {
         }
     }
 
+    public void TrackingWorkshop(String courseID) {
+        String sql = "UPDATE tbl_course\n"
+                + "				   SET tracking_status = 'Started'\n"
+                + "				   WHERE course_id = ?";
+
+        try {
+            con = DBUtils.getConnection();
+
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, courseID);
+
+                ps.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
