@@ -89,7 +89,7 @@
                                         </p>
                                     </div>
                                     <c:if test="${booking.status == 'checkout'}">
-                                        <form action="CustomerPaymentVNPAY" id="frmCreateOrder-${booking.bookingID}" method="post">
+<!--                                        <form action="CustomerPaymentVNPAY" id="frmCreateOrder-${booking.bookingID}" method="post">
                                             <div>
                                                 <input  value="${booking.coursePrice}000" class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="hidden"  />
                                             </div>
@@ -113,7 +113,39 @@
                                                     </button>
                                                 </p>
                                             </div>
+                                        </form>-->
+                                        <form action="PaymentOfBirdCourse" method="POST" id="frmCreateOrder">
 
+                                            <input type="hidden" name="booking_id" value="${booking.bookingID}"/>
+                                            <input type="hidden" name="price" value="${booking.coursePrice}" />
+                                            <input type="hidden" name="userID" value="${sessionScope.LOGIN_USER.customer_id}" />
+                                            <div>
+                                                <input  value="${booking.coursePrice}000" class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-required="The Amount field is required." id="amount" max="100000000" min="1" name="amount" type="hidden"  />
+                                            </div>
+                                            <!--- phuong thuc thanh toan---->
+                                            <input type="hidden"  id="bankCode" name="bankCode" value="">
+                                            <!--- phuong thuc thanh toan---->
+                                            <!-- language--->
+                                            <div>
+                                                <input type="hidden" id="language"  name="language" value="vn">
+                                            </div>
+                                            <!-- language--->
+                                            <div class="text">
+                                                <p>
+                                                    <button style="
+                                                            height: 7rem;
+                                                            width: 25rem;
+                                                            border-color: transparent;
+                                                            border-radius: 1rem;
+                                                            background: #F69C14;
+                                                            font-weight: bolder;
+                                                            font-size: 2.5rem;
+                                                            color: white;
+                                                            ">
+                                                        CONTINUE WITH VNPAY
+                                                    </button>
+                                                </p>
+                                            </div>
                                         </form>
                                     </c:if>
                                 </div>
