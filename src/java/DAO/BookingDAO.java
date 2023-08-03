@@ -711,7 +711,7 @@ public class BookingDAO implements Serializable {
                 + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
                 + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
                 + "INNER JOIN tbl_trainer AS tr ON b.trainer_id = tr.trainer_id\n"
-                + "WHERE b.trainer_id = ? AND b.status = 'checkout'\n"
+                + "WHERE b.trainer_id = ? AND b.status = 'checkout' OR b.status = 'completed'\n"
                 + "ORDER BY b.checkout_date DESC";
 
         try {
