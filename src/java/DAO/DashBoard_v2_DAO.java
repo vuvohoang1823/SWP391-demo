@@ -34,7 +34,7 @@ public class DashBoard_v2_DAO implements Serializable {
     public List<DashBoard_v2_DTO> getDetailTop3Workshop() {
         List<DashBoard_v2_DTO> list = new ArrayList<>();
 
-        String sql = "SELECT t.course_id, COUNT(*) AS participant_count, c.title, i.img\n"
+        String sql = "SELECT TOP(3) t.course_id, COUNT(*) AS participant_count, c.title, i.img\n"
                 + "				FROM tbl_attendance a\n"
                 + "				JOIN tbl_workshopTraining t ON a.workshop_id = t.workshop_id\n"
                 + "				JOIN tbl_course c ON c.course_id = t.course_id\n"

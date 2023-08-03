@@ -9,8 +9,8 @@ import DAO.BookingDAO;
 import entity.BookingDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -20,29 +20,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author hoang
  */
-@WebServlet(name = "BirdCourseSuccess", urlPatterns = {"/BirdCourseSuccess"})
-public class BirdCourseSuccess extends HttpServlet {
+@WebServlet(name = "FilterCourseServlet", urlPatterns = {"/FilterCourseServlet"})
+public class FilterCourseServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-
-        int bird_id = (int) request.getAttribute("FormSuccessBirdID");
-        Date date = (Date) request.getAttribute("Preferred_date");
         try {
+            String title = request.getParameter("category");
             BookingDAO bookingDAO = new BookingDAO();
-            BookingDTO courseInfo = bookingDAO.getCourseByBirdID(bird_id);
-            request.setAttribute("CourseInfo", courseInfo);
-            request.setAttribute("date", date);
+            if (title != null) {
+                List<BookingDTO> booking = bookingDAO.getHistoryBookingByFilter(title);
+                request.setAttribute("FILTER", booking);
+
+            } else {
+                List<BookingDTO> booking = bookingDAO.getHistory();
+                request.setAttribute("FILTER", booking);
+            }
         } finally {
-            RequestDispatcher rd = request.getRequestDispatcher("birdCourseForm_success.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseOrder_history.jsp");
             rd.forward(request, response);
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -60,9 +65,7 @@ public class BirdCourseSuccess extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(BirdCourseSuccess.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(BirdCourseSuccess.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FilterCourseServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -80,9 +83,7 @@ public class BirdCourseSuccess extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(BirdCourseSuccess.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(BirdCourseSuccess.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FilterCourseServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

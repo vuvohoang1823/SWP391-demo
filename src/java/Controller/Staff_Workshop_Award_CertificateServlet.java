@@ -46,7 +46,7 @@ public class Staff_Workshop_Award_CertificateServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String email = request.getParameter("gmail");
-        String logoUrl = "https://i.ibb.co/jJqPBpc/349252733-767865025124137-1990273265293346631-n.png";
+        String logoUrl = "https://i.ibb.co/fkb8rYP/349252733-767865025124137-1990273265293346631-n.png";
         String customer_fullname = request.getParameter("customer_fullname");
         String title = request.getParameter("workshop_title");
 
@@ -253,7 +253,7 @@ public class Staff_Workshop_Award_CertificateServlet extends HttpServlet {
                         + "            workshop we are pleased to issue your official "+ title + " Certificate.\n"
                         + "          </p>\n"
                         + "          <p>\n"
-                        + "            Now that you’ve earned your Certificate, why not share it with your\n"
+                        + "            Now that you have earned your Certificate, why not share it with your\n"
                         + "            network?\n"
                         + "          </p>\n"
                         + "          <p>Keep it Up,</p>\n"

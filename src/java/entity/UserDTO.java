@@ -43,6 +43,11 @@ public class UserDTO implements Serializable {
         this.contact = contact;
     }
 
+    public UserDTO(int user_id, String gmail) {
+        this.user_id = user_id;
+        this.gmail = gmail;
+    }
+
     public String getFullname() {
         return fullname;
     }

@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                             <form action="SetTrainerToBooking" method="post">
-                                <input type="hidden" name="bird_id" value="${BookingInfo.birdID}">
+                                <input type="hidden" name="booking_id" value="${BookingInfo.bookingID}">
                                 <div class="form-customerDetails">
                                     <div class="form-name">
                                         <div class="name">Personal Information</div>

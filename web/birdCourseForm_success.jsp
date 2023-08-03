@@ -41,7 +41,7 @@
                         </p>
                         &ensp;
                         <b>
-                            ${CourseInfo.customerName}
+                            ${BOOKING.customerName}
                         </b
                     </h5>
                     <h5>
@@ -50,7 +50,7 @@
                         </p>
                         &ensp;
                         <b>
-                            ${CourseInfo.nameBird}
+                            ${BOOKING.nameBird}
                         </b>
                     </h5>
                     <h5>
@@ -59,7 +59,7 @@
                         </p>
                         &ensp;
                         <b>
-                            ${CourseInfo.typeBird}
+                            ${BOOKING.typeBird}
                         </b>
                     </h5>
                     <h5>
@@ -68,7 +68,7 @@
                         </p>
                         &ensp;
                         <b>
-                            ${CourseInfo.courseName}
+                            ${BOOKING.courseName}
                         </b>
                     </h5>
                     <h5>
@@ -77,7 +77,7 @@
                         </p>
                         &ensp;
                         <b>
-                            ${requestScope.date}
+                            ${BOOKING.preferred_date}
                         </b>
                     </h5>
                     <h5>
@@ -86,7 +86,7 @@
                         </p>
                         &ensp;
                         <b>
-                            ${CourseInfo.coursePrice}
+                            ${BOOKING.coursePrice}
                         </b>
                     </h5>
                 </div>

@@ -25,11 +25,11 @@ import javax.naming.NamingException;
  */
 public class UserDAO implements Serializable {
 
-     Connection con = null;
+    Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
     DBUtils db = new DBUtils();
- 
+
     public UserDTO checkLogin(String username, String password)
             throws SQLException, NamingException, ClassNotFoundException {
 
@@ -73,15 +73,14 @@ public class UserDAO implements Serializable {
     public List<UserDTO> getAccountList() {
         return accountList;
     }
-    
-    
-     public StaffDTO getStaffInfo(int user_id) throws SQLException, NamingException, ClassNotFoundException {
+
+    public StaffDTO getStaffInfo(int user_id) throws SQLException, NamingException, ClassNotFoundException {
 
 //        (String trainer_id, String user_id, String fullname, String achievement, String status, String contact)
         Connection con = null;
         PreparedStatement stm = null;
         ResultSet rs = null;
-       StaffDTO staff = null;
+        StaffDTO staff = null;
         try {
             con = DBUtils.getConnection();
 
@@ -93,7 +92,7 @@ public class UserDAO implements Serializable {
                 if (rs.next()) {
 //                    
                     staff = new StaffDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
-                   
+
                 }
             }
         } finally {
@@ -109,8 +108,8 @@ public class UserDAO implements Serializable {
         }
         return staff;
     }
-     
-     public void addNewUser(int user_id, String username, String role, String gmail)
+
+    public void addNewUser(int user_id, String username, String role, String gmail)
             throws ClassNotFoundException, SQLException, IOException {
         String sql = "insert into tbl_user(user_id , username, password, role, gmail)\n"
                 + "values(?,?,'1',?,?) ";
@@ -398,5 +397,50 @@ public class UserDAO implements Serializable {
             ex.printStackTrace();
         }
         return newID;
+    }
+
+    public UserDTO getUserInfo(int customer_id) {
+        UserDTO user = null;
+        String sql = "SELECT u.user_id, u.gmail\n"
+                + "FROM tbl_user AS u\n"
+                + "INNER JOIN tbl_customer AS c ON u.user_id = c.user_id\n"
+                + "WHERE c.customer_id = ?";
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, customer_id);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                user = new UserDTO(rs.getInt(1), rs.getString(2));
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return user;
+    }
+
+    public String getUserEmail(int user_id) {
+        String sql = "SELECT gmail FROM tbl_user WHERE user_id = ?";
+        String email = "";
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, user_id);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                email = rs.getString(1);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return email;
     }
 }

@@ -36,6 +36,8 @@ public class Course {
     private String certificate_status;
     private String tracking_status;
     private String attendance_status;
+    private String customer_enrolled;
+    private String type;
 
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String status, Date complete_date, String trainer_fullname, String customerID, String certificate_status, String attendance_status) {
         this.courseID = courseID;
@@ -117,7 +119,7 @@ public class Course {
         this.status = status;
     }
 
-    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String trainer_fullname, String tracking_status, String a, String b, String c, String d) {
+    public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date, String trainer_fullname, String tracking_status, String customer_enrolled, String b, String c, String d) {
         this.courseID = courseID;
         this.trainerID = trainerID;
         this.staffID = staffID;
@@ -130,8 +132,9 @@ public class Course {
         this.end_enroll_date = end_enroll_date;
         this.trainer_fullname = trainer_fullname;
         this.tracking_status = tracking_status;
+        this.customer_enrolled = customer_enrolled;
     }
-    
+
     public Course(String courseID, String trainerID, String staffID, String content, String category, String title, int price, String image, Date start_date, Date end_enroll_date) {
         this.courseID = courseID;
         this.trainerID = trainerID;
@@ -175,6 +178,17 @@ public class Course {
         this.title = title;
         this.price = price;
         this.duration = duration;
+    }
+
+    public Course(String courseID, String type, String content, String category, String title, int price, int duration, String image) {
+        this.courseID = courseID;
+        this.type = type;
+        this.content = content;
+        this.category = category;
+        this.title = title;
+        this.price = price;
+        this.duration = duration;
+        this.image = image;
     }
 
     public int getDuration() {
@@ -364,5 +378,22 @@ public class Course {
         this.attendance_status = attendance_status;
     }
 
+    public String getCustomer_enrolled() {
+        return customer_enrolled;
+    }
+
+    public void setCustomer_enrolled(String customer_enrolled) {
+        this.customer_enrolled = customer_enrolled;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
     
+    
+
 }

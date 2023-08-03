@@ -8,6 +8,8 @@ package Controller;
 import DAO.BirdDAO;
 import DAO.BookingDAO;
 import DAO.CustomerDAO;
+import DAO.UserDAO;
+import entity.BirdDTO;
 import entity.BookingDTO;
 import entity.CustomerDTO;
 import java.io.IOException;
@@ -38,26 +40,36 @@ public class FormCourseServlet extends HttpServlet {
         CustomerDTO user = (CustomerDTO) request.getSession().getAttribute("LOGIN_USER");
         CustomerDAO customerdao = new CustomerDAO();
         int customerID = customerdao.getCustomerID(user.getUser_id());
+
+        UserDAO userDAO = new UserDAO();
+
+//        String email = userDAO.getUserEmail(user.getUser_id());
         BirdDAO birdDAO = new BirdDAO();
-        int bird_id = birdDAO.generateBirdID();
+//        int bird_id = birdDAO.generateBirdID();
+//        String name = request.getParameter("bird_name");
+//        String type = request.getParameter("bird_type");
+
+        int bird_id = Integer.parseInt(request.getParameter("birdID"));
         int course_id = Integer.parseInt(request.getParameter("course_id"));
-        String name = request.getParameter("bird_name");
-        String type = request.getParameter("bird_type");
+
         int amount = Integer.parseInt(request.getParameter("amount"));
         Date preferred_date = Date.valueOf(request.getParameter("preferred_date"));
 
         try {
             System.out.println("customerID: " + customerID + " bird_id: " + " course_id: " + course_id + " amount: " + amount);
-            birdDAO.addNewBird(bird_id, name, type);
+//            birdDAO.addNewBird(bird_id, name, type);
             BookingDAO bookingDAO = new BookingDAO();
-            bookingDAO.addNewBooking(customerID, bird_id, course_id, amount, preferred_date);
-            request.setAttribute("FormSuccessBirdID", bird_id);
-            request.setAttribute("Preferred_date", preferred_date);
+            int bookingID = bookingDAO.generateBookingID();
+            bookingDAO.addNewBooking(customerID, bird_id, course_id, amount, preferred_date, bookingID);
+
+            BookingDTO booking = bookingDAO.getCourseByBookingID(bookingID);
+            request.setAttribute("BOOKING", booking);
 
         } finally {
-            RequestDispatcher rd = request.getRequestDispatcher("BirdCourseSuccess");
+            RequestDispatcher rd = request.getRequestDispatcher("birdCourseForm_success.jsp");
             rd.forward(request, response);
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

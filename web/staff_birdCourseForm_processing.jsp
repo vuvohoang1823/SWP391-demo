@@ -95,13 +95,13 @@
                                         <td><b>${order.customerName}</b></td>
                                         <td><b>${order.nameBird}</b></td>
                                         <td><b>${order.typeBird}</b></td>
-                                        <td><b>${order.create_date}</b></td>
+                                        <td><b>${order.checkout_date}</b></td>
                                         <td>
                                             <div class="onlineStatus <c:out value="${fn:toLowerCase(order.status)}"/>">${order.status}</div>
                                         </td>
                                         <td>
                                             <form action="ProcessingOrderInfo" method="GET">
-                                                <input type="hidden" name="bird_id" value="${order.birdID}">
+                                                <input type="hidden" name="booking_id" value="${order.bookingID}">
                                                 <a >
                                                     <button class="viewDetail">
                                                         <b>View Detail</b>

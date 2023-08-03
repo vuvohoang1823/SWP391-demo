@@ -23,22 +23,29 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author hoang
  */
-@WebServlet(name = "ProcessingOrderInfo", urlPatterns = {"/ProcessingOrderInfo"})
-public class ProcessingOrderInfo extends HttpServlet {
+@WebServlet(name = "BirdCourseCerti", urlPatterns = {"/BirdCourseCerti"})
+public class BirdCourseCerti extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
-
-//        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
-        int booking_id = Integer.parseInt(request.getParameter("booking_id"));
-
         try {
+            int booking_id = Integer.parseInt(request.getParameter("booking_id"));
             BookingDAO bookingDAO = new BookingDAO();
-            BookingDTO booking = bookingDAO.getBookingByBirdID(booking_id);
-            request.setAttribute("BookingInfo", booking);
+            BookingDTO booking = bookingDAO.getCertiByBookingID(booking_id);
+            request.setAttribute("CERTI", booking);
+
         } finally {
-            RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseForm_processing-detail.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("Customer_Certificate_BirdCourse.jsp");
             rd.forward(request, response);
         }
     }
@@ -58,9 +65,9 @@ public class ProcessingOrderInfo extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BirdCourseCerti.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BirdCourseCerti.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -78,9 +85,9 @@ public class ProcessingOrderInfo extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BirdCourseCerti.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProcessingOrderInfo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BirdCourseCerti.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

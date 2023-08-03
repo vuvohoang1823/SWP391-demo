@@ -28,13 +28,14 @@ public class CheckOutBirdCourse extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
+//        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
+        int booking_id = Integer.parseInt(request.getParameter("booking_id"));
         String action = request.getParameter("action");
 
         try {
             BookingDAO bookingDAO = new BookingDAO();
             if (action.equals("approve")) {
-                bookingDAO.checkOutBooking(bird_id);
+                bookingDAO.checkOutBooking(booking_id);
             }
         } finally {
             response.sendRedirect("staff_birdCourseOrder_completed.jsp");

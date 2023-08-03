@@ -89,11 +89,11 @@
                             <div class="forms-header">
                                 <div class="left-side"><b>Form Detail</b></div>
                                 <div class="right-side">
-                                    <span><b>ID : #${BookingInfo.birdID}</b></span>
+                                    <span><b>ID : #${BookingInfo.bookingID}</b></span>
                                 </div>
                             </div>
                             <form action="CheckOutBirdCourse" method="post">
-                                <input type="hidden" name="bird_id" value="${BookingInfo.birdID}">
+                                <input type="hidden" name="booking_id" value="${BookingInfo.bookingID}"/>
                                 <div class="form-customerDetails">
                                     <div class="form-name">
                                         <div class="name">Personal Information</div>

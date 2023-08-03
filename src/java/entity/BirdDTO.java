@@ -14,6 +14,7 @@ public class BirdDTO {
     private String bird_id;
     private String name;
     private String type;
+    private String image;
 
     public BirdDTO(String bird_id, String name, String type) {
         this.bird_id = bird_id;
@@ -21,12 +22,19 @@ public class BirdDTO {
         this.type = type;
     }
 
+    public BirdDTO(String bird_id, String name, String type, String image) {
+        this.bird_id = bird_id;
+        this.name = name;
+        this.type = type;
+        this.image = image;
+    }
+
     public BirdDTO() {
     }
 
     @Override
     public String toString() {
-        return "BirdDTO{" + "bird_id=" + bird_id + ", name=" + name + ", type=" + type + '}';
+        return "BirdDTO{" + "bird_id=" + bird_id + ", name=" + name + ", type=" + type + ", image=" + image + '}';
     }
 
     public String getBird_id() {
@@ -53,4 +61,11 @@ public class BirdDTO {
         this.type = type;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

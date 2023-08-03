@@ -38,11 +38,12 @@ public class CompleteOrderInfo extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
-        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
+//        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
+        int booking_id = Integer.parseInt(request.getParameter("booking_id"));
         
         try {
             BookingDAO bookingDAO = new BookingDAO();
-            BookingDTO booking = bookingDAO.getBookingByBirdID(bird_id);
+            BookingDTO booking = bookingDAO.getBookingByBirdID(booking_id);
             request.setAttribute("BookingInfo", booking);
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseOrder_completed-detail.jsp");

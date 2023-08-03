@@ -30,11 +30,12 @@ public class PendingOrderInfo extends HttpServlet {
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
 
-        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
+//        int bird_id = Integer.parseInt(request.getParameter("bird_id"));
+        int booking_id = Integer.parseInt(request.getParameter("booking_id"));
 
         try {
             BookingDAO bookingDAO = new BookingDAO();
-            BookingDTO booking = bookingDAO.getCourseByBirdID(bird_id);
+            BookingDTO booking = bookingDAO.getCourseByBookingID(booking_id);
             request.setAttribute("BookingInfo", booking);
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher("staff_birdCourseForm_pending-detail.jsp");

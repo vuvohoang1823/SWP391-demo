@@ -34,6 +34,191 @@ public class BookingDTO {
     private Date create_date;
     private Date preferred_date;
     private Date checkout_date;
+    private String bookingID;
+
+    public BookingDTO(String trainerID, String courseID, String customerID, String birdID, String nameBird, String typeBird, Date start_date, Date end_date, String status, int amount, int payment_id) {
+        this.trainerID = trainerID;
+        this.courseID = courseID;
+        this.customerID = customerID;
+        this.birdID = birdID;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.status = status;
+        this.amount = amount;
+        this.payment_id = payment_id;
+    }
+
+    public BookingDTO(String trainerName, String courseName, int coursePrice, String customerName, String bookingID, String nameBird, String typeBird, Date start_date, Date end_date, String status, Date checkout_date) {
+        this.trainerName = trainerName;
+        this.courseName = courseName;
+        this.coursePrice = coursePrice;
+        this.customerName = customerName;
+        this.bookingID = bookingID;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.status = status;
+        this.checkout_date = checkout_date;
+    }
+
+    public BookingDTO(String customer_id, String courseID, String trainer_id, String birdName, String birdtype, String category, String title, int price, String image, Date start_Date, Date end_date, String status, int amount, int payment_id) {
+        this.customerID = customer_id;
+        this.courseID = courseID;
+        this.trainerID = trainer_id;
+        this.nameBird = birdName;
+        this.typeBird = birdtype;
+        this.category = category;
+        this.courseName = title;
+        this.coursePrice = price;
+        this.courseImg = image;
+        this.start_date = start_Date;
+        this.end_date = end_date;
+        this.status = status;
+        this.amount = amount;
+        this.payment_id = payment_id;
+    }
+
+    public BookingDTO(String trainerName, String courseName, int coursePrice, String customerName, String nameBird, String typeBird, Date start_date, Date end_date, Date checkout_date, String bookingID) {
+        this.trainerName = trainerName;
+        this.courseName = courseName;
+        this.coursePrice = coursePrice;
+        this.customerName = customerName;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.checkout_date = checkout_date;
+        this.bookingID = bookingID;
+    }
+
+//    public BookingDTO(String customerName, String courseName, String typeBird, String bookingID, Date create_date) {
+//        this.customerName = customerName;
+//        this.courseName = courseName;
+//        this.typeBird = typeBird;
+//        this.bookingID = bookingID;
+//        this.create_date = create_date;
+//    }
+    public BookingDTO(String bookingID, String customerName, String typeBird, String courseName, Date create_date) {
+        this.bookingID = bookingID;
+        this.customerName = customerName;
+        this.typeBird = typeBird;
+        this.courseName = courseName;
+        this.create_date = create_date;
+    }
+
+    public BookingDTO(String birdID, String courseName, int coursePrice, String customerName, Date start_date) {
+        this.birdID = birdID;
+        this.courseName = courseName;
+        this.coursePrice = coursePrice;
+        this.customerName = customerName;
+        this.start_date = start_date;
+    }
+
+    public BookingDTO(String customerID, String courseName, String courseImg, String bookingID, String nameBird, String typeBird, Date start_date, Date end_date, String status) {
+        this.courseImg = courseImg;
+        this.customerID = customerID;
+        this.courseName = courseName;
+        this.bookingID = bookingID;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.status = status;
+    }
+
+    public BookingDTO(String courseID, String courseName, String courseImg, String trainerID, String trainerName, String trainerImg, String bookingID, String nameBird, String typeBird, Date start_date, Date end_date, String status, int price) {
+        this.courseImg = courseImg;
+        this.trainerID = trainerID;
+        this.trainerName = trainerName;
+        this.trainerImg = trainerImg;
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.bookingID = bookingID;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.status = status;
+        this.coursePrice = price;
+    }
+
+    public BookingDTO(String courseID, String courseName, String courseImg, String trainerID, String trainerName, String trainerImg, String bookingID, String nameBird, String typeBird, Date start_date, Date end_date, String status) {
+        this.courseImg = courseImg;
+        this.trainerID = trainerID;
+        this.trainerName = trainerName;
+        this.trainerImg = trainerImg;
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.bookingID = bookingID;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.status = status;
+    }
+
+    public BookingDTO(String customerName, String nameBird, String typeBird, String courseName, int coursePrice, Date create_date, Date preferred_date, String birdID) {
+        this.courseName = courseName;
+        this.coursePrice = coursePrice;
+        this.customerName = customerName;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.create_date = create_date;
+        this.preferred_date = preferred_date;
+        this.birdID = birdID;
+    }
+
+    public BookingDTO(String customerName, String nameBird, String typeBird, String courseName, int coursePrice, Date create_date, Date preferred_date, String birdID, String status, Date start_date, Date end_date, Date checkout_date) {
+        this.courseName = courseName;
+        this.coursePrice = coursePrice;
+        this.customerName = customerName;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.create_date = create_date;
+        this.preferred_date = preferred_date;
+        this.birdID = birdID;
+    }
+
+    public BookingDTO(String bookingID, String trainerName, String courseName, int coursePrice, String customerName, String birdID, String nameBird, String typeBird, Date start_date, Date end_date, String status, Date create_date, Date preferred_date, Date checkout_date, String customerID) {
+        this.bookingID = bookingID;
+        this.trainerName = trainerName;
+        this.courseName = courseName;
+        this.coursePrice = coursePrice;
+        this.customerName = customerName;
+        this.birdID = birdID;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.status = status;
+        this.create_date = create_date;
+        this.preferred_date = preferred_date;
+        this.checkout_date = checkout_date;
+        this.customerID = customerID;
+    }
+
+    public BookingDTO(String bookingID, String customerName, String nameBird, String typeBird, int price, String courseName, Date create_date, Date preferred_date) {
+        this.bookingID = bookingID;
+        this.customerName = customerName;
+        this.nameBird = nameBird;
+        this.typeBird = typeBird;
+        this.coursePrice = price;
+        this.courseName = courseName;
+        this.create_date = create_date;
+        this.preferred_date = preferred_date;
+    }
+
+    public BookingDTO(String customerName, String birdName, String birdType, String title, String trainerName, Date end_date) {
+        this.customerName = customerName;
+        this.nameBird = birdName;
+        this.typeBird = birdType;
+        this.courseName = title;
+        this.trainerName = trainerName;
+        this.end_date = end_date;
+    }
 
     public Date getCreate_date() {
         return create_date;
@@ -75,143 +260,12 @@ public class BookingDTO {
         this.courseName = courseName;
     }
 
-    public BookingDTO(String trainerID, String courseID, String customerID, String birdID, String nameBird, String typeBird, Date start_date, Date end_date, String status, int amount, int payment_id) {
-        this.trainerID = trainerID;
-        this.courseID = courseID;
-        this.customerID = customerID;
-        this.birdID = birdID;
-        this.nameBird = nameBird;
-        this.typeBird = typeBird;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.status = status;
-        this.amount = amount;
-        this.payment_id = payment_id;
+    public String getBookingID() {
+        return bookingID;
     }
 
-    public BookingDTO(String trainerName, String courseName, int coursePrice, String customerName, String birdID, String nameBird, String typeBird, Date start_date, Date end_date, String status, Date create_date) {
-        this.trainerName = trainerName;
-        this.courseName = courseName;
-        this.coursePrice = coursePrice;
-        this.customerName = customerName;
-        this.birdID = birdID;
-        this.nameBird = nameBird;
-        this.typeBird = typeBird;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.status = status;
-        this.create_date = create_date;
-    }
-
-    public BookingDTO(String customer_id, String courseID, String trainer_id, String birdName, String birdtype, String category, String title, int price, String image, Date start_Date, Date end_date, String status, int amount, int payment_id) {
-        this.customerID = customer_id;
-        this.courseID = courseID;
-        this.trainerID = trainer_id;
-        this.nameBird = birdName;
-        this.typeBird = birdtype;
-        this.category = category;
-        this.courseName = title;
-        this.coursePrice = price;
-        this.courseImg = image;
-        this.start_date = start_Date;
-        this.end_date = end_date;
-        this.status = status;
-        this.amount = amount;
-        this.payment_id = payment_id;
-    }
-
-    public BookingDTO(String trainerName, String courseName, int coursePrice, String customerName, String nameBird, String typeBird, Date start_date, Date end_date, Date checkout_date, String birdID) {
-        this.trainerName = trainerName;
-        this.courseName = courseName;
-        this.coursePrice = coursePrice;
-        this.customerName = customerName;
-        this.nameBird = nameBird;
-        this.typeBird = typeBird;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.checkout_date = checkout_date;
-        this.birdID = birdID;
-    }
-
-    public BookingDTO(String customerName, String courseName, String typeBird, String birdID, Date create_date) {
-        this.customerName = customerName;
-        this.courseName = courseName;
-        this.typeBird = typeBird;
-        this.birdID = birdID;
-        this.create_date = create_date;
-    }
-
-    public BookingDTO(String birdID, String courseName, int coursePrice, String customerName, Date start_date) {
-        this.birdID = birdID;
-        this.courseName = courseName;
-        this.coursePrice = coursePrice;
-        this.customerName = customerName;
-        this.start_date = start_date;
-    }
-
-    public BookingDTO(String courseID, String courseName, String courseImg, String birdID, String nameBird, String typeBird, Date start_date, Date end_date, String status) {
-        this.courseImg = courseImg;
-        this.courseID = courseID;
-        this.courseName = courseName;
-        this.birdID = birdID;
-        this.nameBird = nameBird;
-        this.typeBird = typeBird;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.status = status;
-    }
-
-    public BookingDTO(String courseID, String courseName, String courseImg, String trainerID, String trainerName, String trainerImg, String birdID, String nameBird, String typeBird, Date start_date, Date end_date, String status) {
-        this.courseImg = courseImg;
-        this.trainerID = trainerID;
-        this.trainerName = trainerName;
-        this.trainerImg = trainerImg;
-        this.courseID = courseID;
-        this.courseName = courseName;
-        this.birdID = birdID;
-        this.nameBird = nameBird;
-        this.typeBird = typeBird;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.status = status;
-    }
-
-    public BookingDTO(String customerName, String nameBird, String typeBird, String courseName, int coursePrice, Date create_date, Date preferred_date, String birdID) {
-        this.courseName = courseName;
-        this.coursePrice = coursePrice;
-        this.customerName = customerName;
-        this.nameBird = nameBird;
-        this.typeBird = typeBird;
-        this.create_date = create_date;
-        this.preferred_date = preferred_date;
-        this.birdID = birdID;
-    }
-
-    public BookingDTO(String customerName, String nameBird, String typeBird, String courseName, int coursePrice, Date create_date, Date preferred_date, String birdID, String status, Date start_date, Date end_date, Date checkout_date) {
-        this.courseName = courseName;
-        this.coursePrice = coursePrice;
-        this.customerName = customerName;
-        this.nameBird = nameBird;
-        this.typeBird = typeBird;
-        this.create_date = create_date;
-        this.preferred_date = preferred_date;
-        this.birdID = birdID;
-    }
-
-    public BookingDTO(String trainerName, String courseName, int coursePrice, String customerName, String birdID, String nameBird, String typeBird, Date start_date, Date end_date, String status, Date create_date, Date preferred_date, Date checkout_date) {
-        this.trainerName = trainerName;
-        this.courseName = courseName;
-        this.coursePrice = coursePrice;
-        this.customerName = customerName;
-        this.birdID = birdID;
-        this.nameBird = nameBird;
-        this.typeBird = typeBird;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.status = status;
-        this.create_date = create_date;
-        this.preferred_date = preferred_date;
-        this.checkout_date = checkout_date;
+    public void setBookingID(String bookingID) {
+        this.bookingID = bookingID;
     }
 
     public String getCategory() {
@@ -343,6 +397,11 @@ public class BookingDTO {
 
     public void setPayment_id(int payment_id) {
         this.payment_id = payment_id;
+    }
+
+    @Override
+    public String toString() {
+        return "BookingDTO{" + "courseImg=" + courseImg + ", trainerID=" + trainerID + ", trainerName=" + trainerName + ", trainerImg=" + trainerImg + ", courseID=" + courseID + ", courseName=" + courseName + ", coursePrice=" + coursePrice + ", customerID=" + customerID + ", customerName=" + customerName + ", birdID=" + birdID + ", nameBird=" + nameBird + ", typeBird=" + typeBird + ", start_date=" + start_date + ", end_date=" + end_date + ", status=" + status + ", amount=" + amount + ", payment_id=" + payment_id + ", category=" + category + ", create_date=" + create_date + ", preferred_date=" + preferred_date + ", checkout_date=" + checkout_date + ", bookingID=" + bookingID + '}';
     }
 
 }

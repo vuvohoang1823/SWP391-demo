@@ -116,7 +116,7 @@ public class WorkshopDAO implements Serializable {
         }
         return false;
     }
-
+    
     public void CreateNewWorkshopInformation(String courseID, String trainerID, String content, String title, int price, Date end_enroll_date, Date start_date) {
         String sql = "INSERT INTO tbl_course (course_id, trainer_id, staff_id, content, category, title, price, end_enroll_date, start_date, status)\n"
                 + "	VALUES (?, ?, 18, ?, 'workshop', ?, ?, ?, ?, 'available')";
@@ -133,6 +133,30 @@ public class WorkshopDAO implements Serializable {
                 ps.setInt(5, price);
                 ps.setDate(6, end_enroll_date);
                 ps.setDate(7, start_date);
+
+                ps.executeUpdate();
+
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    public void CreateNewWorkshopTraining(String workshopID, String courseID, String trainerID) {
+        String sql = "INSERT INTO tbl_workshopTraining (workshop_id, course_id, trainer_id)\n"
+                + "	VALUES (?, ?, ?)";
+
+        try {
+            con = DBUtils.getConnection();
+
+            if (con != null) {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, workshopID);
+                ps.setString(2, courseID);
+                ps.setString(3, trainerID);
 
                 ps.executeUpdate();
 
@@ -219,7 +243,7 @@ public class WorkshopDAO implements Serializable {
     public List<WorkshopDDD> SEARCHOrderListCompltedbyTitle(String txtsearch) {
         List<WorkshopDDD> list = new ArrayList<>();
 
-        String sql = " SELECT c.title, cus.fullname, a.dateCheck, a.amount, a.status, a.customer_id, c.course_id, a.attendance_id, a.certificate \n"
+        String sql = " SELECT c.title, cus.fullname, a.dateCheck, a.amount, a.status, a.customer_id, c.course_id, a.attendance_id, a.certificate, a.attendance \n"
                 + "                				FROM tbl_attendance a \n"
                 + "                				JOIN tbl_workshopTraining t ON t.workshop_id = a.workshop_id\n"
                 + "                				JOIN tbl_course c ON c.course_id = t.course_id\n"
@@ -242,7 +266,8 @@ public class WorkshopDAO implements Serializable {
                         rs.getString(6),
                         rs.getString(7),
                         rs.getString(8),
-                        rs.getString(9)
+                        rs.getString(9),
+                        rs.getString(10)
                 );
                 list.add(order);
 
@@ -260,7 +285,7 @@ public class WorkshopDAO implements Serializable {
     public List<WorkshopDDD> OrderListComplted() {
         List<WorkshopDDD> list = new ArrayList<>();
 
-        String sql = " SELECT c.title, cus.fullname, a.dateCheck, a.amount, a.status, a.customer_id, c.course_id, a.attendance_id, a.certificate \n"
+        String sql = " SELECT c.title, cus.fullname, a.dateCheck, a.amount, a.status, a.customer_id, c.course_id, a.attendance_id, a.certificate, a.attendance \n"
                 + "                FROM tbl_attendance a \n"
                 + "                JOIN tbl_workshopTraining t ON t.workshop_id = a.workshop_id\n"
                 + "                JOIN tbl_course c ON c.course_id = t.course_id\n"
@@ -282,7 +307,8 @@ public class WorkshopDAO implements Serializable {
                         rs.getString(6),
                         rs.getString(7),
                         rs.getString(8),
-                        rs.getString(9)
+                        rs.getString(9),
+                        rs.getString(10)
                 );
                 list.add(order);
 

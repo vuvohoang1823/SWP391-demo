@@ -19,6 +19,7 @@
     <body>
 
         <jsp:useBean id="a" class="DAO.BookingDAO" scope="request"></jsp:useBean>
+        <jsp:useBean id="b" class="DAO.courseDAO" scope="request"></jsp:useBean>
             <div class="container-fluid">
                 <div class="row flex-nowrap">
                     <!--            header-->
@@ -40,7 +41,8 @@
                                             <a class="nav-link" href="staff_birdCourseOrder_completed.jsp">Completed</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="staff_birdCourseOrder_history.jsp">History</a>
+                                            <!--<a class="nav-link" href="staff_birdCourseOrder_history.jsp">History</a>-->
+                                            <a class="nav-link" href="FilterCourseServlet">History</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -67,16 +69,18 @@
                                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Select Course
                                     </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Decoy Bird Training</a></li>
-                                        <li><a class="dropdown-item" href="#">Parrot Language Communication sdf</a></li>
-                                        <li><a class="dropdown-item" href="#">Talking- Vocalization Pet Birds</a></li>
-                                    </ul>
+                                    <form action="FilterCourseServlet" method="GET">
+                                        <ul class="dropdown-menu">
+                                            <c:forEach items="${b.allCourseBirdCourse}" var="course">
+                                                <li><a class="dropdown-item" href="FilterCourseServlet?category=${course.title}">${course.title}</a></li>
+                                                </c:forEach>
+                                        </ul>
+                                    </form>
                                 </div>
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing <c:out value="${a.history.size()}" /> data
+                            Currently showing <c:out value="${FILTER.size()}" /> data
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -96,18 +100,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${a.history}" var="order" varStatus="counter">
+                                <%--<c:forEach items="${a.history}" var="order" varStatus="counter">--%>
+                                <c:forEach items="${FILTER}" var="order" varStatus="counter">
                                     <tr>
                                         <td><b>${counter.count}</b></td>
                                         <td><b>${order.courseName}</b></td>
                                         <td><b>${order.customerName}</b></td>
                                         <td><b>${order.typeBird}</b></td>
                                         <td><b>${order.nameBird}</b></td>
-                                        <td><b>${order.create_date}</b></td>
+                                        <td><b>${order.checkout_date}</b></td>
                                         <td><b></b></td>
                                         <td>
                                             <form action="ProcessingOrderInfo" metdod="GET">
-                                                <input type="hidden" name="bird_id" value="${order.birdID}">
+                                                <input type="hidden" name="booking_id" value="${order.bookingID}">
                                                 <a >
                                                     <button class="viewDetail">
                                                         <b>View Detail</b>

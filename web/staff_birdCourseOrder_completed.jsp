@@ -39,7 +39,7 @@
                                             <a class="nav-link" href="staff_birdCourseOrder_pending.jsp">Completed</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="staff_birdCourseOrder_history.jsp">History</a>
+                                            <a class="nav-link" href="FilterCourseServlet">History</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -95,7 +95,7 @@
                                         <td>
                                             <a>
                                                 <button class="viewDetail">
-                                                    <input type="hidden" name="bird_id" value="${order.birdID}"/>
+                                                    <input type="hidden" name="booking_id" value="${order.bookingID}"/>
                                                     <b>View Detail</b>
                                                 </button>
                                             </a>

@@ -121,7 +121,7 @@
                                     <div class="card-body">
                                         <div class="extra-price">
                                             <div class="button-container">
-                                                <a href="detail?cid=${birdcourse.courseID}"><button>Enroll</button></a>
+                                                <a href="detail?cid=${birdcourse.courseID}&type=${birdcourse.type}"><button>Enroll</button></a>
                                                 <!--                                        <button class="btn btn-primary"><a href="bir">Enroll<a/></button>-->
                                             </div>
                                             <p>£${birdcourse.price}</p>
@@ -148,7 +148,7 @@
                                                 <span>${birdcourse.duration} days</span>
                                             </div>
                                             <div style="display: inline">
-                                                <span style="color: #617a55">
+<!--                                                <span style="color: #617a55">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         width="25"
@@ -161,8 +161,8 @@
                                                         d="M1 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V4zM1 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V9z"
                                                         />
                                                     </svg>
-                                                </span>
-                                                <span>6 modules</span>
+                                                </span>-->
+                                                <span>${birdcourse.type}</span>
                                             </div>
                                         </div>
                                         <hr
