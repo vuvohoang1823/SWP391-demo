@@ -111,7 +111,7 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="" class="form-label">Duration</label>
+                                                    <label for="" class="form-label">Duration (Days)</label>
                                                     <input
                                                         type="text"
                                                         class="form-control"
@@ -122,6 +122,23 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Bird Type</label>
+                                                    <div>
+                                                        <select style="width: 100%;height: 4rem;" name="">
+                                                            <c:forEach var="item" items="$">
+                                                                <option value="$">$1</option>
+                                                                <option value="$">$2</option>
+                                                                <option value="$">$3</option>
+                                                            </c:forEach>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Content</label>
                                                     <textarea id="introduction" name="content" class="form-control" required></textarea>
@@ -136,7 +153,11 @@
                                                 </label>
                                             </div>
                                             <div class="mb-3">
-                                                <input type="file" id="thumbnail" name="thumbnail" class="form-control" accept="image/*" multiple>
+                                                <input type="file" id="thumbnail" name="thumbnail" class="form-control" accept="image/*" onchange="updateThumbnail(this)">
+
+                                            </div>
+                                            <div class="img-container d-flex justify-content-center">
+                                                <img class="showImg" src="" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -156,14 +177,25 @@
     </div>
 </div>
 <script>
-    function chooseFile(fileInput) {
-        if (fileInput.files && fileInput.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#image').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(fileInput.files[0]);
+    function updateThumbnail(input) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            var showImg = input.parentNode.parentNode.querySelector('.img-container').querySelector('.showImg');
+            showImg.src = e.target.result;
+        };
+
+        if (input.files && input.files[0]) {
+            reader.readAsDataURL(input.files[0]);
         }
+    }
+
+    var imgInputs = document.getElementsByClassName("imgInput");
+    for (var i = 0; i < imgInputs.length; i++) {
+        var imgInput = imgInputs[i];
+        imgInput.onchange = function () {
+            updateThumbnail(this);
+        };
     }
 
     function saveCategory() {

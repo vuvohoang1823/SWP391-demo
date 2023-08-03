@@ -35,6 +35,7 @@ public class FilterCourseServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try {
             String title = request.getParameter("category");
+            request.setAttribute("category", title);
             BookingDAO bookingDAO = new BookingDAO();
             if (title != null) {
                 List<BookingDTO> booking = bookingDAO.getHistoryBookingByFilter(title);

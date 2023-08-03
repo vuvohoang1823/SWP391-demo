@@ -107,7 +107,7 @@
                             <td>
                                 <input type="hidden" name="" value="">
 
-                                <a href="BirdUpdatePageServlet?customerID=${customerId}&id=${info.bird_id}">
+                                <a style="text-decoration: none" href="BirdUpdatePageServlet?customerID=${customerId}&id=${info.bird_id}">
                                 <button 
                                     type="button"
                                     style="font-size: 2rem;
@@ -117,7 +117,8 @@
                                         color: black;
                                         padding: 2rem 3rem;
                                         display: flex;
-                                        justify-content: center">
+                                        justify-content: center;
+                                        ">
                                     Modify
                                 </button>
                                 </a>

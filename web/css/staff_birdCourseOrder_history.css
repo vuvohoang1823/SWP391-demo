@@ -77,9 +77,11 @@
 }
 .form-body .navbar form .dropdown .btn {
     background-color: #617A55;
-    font-size: 2rem;
+    font-size: 1.2rem;
+    height: 4rem;
     width: 26rem;
     font-weight: bold;
+    overflow-x: hidden;
 }
 .form-body .navbar form .dropdown .dropdown-menu{
     max-width: 26rem;

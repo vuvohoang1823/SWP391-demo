@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Select Course
+                                        ${not empty requestScope.category ? requestScope.category : 'Select Course'}
                                     </button>
                                     <form action="FilterCourseServlet" method="GET">
                                         <ul class="dropdown-menu">

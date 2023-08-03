@@ -34,32 +34,36 @@
                             </button>
 
                             <!-- Modal -->
+
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add a New Type of  Bird</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form id="birdForm" method="Post" action="Bird_AddANewTypeOfBirdServlet">
+                                
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <form id="birdForm" method="Post" action="Bird_AddANewTypeOfBirdServlet">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title" id="exampleModalLabel">Add  New Type Of Bird</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+
                                                 <div class="form-group">
-                                                    <label for="birdType">Type of Bird:</label>
                                                     <input type="text" id="birdType" name="birdType" required>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <button type="submit" class="submit-button">Submit</button>
                                                 </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">ADD</button>
+                                            </div>
+                                        </div>
                                             </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
                                     </div>
-                                </div>
+                                
                             </div>
+
                             <form class="form-inline my-2 my-lg-0">
                                 <div class="search-container">
                                     <div style="white-space: nowrap; padding-right: 2rem">Search by Bird</div>

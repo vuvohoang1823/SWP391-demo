@@ -152,16 +152,32 @@
     margin-right: 6rem;
     margin-left: 6rem;
 }
+.form-body .modal .modal-dialog {
+    width: 50rem;
+}
 .form-body .modal .modal-content{
-    height: 16rem;
+    height: 15rem;
+    
 }
 .form-body .modal .modal-header{
     background: #617A55;
 }
-.form-body .modal .modal-body{
+.form-body .modal .modal-header .modal-title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.form-body .modal .modal-body .form-group{
     display: flex;
     justify-content: center;
+    align-content: center;
 }
-
+.form-body .modal .modal-body .form-group input{
+    width: 48rem;
+    display: flex;
+    align-self: center;
+}
+.form-body .modal .modal-footer button{
+    font-size: 1.5rem;
+}
 
 
