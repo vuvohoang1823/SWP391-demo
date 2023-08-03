@@ -200,7 +200,7 @@
                                             <span> - </span>
                                             <span class="bird-type">Type: abc</span>
                                             <span> - </span>
-                                            <span class="bird-birthday">Birthday: 2023-01-01</span>
+<!--                                            <span class="bird-birthday">Birthday: 2023-01-01</span>-->
                                         </label>
                                         <input class="birdID" value="" hidden>
                                     </div>
@@ -320,13 +320,12 @@
                                     <!--Price-->
                                     <div class="col-lg-6">
                                         <div class="mb-5">
-                                            <label for="birdbirthday" class="form-label">Bird's Birthday:</label>
+                                            <label for="preferredday" class="form-label">Preferred Day:</label>
                                             <input
                                                 type="date"
                                                 class="form-control"
-                                                id="birdbirthday"
+                                                id="preferredday"
                                                 value=""
-                                                disabled
                                                 />
                                         </div>
                                     </div>
@@ -418,7 +417,7 @@
                 const inputBirdImg = document.getElementById("birdimg");
                 const inputBirdName = document.getElementById("birdname");
                 const inputBirdType = document.getElementById("birdtype");
-                const inputBirdBirthday = document.getElementById("birdbirthday");
+//                const inputBirdBirthday = document.getElementById("birdbirthday");
                 const errormsg = document.getElementById("choosebirdinvalid");
                 const changebirdbutton = document.getElementById("changebirdbutton");
                 const submitBird = document.getElementById("birdID");
@@ -438,13 +437,13 @@
                     const birdImage = birdItem.querySelector('.bird-image').src;
                     const birdName = birdItem.querySelector('.bird-name').textContent.replace('Name: ', '');
                     const birdType = birdItem.querySelector('.bird-type').textContent.replace('Type: ', '');
-                    const birdBirthday = birdItem.querySelector('.bird-birthday').textContent.replace('Birthday: ', '');
+//                    const birdBirthday = birdItem.querySelector('.bird-birthday').textContent.replace('Birthday: ', '');
                     const birdID = birdItem.querySelector('.birdID').value;
                     //input into the form
                     inputBirdImg.src = birdImage;
                     inputBirdName.value = birdName;
                     inputBirdType.value = birdType;
-                    inputBirdBirthday.value = birdBirthday;
+//                    inputBirdBirthday.value = birdBirthday;
                     submitBird.value = birdID;
                 }
             }
