@@ -40,6 +40,11 @@ public class BirdDTO {
         this.customerName = customerName;
     }
 
+    public BirdDTO(String bird_id, String type) {
+        this.bird_id = bird_id;
+        this.type = type;
+    }
+
     public BirdDTO() {
     }
 
