@@ -8,10 +8,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <meta name="description" content="">
+        <meta name="author" content="">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="css/reset.css">
+        <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <!--<link href="assets/jumbotron-narrow.css" rel="stylesheet">-->
+        <script src="assets/jquery-1.11.3.min.js"></script>
         <link rel="stylesheet" href="css/viewBookedService_BirdCourse.css">
         <link rel="stylesheet" href="css/customer_trackingBirdCourse.css" type="text/css">
 
@@ -195,5 +201,32 @@
             </div>
         </div>
         <%@include file="footer.jsp" %>
+        <link href="https://pay.vnpay.vn/lib/vnpay/vnpay.css" rel="stylesheet" />
+    <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.min.js"></script>
+    <script type="text/javascript">
+        $("#frmCreateOrder").submit(function () {
+            var postData = $("#frmCreateOrder").serialize();
+            var submitUrl = $("#frmCreateOrder").attr("action");
+            $.ajax({
+                type: "POST",
+                url: submitUrl,
+                data: postData,
+                dataType: 'JSON',
+                success: function (x) {
+                    if (x.code === '00') {
+                        if (window.vnpay) {
+                            vnpay.open({width: 768, height: 600, url: x.data});
+                        } else {
+                            location.href = x.data;
+                        }
+                        return false;
+                    } else {
+                        alert(x.Message);
+                    }
+                }
+            });
+            return false;
+        });
+    </script>
     </body>
 </html>
