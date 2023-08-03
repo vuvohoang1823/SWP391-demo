@@ -12,6 +12,7 @@
     </head>
     <body>
         <jsp:useBean id="i" class="DAO.UserDAO" scope="request"></jsp:useBean>
+        <jsp:useBean id="a" class="DAO.BirdDAO" scope="request"></jsp:useBean>
 
             <div class="container-fluid">
                 <div class="row flex-nowrap">
@@ -51,7 +52,7 @@
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
                             <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 2rem 0;">
-                                Currently showing <c:out value="${i.allAccount.size()}"/> bird(s)
+                                Currently showing <c:out value="${a.allBirds.size()}"/> bird(s)
                             </div>
                         </div>
                         <table
@@ -69,29 +70,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${i.allAccount}" var="user" varStatus="counter">
+                                <c:forEach items="${a.allBirds}" var="bird" varStatus="counter">
                                     <tr>
 
                                 <input type="hidden" name="" value="">
                                 <td><b>${counter.count}</b></td>
                                 <td class="image-table">
-                                    <img src="assets/images/avata.png" alt="" width="256" height="256" />
+                                    <img src="data:images/jpg;base64,${bird.image}" alt="" width="256" height="256" />
                                 </td>
-                                <td>Bird Name</td>
-                                <td>Bird Type</td>
-                                <td>Bird Age</td>
-                                <td>Customer Name</td>
-                                <!--                                <td>
-                                                                                                        <form action="AccountDetail" method="POST">
-                                                                                                            <input type="hidden" name="user_id" value="${user.user_id}">
-                                                                                                            <button type="submit">Update</button>
-                                                                                                        </form>
-                                                                    <form action="AccountDetail" method="POST">
-                                                                        <input type="hidden" name="user_id" value="${user.user_id}">
-                                                                        <input type="hidden" name="role" value="${user.role}">
-                                                                        <button type="submit" class="viewDetail"><b>Modify</b></button>
-                                                                    </form>
-                                                                </td>-->
+                                <td>${bird.name}</td>
+                                <td>${bird.type}e</td>
+                                <td>${bird.birthDate}</td>
+                                <td>${bird.customerName}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
