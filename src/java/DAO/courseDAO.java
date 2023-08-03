@@ -1370,9 +1370,9 @@ public class courseDAO implements Serializable {
         return null;
     }
     
-    public void createBirdCourse(int course_id, String content, String category, String title, int price, int duration) {
-        String sql = "insert into tbl_course(course_id, trainer_id, staff_id, content, category, title, price, duration, end_enroll_date, start_date, status)"
-                + " values(?,NULL,NULL,?,?,?,?,?,NULL,NULL,'available')";
+    public void createBirdCourse(int course_id, String content, String category, String title, int price, int duration, String type) {
+        String sql = "insert into tbl_course(course_id, trainer_id, staff_id, content, category, title, price, duration, end_enroll_date, start_date, status, type_id)"
+                + " values(?,NULL,NULL,?,?,?,?,?,NULL,NULL,'available', ?)";
 
         try {
             con = db.getConnection();
@@ -1383,6 +1383,7 @@ public class courseDAO implements Serializable {
             ps.setString(4, title);
             ps.setInt(5, price);
             ps.setInt(6, duration);
+            ps.setString(7, type);
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

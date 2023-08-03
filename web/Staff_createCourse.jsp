@@ -28,6 +28,7 @@
             <div class="row flex-nowrap">
                 <!--            header-->
                 <%@ include file="header.jsp" %>
+                <jsp:useBean id="i" class="DAO.BirdDAO" scope="request"></jsp:useBean>
 
                 <div class="col-md-8 col-lg-10 min-vh-100 p-0" style="flex-grow: 1; width: unset">
                     <section class="form-head">
@@ -125,11 +126,9 @@
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Bird Type</label>
                                                     <div>
-                                                        <select style="width: 100%;height: 4rem;" name="">
-                                                            <c:forEach var="item" items="$">
-                                                                <option value="$">$1</option>
-                                                                <option value="$">$2</option>
-                                                                <option value="$">$3</option>
+                                                        <select style="width: 100%;height: 4rem;" name="type">
+                                                            <c:forEach var="bird" items="${i.allBirdTypes}">
+                                                                <option value="${bird.bird_id}">${bird.type}</option>
                                                             </c:forEach>
                                                         </select>
                                                     </div>

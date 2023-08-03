@@ -161,4 +161,23 @@ public class BirdDAO implements Serializable {
         return listBird;
     }
 
+    public List getAllBirdTypes() throws IOException {
+        List<BirdDTO> listBird = new ArrayList<>();
+        String sql = "select type_id, type_name from tbl_bird_type";
+        try {
+            con = db.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                BirdDTO bird = new BirdDTO(rs.getString(1), rs.getString(2));
+                listBird.add(bird);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return listBird;
+    }
+
 }
