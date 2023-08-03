@@ -15,6 +15,8 @@ public class BirdDTO {
     private String name;
     private String type;
     private String image;
+    private String birthDate;
+    private String customerName;
 
     public BirdDTO(String bird_id, String name, String type) {
         this.bird_id = bird_id;
@@ -27,6 +29,15 @@ public class BirdDTO {
         this.name = name;
         this.type = type;
         this.image = image;
+    }
+
+    public BirdDTO(String bird_id, String name, String type, String image, String birthDate, String customerName) {
+        this.bird_id = bird_id;
+        this.name = name;
+        this.type = type;
+        this.image = image;
+        this.birthDate = birthDate;
+        this.customerName = customerName;
     }
 
     public BirdDTO() {
@@ -68,4 +79,22 @@ public class BirdDTO {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+    
+    
 }
