@@ -233,7 +233,7 @@ public class BookingDAO implements Serializable {
                 + "    b.status AS booking_status,\n"
                 + "    b.start_date AS booking_start_date,\n"
                 + "    b.end_date AS booking_end_date,\n"
-                + "    b.create_date AS booking_create_date\n"
+                + "    b.checkout_date AS booking_checkout_date\n"
                 + "FROM tbl_Booking AS b\n"
                 + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
                 + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
@@ -241,7 +241,7 @@ public class BookingDAO implements Serializable {
                 + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
                 + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
                 + "WHERE b.status = 'completed'\n"
-                + "ORDER BY b.create_date DESC";
+                + "ORDER BY b.checkout_date DESC";
 
         try {
             con = db.getConnection();
@@ -931,21 +931,20 @@ public class BookingDAO implements Serializable {
                 + "    co.title AS course_title,\n"
                 + "    co.price AS course_price,\n"
                 + "    tr.fullname AS trainer_fullname,\n"
-                + "    b.Booking_id,\n"
-                + "    bd.name,\n"
+                + "    bd.name AS bird_name,\n"
                 + "    bt.type_name AS bird_type,\n"
-                + "    b.status AS booking_status,\n"
                 + "    b.start_date AS booking_start_date,\n"
                 + "    b.end_date AS booking_end_date,\n"
-                + "    b.create_date AS booking_create_date\n"
+                + "    b.checkout_date AS booking_checkout_date,\n"
+                + "    b.Booking_id\n"
                 + "FROM tbl_Booking AS b\n"
                 + "INNER JOIN tbl_customer AS c ON b.customer_id = c.customer_id\n"
                 + "INNER JOIN tbl_course AS co ON b.course_id = co.course_id\n"
-                + "INNER JOIN tbl_trainer AS tr ON co.trainer_id = tr.trainer_id\n"
+                + "INNER JOIN tbl_trainer AS tr ON b.trainer_id = tr.trainer_id\n"
                 + "INNER JOIN tbl_bird AS bd ON b.bird_id = bd.bird_id\n"
                 + "INNER JOIN tbl_bird_type AS bt ON bd.type_id = bt.type_id\n"
-                + "WHERE b.status = 'checkout' AND co.title = ?\n"
-                + "ORDER BY b.create_date DESC";
+                + "WHERE b.status = 'completed' and co.title = ?\n"
+                + "ORDER BY b.checkout_date DESC";
 
         try {
             con = db.getConnection();
@@ -953,7 +952,7 @@ public class BookingDAO implements Serializable {
             ps.setString(1, title);
             rs = ps.executeQuery();
             while (rs.next()) {
-                BookingDTO booking = new BookingDTO(rs.getString(4), rs.getString(2), rs.getInt(3), rs.getString(1), rs.getString(5), rs.getString(6), rs.getString(7), rs.getDate(9), rs.getDate(10), rs.getString(8), rs.getDate(11));
+                BookingDTO booking = new BookingDTO(rs.getString(4), rs.getString(2), rs.getInt(3), rs.getString(1), rs.getString(5), rs.getString(6), rs.getDate(7), rs.getDate(8), rs.getDate(9), rs.getString(10));
                 list.add(booking);
             }
         } catch (SQLException ex) {

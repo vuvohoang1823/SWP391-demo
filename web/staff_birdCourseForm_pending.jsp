@@ -69,7 +69,7 @@
                                     <td>Course name</td>
                                     <td>Customer</td>
                                     <td>Bird Type</td>
-                                    <td>Request date</td>
+                                    <td>Submitted date</td>
                                     <td></td>
                                 </tr>
                             </thead>

@@ -50,7 +50,7 @@ public class BookingDTO {
         this.payment_id = payment_id;
     }
 
-    public BookingDTO(String trainerName, String courseName, int coursePrice, String customerName, String bookingID, String nameBird, String typeBird, Date start_date, Date end_date, String status, Date create_date) {
+    public BookingDTO(String trainerName, String courseName, int coursePrice, String customerName, String bookingID, String nameBird, String typeBird, Date start_date, Date end_date, String status, Date checkout_date) {
         this.trainerName = trainerName;
         this.courseName = courseName;
         this.coursePrice = coursePrice;
@@ -61,7 +61,7 @@ public class BookingDTO {
         this.start_date = start_date;
         this.end_date = end_date;
         this.status = status;
-        this.create_date = create_date;
+        this.checkout_date = checkout_date;
     }
 
     public BookingDTO(String customer_id, String courseID, String trainer_id, String birdName, String birdtype, String category, String title, int price, String image, Date start_Date, Date end_date, String status, int amount, int payment_id) {
@@ -144,7 +144,7 @@ public class BookingDTO {
         this.status = status;
         this.coursePrice = price;
     }
-    
+
     public BookingDTO(String courseID, String courseName, String courseImg, String trainerID, String trainerName, String trainerImg, String bookingID, String nameBird, String typeBird, Date start_date, Date end_date, String status) {
         this.courseImg = courseImg;
         this.trainerID = trainerID;
@@ -210,8 +210,8 @@ public class BookingDTO {
         this.create_date = create_date;
         this.preferred_date = preferred_date;
     }
-    
-    public BookingDTO(String customerName, String birdName, String birdType, String title, String trainerName, Date end_date){
+
+    public BookingDTO(String customerName, String birdName, String birdType, String title, String trainerName, Date end_date) {
         this.customerName = customerName;
         this.nameBird = birdName;
         this.typeBird = birdType;
@@ -397,6 +397,11 @@ public class BookingDTO {
 
     public void setPayment_id(int payment_id) {
         this.payment_id = payment_id;
+    }
+
+    @Override
+    public String toString() {
+        return "BookingDTO{" + "courseImg=" + courseImg + ", trainerID=" + trainerID + ", trainerName=" + trainerName + ", trainerImg=" + trainerImg + ", courseID=" + courseID + ", courseName=" + courseName + ", coursePrice=" + coursePrice + ", customerID=" + customerID + ", customerName=" + customerName + ", birdID=" + birdID + ", nameBird=" + nameBird + ", typeBird=" + typeBird + ", start_date=" + start_date + ", end_date=" + end_date + ", status=" + status + ", amount=" + amount + ", payment_id=" + payment_id + ", category=" + category + ", create_date=" + create_date + ", preferred_date=" + preferred_date + ", checkout_date=" + checkout_date + ", bookingID=" + bookingID + '}';
     }
 
 }

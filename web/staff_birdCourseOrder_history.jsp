@@ -41,7 +41,8 @@
                                             <a class="nav-link" href="staff_birdCourseOrder_completed.jsp">Completed</a>
                                         </li>
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="staff_birdCourseOrder_history.jsp">History</a>
+                                            <!--<a class="nav-link" href="staff_birdCourseOrder_history.jsp">History</a>-->
+                                            <a class="nav-link" href="FilterCourseServlet">History</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -79,7 +80,7 @@
                             </form>
                         </nav>
                         <div class="d-flex justify-content-center" style="font-size: 1.5rem; padding: 3rem 0;">
-                            Currently showing <c:out value="${a.history.size()}" /> data
+                            Currently showing <c:out value="${FILTER.size()}" /> data
                         </div>
                         <table
                             class="w3-table-all w3-hoverable w3-card-4 table-form"
@@ -98,45 +99,16 @@
 
                                 </tr>
                             </thead>
-
-                            <%--<c:set var="filter" value="${requestScope.FILTER}"/>
-                            <c:if test="${not empty filter}">
-                                <tbody>
-                                    <c:forEach items="${filter}" var="order" varStatus="counter">
-                                        <tr>
-                                            <td><b>${counter.count}</b></td>
-                                            <td><b>${order.courseName}</b></td>
-                                            <td><b>${order.customerName}</b></td>
-                                            <td><b>${order.typeBird}</b></td>
-                                            <td><b>${order.nameBird}</b></td>
-                                            <td><b>${order.create_date}</b></td>
-                                            <td><b></b></td>
-                                            <td>
-                                                <form action="ProcessingOrderInfo" metdod="GET">
-                                                    <input type="hidden" name="booking_id" value="${order.bookingID}">
-                                                    <a >
-                                                        <button class="viewDetail">
-                                                            <b>View Detail</b>
-                                                        </button>
-                                                    </a>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </c:if>
-                            <c:otherwise>
-
-                            </c:otherwise> --%>
                             <tbody>
-                                <c:forEach items="${a.history}" var="order" varStatus="counter">
+                                <%--<c:forEach items="${a.history}" var="order" varStatus="counter">--%>
+                                <c:forEach items="${FILTER}" var="order" varStatus="counter">
                                     <tr>
                                         <td><b>${counter.count}</b></td>
                                         <td><b>${order.courseName}</b></td>
                                         <td><b>${order.customerName}</b></td>
                                         <td><b>${order.typeBird}</b></td>
                                         <td><b>${order.nameBird}</b></td>
-                                        <td><b>${order.create_date}</b></td>
+                                        <td><b>${order.checkout_date}</b></td>
                                         <td><b></b></td>
                                         <td>
                                             <form action="ProcessingOrderInfo" metdod="GET">

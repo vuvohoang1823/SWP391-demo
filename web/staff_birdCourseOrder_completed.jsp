@@ -39,7 +39,7 @@
                                             <a class="nav-link" href="staff_birdCourseOrder_pending.jsp">Completed</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="staff_birdCourseOrder_history.jsp">History</a>
+                                            <a class="nav-link" href="FilterCourseServlet">History</a>
                                         </li>
                                     </ul>
                                 </div>
