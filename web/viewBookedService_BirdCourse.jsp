@@ -138,7 +138,7 @@
                                             <!-- language--->
                                             <div class="text">
                                                 <p>
-                                                    <button style="
+                                                    <button type="submit" style="
                                                             height: 7rem;
                                                             width: 25rem;
                                                             border-color: transparent;
